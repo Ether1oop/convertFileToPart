@@ -1,0 +1,42 @@
+@@ -315,15 +361,15 @@ contract Treasury is Treasury_Interface, ERC20 {
+         _issuerReplace = true;
+         _issuerReplaceTimelock = now + 1 seconds;
+ 
+-        emit RequestReplace(_issuer, _issuerCollateral, _issuerReplaceTimelock);
++        emit RequestReplace(_issuer, _vaultCollateral, _issuerReplaceTimelock);
+ 
+         return true;
+     }
+ 
+     function lockCol() public payable returns (bool) {
+         require(_issuerReplace, "Issuer did not request change");
+         require(msg.sender != _issuer, "Needs to be replaced by a non-issuer");
+-        require(msg.value >= _issuerCollateral, "Collateral needs to be high enough");
++        require(msg.value >= _vaultCollateral, "Collateral needs to be high enough");
+ 
+         _issuerCandidate = msg.sender;
+ 
+@@ -342,9 +388,9 @@ contract Treasury is Treasury_Interface, ERC20 {
+         _issuer = _issuerCandidate;
+         _issuerCandidate = address(0);
+         _issuerReplace = false;
+-        _issuer.transfer(_issuerCollateral);
++        _issuer.transfer(_vaultCollateral);
+ 
+-        emit ExecuteReplace(_issuerCandidate, _issuerCollateral);
++        emit ExecuteReplace(_issuerCandidate, _vaultCollateral);
+ 
+         return true;
+     }
+@@ -356,9 +402,9 @@ contract Treasury is Treasury_Interface, ERC20 {
+ 
+         _issuerReplace = false;
+ 
+-        _issuerCandidate.transfer(_issuerCollateral);
++        _issuerCandidate.transfer(_vaultCollateral);
+ 
+-        emit AbortReplace(_issuerCandidate, _issuerCollateral);
++        emit AbortReplace(_issuerCandidate, _vaultCollateral);
+ 
+         return true;
+     }

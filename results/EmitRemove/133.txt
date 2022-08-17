@@ -1,0 +1,20 @@
+@@ -72,15 +72,14 @@ contract NAVTest is DSTest, Math {
+         bytes32 nftID = prepareDefaultNFT(tokenId, nftValue);
+         feed.file("maturityDate",nftID, maturityDate);
+         pile.setReturn("loanRates", uint(1000000564701133626865910626));
+-        emit log_named_uint("navIO", 1);
+         uint navIncrease = feed.borrow(loan, amount);
+-
+         return (nftID, loan, navIncrease);
+     }
+ 
+     function borrow(uint tokenId, uint nftValue, uint amount, uint maturityDate) internal returns(bytes32 nftID_, uint loan_, uint navIncrease_) {
+-        uint loan = 1;
+-        return borrow(tokenId, loan, nftValue, amount, maturityDate);
++        // loan id doesn't matter for nav unit tests
++        uint loan = tokenId;
++        return borrow(tokenId, tokenId, nftValue, amount, maturityDate);
+     }
+ 
+     function testSimpleBorrow() public {
+

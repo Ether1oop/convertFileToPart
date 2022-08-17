@@ -1,0 +1,15 @@
+@@ -120,6 +113,13 @@ library TellorLibrary {
+             _request.minersByValue[_timeOfLastNewValue] = [b[0].miner, b[1], b[2], b[3], b[4]];
+             _request.valuesByTimestamp[_timeOfLastNewValue] = [a[0],a[1],a[2],a[3],a[4]];
+             _request.minedBlockNum[_timeOfLastNewValue] = block.number;
++            emit NewValue(
++                _requestId,
++                _timeOfLastNewValue,
++                a[2].value,
++                self.uintVars[keccak256("currentTotalTips")] * 2),//what should this be?
++                self.currentChallenge
++            );
+         }
+ 
+         //map the timeOfLastValue to the requestId that was just mined
+

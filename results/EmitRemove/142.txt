@@ -1,0 +1,479 @@
+@@ -1,16 +1,21 @@
+ // SPDX-License-Identifier: MIT
+-pragma solidity ^0.7.3;
+-pragma experimental ABIEncoderV2;
++pragma solidity ^0.8.11;
+ 
+-import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+-import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721PausableUpgradeable.sol";
+-import "./interfaces/IRegistrar.sol";
++// This is only kept for backward compatability / upgrading
++import {OwnableUpgradeable} from "../oz/access/OwnableUpgradeable.sol";
++import {EnumerableMapUpgradeable, ERC721PausableUpgradeable, IERC721Upgradeable, ERC721Upgradeable} from "../oz/token/ERC721/ERC721PausableUpgradeable.sol";
++import {IRegistrar} from "../interfaces/IRegistrar.sol";
++import {StorageSlot} from "../oz/utils/StorageSlot.sol";
++import {BeaconProxy} from "../oz/proxy/beacon/BeaconProxy.sol";
++import {IZNSHub} from "../interfaces/IZNSHub.sol";
+ 
+ contract Registrar is
+   IRegistrar,
+   OwnableUpgradeable,
+   ERC721PausableUpgradeable
+ {
++  using EnumerableMapUpgradeable for EnumerableMapUpgradeable.UintToAddressMap;
++
+   // Data recorded for each domain
+   struct DomainRecord {
+     address minter;
+@@ -19,6 +24,7 @@ contract Registrar is
+     address controller;
+     uint256 royaltyAmount;
+     uint256 parentId;
++    address subdomainContract;
+   }
+ 
+   // A map of addresses that are authorised to register domains.
+@@ -28,24 +34,65 @@ contract Registrar is
+   // This essentially expands the internal ERC721's token storage to additional fields
+   mapping(uint256 => DomainRecord) public records;
+ 
++  /**
++   * @dev Storage slot with the admin of the contract.
++   */
++  bytes32 internal constant _ADMIN_SLOT =
++    0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103;
++
++  // The beacon address
++  address public beacon;
++
++  // If this is a subdomain contract these will be set
++  uint256 public rootDomainId;
++  address public parentRegistrar;
++
++  // The event emitter
++  IZNSHub public zNSHub;
++  uint8 private test; // ignore
++  uint256 private gap; // ignore
++
++  function _getAdmin() internal view returns (address) {
++    return StorageSlot.getAddressSlot(_ADMIN_SLOT).value;
++  }
++
+   modifier onlyController() {
+-    require(controllers[msg.sender], "Zer0 Registrar: Not controller");
++    if (!controllers[msg.sender] && !zNSHub.isController(msg.sender)) {
++      revert("ZR: Not controller");
++    }
+     _;
+   }
+ 
+   modifier onlyOwnerOf(uint256 id) {
+-    require(ownerOf(id) == msg.sender, "Zer0 Registrar: Not owner");
++    require(ownerOf(id) == msg.sender, "ZR: Not owner");
+     _;
+   }
+ 
+-  function initialize() public initializer {
+-    __Ownable_init();
++  function initialize(
++    address parentRegistrar_,
++    uint256 rootDomainId_,
++    string calldata collectionName,
++    string calldata collectionSymbol,
++    address zNSHub_
++  ) public initializer {
++    // __Ownable_init(); // Purposely not initializing ownable since we override owner()
++
++    if (parentRegistrar_ == address(0)) {
++      // create the root domain
++      _createDomain(0, 0, msg.sender, address(0));
++    } else {
++      rootDomainId = rootDomainId_;
++      parentRegistrar = parentRegistrar_;
++    }
++
++    zNSHub = IZNSHub(zNSHub_);
+ 
+     __ERC721Pausable_init();
+-    __ERC721_init("Zer0 Name Service", "ZNS");
++    __ERC721_init(collectionName, collectionSymbol);
++  }
+ 
+-    // create the root domain
+-    _createDomain(0, 0, msg.sender, address(0));
++  function owner() public view override returns (address) {
++    return zNSHub.owner();
+   }
+ 
+   /*
+@@ -56,11 +103,12 @@ contract Registrar is
+    * @notice Authorizes a controller to control the registrar
+    * @param controller The address of the controller
+    */
+-  function addController(address controller) external override onlyOwner {
++  function addController(address controller) external {
+     require(
+-      !controllers[controller],
+-      "Zer0 Registrar: Controller is already added"
++      msg.sender == owner() || msg.sender == parentRegistrar,
++      "ZR: Not authorized"
+     );
++    require(!controllers[controller], "ZR: Controller is already added");
+     controllers[controller] = true;
+     emit ControllerAdded(controller);
+   }
+@@ -71,9 +119,10 @@ contract Registrar is
+    */
+   function removeController(address controller) external override onlyOwner {
+     require(
+-      controllers[controller],
+-      "Zer0 Registrar: Controller does not exist"
++      msg.sender == owner() || msg.sender == parentRegistrar,
++      "ZR: Not authorized"
+     );
++    require(controllers[controller], "ZR: Controller does not exist");
+     controllers[controller] = false;
+     emit ControllerRemoved(controller);
+   }
+@@ -95,15 +144,15 @@ contract Registrar is
+   /**
+    * @notice Registers a new (sub) domain
+    * @param parentId The parent domain
+-   * @param name The name of the domain
++   * @param label The label of the domain
+    * @param minter the minter of the new domain
+    * @param metadataUri The uri of the metadata
+    * @param royaltyAmount The amount of royalty this domain pays
+    * @param locked Whether the domain is locked or not
+    */
+   function registerDomain(
+     uint256 parentId,
+-    string memory name,
++    string memory label,
+     address minter,
+     string memory metadataUri,
+     uint256 royaltyAmount,
+@@ -112,7 +161,7 @@ contract Registrar is
+     return
+       _registerDomain(
+         parentId,
+-        name,
++        label,
+         minter,
+         metadataUri,
+         royaltyAmount,
+@@ -122,7 +171,7 @@ contract Registrar is
+ 
+   function registerDomainAndSend(
+     uint256 parentId,
+-    string memory name,
++    string memory label,
+     address minter,
+     string memory metadataUri,
+     uint256 royaltyAmount,
+@@ -132,7 +181,7 @@ contract Registrar is
+     // Register the domain
+     uint256 id = _registerDomain(
+       parentId,
+-      name,
++      label,
+       minter,
+       metadataUri,
+       royaltyAmount,
+@@ -145,23 +194,73 @@ contract Registrar is
+     return id;
+   }
+ 
++  function registerSubdomainContract(
++    uint256 parentId,
++    string memory label,
++    address minter,
++    string memory metadataUri,
++    uint256 royaltyAmount,
++    bool locked,
++    address sendToUser
++  ) external onlyController returns (uint256) {
++    // Register domain, `minter` is the minter
++    uint256 id = _registerDomain(
++      parentId,
++      label,
++      minter,
++      metadataUri,
++      royaltyAmount,
++      locked
++    );
++
++    // Create subdomain contract as a beacon proxy
++    address subdomainContract = address(
++      new BeaconProxy(zNSHub.registrarBeacon(), "")
++    );
++
++    // More maintainable instead of using `data` in constructor
++    Registrar(subdomainContract).initialize(
++      address(this),
++      id,
++      "Zer0 Name Service",
++      "ZNS",
++      address(zNSHub)
++    );
++
++    // Indicate that the subdomain has a contract
++    records[id].subdomainContract = subdomainContract;
++
++    zNSHub.addRegistrar(id, subdomainContract);
++
++    // immediately send the domain to the user (from the minter)
++    _safeTransfer(minter, sendToUser, id, "");
++
++    return id;
++  }
++
+   function _registerDomain(
+     uint256 parentId,
+-    string memory name,
++    string memory label,
+     address minter,
+     string memory metadataUri,
+     uint256 royaltyAmount,
+     bool locked
+   ) internal returns (uint256) {
+-    require(bytes(name).length > 0, "Zer0 Registrar: Empty name");
++    require(bytes(label).length > 0, "ZR: Empty name");
++    // subdomain cannot be minted on domains which are subdomain contracts
++    require(
++      records[parentId].subdomainContract == address(0),
++      "ZR: Parent is subcontract"
++    );
++    if (parentId != rootDomainId) {
++      // Domain parents must exist
++      require(_exists(parentId), "ZR: No parent");
++    }
+ 
+     // Create the child domain under the parent domain
+-    uint256 labelHash = uint256(keccak256(bytes(name)));
++    uint256 labelHash = uint256(keccak256(bytes(label)));
+     address controller = msg.sender;
+ 
+-    // Domain parents must exist
+-    require(_exists(parentId), "Zer0 Registrar: No parent");
+-
+     // Calculate the new domain's id and create it
+     uint256 domainId = uint256(
+       keccak256(abi.encodePacked(parentId, labelHash))
+@@ -170,17 +269,17 @@ contract Registrar is
+     _setTokenURI(domainId, metadataUri);
+ 
+     if (locked) {
+-      _setDomainLock(domainId, minter, true);
++      records[domainId].metadataLockedBy = minter;
++      records[domainId].metadataLocked = true;
+     }
+ 
+     if (royaltyAmount > 0) {
+       records[domainId].royaltyAmount = royaltyAmount;
+-      emit RoyaltiesAmountChanged(domainId, royaltyAmount);
+     }
+ 
+-    emit DomainCreated(
++    zNSHub.domainCreated(
+       domainId,
+-      name,
++      label,
+       labelHash,
+       parentId,
+       minter,
+@@ -202,10 +301,10 @@ contract Registrar is
+     override
+     onlyOwnerOf(id)
+   {
+-    require(!isDomainMetadataLocked(id), "Zer0 Registrar: Metadata locked");
++    require(!isDomainMetadataLocked(id), "ZR: Metadata locked");
+ 
+     records[id].royaltyAmount = amount;
+-    emit RoyaltiesAmountChanged(id, amount);
++    zNSHub.royaltiesAmountChanged(id, amount);
+   }
+ 
+   /**
+@@ -218,7 +317,7 @@ contract Registrar is
+     override
+     onlyOwnerOf(id)
+   {
+-    require(!isDomainMetadataLocked(id), "Zer0 Registrar: Metadata locked");
++    require(!isDomainMetadataLocked(id), "ZR: Metadata locked");
+     _setDomainMetadataUri(id, uri);
+     _setDomainLock(id, msg.sender, true);
+   }
+@@ -233,7 +332,7 @@ contract Registrar is
+     override
+     onlyOwnerOf(id)
+   {
+-    require(!isDomainMetadataLocked(id), "Zer0 Registrar: Metadata locked");
++    require(!isDomainMetadataLocked(id), "ZR: Metadata locked");
+     _setDomainMetadataUri(id, uri);
+   }
+ 
+@@ -251,8 +350,24 @@ contract Registrar is
+    * Public View
+    */
+ 
++  function ownerOf(uint256 tokenId)
++    public
++    view
++    virtual
++    override(ERC721Upgradeable, IERC721Upgradeable)
++    returns (address)
++  {
++    // Check if the token is in this contract
++    if (_tokenOwners.contains(tokenId)) {
++      return
++        _tokenOwners.get(tokenId, "ERC721: owner query for nonexistent token");
++    }
++
++    return zNSHub.ownerOf(tokenId);
++  }
++
+   /**
+-   * @notice Returns whether or not an account is a a controller
++   * @notice Returns whether or not an account is a a controller registered on this contract
+    * @param account Address of account to check
+    */
+   function isController(address account) external view override returns (bool) {
+@@ -334,7 +449,7 @@ contract Registrar is
+    * @param id The domain
+    */
+   function parentOf(uint256 id) public view override returns (uint256) {
+-    require(_exists(id), "Zer0 Registrar: Does not exist");
++    require(_exists(id), "ZR: Does not exist");
+ 
+     uint256 parentId = records[id].parentId;
+     return parentId;
+@@ -344,21 +459,28 @@ contract Registrar is
+    * Internal Methods
+    */
+ 
++  function _transfer(
++    address from,
++    address to,
++    uint256 tokenId
++  ) internal virtual override {
++    super._transfer(from, to, tokenId);
++    // Need to emit transfer events on event emitter
++    zNSHub.domainTransferred(from, to, tokenId);
++  }
++
+   function _setDomainMetadataUri(uint256 id, string memory uri) internal {
+     _setTokenURI(id, uri);
+-    emit MetadataChanged(id, uri);
++    zNSHub.metadataChanged(id, uri);
+   }
+ 
+   function _validateLockDomainMetadata(uint256 id, bool toLock) internal view {
+     if (toLock) {
+-      require(ownerOf(id) == msg.sender, "Zer0 Registrar: Not owner");
+-      require(!isDomainMetadataLocked(id), "Zer0 Registrar: Metadata locked");
++      require(ownerOf(id) == msg.sender, "ZR: Not owner");
++      require(!isDomainMetadataLocked(id), "ZR: Metadata locked");
+     } else {
+-      require(isDomainMetadataLocked(id), "Zer0 Registrar: Not locked");
+-      require(
+-        domainMetadataLockedBy(id) == msg.sender,
+-        "Zer0 Registrar: Not locker"
+-      );
++      require(isDomainMetadataLocked(id), "ZR: Not locked");
++      require(domainMetadataLockedBy(id) == msg.sender, "ZR: Not locker");
+     }
+   }
+ 
+@@ -377,7 +499,8 @@ contract Registrar is
+       metadataLocked: false,
+       metadataLockedBy: address(0),
+       controller: controller,
+-      royaltyAmount: 0
++      royaltyAmount: 0,
++      subdomainContract: address(0)
+     });
+   }
+ 
+@@ -389,10 +512,10 @@ contract Registrar is
+     records[id].metadataLockedBy = locker;
+     records[id].metadataLocked = lockStatus;
+ 
+-    emit MetadataLockChanged(id, locker, lockStatus);
++    zNSHub.metadataLockChanged(id, locker, lockStatus);
+   }
+ 
+-  function burnToken(uint256 tokenId) external onlyOwner {
++  function adminBurnToken(uint256 tokenId) external onlyOwner {
+     _burn(tokenId);
+     delete (records[tokenId]);
+   }
+@@ -405,13 +528,64 @@ contract Registrar is
+     _transfer(from, to, tokenId);
+   }
+ 
+-  function adminSetMetadata(uint256[] memory ids, string[] memory uris)
++  function adminSetMetadataUri(uint256 id, string memory uri)
+     external
+     onlyOwner
+   {
+-    require(ids.length == uris.length, "One URI per ID.");
+-    for (uint256 i = 0; i < ids.length; i++) {
+-      _setDomainMetadataUri(ids[i], uris[i]);
++    _setDomainMetadataUri(id, uri);
++  }
++
++  function setZNSHub(IZNSHub hub) external onlyOwner {
++    zNSHub = hub;
++  }
++
++  function registerDomainAndSendBulk(
++    uint256 parentId,
++    uint256 namingOffset, // e.g., the IPFS node refers to the metadata as x. the zNS label will be x + namingOffset
++    uint256 startingIndex,
++    uint256 endingIndex,
++    address minter,
++    string memory folderWithIPFSPrefix, // e.g., ipfs://Qm.../
++    uint256 royaltyAmount,
++    bool locked
++  ) external onlyController {
++    require(endingIndex - startingIndex > 0, "Invalid number of domains");
++    uint256 result;
++    for (uint256 i = startingIndex; i < endingIndex; i++) {
++      result = _registerDomain(
++        parentId,
++        uint2str(i + namingOffset),
++        minter,
++        string(abi.encodePacked(folderWithIPFSPrefix, uint2str(i))),
++        royaltyAmount,
++        locked
++      );
++    }
++  }
++
++  function uint2str(uint256 _i)
++    internal
++    pure
++    returns (string memory _uintAsString)
++  {
++    if (_i == 0) {
++      return "0";
++    }
++    uint256 j = _i;
++    uint256 len;
++    while (j != 0) {
++      len++;
++      j /= 10;
++    }
++    bytes memory bstr = new bytes(len);
++    uint256 k = len;
++    while (_i != 0) {
++      k = k - 1;
++      uint8 temp = (48 + uint8(_i - (_i / 10) * 10));
++      bytes1 b1 = bytes1(temp);
++      bstr[k] = b1;
++      _i /= 10;
+     }
++    return string(bstr);
+   }
+ }

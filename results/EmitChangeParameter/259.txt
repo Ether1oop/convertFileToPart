@@ -1,0 +1,46 @@
+@@ -86,38 +85,37 @@ contract PolicyController is PolicyStorageModel, ModuleController {
+         meta.hasApplication = true;
+         meta.updatedAt = block.timestamp;
+ 
+-        emit LogNewApplication(_productId, _metadataId, _applicationId);
++        emit LogNewApplication(meta.productId, _metadataId, _applicationId);
+     }
+ 
+     function setApplicationState(
+-        uint256 _productId,
+         uint256 _applicationId,
+         ApplicationState _state
+     ) external onlyPolicyFlow("Policy") {
+-        Application storage application = applications[_productId][_applicationId];
++        Application storage application = applications[_applicationId];
+ 
+         require(application.createdAt > 0, "ERROR::APPLICATION_DOES_NOT_EXIST");
+ 
+         application.state = _state;
+         application.updatedAt = block.timestamp;
+ 
+         emit LogApplicationStateChanged(
+-            _productId,
+             application.metadataId,
+             _applicationId,
+             _state
+         );
+     }
+ 
+     /* Policy */
+-    function createPolicy(uint256 _productId, uint256 _metadataId)
++    function createPolicy(uint256 _metadataId)
+         external
+         onlyPolicyFlow("Policy")
+         returns (uint256 _policyId)
+     {
+-        _policyId = ++policyIdIncrement;
++        policyIdIncrement += 1;
++        _policyId = policyIdIncrement;
+ 
+-        Policy storage policy = policies[_productId][_policyId];
++        Policy storage policy = policies[_policyId];
+ 
+         assert(policy.createdAt == 0);
+ 
+

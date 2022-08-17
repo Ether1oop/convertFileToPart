@@ -1,0 +1,35 @@
+@@ -42,32 +42,13 @@ contract ERCXXX_BTCRelay is ERCXXX_Base("BTC-ERC-Relay", "BTH", 1) {
+ 
+         _relayer = toRegister;
+         btcRelay = BTCRelay(toRegister);
+-        emit AuthorizeRelayer(toRegister, data);
++        emit AuthorizeRelayer(toRegister);
+     }
+ 
+     // ---------------------
+     // ISSUE
+     // ---------------------
+ 
+-    function registerIssue(uint256 amount) public payable {
+-        require(msg.value >= minimumCollateralCommitment);
+-
+-        uint8 issueType = 0;
+-        /* If there is not enough tokens, return back the collateral */
+-        if (issuerTokenSupply < amount + issuerCommitedTokens) { // TODO might need a 3rd variable here
+-            msg.sender.transfer(msg.value);
+-            return;
+-        }
+-        uint256 timelock = now + 1 seconds;
+-        issuerCommitedTokens += amount;
+-        userCommitedCollateral[msg.sender] = CommitedCollateral(timelock, amount);
+-        
+-        // TODO: need to lock issuers collateral
+-        
+-        // emit event
+-        emit RegisterIssue(msg.sender, amount, timelock, issueType);
+-    }
+-
+     function issueCol(address receiver, uint256 amount, bytes data) public {
+         /* This method can only be called by a BTC relay */
+         // address btcrelay;
+

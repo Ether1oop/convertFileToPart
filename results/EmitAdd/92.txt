@@ -1,0 +1,9 @@
+@@ -492,6 +577,7 @@ contract LoansBase is LoansInterface, Base {
+         totalCollateral = totalCollateral.add(amount);
+         loans[loanID].collateral = loans[loanID].collateral.add(amount);
+         loans[loanID].lastCollateralIn = now;
++        emit CollateralDeposited(loanID, msg.sender, amount);
+     }
+ 
+     /**
+

@@ -1,0 +1,8 @@
+@@ -110,6 +82,7 @@ contract ContractTest is DSTest {
+         assertEq(3, m.log2ceil_bitmagic(8));
+     }
+     function testLogCeil_Known() public {
++        emit log_uint(8);
+         assertEq(8, m.log2ceil_bitmagic(129));
+     }
+ 

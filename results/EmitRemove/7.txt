@@ -1,0 +1,67 @@
+@@ -40,40 +47,47 @@ contract Flashloan is FlashLoanReceiverBase {
+         external
+     {
+         require(_amount <= getBalanceInternal(address(this), _reserve), "Invalid balance, was the flashLoan successful?");
+-        emit ExecuteOpreationEvent(_reserve, _amount, _fee, _params);
++        //emit ExecuteOpreationEvent(_reserve, _amount, _fee, _params);
+ 
+         /* Decode _params */
+-        (address _borrower, uint _repayAmount,
++        (
++            address _borrower,
++            uint _repayAmount,
+             address _cTockenRepay,
+-            address _cTokenCollateral) = abi.decode(_params,(address,uint,address,address));
++            address _cTokenCollateral
+ 
+-        /* Get Account Liqudity Again before Contract Call */
+-        /*
+-        (uint err, uint liquidity, uint shortfall) = comptroller.getAccountLiquidity(_borrower);
+-        emit GetAccountLiquidity(err, liquidity, shortfall);
+-        */
++        ) = abi.decode(_params,(address,uint,address,address));
+ 
+-        /** To Do :  Add require flag here liquidity Shortfall != 0 */
++        /* Get Account Liqudity Again before Contract Call */
++        // (uint err, uint liquidity, uint shortfall) = comptroller.getAccountLiquidity(_borrower);
++        // //emit GetAccountLiquidity(err, liquidity, shortfall);
++        // require(err == 0, "Error getAccountLiquidity Function");
++        // require(shortfall != 0, "Account is healthy");
++        // require(liquidity == 0, "Account is healthy");
+ 
+-        /* Approve Tokens  */
+         /* Get Underlying Token address Bat, Usdc etc...  */
+         address underlyingAddress = CErc20Storage(_cTockenRepay).underlying();
+-        emit GetUnderlyingAddress(underlyingAddress);
++        //emit GetUnderlyingAddress(underlyingAddress);
+ 
+         /* Approve this(address) for underlying token  */
+-        IERC20(underlyingAddress).approve(address(this), _repayAmount);
++        IERC20(underlyingAddress).approve(_cTockenRepay, _repayAmount);
+ 
+         /* Call Comptroller Liquidation */
+-        /* liquidateBorrow(address borrower, uint repayAmount, CTokenInterface cTokenCollateral) */
+-        (uint err) = CErc20Interface(_cTockenRepay).liquidateBorrow(_borrower, _repayAmount, CTokenInterface(_cTokenCollateral));
+-        emit LiquidationEvent(err);
+-
++        (uint err1) = CErc20Interface(_cTockenRepay).liquidateBorrow(_borrower, _repayAmount, CTokenInterface(_cTokenCollateral));
++        //emit LiquidationEvent(err1);
++        //require(err1==0, "Liquidation Error !!! ");
++
++        /* Get CToken Balance */
++        uint cTokenBalance = CTokenInterface(_cTokenCollateral).balanceOf(address(this));
++        emit CTokenBalance(cTokenBalance);
++        
+         /* Redeem Liquidated assets From CToken */
+-
+-        /* Check CToken Balance */
++        (uint err2) = CErc20Interface(_cTokenCollateral).redeem(cTokenBalance);
++        emit RedddemEvent(err2);
+ 
+         /* Start Uniswap Procedure */
+ 
++        /* If Collatreall asset is Dai or USDC or USDT do not run uniswap selling procedure */
+ 
+         // Time to transfer the funds back
+         fee = _fee;
+

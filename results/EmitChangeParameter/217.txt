@@ -1,0 +1,92 @@
+@@ -89,166 +189,168 @@ contract ChaiTest is DSTest {
+     uint deadline = 0;
+     address cal = 0x29C76e6aD8f28BB1004902578Fb108c507Be341b;
+     address del = 0xdd2d5D3f7f1b35b7A0601D6A00DbB7D44Af58479;
++    bytes32 r = 0x66ac2e2213059ebd3d1d05027122eeb18ef4d80ba256499014479c3facc19df9;
++    bytes32 s = 0x5fed942c61fa87fd050619f947ce59cb3157f90d1279de9ec8d2f3edec639fd8;
+     uint8 v = 27;
+-    bytes32 r = 0xc7a9f6e53ade2dc3715e69345763b9e6e5734bfe6b40b8ec8e122eb379f07e5b;
+-    bytes32 s = 0x14cb2f908ca580a74089860a946f56f361d55bdb13b6ce48a998508b0fa5e776;
+-    bytes32 _r = 0x64e82c811ee5e912c0f97ac1165c73d593654a6fc434a470452d8bca6ec98424;
+-    bytes32 _s = 0x5a209fe6efcf6e06ec96620fd968d6331f5e02e5db757ea2a58229c9b3c033ed;
+-    uint8 _v = 28;
+-
++    bytes32 _r = 0x3168c59cb4fa9b54016ebf3d56dcca900ccfb92fb55b0af86dfe919c125e4755;
++    bytes32 _s = 0x013d4a55b43099981f7fed3af5606e1c8469f6f18ccea62d412809376f0a57a3;
++    uint8 _v = 27;
+ 
+     function setUp() public {
+         hevm = Hevm(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D);
+         hevm.warp(604411200);
+-        token = createToken();
+-        token.mint(address(this), initialBalanceThis);
+-        token.mint(cal, initialBalanceCal);
+-        user1 = address(new TokenUser(token));
+-        user2 = address(new TokenUser(token));
++        super.setUp();
++        chai.join(address(this), initialBalanceThis);
++        // have to join via this because cal can't approve chai
++        chai.join(address(this), initialBalanceCal);
++        chai.transfer(cal, initialBalanceCal);
++        user1 = address(new ChaiUser(chai));
++        user2 = address(new ChaiUser(chai));
+         self = address(this);
+     }
+ 
+-    function createToken() internal returns (Chai) {
+-        return new Chai(99);
+-    }
+-
+     function testSetupPrecondition() public {
+-        assertEq(token.balanceOf(self), initialBalanceThis);
++        assertEq(chai.balanceOf(self), initialBalanceThis);
+     }
+ 
+     function testTransferCost() public logs_gas {
+-        token.transfer(address(0), 10);
++        chai.transfer(address(0), 10);
+     }
+ 
+     function testAllowanceStartsAtZero() public logs_gas {
+-        assertEq(token.allowance(user1, user2), 0);
++        assertEq(chai.allowance(user1, user2), 0);
+     }
+ 
+     function testValidTransfers() public logs_gas {
+         uint sentAmount = 250;
+-        emit log_named_address("token11111", address(token));
+-        token.transfer(user2, sentAmount);
+-        assertEq(token.balanceOf(user2), sentAmount);
+-        assertEq(token.balanceOf(self), initialBalanceThis - sentAmount);
++        emit log_named_address("chai11111", address(chai));
++        chai.transfer(user2, sentAmount);
++        assertEq(chai.balanceOf(user2), sentAmount);
++        assertEq(chai.balanceOf(self), initialBalanceThis - sentAmount);
+     }
+ 
+     function testFailWrongAccountTransfers() public logs_gas {
+         uint sentAmount = 250;
+-        token.transferFrom(user2, self, sentAmount);
++        chai.transferFrom(user2, self, sentAmount);
+     }
+ 
+     function testFailInsufficientFundsTransfers() public logs_gas {
+         uint sentAmount = 250;
+-        token.transfer(user1, initialBalanceThis - sentAmount);
+-        token.transfer(user2, sentAmount + 1);
++        chai.transfer(user1, initialBalanceThis - sentAmount);
++        chai.transfer(user2, sentAmount + 1);
+     }
+ 
+     function testApproveSetsAllowance() public logs_gas {
+         emit log_named_address("Test", self);
+-        emit log_named_address("Token", address(token));
++        emit log_named_address("Chai", address(chai));
+         emit log_named_address("Me", self);
+         emit log_named_address("User 2", user2);
+-        token.approve(user2, 25);
+-        assertEq(token.allowance(self, user2), 25);
++        chai.approve(user2, 25);
++        assertEq(chai.allowance(self, user2), 25);
+     }
+ }

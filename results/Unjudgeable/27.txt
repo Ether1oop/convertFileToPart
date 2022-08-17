@@ -1,0 +1,335 @@
+@@ -164,8 +164,10 @@ contract LiquidityHelpers is Helpers {
+         }
+     }
+ 
+-    function calculateFeeAmt(address token, uint amt) internal view returns (uint feeAmt) {
+-        uint fee = InstaPoolFeeInterface(getInstaPoolFeeAddr()).fee();
++    function calculateFeeAmt(address token, uint amt) internal view returns (address feeCollector, uint feeAmt) {
++        InstaPoolFeeInterface feeContract = InstaPoolFeeInterface(getInstaPoolFeeAddr());
++        uint fee = feeContract.fee();
++        feeCollector = feeContract.feeCollector();
+         if(fee == 0) {
+             feeAmt = 0;
+         } else {
+@@ -178,8 +180,17 @@ contract LiquidityHelpers is Helpers {
+         }
+     }
+ 
+-    function calculateFeeAmtOrigin(address token, uint amt) internal view returns (uint poolFeeAmt, uint originFee) {
+-        (uint feeAmt) = calculateFeeAmt(token, amt);
++    function calculateFeeAmtOrigin(address token, uint amt)
++    internal
++    view
++    returns (
++        address feeCollector,
++        uint poolFeeAmt,
++        uint originFee
++    )
++    {
++        uint feeAmt;
++        (feeCollector, feeAmt) = calculateFeeAmt(token, amt);
+         if(feeAmt == 0) {
+             poolFeeAmt = 0;
+             originFee = 0;
+@@ -246,13 +257,83 @@ contract LiquidityManage is LiquidityHelpers {
+     }
+ }
+ 
++contract EventHelpers is LiquidityManage {
++    event LogFlashBorrow(
++        address indexed token,
++        uint256 tokenAmt,
++        uint256 getId,
++        uint256 setId
++    );
++
++    event LogFlashPayback(
++        address indexed token,
++        uint256 tokenAmt,
++        uint256 feeCollected,
++        uint256 getId,
++        uint256 setId
++    );
++
++    event LogOriginFeeCollected(
++        address indexed origin,
++        address indexed token,
++        uint256 tokenAmt,
++        uint256 originFeeAmt
++    );
++
++    function emitFlashBorrow(address token, uint256 tokenAmt, uint256 getId, uint256 setId) internal {
++        emit LogFlashBorrow(token, tokenAmt, getId, setId);
++        bytes32 _eventCode = keccak256("LogFlashBorrow(address,uint256,uint256,uint256)");
++        bytes memory _eventParam = abi.encode(token, tokenAmt, getId, setId);
++        (uint _type, uint _id) = connectorID();
++        EventInterface(getEventAddr()).emitEvent(_type, _id, _eventCode, _eventParam);
++    }
+ 
+-contract LiquidityAccess is LiquidityManage {
+-    event LogFlashBorrow(address indexed token, uint256 tokenAmt, uint256 getId, uint256 setId);
+-    event LogFlashPayback(address indexed token, uint256 tokenAmt, uint256 feeCollected, uint256 getId, uint256 setId);
++    function emitFlashPayback(address token, uint256 tokenAmt, uint256 feeCollected, uint256 getId, uint256 setId) internal {
++        emit LogFlashPayback(token, tokenAmt, feeCollected, getId, setId);
++        bytes32 _eventCode = keccak256("LogFlashPayback(address,uint256,uint256,uint256,uint256)");
++        bytes memory _eventParam = abi.encode(token, tokenAmt, feeCollected, getId, setId);
++        (uint _type, uint _id) = connectorID();
++        EventInterface(getEventAddr()).emitEvent(_type, _id, _eventCode, _eventParam);
++    }
+ 
+-    event LogOriginFeeCollector(address indexed origin, address indexed token, uint256 tokenAmt, uint256 originFeeAmt);
++    function emitOriginFeeCollected(address origin, address token, uint256 tokenAmt, uint256 originFeeAmt) internal {
++        emit LogOriginFeeCollected(origin, token, tokenAmt, originFeeAmt);
++        bytes32 _eventCodeOrigin = keccak256("LogOriginFeeCollected(address,address,uint256,uint256)");
++        bytes memory _eventParamOrigin = abi.encode(origin, token, tokenAmt, originFeeAmt);
++        (uint _type, uint _id) = connectorID();
++        EventInterface(getEventAddr()).emitEvent(_type, _id, _eventCodeOrigin, _eventParamOrigin);
++    }
++}
+ 
++contract LiquidityAccessHelper is EventHelpers {
++    /**
++     * @dev Set feeAmt of borrowed flashloan using `getId`.
++     * @param getId Get token amount at this ID from `InstaMemory` Contract.
++     * @param setId Set token amount at this ID in `InstaMemory` Contract.
++    */
++    function setFeeAmount(uint getId, uint setId) external payable {
++        uint amt = getUint(getId, 0);
++        require(amt != 0, "amt-is-0");
++        uint totalFee = calculateTotalFeeAmt(amt);
++
++        setUint(setId, totalFee);
++    }
++
++    /**
++     * @dev Set feeAmt of borrowed flashloan using `token`.
++     * @param token token address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)
++     * @param setId Set token amount at this ID in `InstaMemory` Contract.
++    */
++    function setFeeAmountToken(address token, uint setId) external payable {
++        uint amt = LiqudityInterface(getLiquidityAddress()).borrowedToken(token);
++        require(amt != 0, "amt-is-0");
++        uint totalFee = calculateTotalFeeAmt(amt);
++
++        setUint(setId, totalFee);
++    }
++}
++
++contract LiquidityAccess is LiquidityAccessHelper {
+     /**
+      * @dev Access Token Liquidity from InstaPool.
+      * @param token token address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)
+@@ -271,12 +352,7 @@ contract LiquidityAccess is LiquidityManage {
+         LiqudityInterface(getLiquidityAddress()).accessLiquidity(_tknAddrs, _amts);
+ 
+         setUint(setId, _amt);
+-
+-        emit LogFlashBorrow(token, _amt, getId, setId);
+-        bytes32 _eventCode = keccak256("LogFlashBorrow(address,uint256,uint256,uint256)");
+-        bytes memory _eventParam = abi.encode(token, _amt, getId, setId);
+-        (uint _type, uint _id) = connectorID();
+-        EventInterface(getEventAddr()).emitEvent(_type, _id, _eventCode, _eventParam);
++        emitFlashBorrow(token, _amt, getId, setId);
+     }
+ 
+     /**
+@@ -289,7 +365,7 @@ contract LiquidityAccess is LiquidityManage {
+         LiqudityInterface liquidityContract = LiqudityInterface(getLiquidityAddress());
+         uint _amt = liquidityContract.borrowedToken(token);
+ 
+-        uint feeAmt = calculateFeeAmt(token, _amt);
++        (address feeCollector, uint feeAmt) = calculateFeeAmt(token, _amt);
+ 
+         address[] memory _tknAddrs = new address[](1);
+         _tknAddrs[0] = token;
+@@ -298,17 +374,46 @@ contract LiquidityAccess is LiquidityManage {
+         liquidityContract.returnLiquidity(_tknAddrs);
+ 
+         if (feeAmt > 0)
+-            _transfer(payable(InstaPoolFeeInterface(getInstaPoolFeeAddr()).feeCollector()), token, feeAmt);
++            _transfer(payable(feeCollector), token, feeAmt);
+ 
+         setUint(setId, _amt);
++        emitFlashPayback(token, _amt, feeAmt, getId, setId);
++    }
+ 
+-        emit LogFlashPayback(token, _amt, feeAmt, getId, setId);
+-        bytes32 _eventCode = keccak256("LogFlashPayback(address,uint256,uint256,uint256,uint256)");
+-        bytes memory _eventParam = abi.encode(token, _amt, feeAmt, getId, setId);
+-        (uint _type, uint _id) = connectorID();
+-        EventInterface(getEventAddr()).emitEvent(_type, _id, _eventCode, _eventParam);
++    /**
++     * @dev Return Token Liquidity from InstaPool.
++     * @param origin origin address to transfer 20% of the collected fee.
++     * @param token token address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)
++     * @param getId Get token amount at this ID from `InstaMemory` Contract.
++     * @param setId Set token amount at this ID in `InstaMemory` Contract.
++    */
++    function flashPaybackOrigin(address origin, address token, uint getId, uint setId) external payable {
++        require(origin != address(0), "origin-is-address(0)");
++        LiqudityInterface liquidityContract = LiqudityInterface(getLiquidityAddress());
++        uint _amt = liquidityContract.borrowedToken(token);
++
++        (address feeCollector, uint poolFeeAmt, uint originFeeAmt) = calculateFeeAmtOrigin(token, _amt);
++
++        address[] memory _tknAddrs = new address[](1);
++        _tknAddrs[0] = token;
++
++        _transfer(payable(address(liquidityContract)), token, _amt);
++        liquidityContract.returnLiquidity(_tknAddrs);
++
++        if (poolFeeAmt > 0) {
++            _transfer(payable(feeCollector), token, poolFeeAmt);
++            _transfer(payable(origin), token, originFeeAmt);
++        }
++
++
++        setUint(setId, _amt);
++
++        emitFlashPayback(token, _amt, poolFeeAmt, getId, setId);
++        emitOriginFeeCollected(origin, token, _amt, originFeeAmt);
+     }
++}
+ 
++contract LiquidityAccessMulti is LiquidityAccess {
+     /**
+      * @dev Access Multiple Token liquidity from InstaPool.
+      * @param tokens Array of token addresses.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)
+@@ -332,12 +437,7 @@ contract LiquidityAccess is LiquidityManage {
+ 
+         for (uint i = 0; i < _length; i++) {
+             setUint(setId[i], _amts[i]);
+-
+-            emit LogFlashBorrow(tokens[i], _amts[i], getId[i], setId[i]);
+-            bytes32 _eventCode = keccak256("LogFlashBorrow(address,uint256,uint256,uint256)");
+-            bytes memory _eventParam = abi.encode(tokens[i], _amts[i], getId[i], setId[i]);
+-            (uint _type, uint _id) = connectorID();
+-            EventInterface(getEventAddr()).emitEvent(_type, _id, _eventCode, _eventParam);
++            emitFlashBorrow(tokens[i], _amts[i], getId[i], setId[i]);
+         }
+     }
+ 
+@@ -354,99 +454,50 @@ contract LiquidityAccess is LiquidityManage {
+ 
+         for (uint i = 0; i < _length; i++) {
+             uint _amt = liquidityContract.borrowedToken(tokens[i]);
+-            uint feeAmt = calculateFeeAmt(tokens[i], _amt);
++            (address feeCollector, uint feeAmt) = calculateFeeAmt(tokens[i], _amt);
+ 
+             _transfer(payable(address(liquidityContract)), tokens[i], _amt);
+             
+-            if (feeAmt > 0) {
+-                _transfer(
+-                    payable(InstaPoolFeeInterface(getInstaPoolFeeAddr()).feeCollector()),
+-                    tokens[i],
+-                    feeAmt
+-                );
+-            }
++            if (feeAmt > 0)
++                _transfer(payable(feeCollector), tokens[i], feeAmt);
+ 
+             setUint(setId[i], _amt);
+ 
+-            emit LogFlashPayback(tokens[i], _amt, feeAmt, getId[i], setId[i]);
+-            bytes32 _eventCode = keccak256("LogFlashPayback(address,uint256,uint256,uint256,uint256)");
+-            bytes memory _eventParam = abi.encode(tokens[i], _amt, feeAmt, getId[i], setId[i]);
+-            (uint _type, uint _id) = connectorID();
+-            EventInterface(getEventAddr()).emitEvent(_type, _id, _eventCode, _eventParam);
++            emitFlashPayback(tokens[i], _amt, feeAmt, getId[i], setId[i]);
+         }
+ 
+         liquidityContract.returnLiquidity(tokens);
+     }
+ 
+     /**
+-     * @dev Return Token Liquidity from InstaPool.
+-     * @param origin origin address to transfer 20% of the collected fee.
+-     * @param token token address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)
+-     * @param getId Get token amount at this ID from `InstaMemory` Contract.
+-     * @param setId Set token amount at this ID in `InstaMemory` Contract.
++     * @dev Return Multiple token liquidity from InstaPool.
++     * @param tokens Array of token addresses.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)
++     * @param getId get token amounts at this IDs from `InstaMemory` Contract.
++     * @param setId set token amounts at this IDs in `InstaMemory` Contract.
+     */
+-    function flashPaybackOrigin(address origin, address token, uint getId, uint setId) external payable {
+-        require(origin != address(0), "origin-is-address(0)");
++    function flashMultiPaybackOrigin(address origin, address[] calldata tokens, uint[] calldata getId, uint[] calldata setId) external payable {
+         LiqudityInterface liquidityContract = LiqudityInterface(getLiquidityAddress());
+-        uint _amt = liquidityContract.borrowedToken(token);
+-
+-        (uint poolFeeAmt, uint originFeeAmt) = calculateFeeAmtOrigin(token, _amt);
+-
+-        address[] memory _tknAddrs = new address[](1);
+-        _tknAddrs[0] = token;
+-
+-        _transfer(payable(address(liquidityContract)), token, _amt);
+-        liquidityContract.returnLiquidity(_tknAddrs);
+-
+-        if (poolFeeAmt > 0) {
+-            _transfer(
+-                payable(InstaPoolFeeInterface(getInstaPoolFeeAddr()).feeCollector()),
+-                token,
+-                poolFeeAmt
+-            );
+-            _transfer(payable(origin), token, originFeeAmt);
+-        }
+-
+-
+-        setUint(setId, _amt);
+-
+-        (uint _type, uint _id) = connectorID();
+ 
+-        emit LogFlashPayback(token, _amt, poolFeeAmt, getId, setId);
+-        bytes32 _eventCodePayback = keccak256("LogFlashPayback(address,uint256,uint256,uint256,uint256)");
+-        bytes memory _eventParamPayback = abi.encode(token, _amt, poolFeeAmt, getId, setId);
+-        EventInterface(getEventAddr()).emitEvent(_type, _id, _eventCodePayback, _eventParamPayback);
++        uint _length = tokens.length;
+ 
+-        emit LogOriginFeeCollector(origin, token, _amt, originFeeAmt);
+-        bytes32 _eventCodeOrigin = keccak256("LogOriginFeeCollector(address,address,uint256,uint256)");
+-        bytes memory _eventParamOrigin = abi.encode(origin, token, _amt, poolFeeAmt);
+-        EventInterface(getEventAddr()).emitEvent(_type, _id, _eventCodeOrigin, _eventParamOrigin);
+-    }
++        for (uint i = 0; i < _length; i++) {
++            uint _amt = liquidityContract.borrowedToken(tokens[i]);
++            (address feeCollector, uint poolFeeAmt, uint originFeeAmt) = calculateFeeAmtOrigin(tokens[i], _amt);
+ 
+-    /**
+-     * @dev Set feeAmt of borrowed flashloan using `getId`.
+-     * @param getId Get token amount at this ID from `InstaMemory` Contract.
+-     * @param setId Set token amount at this ID in `InstaMemory` Contract.
+-    */
+-    function setFeeAmount(uint getId, uint setId) external payable {
+-        uint amt = getUint(getId, 0);
+-        require(amt != 0, "amt-is-0");
+-        uint totalFee = calculateTotalFeeAmt(amt);
++           _transfer(payable(address(liquidityContract)), tokens[i], _amt);
++            
++            if (poolFeeAmt > 0) {
++                _transfer(payable(feeCollector), tokens[i], poolFeeAmt);
++                _transfer(payable(origin), tokens[i], originFeeAmt);
++            }
+ 
+-        setUint(setId, totalFee);
+-    }
++            setUint(setId[i], _amt);
+ 
+-    /**
+-     * @dev Set feeAmt of borrowed flashloan using `token`.
+-     * @param token token address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)
+-     * @param setId Set token amount at this ID in `InstaMemory` Contract.
+-    */
+-    function setFeeAmountToken(address token, uint setId) external payable {
+-        uint amt = LiqudityInterface(getLiquidityAddress()).borrowedToken(token);
+-        require(amt != 0, "amt-is-0");
+-        uint totalFee = calculateTotalFeeAmt(amt);
++            emitFlashPayback(tokens[i], _amt, poolFeeAmt,  getId[i], setId[i]);
++            emitOriginFeeCollected(origin, tokens[i], _amt, originFeeAmt);
++        }
+ 
+-        setUint(setId, totalFee);
++        liquidityContract.returnLiquidity(tokens);
+     }
+ }
+ 

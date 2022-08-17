@@ -1,0 +1,17 @@
+@@ -154,13 +154,15 @@ contract GebUniswapv3LiquidityManagerTest is DSTest {
+         uint256 t0am,
+         uint256 t1am
+     ) public returns (uint128 liquidity) {
++        emit log_named_uint("am0", 22222);
+         liquidity = LiquidityAmounts.getLiquidityForAmounts(
+             sqrtRatioX96,
+             TickMath.getSqrtRatioAtTick(_lowerTick),
+             TickMath.getSqrtRatioAtTick(upperTick),
+             t0am,
+             t1am
+         );
++        emit log_named_uint("am1", 22223);
+     }
+ 
+     function helper_getAbsInt24(int24 val) internal returns (uint256 abs) {
+

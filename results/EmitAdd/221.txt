@@ -1,0 +1,79 @@
+@@ -65,7 +65,9 @@ library Shells {
+ 
+     event log(bytes32);
+     event log_int(bytes32, int256);
++    event log_ints(bytes32, int256[]);
+     event log_uint(bytes32, uint256);
++    event log_uints(bytes32, uint256[]);
+ 
+     function calculateFee (
+         Shell storage shell,
+@@ -152,8 +154,8 @@ library Shells {
+ 
+                 int128 _prev = assims_[0].amt;
+                 int128 _next = assims_[0].amt = _omega < psi_
+-                    ? ( assims_[1].amt.sub(psi_.sub(_omega)) ).neg()
+-                    : ( assims_[1].amt.add(_lambda.mul(_omega.sub(psi_))) ).neg();
++                    ? ( assims_[1].amt.sub(psi_.sub(_omega))).neg()
++                    : ( assims_[1].amt.add(_lambda.mul(_omega.sub(psi_)))).neg();
+ 
+                 _nGLiq = _oGLiq.add(assims_[1].amt).add(_next);
+ 
+@@ -173,7 +175,7 @@ library Shells {
+         return (assims_, psi_);
+ 
+     }
+-
++    
+     function calculateOriginTrade (
+         Shell storage shell,
+         Assimilators.Assimilator[] memory assims_
+@@ -191,6 +193,8 @@ library Shells {
+ 
+             for (uint i = 0; i < 10; i++) {
+ 
++                emit log_uint("start gas", gasleft());
++
+                 psi_ = shell.calculateFee(_nBals, _nGLiq);
+ 
+                 int128 _prev = assims_[1].amt;
+@@ -204,7 +208,12 @@ library Shells {
+ 
+                 if (_prev / 1e14 == _next / 1e14) break;
+ 
++
++                emit log_uint("end gas ", gasleft());
++                emit log_int("_assims[1].amt", assims_[1].amt.muli(1e18));
++
+             }
++                emit log_uint("end gas ", gasleft());
+ 
+         }
+ 
+@@ -340,7 +425,7 @@ library Shells {
+ 
+         shells_ = _shells.abs().mul(ONE.add(shell.epsilon)).mulu(1e18);
+ 
+-        emit log_uint("shells_", shells_);
++        // emit log_uint("shells_", shells_);
+ 
+     }
+ 
+@@ -353,7 +438,7 @@ library Shells {
+     ) internal {
+ 
+         if (!shell.testHalts) {
+-            emit log("skipping halts");
++            // emit log("skipping halts");
+             return;
+         }
+ 
+@@ -395,7 +480,7 @@ library Shells {
+             }
+         }
+ 
+-        emit log("passed halts");
++        // emit log("passed halts");
+ 
+     }
+ 

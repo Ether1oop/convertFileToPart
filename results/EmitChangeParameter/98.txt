@@ -1,0 +1,35 @@
+@@ -270,14 +270,14 @@ contract KMCD is KMCDInterface, Exponential, KTokenErrorReporter {
+         /* Fail if repayAmount = -1 */
+         require(repayAmount != uint(- 1), INVALID_CLOSE_AMOUNT_REQUESTED);
+ 
+-        /* Fail if repayBorrow fails */
+-        uint actualRepayAmount = repayBorrowFresh(liquidator, borrower, repayAmount);
+-
+         /////////////////////////
+         // EFFECTS & INTERACTIONS
+ 
+         /* We calculate the number of collateral tokens that will be seized */
+-        uint seizeTokens = controller.liquidateCalculateSeizeTokens(address(this), address(kTokenCollateral), actualRepayAmount);
++        uint seizeTokens = controller.liquidateCalculateSeizeTokens(borrower, address(this), address(kTokenCollateral), repayAmount);
++
++        /* Fail if repayBorrow fails */
++        repayBorrowFresh(liquidator, borrower, repayAmount);
+ 
+         /* Revert if borrower collateral token balance < seizeTokens */
+         require(kTokenCollateral.balanceOf(borrower) >= seizeTokens, LIQUIDATE_SEIZE_TOO_MUCH);
+@@ -286,12 +286,12 @@ contract KMCD is KMCDInterface, Exponential, KTokenErrorReporter {
+         kTokenCollateral.seize(liquidator, borrower, seizeTokens);
+ 
+         /* We emit a LiquidateBorrow event */
+-        emit LiquidateBorrow(liquidator, borrower, actualRepayAmount, address(kTokenCollateral), seizeTokens);
++        emit LiquidateBorrow(liquidator, borrower, repayAmount, address(kTokenCollateral), seizeTokens);
+ 
+         /* We call the defense hook */
+-        controller.liquidateBorrowVerify(address(this), address(kTokenCollateral), liquidator, borrower, actualRepayAmount, seizeTokens);
++        controller.liquidateBorrowVerify(address(this), address(kTokenCollateral), liquidator, borrower, repayAmount, seizeTokens);
+ 
+-        return actualRepayAmount;
++        return repayAmount;
+     }
+ 
+     /*** Admin Functions ***/

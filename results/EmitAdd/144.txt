@@ -1,0 +1,19 @@
+@@ -104,6 +119,8 @@ contract Staking is IStaking, Initializable, Ownable, Pausable, ReentrancyGuard
+         onlyOwner
+     {
+         permissionedDepositors[account] = canDeposit;
++
++        emit PermissionedDepositorSet(account, canDeposit);
+     }
+ 
+     function setUserSchedules(address account, uint256[] calldata userSchedulesIdxs)
+@@ -112,6 +129,8 @@ contract Staking is IStaking, Initializable, Ownable, Pausable, ReentrancyGuard
+         onlyOwner
+     {
+         userStakingSchedules[account] = userSchedulesIdxs;
++
++        emit UserSchedulesSet(account, userSchedulesIdxs);
+     }
+ 
+     function getSchedules()
+

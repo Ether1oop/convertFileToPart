@@ -1,0 +1,31 @@
+@@ -132,18 +144,24 @@ contract XVSVault is XVSVaultStorage {
+         );
+         user.amount = user.amount.add(_amount);
+         user.rewardDebt = user.amount.mul(pool.accRewardPerShare).div(1e12);
+-        emit Deposit(_rewardToken, msg.sender, _pid, _amount);
++        emit Deposit(msg.sender, _rewardToken, _pid, _amount);
+     }
+ 
+     /**
+-     * @notice Withdraw XVS to XVSVault for XVS allocation
++     * @notice Execute withdrawal to XVSVault for XVS allocation
++     * @param _rewardToken The Reward Token Address
+      * @param _pid The Pool Index
+-     * @param _amount The amount to withdraw to vault
+      */
+-    function withdraw(address _rewardToken, uint256 _pid, uint256 _amount) public nonReentrant {
++    function ExecuteWithdrawal(address _rewardToken, uint256 _pid) public nonReentrant {
+         PoolInfo storage pool = poolInfos[_rewardToken][_pid];
+         UserInfo storage user = userInfos[_rewardToken][_pid][msg.sender];
+-        require(user.amount >= _amount, "withdraw: not good");
++        WithdrawalInfo storage withdrawal = withdrawlInfos[_rewardToken][_pid][msg.sender];
++        uint256 curTimestamp = block.timestamp;
++        uint256 _amount = withdrawal.amount;
++
++        require(withdrawal.amount > 0, "no request to execute");
++        require(lockPeriod.add(withdrawal.timestamp) < curTimestamp, "your request is locked yet");
++
+         updatePool(_rewardToken, _pid);
+         uint256 pending =
+             user.amount.mul(pool.accRewardPerShare).div(1e12).sub(
+

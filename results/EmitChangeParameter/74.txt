@@ -1,0 +1,16 @@
+@@ -61,10 +69,11 @@ contract SingleEditionMintableCreator {
+             _editionSize,
+             _royaltyBPS
+         );
+-        emit CreatedEdition(atContract, msg.sender, _editionSize);
+-        // Returns the ID of the recently created minting contract 
++        emit CreatedEdition(newId, msg.sender, _editionSize);
++        // Returns the ID of the recently created minting contract
+         // Also increments for the next contract creation call
+-        return ++atContract;
++        atContract.increment();
++        return newId;
+     }
+ 
+     /// Get edition given the created ID
+

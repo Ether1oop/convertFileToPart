@@ -1,0 +1,10 @@
+@@ -354,7 +353,7 @@ contract Staking is Ownable {
+         user.rewardAmount = rewardTotal.sub(_amount);
+         user.rewardDebt = user.amount.mul(pool.accRewardPerShare).div(PER_SHARE_SIZE);
+ 
+-        emit ClaimLater(msg.sender, _pid, rewardTotal, claimRequestMap[msg.sender].length.sub(1));
++        emit ClaimLater(msg.sender, _pid, _amount, claimRequestMap[msg.sender].length.sub(1));
+     }
+ 
+     function claimLaterReady(uint256 _index) external {
+

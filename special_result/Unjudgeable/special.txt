@@ -1,0 +1,3 @@
+https://github.com/Rari-Capital/vaults/commit/7c4e585cb19ea4453a5233809fad222dae6dc10c/src/tests/Vault.t.sol
+https://github.com/CodeforDAO/contracts/commit/848dc5a1f4395c505c7f33d51c8e81df7c81d59d/contracts/core/Membership.sol
+https://github.com/kleros/kleros-interaction/commit/cb3bb7bdb6e6516d273d4aba3529016f8285ae9f/contracts/standard/arbitration/ArbitrableDeposit.sol

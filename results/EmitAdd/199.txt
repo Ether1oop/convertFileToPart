@@ -1,0 +1,52 @@
+@@ -282,15 +290,48 @@ contract GebUniswapV3LiquidityManagerTest is DSTest {
+ 
+     function test_get_prices() public {
+         (uint256 redemptionPrice, uint256 tokenPrice) = manager.getPrices();
++        emit log_named_uint("redemptionPrice",redemptionPrice );
++        emit log_named_uint("tokenPrice",tokenPrice );
+         assertTrue(redemptionPrice == 3000000000000000000000000000);
+         assertTrue(tokenPrice == 4000000000000000000000000000000);
++
++        uint256 scale = 1000000000;
++
++        uint256 price = redemptionPrice * scale / tokenPrice;
++        emit log_named_uint("price",price );
++
++        uint a1 = price;
++        uint a0 = scale;
++
++        uint num = a1 << 192;
++        uint den = a0;
++        uint pri = ((tokenPrice * scale / redemptionPrice) << 192) / scale;
++
++        emit log_named_uint("lar",uint256(0-1));
++        emit log_named_uint("num",num);
++        emit log_named_uint("den",den );
++        emit log_named_uint("pri",pri );
++
++
++        uint160 p = uint160(sqrt(pri));
++        emit log_named_uint("p",p );
++
++
++        int24 t = TickMath.getTickAtSqrtRatio(p);
++        if(t > 0){
++            emit log_named_uint("pos",helper_getAbsInt24(t) );
++        } else {
++            emit log_named_uint("neg",helper_getAbsInt24(t) );
++        }
+     }
+ 
+     function test_get_next_ticks() public {
+         (,,,,uint256 __threshold) = manager.position();
+         (int24 _nextLowerTick, int24 _nextUpperTick,) = manager.getNextTicks(__threshold);
+-        assertTrue(_nextLowerTick >= -887270 && _nextLowerTick <= 0);
+-        assertTrue(_nextUpperTick >= _nextLowerTick && _nextUpperTick <= 0);
++        helper_logTick(_nextLowerTick);
++        helper_logTick(_nextUpperTick);
++        assertTrue(_nextLowerTick >= -887220 && _nextLowerTick <= _nextUpperTick);
++        assertTrue(_nextUpperTick >= _nextLowerTick && _nextUpperTick <= 887220);
+     }
+ 
+     function test_get_token0_from_liquidity() public {
+

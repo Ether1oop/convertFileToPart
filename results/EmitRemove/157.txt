@@ -1,0 +1,20 @@
+@@ -259,18 +295,14 @@ library Shells {
+ 
+                 if (_prev / 1e14 == _next / 1e14) break;
+ 
+-                emit log_uint("end gas", gasleft());
+             }
+-                emit log_uint("end gas", gasleft());
+ 
+         }
+ 
+         shell.enforceHalts(_oGLiq, _nGLiq, _oBals, _nBals);
+ 
+         tAmt_ = tAmt_.mul(ONE.sub(shell.epsilon));
+ 
+-        return (tAmt_, psi_);
+-
+     }
+ 
+ 
+

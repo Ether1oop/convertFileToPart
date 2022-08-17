@@ -1,0 +1,15 @@
+@@ -540,10 +540,10 @@ contract baseGETNFT is Initializable, ContextUpgradeable {
+         tdata.scanned = false;
+         tdata.valid = true;
+         
+-        emit nftMinted(
+-            nftIndexM,
+-            destinationAddress
+-        );
++        // emit nftMinted(
++        //     nftIndexM,
++        //     destinationAddress
++        // );
+ 
+         return nftIndexM;
+     }

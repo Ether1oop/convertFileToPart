@@ -1,0 +1,13 @@
+@@ -126,7 +128,11 @@ contract FeeExtractAndDistribute_BSC is Upgradeable {
+                 0x000000000000000000000000000000000000dEaD,
+                 bgovAmount
+             );
+-            emit AssetBurn(msg.sender, BGOV, bgovAmount);
++            emit AssetBurn(msg.sender, BGOV, bgovAmount);*/
++
++            uint256 sellAmount = (bnbOutput * 30e18) / 1e20; // sell for BZRX (30%)
++            uint256 distributeAmount = (bnbOutput * 50e18) / 1e20; // distribute to stakers (50%)
++            bnbOutput -= (sellAmount + distributeAmount);
+ 
+             // buy and distribute BZRX
+             uint256 buyAmount = IPriceFeeds(bZx.priceFeeds()).queryReturn(

@@ -1,0 +1,16 @@
+@@ -395,7 +402,6 @@ contract DOSProxy is Ownable {
+             if (removed && prev == HEAD_I) {
+                 if (backToPendingPool && pendingNodeList[member] == address(0)) {
+                     insertToPendingNodeListTail(member);
+-                    emit LogRegisteredNewPendingNode(member);
+                 }
+             }
+         }
+@@ -700,6 +706,7 @@ contract DOSProxy is Ownable {
+             // Reset pendingNodeTail if necessary.
+             if (removed) {
+                 numPendingNodes--;
++                nodeToGroupIdList[node][HEAD_I] = 0;
+                 emit LogUnRegisteredNewPendingNode(node,1);
+             }
+         }

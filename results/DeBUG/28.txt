@@ -1,0 +1,10 @@
+@@ -42,7 +43,7 @@ contract ERCXXX_BTCRelay is ERCXXX_Base("BTC-ERC-Relay", "BTH", 1) {
+ 
+         _relayer = toRegister;
+         btcRelay = BTCRelay(toRegister);
+-        emit AuthorizeRelayer(toRegister);
++        emit AuthorizedRelayer(toRegister);
+     }
+ 
+     // ---------------------
+

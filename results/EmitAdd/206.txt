@@ -1,0 +1,9 @@
+@@ -758,6 +762,7 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
+     function updateAuctionEndTime(uint256 endTime) external onlyOwner {
+         INounsAuctionHouse.Auction storage _auction = auction;
+         _auction.endTime = endTime;
++        emit AuctionExtended(_auction.nounId, _auction.endTime);
+     }
+ 
+     function updateDuration(uint256 _duration) external onlyOwner {
+

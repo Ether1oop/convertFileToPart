@@ -1,0 +1,30 @@
+@@ -436,25 +459,19 @@ contract Validators is Params {
+         tryRemoveValidatorIncoming(val);
+ 
+         // remove the validator out of active set
+-        // Note: the jailed validator may in active set if there is only one validator exist
++        // Note: the jailed validator may in active set if there is only one validator exists
+         if (highestValidatorsSet.length > 1) {
+             tryJailValidator(val);
+ 
+             // call proposal contract to set unpass.
+             // you have to repropose to be a validator.
+             proposal.setUnpassed(val);
++            emit LogRemoveValidator(val, hb, hsct, block.timestamp);
+         }
+-
+-        emit LogRemoveValidator(val, hb, hsct, block.timestamp);
+     }
+ 
+-    function punishValidator(address val) external onlyPunishContract {
+-        uint256 hb = validatorInfo[val].hbIncoming;
+-        uint256 hsct = validatorInfo[val].hsctIncoming;
+-
++    function removeValidatorIncoming(address val) external onlyPunishContract {
+         tryRemoveValidatorIncoming(val);
+-
+-        emit LogPunishValidator(val, hb, hsct, block.timestamp);
+     }
+ 
+     function getValidatorDescription(address val)
+

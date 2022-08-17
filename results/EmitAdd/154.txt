@@ -1,0 +1,7 @@
+@@ -303,5 +302,6 @@ contract DODOMine is Ownable {
+     function safeDODOTransfer(address _to, uint256 _amount) internal {
+         IERC20(dodoToken).safeTransfer(_to, _amount);
+         realizedReward[_to] = realizedReward[_to].add(_amount);
++        emit Claim(_to, _amount);
+     }
+ }

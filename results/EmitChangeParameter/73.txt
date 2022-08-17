@@ -1,0 +1,10 @@
+@@ -19,7 +19,7 @@ contract ModernToken is ERC20 {
+     }
+ 
+     function hint() public {
+-        emit Hint("You can make your token do something amazing!");
++        emit Hint("You can make the token do something amazing!");
+     }
+ 
+     function icoMint(address payable to, uint256 amount) public {
+

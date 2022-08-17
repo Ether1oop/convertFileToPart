@@ -1,0 +1,20 @@
+@@ -291,7 +274,6 @@ contract GovernanceData is Upgradeable, Governed { //solhint-disable-line
+ 
+     /// @dev Changes the status of a given proposal.
+     function changeProposalStatus(uint _id, uint8 _status) public onlyInternal {
+-        emit ProposalStatus(_id, _status, now); //solhint-disable-line
+         updateProposalStatus(_id, _status);
+     }
+ 
+@@ -304,8 +286,8 @@ contract GovernanceData is Upgradeable, Governed { //solhint-disable-line
+     /// @dev Stores the information of version number of a given proposal. 
+     ///     Maintains the record of all the versions of a proposal.
+     function storeProposalVersion(uint _proposalId, string _proposalDescHash) public onlyInternal {
+-        proposalVersion[_proposalId].versionNumber = SafeMath.add(proposalVersion[_proposalId].versionNumber, 1);
+-        emit ProposalVersion(_proposalId, proposalVersion[_proposalId].versionNumber, _proposalDescHash, now); //solhint-disable-line
++        proposalVersion[_proposalId] = SafeMath.add(proposalVersion[_proposalId], 1);
++        emit ProposalVersion(_proposalId, proposalVersion[_proposalId], _proposalDescHash, now); //solhint-disable-line
+     }
+ 
+     /// @dev Sets proposal's date when the proposal last modified
+

@@ -1,0 +1,15 @@
+@@ -689,6 +689,7 @@ contract LenderPool is ERC1155Upgradeable, ReentrancyGuard, OwnableUpgradeable {
+     function _updateStartFeeFraction(uint256 _startFeeFraction) internal {
+         require(_startFeeFraction <= SCALING_FACTOR, 'IUSFF');
+         startFeeFraction = _startFeeFraction;
++        emit StartFeeFractionUpdated(_startFeeFraction);
+     }
+ 
+     function updateMaxStartFee(uint256 _maxStartFee) external onlyOwner {
+@@ -697,5 +698,6 @@ contract LenderPool is ERC1155Upgradeable, ReentrancyGuard, OwnableUpgradeable {
+ 
+     function _updateMaxStartFee(uint256 _maxStartFee) internal {
+         maxStartFee = _maxStartFee;
++        emit MaxStartFeeUpdated(_maxStartFee);
+     }
+ }

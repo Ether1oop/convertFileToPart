@@ -1,0 +1,24 @@
+@@ -240,19 +255,21 @@ contract ProxySafeCMTA20FDT is
+         _mint(replacement, originalBalance);
+         
+         emit LogReassigned(original, replacement, originalBalance);
++        emit Transfer(original, replacement, originalBalance);
+     }
+ 
+     /**
+      * @notice Purpose: to destroy issued tokens.
+      * Conditions: only issuer can execute this function.
+      * @param shareholders - list of shareholders
+     */
+-    function destroy(address[] calldata shareholders) external override onlyOwner {
++    function destroy(address[] calldata shareholders) external override whenNotPaused onlyOwner {
+         for (uint256 i = 0; i < shareholders.length; i++) {
+             require(shareholders[i] != owner(), "CM06");
+             uint256 shareholderBalance = balanceOf(shareholders[i]);
+             _burn(shareholders[i], balanceOf(shareholders[i]));
+             _mint(owner(), shareholderBalance);
++            emit Transfer(shareholders[i], owner(), shareholderBalance);
+         }
+         emit LogDestroyed(shareholders);
+     }
+

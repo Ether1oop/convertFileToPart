@@ -1,0 +1,51 @@
+@@ -61,6 +61,9 @@ contract PooledCreditLineTest is DSTest {
+     uint128 public constant maxBorrowRate = (10**18) * 200;
+     uint128 public constant minBorrowRate = 10**16;
+ 
++    uint256 public constant maxLenderAmount = 10e30;
++    uint256 public constant minLenderAmount = 10e18;
++
+     address public constant randomAddress = 0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF;
+ 
+     function setUp() public {
+@@ -197,7 +200,8 @@ contract PooledCreditLineTest is DSTest {
+         uint256 _gracePenalty,
+         uint256 _collectionPeriod,
+         uint128 _borrowLimit,
+-        uint128 _borrowRate
++        uint128 _borrowRate,
++        uint256 lender1Amount
+     ) public {
+         uint256 colRatio = minCollateralRatio + (_colRatio % (maxCollateralRatio - minCollateralRatio));
+         uint256 duration = (minCollateralRatio + (_duration % (maxDuration - minDuration))) * 1 days;
+@@ -213,6 +217,8 @@ contract PooledCreditLineTest is DSTest {
+         address borrowAsset = address(mockToken2);
+         bool areTokensTransferable = true;
+ 
++        lender1Amount = minLenderAmount + (lender1Amount % (maxLenderAmount - minLenderAmount));
++
+         IPooledCreditLineDeclarations.Request memory _request = _composeRequest(
+             colRatio,
+             duration,
+@@ -233,16 +239,17 @@ contract PooledCreditLineTest is DSTest {
+         uint256 creditLineId = pooledCreditLine.creditLineCounter();
+         IPooledCreditLineDeclarations.CreditLineStatus creditLineStatus = pooledCreditLine.getCreditLineStatus(creditLineId);
+         emit log_named_uint('creditLineId', creditLineId);
+-        emit log_named_uint("credutLineStatus", uint256(creditLineStatus));
+-
++        emit log_named_uint('credutLineStatus', uint256(creditLineStatus));
+ 
+         admin.transferToken(address(mockToken1), address(borrower), borrowLimit);
+         admin.transferToken(address(mockToken2), address(lender1), borrowLimit);
+         admin.transferToken(address(mockToken2), address(lender2), borrowLimit);
+         admin.transferToken(address(mockToken2), address(lender3), borrowLimit);
+ 
+-        borrower.approveToken(address(mockToken1), address(pooledCreditLine), borrowLimit);
+-        borrower.depositCollateralInPooledCreditLines(address(pooledCreditLine), creditLineId, borrowLimit, false);
++        // borrower.approveToken(address(mockToken1), address(pooledCreditLine), borrowLimit);
++        lender1.approveToken(address(mockToken2), address(lenderPool), lender1Amount);
++        lender1.lendFromLenderPool(address(lenderPool), creditLineId, lender1Amount);
++        // borrower.depositCollateralInPooledCreditLines(address(pooledCreditLine), creditLineId, borrowLimit, false);
+     }
+ 
+     function _composeRequest(

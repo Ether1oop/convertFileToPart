@@ -1,0 +1,18 @@
+@@ -308,13 +356,15 @@ contract DOSProxy is Ownable {
+         uint idx = dispatchJobCore(TrafficType.SystemRandom, uint(blockhash(block.number - 1)));
+         // TODO: keep id receipt and handle later in v2.0.
+         if (idx == UINTMAX) {
+-            emit LogError("No live working group, skipped random request");
++            emit LogError("No live working group, trigger bootstrap");
+             return;
+         }
++
+         lastUpdatedBlock = block.number;
+         lastHandledGroup = workingGroups[workingGroupIds[idx]];
+         // Signal off-chain clients
+         emit LogUpdateRandom(lastRandomness, lastHandledGroup.groupId);
++        DOSPaymentInterface(addressBridge.getPaymentAddress()).chargeServiceFee(proxyFundsAddr,lastRandomness,uint(TrafficType.SystemRandom));
+     }
+ 
+     function insertToPendingGroupListTail(uint groupId) private {
+

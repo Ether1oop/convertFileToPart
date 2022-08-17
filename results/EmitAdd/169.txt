@@ -1,0 +1,9 @@
+@@ -446,7 +420,7 @@ contract TwoKeyCongress is Ownable, TokenRecipient {
+ 
+     /// @notice Fallback function
+     function () payable public {
+-
++        emit ReceivedEther(msg.sender, msg.value);
+     }
+ 
+     /// @notice Getter for maximum voting power

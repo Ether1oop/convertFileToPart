@@ -1,0 +1,14 @@
+@@ -493,12 +502,6 @@ contract SpaceTest is Test {
+             expectedFeesPaid += feeOnYield;
+         }
+ 
+-        emit log_named_uint(
+-            "expectedFeesPaid",
+-            (expectedFeesPaid * 0.1e18) / 1e18
+-        );
+-        return;
+-
+         // No additional BPT shares are minted for the controller until somebody joins or exits
+         assertEq(
+             space.balanceOf(address(protocolFeesCollector)),
+

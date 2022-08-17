@@ -1,0 +1,8 @@
+@@ -166,7 +171,6 @@ contract RollCallVoter_State is RollCallVoterSetup {
+         );
+ 
+         voter.finalize(address(governor), 1, 1e6);
+-        emit log_uint(uint256(IRollCallVoter.ProposalState.Finalized));
+         assertEq(
+             uint256(voter.state(address(governor), 1)),
+             uint256(IRollCallVoter.ProposalState.Finalized)

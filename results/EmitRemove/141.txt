@@ -1,0 +1,25 @@
+@@ -536,19 +526,18 @@ contract GebUniswapV3LiquidityManagerTest is DSTest {
+ 
+         // Withdraw half of the liquidity
+         (uint256 bal0, uint256 bal1) = u1.doWithdraw(uint128(liq / 2));
+-        emit log_named_uint("bal0", liq / 2);
+-        emit log_named_uint("bal1", manager.balanceOf(address(u1)));
+-        assertTrue(manager.balanceOf(address(u1))== liq / 2);
++        
++        helper_assert_is_close(manager.balanceOf(address(u1)), liq / 2);
+ 
+         (uint128 _li2, , , , ) = pool.positions(inti_id);
+         emit log_named_uint("_li2", _li2);
+         emit log_named_uint("_li / 2", _li / 2);
+-        assertTrue(_li2== _li / 2);
++        helper_assert_is_close(_li2, liq / _li);
+ 
+         (bytes32 end_id, , , uint128 end_uniLiquidity,) = manager.position();
+         emit log_named_uint("inti_uniLiquidity", inti_uniLiquidity / 2);
+         emit log_named_uint("end_uniLiquidity", end_uniLiquidity);
+-        assertTrue(end_uniLiquidity == inti_uniLiquidity / 2);
++        helper_assert_is_close(end_uniLiquidity, inti_uniLiquidity / 2);
+     }
+ 
+     function testFail_withdrawing_zero_liq() public {
+

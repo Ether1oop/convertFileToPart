@@ -1,0 +1,17 @@
+@@ -143,6 +147,7 @@ contract Rent is Owner {
+         //checks rent is ended
+         require(isRentEnded(itemID) == true, "Rent not ended");
+         _endRentAndWithdraw(itemID);
++        emit EndRent(itemID);
+     }
+ 
+     //calls by renter for take back feed deposit
+@@ -152,6 +157,7 @@ contract Rent is Owner {
+         require(isRentEnded(itemID) == true, "Rent not ended");
+         require(msg.sender == marketItems[itemID].cardRenter, "You not renter");
+         _endRentAndWithdraw(itemID);
++        emit EndRent(itemID);
+     }
+ 
+     function _endRentAndWithdraw(uint256 _itemID) private {
+

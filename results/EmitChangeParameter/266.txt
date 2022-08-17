@@ -1,0 +1,16 @@
+@@ -956,11 +792,11 @@ contract ArbitrableAddressList is PermissionInterface, Arbitrable {
+      */
+     function changeMetaEvidence(string _registrationMetaEvidence, string _clearingMetaEvidence) external onlyGovernor {
+         metaEvidenceUpdates++;
+-        emit MetaEvidence(metaEvidenceUpdates, _registrationMetaEvidence);
+-        emit MetaEvidence(metaEvidenceUpdates + 1, _clearingMetaEvidence);
++        emit MetaEvidence(2 * metaEvidenceUpdates, _registrationMetaEvidence);
++        emit MetaEvidence(2 * metaEvidenceUpdates + 1, _clearingMetaEvidence);
+     }
+ 
+-    /* Public Views */
++    /* Views */
+ 
+     /** @dev Return true if the address is on the registry.
+      *  @param _value The address to be queried.
+

@@ -1,0 +1,14 @@
+https://github.com/Rari-Capital/vaults/commit/321784bd591ef85ae54988c9fb350cb5e2664c98/src/Vaults.t.sol
+https://github.com/cowri/shell-solidity-v1/commit/298e348ea8e354038020e7224d8672baa0194e4b/src/adapters/local/localCUsdcAdapter.sol
+https://github.com/centrifuge/tinlake/commit/d9632f004b560e3ccf4ce923747a9b73d09d3c56/src/lender/test/coordinator-base.t.sol
+https://github.com/cowri/shell-solidity-v1/commit/8ec71c181c49084b66a19cb2d4f75ab74e27fa98/src/adapters/chai.sol
+https://github.com/cartesi/machine-solidity-step/commit/0641165e1f927a8244516cffb26c0114bd5f6554/contracts/Execute.sol
+https://github.com/bokkypoobah/BokkyPooBahsRedBlackTreeLibrary/commit/5d7529c980935e316aafb3f11d62745eccc32509/contracts/TestBokkyPoobahsRedBlackTreeRaw.sol
+https://github.com/bokkypoobah/BokkyPooBahsRedBlackTreeLibrary/commit/5d7529c980935e316aafb3f11d62745eccc32509/test/TestBokkyPoobahsRedBlackTreeRaw.sol
+https://github.com/cowri/shell-solidity-v1/commit/b5c049a74e3cd71637f196330f2b6ca7a7f30918/src/LoihiRoot.sol
+https://github.com/cowri/shell-solidity-v1/commit/c95951bf98d20a895565afad739a8e693b6d3f50/src/testLoihi/selectiveWithdraw/testUnbalancedSelectiveWithdraw.t.sol
+https://github.com/fiatdao/delphi/commit/56cbe64557cbda6598a81d83fd5700ecaa8ce0d7/src/oracle_implementations/discount_rate/ElementFi/ElementFiValueProvider.sol
+https://github.com/ogDAO/Optino/commit/c7bb2ba5606871c938d34fa99434403889f2bda7/contracts/OptinoFactory.sol
+https://github.com/ogDAO/Optino/commit/c7bb2ba5606871c938d34fa99434403889f2bda7/test/OptinoFactory_flattened.sol
+https://github.com/reflexer-labs/geb-safe-saviours/commit/1412815e010d13a2038b1e299e9fdb86c64666af/src/saviours/CompoundSystemCoinSafeSaviour.sol
+https://github.com/centrifuge/tinlake-maker-lib/commit/9fec6b6857aeedae337c02bee0c1023956a8273c/src/test/mocks/tinlake/operator.sol

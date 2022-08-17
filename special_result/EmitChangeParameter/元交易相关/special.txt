@@ -1,0 +1,4 @@
+https://github.com/tatumio/smart-contracts/commit/90058040f0a9cc0a5b95742b8259bb5858e31003/contracts/access/AccessControl.sol
+https://github.com/teller-protocol/teller-protocol-v1/commit/cc56e2954ab13e5217a9333ccf8edf96ecd96236/contracts/lending/ttoken/strategies/compound/TTokenCompoundStrategy_1.sol
+https://github.com/NFT-Worlds/NFT-Worlds-Staking-Rental-Contract/commit/b6310daa5285969abeacfe0f654e3a3a37a35fbd/src/NFTWEscrow.sol
+https://github.com/teller-protocol/teller-protocol-v1/commit/a38bddaf2fc3dd95098fe0ea73218dc8fcc9109e/contracts/lending/ttoken/strategies/compound/TTokenCompoundStrategy_1.sol

@@ -1,0 +1,18 @@
+@@ -729,7 +736,7 @@ contract ArbitrableTokenList is PermissionInterface, Arbitrable {
+ 
+         emit TokenStatusChange(
+             request.parties[uint(Party.Requester)],
+-            request.parties[uint(Party.Challenger)],
++            address(0x0),
+             _tokenID,
+             token.status,
+             false,
+@@ -887,7 +894,7 @@ contract ArbitrableTokenList is PermissionInterface, Arbitrable {
+         require(request.disputed, "The request is not disputed.");
+         require(!request.resolved, "The dispute was resolved.");
+ 
+-        emit Evidence(arbitrator, request.disputeID, msg.sender, _evidence);
++        emit Evidence(request.arbitrator, request.disputeID, msg.sender, _evidence);
+     }
+ 
+     // ************************ //

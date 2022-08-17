@@ -1,0 +1,36 @@
+@@ -479,23 +475,32 @@ contract Loan is ILoan, BasicFundsTokenFDT, Pausable {
+         @dev It emits a `BalanceUpdated` event.
+      */
+     function _emitBalanceUpdateEventForLoan() internal {
+-        emit BalanceUpdated(address(this), address(liquidityAsset), liquidityAsset.balanceOf(address(this)));
++        emit BalanceUpdated(address(this), liquidityAsset, IERC20(liquidityAsset).balanceOf(address(this)));
+     }
+ 
+     /**
+         @dev Emits a `BalanceUpdated` event for the FundingLocker.
+         @dev It emits a `BalanceUpdated` event.
+      */
+     function _emitBalanceUpdateEventForFundingLocker() internal {
+-        emit BalanceUpdated(fundingLocker, address(liquidityAsset), _getFundingLockerBalance());
++        emit BalanceUpdated(fundingLocker, liquidityAsset, _getFundingLockerBalance());
+     }
+ 
+     /**
+         @dev Emits a `BalanceUpdated` event for the CollateralLocker.
+         @dev It emits a `BalanceUpdated` event.
+      */
+     function _emitBalanceUpdateEventForCollateralLocker() internal {
+-        emit BalanceUpdated(collateralLocker, address(collateralAsset), _getCollateralLockerBalance());
++        emit BalanceUpdated(collateralLocker, collateralAsset, _getCollateralLockerBalance());
++    }
++
++    function _msgSender() internal view override(PauseableContext, ERC20Context) returns (address payable) {
++        return msg.sender;
++    }
++
++    function _msgData() internal view override(PauseableContext, ERC20Context) returns (bytes memory) {
++        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
++        return msg.data;
+     }
+ 
+ }

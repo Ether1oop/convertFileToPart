@@ -1,0 +1,41 @@
+@@ -1,4 +1,5 @@
+ // addresses name - address, asset, resolver, moatkyber, moatmaker, admin
++// I guess, only keep admin and owner
+ 
+ pragma solidity ^0.4.24;
+ 
+@@ -24,11 +25,18 @@ contract AddressRegistry {
+ }
+ 
+ 
+-contract ManageRegistry is AddressRegistry {
++contract ManageGovernors is AddressRegistry {
+ 
+     using SafeMath for uint;
+     using SafeMath for uint256;
+ 
++    // set governors function goes here with logics
++
++}
++
++
++contract ManageRegistry is ManageGovernors {
++
+     address public pendingAdmin;
+     uint public pendingTime;
+ 
+@@ -45,6 +53,7 @@ contract ManageRegistry is AddressRegistry {
+             );
+             pendingAdmin = newAddr;
+             pendingTime = block.timestamp.add(24 * 60 * 60); // adding 24 hours
++            emit AddressChanged(name, newAddr);
+         } else {
+             require(
+                 msg.sender == getAddr("admin"),
+@@ -88,4 +97,4 @@ contract InitRegistry is ManageResolvers {
+         registry[keccak256(abi.encodePacked("admin"))] = msg.sender;
+     }
+ 
+-}
++}
+\ No newline at end of file

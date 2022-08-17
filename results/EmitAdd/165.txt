@@ -1,0 +1,61 @@
+@@ -216,35 +227,46 @@ contract UNIV2LPOracle {
+ 
+         (uint112 _reserve0, uint112 _reserve1, uint32 _blockTimestampLast) = UniswapV2PairLike(src).getReserves();  //pull reserves
+         require(_blockTimestampLast == block.timestamp);
++        emit Debug(0, _reserve0);
++        emit Debug(1, _reserve1);
++
++        // adjust reserves w/ respect to decimals 
++        if (token0Decimals != uint8(18)) {
++            _reserve0 = uint112(_reserve0 * 10 ** sub(18, token0Decimals));
++        }
++        if (token1Decimals != uint8(18)) {
++            _reserve1 = uint112(_reserve1 * 10 ** sub(18, token1Decimals));
++        }
++        
++        emit Debug(10, _reserve0);
++        emit Debug(11, _reserve1);
+ 
+-        emit Debug(11, _reserve0);
+-        emit Debug(12, _reserve1);
+         uint k = mul(_reserve0, _reserve1);                 // Calculate constant product invariant k (WAD * WAD)
+-        emit Debug(1, k);
++        emit Debug(2, k);
+ 
+         // All Oracle prices are priced with 18 decimals against USD
+         uint token0Price = OracleLike(token0Oracle).read(); // Query token0 price from oracle (WAD)
+-        emit Debug(2, token0Price);
++        emit Debug(3, token0Price);
+         uint token1Price = OracleLike(token1Oracle).read(); // Query token1 price from oracle (WAD)
+-        emit Debug(3, token1Price);
++        emit Debug(4, token1Price);
+ 
+         // TODO: Use priceCumulativeLast in place of p_y / p_x from external oracles for better accuracy when calculating balances
+         // formula: (py / px) = (priceCumulativeLast2 - priceCumulativeLast1) / (t2 - t1)
+         //^^^ this requires we track priceCumulativeLast in storage for future ref point
+-        emit Debug(4, wdiv(token1Price, token0Price));
+-        uint balToken0 = sqrt(wmul(k, wdiv(token1Price, token0Price)));  // Get token0 balance (WAD)
+-        emit Debug(5, balToken0);
+-        uint balToken1 = wdiv(k, balToken0) / WAD;                       // Get token1 balance; gas-savings
+-        emit Debug(6, balToken1);
++        emit Debug(5, wdiv(token1Price, token0Price));
++        uint normReserve0 = sqrt(wmul(k, wdiv(token1Price, token0Price)));  // Get token0 balance (WAD)
++        emit Debug(20, normReserve0);
++        uint normReserve1 = wdiv(k, normReserve0) / WAD;                    // Get token1 balance; gas-savings
++        emit Debug(21, normReserve1);
+ 
+-        uint lpTokenSupply = ERC20Like(src).totalSupply();               // Get LP token supply
+-        emit Debug(7, lpTokenSupply);
++        uint lpTokenSupply = ERC20Like(src).totalSupply();                  // Get LP token supply
++        emit Debug(8, lpTokenSupply);
+ 
+         lpTokenPrice_ = uint128(
+             wdiv(
+                 add(
+-                    wmul(balToken0, token0Price), // (WAD)
+-                    wmul(balToken1, token1Price)  // (WAD)
++                    wmul(normReserve0, token0Price), // (WAD)
++                    wmul(normReserve1, token1Price)  // (WAD)
+                 ), 
+                 lpTokenSupply // (WAD)
+             )

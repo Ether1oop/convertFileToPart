@@ -1,0 +1,18 @@
+@@ -331,7 +358,6 @@ contract MettalexContract {
+             "arbitration price must be within contract bounds"
+         );
+         PRICE_SPOT = price;
+-        emit UpdatedLastPrice(price);
+         // Deal with trade at settlement orders
+         // For each settlement event we store the total amount of position tokens crossed
+         // and the total value of the long and short positions 
+@@ -361,8 +387,8 @@ contract MettalexContract {
+             IMintable short = IMintable(SHORT_POSITION_TOKEN);
+             long.burn(address(this), settled);
+             short.burn(address(this), settled);
+-            emit ContractSettled(price);
+         }
++        emit UpdatedLastPrice(price);
+     }
+ 
+     function settleContract(uint finalSettlementPrice)

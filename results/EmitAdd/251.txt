@@ -1,0 +1,17 @@
+@@ -306,13 +329,14 @@ contract RingCTToken is RingCTTxVerifyInterface, ECMathInterface, BulletproofVer
+             if (known_commitments[j].timeout_block < block.number) {
+                 //Clear commitment
+                 known_commitments[j] = KC_Data(0);
++                emit PCExpiredEvent(j);
+                 numCleared++;
+             }
+         }
+         
+         //Redeem bounties
+         if (numCleared > 0) {
+-            dai.transferFrom(this, msg.sender, SafeMath.mul(numCleared, KC_STATECLEAR_BOUNTY));
++            dai.transfer(msg.sender, DSMath.mul(numCleared, KC_STATECLEAR_BOUNTY));
+         }
+     }
+ }
+\ No newline at end of file

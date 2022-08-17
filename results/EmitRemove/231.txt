@@ -1,0 +1,79 @@
+@@ -114,21 +114,7 @@ contract CreditLineTest is TestUtils, Scenarios {
+         uint256 borrow = Math.min(borrowLimit, borrowableCalc);
+         borrowableAmount = creditLine.calculateBorrowableAmount(creditLineId);
+         assertEq(borrow,borrowableAmount);
+-        emit log_named_uint("borrow",borrow);
+-
+-        if(borrow == 0) {
+-            // To increase the borrowable amount add more collateral in the creditline
+-            IWETH9(Constants.WETH).deposit{value: amount}();
+-            Constants.weth.safeTransfer(CLBorrower, amount);
+-            creditLineBorrower.setAllowance(CLAddress, Constants.WETH, amount);
+-
+-            creditLineBorrower.addCollateral(CLAddress, creditLineId, amount, false);
+-            if(collateralRatio != 0) {
+-                borrowableCalc = amount.mul(_ratioOfPrices).div(collateralRatio).mul(SCALING_FACTOR).div(10**_decimals);
+-            }
+-            borrow = Math.min(borrowLimit, borrowableCalc);
+-            emit log_named_uint("borrow after adding more collateral",borrow);
+-        }
++        // emit log_named_uint("borrow",borrow);
+ 
+         if(borrow > 0) { // Cannot deposit zero amount
+             // Adding tokens to lender and depositing to lender's savings Account
+@@ -142,14 +128,12 @@ contract CreditLineTest is TestUtils, Scenarios {
+         }
+ 
+         // Checking balances
+-        uint256 protocolFee = borrow.mul(protocolFee).div(SCALING_FACTOR);
+-        // uint256 expectedAmount = borrow.sub(protocolFee);
+-
++        // protocolFeeCharged = borrow.mul(protocolFee).div(SCALING_FACTOR);
+         uint256 borrowerBalance = Constants.dai.balanceOf(CLBorrower);
+-        assertEq(borrow.sub(protocolFee), borrowerBalance);
++        assertEq(borrow.sub(borrow.mul(protocolFee).div(SCALING_FACTOR)), borrowerBalance);
+ 
+         uint256 feeCollectorBalance = Constants.dai.balanceOf(address(protocolFeeCollector));
+-        assertEq(feeCollectorBalance, protocolFee);
++        assertEq(feeCollectorBalance, borrow.mul(protocolFee).div(SCALING_FACTOR));
+ 
+         // Variable updates
+         (, uint256 principal, , uint256 lastPrincipalUpdateTime, ) = creditLine.creditLineVariables(creditLineId);
+@@ -159,21 +143,24 @@ contract CreditLineTest is TestUtils, Scenarios {
+ 
+         hevm.warp(block.timestamp + timeElapsed); //Travelling 10 days 
+         uint256 calculatedInterest = principal.mul(borrowRate).mul(timeElapsed).div(SCALING_FACTOR).div(YEAR_IN_SECONDS);
+-        uint256 actualInterest = creditLine.calculateInterestAccrued(creditLineId);
+-        assertEq(actualInterest, calculatedInterest);
+-    }
++        assertEq(creditLine.calculateInterestAccrued(creditLineId), calculatedInterest);
++
++        mint(Constants.DAI, CLBorrower, principal.add(calculatedInterest));
++        creditLineBorrower.setAllowance(CLAddress, Constants.DAI, principal.add(calculatedInterest));
+ 
+-    // function test_ScaleToRange() public {
+-    //     uint256 value1 = 2**93;
+-    //     uint256 value2 = 1e30;
++        creditLineBorrower.repay(CLAddress, creditLineId, principal.add(calculatedInterest));
+ 
+-    //     require(value2 >= value1, 'ScaleToRange: value1 is greater');
+-    //     emit log_named_uint("value1",value1);
+-    //     emit log_named_uint("value2",value2);
+-    // }
++        // Checking for variable updates
++        (, uint256 principalAfter, , , ) = creditLine
++            .creditLineVariables(creditLineId);
+ 
+-    function scaleToRange(uint256 value, uint256 min, uint256 max) internal returns(uint128) {
+-        require(max != 0 && max >= min, "wrong input");
+-        return uint128(min + ((value*(max - min))/2**128));
++        // Full creditline repaid, so all variables are reset
++        assertEq(principalAfter, 0);
++
++        creditLineBorrower.close(CLAddress, creditLineId);
++        assertEq(Constants.weth.balanceOf(CLBorrower), amount);
++
++        status = uint256(creditLine.getCreditLineStatus(creditLineId));
++        assertEq(status, 0); // Checking if creditLine status is updated to ACTIVE
+     }
+ }

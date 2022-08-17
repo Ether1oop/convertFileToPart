@@ -1,0 +1,10 @@
+@@ -200,9 +198,7 @@ contract ShellGovernance is DSMath, CowriState {
+     function getTotalShellCapital(address shell) public  returns (uint) {
+ 
+         address[] memory tokens = Shell(shell).getTokenAddresses();
+-        emit log_addr_arr("erc20s", tokens);
+         uint256 totalCapital;
+-        emit log_named_uint("totes cap",totalCapital);
+         for (uint i = 0; i < tokens.length; i++) {
+             totalCapital = add(totalCapital, shells[shell][address(tokens[i])]);
+         }

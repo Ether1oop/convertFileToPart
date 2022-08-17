@@ -1,0 +1,18 @@
+@@ -209,7 +209,7 @@ contract RelayManagerETH is Pausable, AccessControl, ReentrancyGuard {
+         // Lock tokens
+         ido.safeTransferFrom(sender, address(this), amount);
+ 
+-        emit Deposited(sender, receiver, toChainId, amount, ++nonces[sender]);
++        emit Deposited(sender, receiver, toChainId, amount, nonces[sender]++);
+     }
+ 
+     /**
+@@ -229,7 +229,7 @@ contract RelayManagerETH is Pausable, AccessControl, ReentrancyGuard {
+         // Lock tokens
+         ido.safeTransferFrom(sender, address(this), amount);
+ 
+-        emit Deposited(sender, receiver, toChainId, amount, ++nonces[sender]);
++        emit Deposited(sender, receiver, toChainId, amount, nonces[sender]++);
+     }
+ 
+     /**

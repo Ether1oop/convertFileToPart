@@ -1,0 +1,10 @@
+@@ -147,7 +134,7 @@ contract SyscoinSuperblocks is Initializable, SyscoinSuperblocksI, SyscoinErrorC
+ 
+         SuperblockInfo storage parent = superblocks[_parentId];
+         if (parent.status != Status.SemiApproved && parent.status != Status.Approved) {
+-            emit ErrorSuperblock(bytes32(0), ERR_SUPERBLOCK_BAD_PARENT);
++            emit ErrorSuperblock(_parentId, uint(parent.status));
+             return (ERR_SUPERBLOCK_BAD_PARENT, 0);
+         }
+ 
+

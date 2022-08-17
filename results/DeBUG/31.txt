@@ -1,0 +1,10 @@
+@@ -51,7 +68,7 @@ contract ERCXXX_SGXRelay is ERCXXX_SGX("BTC-ERC-Relay", "BTH", 1), ERCXXX_SGXRel
+         require(!relayer[msg.sender]);
+ 
+         relayer[toRegister] = true;
+-        emit AuthorizeRelayer(msg.sender, data);
++        emit AuthorizeRelayer(toRegister, data);
+     }
+ 
+     function revokeRelayer(address toUnlist, bytes data) public {
+

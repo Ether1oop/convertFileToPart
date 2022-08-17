@@ -1,0 +1,13 @@
+https://github.com/mangrovedao/mangrove/commit/613f5da07ba18dbd2918bef5807b64b68a3a9fd4/packages/mangrove-solidity/contracts/Strategies/OfferLogics/MultiUsers/MultiUser.sol
+https://github.com/deri-protocol/deriprotocol-v2/commit/d2e7490421c8f7b6887c93a80a437e3dc763ff5f/contracts/token/PTokenOption.sol
+https://github.com/OokiTrade/contractsV2/commit/c2aba5aa1f4cd13e4380c10c7b8d65790f04c749/contracts/connectors/loantoken/LoanTokenLogicStandard.sol
+https://github.com/pendle-finance/pendle-core/commit/6f73b477b5a116bfba422cc0334edbeb5674a286/contracts/core/PendleCompoundForge.sol
+https://github.com/enjin/erc-1155/commit/de9aa5ac16680ad5b1879d56ac795786e02d6fd2/contracts/ERC1155NonFungible.sol
+https://github.com/mangrovedao/mangrove/commit/bda9e4c515e2ee0f9b53a9b7b57f8e67a01a4f2f/packages/mangrove-solidity/contracts/Tests/MakerOperations.sol
+https://github.com/thirdweb-dev/contracts/commit/28334777f9b4d12df7cbdcbf040d1636b3f94af6/contracts/Pack.sol
+https://github.com/kleros/kleros-interaction/commit/4130f7694c0c832df6e6a47e9ebfe9dc31eb06c1/contracts/standard/arbitration/MultipleArbitrableTokenTransaction.sol
+https://github.com/pendle-finance/pendle-core/commit/e34fb3a8b164cb1cbde56f057d6be1d8d4428603/contracts/core/PendleForgeBase.sol
+https://github.com/kleros/kleros-interaction/commit/99ceb9f7d59d6e5acb61c2188c37d0dfc649aed8/contracts/standard/arbitration/AppealableArbitrator.sol
+https://github.com/crossclaim/xclaim-sol/commit/b368f91d589dcabceb4dd703fe061991e2343f23/contracts/impl/ERCXXX_SGX.sol
+https://github.com/somish/govblocks-protocol/commit/8fe3244e4ec41404660e35369d1d3ee849127fe1/contracts/TokenProxy.sol
+https://github.com/fei-protocol/xTRIBE/commit/cc6f6289c04b89d9e94fd1da6dce4961a8a32c8b/src/xTRIBE.sol

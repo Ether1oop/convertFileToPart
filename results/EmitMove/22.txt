@@ -1,0 +1,12 @@
+@@ -228,8 +226,8 @@ contract BorrowTasks is RepayLoan {
+         require(nextOwner != 0, "Invalid Address.");
+         MakerCDP loanMaster = MakerCDP(cdpAddr);
+         loanMaster.give(cdps[msg.sender], nextOwner);
+-        emit TranferCDP(cdps[msg.sender], msg.sender, nextOwner);
+         cdps[msg.sender] = blankCDP;
++        emit TranferCDP(cdps[msg.sender], msg.sender, nextOwner);
+     }
+ 
+     function getETHRate() public view returns (uint) {
+
+\ No newline at end of file

@@ -1,0 +1,7 @@
+https://github.com/Clipto-Platform/clipto/commit/a077f8c6174e068cc57f4b607a175b38e69bb0e4/src/CliptoExchange.sol
+https://github.com/slim12kg/protofire-continous-token-task/commit/2d548e7d73ba79fae98017f5f75ca269f3ac8f98/contracts/ContinousToken.sol
+https://github.com/sushiswap/miso/commit/1166827d13836b7bd8e9949a7e2313de594d3b6c/contracts/Access/MISOAccessFactory.sol
+https://github.com/thirdweb-dev/contracts/commit/6387811b55db9d359d91804207e3c956b29e3c3b/contracts/TWRegistry.sol
+https://github.com/artistic709/ImpermanentGain/commit/e61d05ab221027795bbabfef79739e0fdace05ba/ImpermanentGain.sol
+https://github.com/syscoin/sysethereum-contracts/commit/53c98cd9b82b0a7e878b76787d77f6739c578227/contracts/SyscoinBattleManager.sol
+https://github.com/DAOPlayMarket/PlayMarket-2.0-Contracts/commit/0bed6f75724f55f57901b7c414fedf5a5c21372d/src/platform/storage/logStorage.sol

@@ -1,0 +1,23 @@
+@@ -33,19 +33,16 @@ contract PrincipalBorrowTest is BaseSystemTest {
+         invest(defaultAmount);
+         hevm.warp(now + 1 days);
+         coordinator.closeEpoch();
+-        emit log_named_uint("reserve", reserve.totalBalance());
+     }
+ 
+-    function borrow(uint loanId, uint tokenId, uint amount) public {
++    function borrow(uint loanId, uint tokenId, uint amount, uint fixedFee) public {
+         uint initialTotalBalance = shelf.balance();
+         uint initialLoanBalance = shelf.balances(loanId);
+         uint initialLoanDebt = pile.debt(loanId);
+-        emit log_named_uint("debt", pile.debt(loanId));
+         uint initialCeiling = nftFeed.ceiling(loanId);
+-        emit log_named_uint("ceiling", nftFeed.ceiling(loanId));
+ 
+         borrower.borrow(loanId, amount);
+-        assertPostCondition(loanId, tokenId, amount, initialTotalBalance, initialLoanBalance, initialLoanDebt, initialCeiling);
++        assertPostCondition(loanId, tokenId, amount, fixedFee, initialTotalBalance, initialLoanBalance, initialLoanDebt, initialCeiling);
+     }
+ 
+     function assertPreCondition(uint loanId, uint tokenId, uint amount) public {
+

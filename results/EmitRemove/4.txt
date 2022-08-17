@@ -1,0 +1,19 @@
+@@ -251,17 +353,6 @@ abstract contract Pool {
+             _setReceiver(sender, updatedReceivers[i].receiver, updatedReceivers[i].weight);
+         }
+         _startSending(sender, updates);
+-
+-        emit SenderUpdated(senderAddr, sender.startBalance, sender.amtPerSec);
+-        for (uint256 i = 0; i < updates.length; i++) {
+-            StreamUpdate memory update = updates.updates[i];
+-            emit SenderToReceiverUpdated(
+-                senderAddr,
+-                update.receiver,
+-                update.amtPerSec,
+-                update.endTime
+-            );
+-        }
+     }
+ 
+     /// @notice Adds the given amount to the senders balance of the user.
+
