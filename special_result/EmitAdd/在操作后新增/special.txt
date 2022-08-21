@@ -27,3 +27,6 @@ https://github.com/mudgen/governance-token-diamond/commit/056eff875cc030af40712a
 https://github.com/ovnstable/ovnstable-app/commit/6e941b7bb43cc6d0e08565700869447ce71cf5cb/contracts/strategies/StrategyQsMaiUsdt.sol
 https://github.com/ovnstable/ovnstable-app/commit/6e941b7bb43cc6d0e08565700869447ce71cf5cb/contracts/strategies/StrategyCurve.sol
 https://github.com/primitivefinance/v1-connectors/commit/e54e2e29cc849af41d25d0c1d37e9d819fa89f22/contracts/connectors/PrimitiveLiquidity.sol
+https://github.com/sublime-finance/sublime-v1/commit/2acfb473cd8a88fce405be5d11e6b6b0da23035f/contracts/PooledCreditLine/LenderPool.sol
+https://github.com/KMPARDS/esn-contracts/commit/97b7ab6e0b8a7667042360c068c0aec68f7bbb72/contracts/ESN/Dayswappers/DayswappersWithMigration.sol
+https://github.com/Fantom-foundation/Artion-Contracts/commit/ec65c9b8787b9de65f57d5a9add083ef66285d78/contracts/FantomTokenRegistry.sol

@@ -8,3 +8,8 @@ https://github.com/ClementWalter/gas-benchmark/commit/2fd71b5e6ecb64ec9153c0fb27
 https://github.com/LlamaPay/llamapay/commit/6cf16f7e00486bfd02af37738eae36417d8cf370/contracts/LlamaPay.sol
 https://github.com/ciaranmcveigh5/ethernaut-x-foundry/commit/73843b989d2dea33b6094bb713a188ded58eaedf/src/test/AlienCodex.t.sol
 https://github.com/steakbankfinance/steakbank-contract/commit/7d45b40f85b6387493f348d681226ba88c4c8008/contracts/SBF.sol
+https://github.com/deusfinance/staking-contracts/commit/11b25a10de4672f5e9fb847204ae11ffa9ec9ef1/ERC20.sol
+https://github.com/deusfinance/staking-contracts/commit/11b25a10de4672f5e9fb847204ae11ffa9ec9ef1/ERC20.sol
+https://github.com/ClementWalter/gas-benchmark/commit/2fd71b5e6ecb64ec9153c0fb271da2d13af4bbae/contracts/tokens/ERC721.sol
+https://github.com/ClementWalter/gas-benchmark/commit/2fd71b5e6ecb64ec9153c0fb271da2d13af4bbae/contracts/tokens/ERC721.sol
+https://github.com/LlamaPay/llamapay/commit/6cf16f7e00486bfd02af37738eae36417d8cf370/contracts/LlamaPay.sol

@@ -14,3 +14,6 @@ https://github.com/spartan-protocol/spartanswap-contracts/commit/ec4bbd5a02aa2c4
 https://github.com/2key/contracts/commit/463f5e62b726f1dc30d0f9a5252f3d1f068ba7df/contracts/2key/acquisition-campaign-contracts/TwoKeyAcquisitionCampaignERC20.sol
 https://github.com/spartan-protocol/spartanswap-contracts/commit/c86eb503ddffc791a0e89989d7c4b70ecb8aee33/contracts/poolFactory.sol
 https://github.com/volt-protocol/volt-protocol-core/commit/2f6c23604c3b39c6c44f0f468b8c5064a2ec6c5f/contracts/pcv/PCVSwapperUniswap.sol
+https://github.com/provable-things/ethereum-examples/commit/869d193ebcc89fb383383c3f0978ffe18fe39b31/solidity/truffle-examples/random-datasource/contracts/RandomExample.sol
+https://github.com/Dexaran/ERC223-token-standard/commit/84abaf61c0ecb1976372d2bffbdf5d86731ee98e/token/ERC223/ERC223.sol
+https://github.com/spartan-protocol/spartanswap-contracts/commit/c86eb503ddffc791a0e89989d7c4b70ecb8aee33/contracts/poolFactory.sol

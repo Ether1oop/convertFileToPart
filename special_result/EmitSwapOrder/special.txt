@@ -5,3 +5,10 @@ https://github.com/thirdweb-dev/contracts/commit/6387811b55db9d359d91804207e3c95
 https://github.com/artistic709/ImpermanentGain/commit/e61d05ab221027795bbabfef79739e0fdace05ba/ImpermanentGain.sol
 https://github.com/syscoin/sysethereum-contracts/commit/53c98cd9b82b0a7e878b76787d77f6739c578227/contracts/SyscoinBattleManager.sol
 https://github.com/DAOPlayMarket/PlayMarket-2.0-Contracts/commit/0bed6f75724f55f57901b7c414fedf5a5c21372d/src/platform/storage/logStorage.sol
+https://github.com/thirdweb-dev/contracts/commit/6387811b55db9d359d91804207e3c956b29e3c3b/contracts/TWRegistry.sol
+https://github.com/artistic709/ImpermanentGain/commit/e61d05ab221027795bbabfef79739e0fdace05ba/ImpermanentGain.sol
+https://github.com/artistic709/ImpermanentGain/commit/e61d05ab221027795bbabfef79739e0fdace05ba/ImpermanentGain.sol
+https://github.com/artistic709/ImpermanentGain/commit/e61d05ab221027795bbabfef79739e0fdace05ba/ImpermanentGain.sol
+https://github.com/artistic709/ImpermanentGain/commit/e61d05ab221027795bbabfef79739e0fdace05ba/ImpermanentGain.sol
+https://github.com/artistic709/ImpermanentGain/commit/e61d05ab221027795bbabfef79739e0fdace05ba/ImpermanentGain.sol
+https://github.com/syscoin/sysethereum-contracts/commit/53c98cd9b82b0a7e878b76787d77f6739c578227/contracts/SyscoinBattleManager.sol

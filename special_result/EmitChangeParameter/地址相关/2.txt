@@ -6,13 +6,3 @@
 +        emit Approval(msg.sender, spender, value);
  
          return true;
-     }
-@@ -139,7 +139,7 @@ contract ERC20 {
- 
-         allowance[recoveredAddress][spender] = value;
- 
--        emit Approval(spender, spender, value);
-+        emit Approval(owner, spender, value);
-     }
- 
-     /*///////////////////////////////////////////////////////////////

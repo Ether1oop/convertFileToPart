@@ -44,3 +44,16 @@ https://github.com/yieldprotocol/vault-v2/commit/18ae13c95f7d02f3628a1d8d2ae0f6b
 https://github.com/argentlabs/argent-contracts/commit/9b54b6faab2bef34915d0295c9df484019345dbf/contracts/wallet/BaseWallet.sol
 https://github.com/andrecronje/rarity/commit/ff16edbeaa061bce622d6469637d82f204c69caf/rarity.sol
 https://github.com/ovnstable/ovnstable-app/commit/d3258f78c67e44f8731ba7069756420cc0cbcd04/contracts/strategies/StrategyMStable.sol
+https://github.com/provable-things/ethereum-examples/commit/03e4fd557124bae59554470cb0c68337a91fe695/solidity/truffle-examples/random-datasource/contracts/RandomExample.sol
+https://github.com/provable-things/ethereum-examples/commit/03e4fd557124bae59554470cb0c68337a91fe695/solidity/truffle-examples/random-datasource/contracts/RandomExample.sol
+https://github.com/vetherasset/vaderprotocol-contracts/commit/1308470f3d841e93f7aab9e97babe23ec133a2ee/contracts/USDV.sol
+https://github.com/vetherasset/vaderprotocol-contracts/commit/1308470f3d841e93f7aab9e97babe23ec133a2ee/contracts/USDV.sol
+https://github.com/argentlabs/argent-contracts/commit/24130ee8f5b41ea76e678a6c1fae72c91fc34e7a/contracts/wallet/BaseWallet.sol
+https://github.com/vetherasset/vaderprotocol-contracts/commit/0f9e4c6aa31cdfddd38dd1363237838079cac9e2/contracts/USDV.sol
+https://github.com/vetherasset/vaderprotocol-contracts/commit/0f9e4c6aa31cdfddd38dd1363237838079cac9e2/contracts/USDV.sol
+https://github.com/Rari-Capital/solmate/commit/73d0648e405408add3b4508e07a4509b554c1518/src/erc20/ERC20.sol
+https://github.com/argentlabs/argent-contracts/commit/b50342eb3993528f8e0068c8c32bbc1e87509648/contracts/wallet/BaseWallet.sol
+https://github.com/argentlabs/argent-contracts/commit/9b54b6faab2bef34915d0295c9df484019345dbf/contracts/wallet/BaseWallet.sol
+https://github.com/vetherasset/vaderprotocol-contracts/commit/34a6835e2abe5d72d203f611cb08d3885f1b3f11/contracts/USDV.sol
+https://github.com/vetherasset/vaderprotocol-contracts/commit/34a6835e2abe5d72d203f611cb08d3885f1b3f11/contracts/USDV.sol
+https://github.com/dapphub/ds-test/commit/c7a36fb236f298e04edf28e2fee385b80f53945f/src/test.sol

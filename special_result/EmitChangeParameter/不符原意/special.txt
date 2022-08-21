@@ -40,3 +40,14 @@ https://github.com/FuturICT2/FIN4Contracts/commit/babb720841f1bc223e877719cda4a1
 https://github.com/fractional-finance/frabric-protocol/commit/eac905fe43c6a49d52db5d7ae875a89b546e451a/contracts/dao/Dao.sol
 https://github.com/blzd-dev/blzd-contracts/commit/4b31e3f77d39eae47efa15bd93061a81ef4dede9/contracts/SmartYeti.sol
 https://github.com/yuan-finance/yuan/commit/4d213291e35d65389070c39bad0d4baadc49680c/contracts/distribution/YUANUSDCETHPool.sol
+https://github.com/Rari-Capital/solmate/commit/63307168416035f33d501828f3fe3150c0e1b234/src/test/utils/DSTestPlus.sol
+https://github.com/airbloc/token/commit/f23e24125d9d43a11c18e8b1bc3eed497af5be50/contracts/PresaleSecond.sol
+https://github.com/yieldprotocol/vault-v2/commit/b84d30030fc319f4c292facab7461eace8eb830e/contracts/market/Market.sol
+https://github.com/yieldprotocol/vault-v2/commit/b84d30030fc319f4c292facab7461eace8eb830e/contracts/market/Market.sol
+https://github.com/VenusProtocol/venus-protocol/commit/0b22f0ebe76dedbdf64e3ebc7e0d655e784bdf1e/contracts/VTreasury.sol
+https://github.com/yieldprotocol/yield-utils/commit/b84d30030fc319f4c292facab7461eace8eb830e/contracts/market/Market.sol
+https://github.com/yieldprotocol/yield-utils/commit/b84d30030fc319f4c292facab7461eace8eb830e/contracts/market/Market.sol
+https://github.com/yieldprotocol/yieldspace-v1/commit/b84d30030fc319f4c292facab7461eace8eb830e/contracts/market/Market.sol
+https://github.com/yieldprotocol/yieldspace-v1/commit/b84d30030fc319f4c292facab7461eace8eb830e/contracts/market/Market.sol
+https://github.com/idexo/ido-contracts/commit/5e465e99b5020eccdf85a10c3c3337ede07ddc45/contracts/bridges/RelayManagerETH.sol
+https://github.com/thirdweb-dev/contracts/commit/31b22e7628d2e8d18f81dc41cc8e1f4230ca4412/contracts/Market.sol

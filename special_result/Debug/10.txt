@@ -1,9 +1,9 @@
-@@ -79,7 +79,7 @@ contract AppealableArbitrator is CentralizedArbitrator, Arbitrable {
-                 disputes[_disputeID].ruling = _ruling;
-                 disputes[_disputeID].status = DisputeStatus.Appealable;
-                 appealDisputes[_disputeID].rulingTime = now;
--                emit AppealPossible(_disputeID);
-+                emit AppealPossible(_disputeID, disputes[_disputeID].arbitrated);
-             }
+@@ -269,7 +269,7 @@ abstract contract PendleForgeBase is IPendleForge, Permissions {
+             IERC20 yieldToken = IERC20(_getYieldBearingToken(_underlyingAsset));
+             IERC20(yieldToken).transfer(_account, dueInterests);
+ 
+-            emit DueInterestSettled(_underlyingAsset, _expiry, dueInterests, _account);
++            emit DueInterestSettled(forgeId, _underlyingAsset, _expiry, dueInterests, _account);
          }
-         else super.giveRuling(_disputeID, _ruling);
+ 
+         return dueInterests;

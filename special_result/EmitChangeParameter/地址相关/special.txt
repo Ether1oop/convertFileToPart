@@ -25,3 +25,4 @@ https://github.com/Floki-Inu/token/commit/f7c4649a5051321bc469e9d2fb804d8e283ba6
 https://github.com/xdefilab/xdefi-base/commit/cea6e47e09be93f863c2211473b8ec59ff151ead/contracts/XConfig.sol
 https://github.com/deusfinance/staking-contracts/commit/8e4329f82863620d9f72b4893366fa66825a18c2/DEAToken.sol
 https://github.com/jointerinc/jointer-token/commit/0fab82e453d8f194a27c6e44c39cf939350dec86/contracts/TokenVault/TokenVault.sol
+https://github.com/Rari-Capital/solmate/commit/f4648ee81cb516269a9726f8a0545d89b585f910/src/erc20/ERC20.sol

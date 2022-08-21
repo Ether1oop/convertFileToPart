@@ -2,3 +2,4 @@ https://github.com/MyBitFoundation/MyBit-Network.tech/commit/0a847dd36a7de887e29
 https://github.com/MyBitFoundation/MyBit-Network.tech/commit/13e416393eeaab082d1ab0991625148f16f08059/Contracts/contracts/Asset.sol
 https://github.com/tatumio/smart-contracts/commit/9e1c934ffdbae90c81fe313a1bc9a32df5adb7b7/contracts/examples/SimpleSavingsWallet.sol
 https://github.com/tatumio/smart-contracts/commit/78e39aa2ad6f91131c05f90d8df0ad0143a50e9d/contracts/examples/SimpleToken.sol
+https://github.com/tatumio/smart-contracts/commit/9e1c934ffdbae90c81fe313a1bc9a32df5adb7b7/contracts/examples/SimpleSavingsWallet.sol
