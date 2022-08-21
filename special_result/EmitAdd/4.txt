@@ -1,0 +1,7 @@
+@@ -165,7 +166,6 @@ contract LlamaPay is BoringBatchable {
+         streamToStart[streamId] = lastUpdate;
+         payers[from].lastPayerUpdate = lastUpdate;
+         token.safeTransfer(to, amountToTransfer);
+-        emit Withdraw(from, to, amountPerSec, streamId, amountToTransfer);
+     }
+ 

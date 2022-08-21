@@ -1,0 +1,7 @@
+@@ -1088,7 +1088,6 @@ contract OptinoFactory is Owned, CloneFactory {
+         require(optinoData.strike > 0, "addSeries: strike must be > 0");
+         require(_optinoToken != address(0), "addSeries: Invalid optinoToken");
+         require(_coverToken != address(0), "addSeries: Invalid coverToken");
+-        emit LogInfo("addSeries", address(0), 0);
+         if (optinoData.callPut == 0) {
+             require(optinoData.bound == 0 || optinoData.bound > optinoData.strike, "addSeries: Call bound must = 0 or > strike");

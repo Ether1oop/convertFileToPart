@@ -1,0 +1,7 @@
+@@ -35,6 +35,6 @@ contract SimpleSavingsWallet is Heritable {
+     require(payee != 0 && payee != address(this));
+     require(amount > 0);
+     payee.transfer(amount);
+-    emit Sent(payee, amount, this.balance);
++    emit Sent(payee, amount, address(this).balance);
+   }
