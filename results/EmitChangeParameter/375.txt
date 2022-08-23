@@ -1,0 +1,7 @@
+@@ -176,7 +176,7 @@ contract VeJoeStaking is Initializable, OwnableUpgradeable {
+         );
+         updateRewardVars();
+         veJoePerSharePerSec = _veJoePerSharePerSec;
+-        emit UpdateVeJoePerSharePerSec(msg.sender, _veJoePerSharePerSec);
++        emit UpdateVeJoePerSharePerSec(_msgSender(), _veJoePerSharePerSec);
+     }

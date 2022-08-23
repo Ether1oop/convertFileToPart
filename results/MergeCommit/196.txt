@@ -1,0 +1,20 @@
+@@ -274,10 +349,19 @@ contract Controller is IController, Orchestrated(), Delegable(), DecimalMath {
+         );
+ 
+         series[maturity].mint(to, yDaiAmount);
+-        emit Borrowed(collateral, maturity, from, int256(yDaiAmount)); // TODO: Watch for overflow
++        emit Borrowed(collateral, maturity, from, toInt256(yDaiAmount));
+     }
+ 
+-    /// @dev Burns yDai of a given series from `from` address, user debt is decreased for the given collateral and yDai series.
++    /// @dev Burns yDai from `from` wallet to repay debt in a Yield Vault.
++    /// User debt is decreased for the given collateral and yDai series, in Yield vault `to`.
++    /// `from` can delegate to other addresses to take yDai from him for the repayment.
++    /// Calling yDai.approve for Controller contract is a prerequisite to this function
++    /// @param collateral Valid collateral type.
++    /// @param maturity Maturity of an added series
++    /// @param from Wallet providing the yDai for repayment.
++    /// @param to Yield vault to repay debt for.
++    /// @param yDaiAmount Amount of yDai to use for debt repayment.
++    //
+     //                                                  debt_nominal

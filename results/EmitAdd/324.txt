@@ -1,0 +1,9 @@
+@@ -234,6 +240,10 @@ contract OverlayV1Comptroller {
+         lastMoment_ = rollerNow_.time;
+ 
+         uint _target = _time - _ago;
++
++        emit log("_target", _target);
++        emit log("rollerNow_.time", rollerNow_.time);
++
+         if (rollerNow_.time < _target) {

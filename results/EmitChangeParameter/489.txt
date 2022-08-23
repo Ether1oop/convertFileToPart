@@ -1,0 +1,10 @@
+@@ -293,9 +293,9 @@ contract TokenTransfer is BaseModule, RelayerModule, LimitManager {
+     * @param _value The amount of ETH to transfer
+     * @param _data The data to *log* with the transfer.
+     */
+-    function transferETH(BaseWallet _wallet, address _to, uint256 _value, bytes _data) internal {
++    function transferETH(BaseWallet _wallet, address _to, uint256 _value, bytes memory _data) internal {
+         _wallet.invoke(_to, _value, EMPTY_BYTES);
+-        emit Transfer(_wallet, ETH_TOKEN, _value, _to, _data);
++        emit Transfer(address(_wallet), ETH_TOKEN, _value, _to, _data);
+     }

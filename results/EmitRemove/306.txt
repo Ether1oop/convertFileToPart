@@ -1,0 +1,7 @@
+@@ -334,8 +333,6 @@ contract BathPair {
+                     BathToken(bathAssetAddress).cancel(
+                         outstandingPairIDs[x][0]
+                     );
+-                    emit LogNote("cancelled: ", outstandingPairIDs[x][0]);
+-
+                     logFill(outstandingPairIDs[x][1], false);

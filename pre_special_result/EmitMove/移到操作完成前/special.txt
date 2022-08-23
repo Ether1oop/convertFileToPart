@@ -1,0 +1,2 @@
+https://github.com/argentlabs/argent-contracts/commit/158f670452445bab4ae2104426890f3aebf80074/contracts/wallet/BaseWallet.sol
+https://github.com/spartan-protocol/spartanswap-contracts/commit/3cc7b641b06725c618986921e8a903ea65d514b1/contracts/poolFactory.sol

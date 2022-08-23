@@ -1,0 +1,11 @@
+@@ -306,10 +306,10 @@ contract TokenTransfer is BaseModule, RelayerModule, LimitManager {
+     * @param _value The amount of token to transfer
+     * @param _data The data to pass with the trnasfer.
+     */
+-    function transferERC20(BaseWallet _wallet, address _token, address _to, uint256 _value, bytes _data) internal {
++    function transferERC20(BaseWallet _wallet, address _token, address _to, uint256 _value, bytes memory _data) internal {
+         bytes memory methodData = abi.encodeWithSignature("transfer(address,uint256)", _to, _value);
+         _wallet.invoke(_token, 0, methodData);
+-        emit Transfer(_wallet, _token, _value, _to, _data);
++        emit Transfer(address(_wallet), _token, _value, _to, _data);
+     }

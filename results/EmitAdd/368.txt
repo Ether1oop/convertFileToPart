@@ -1,0 +1,10 @@
+@@ -70,9 +71,10 @@ contract ERC721XToken is ERC721X, ERC721XTokenNFT {
+         uint256 lastBin = bin;
+ 
+         for (uint256 i = 1; i < nTransfer; i++) {
+-            // If we're transferring an NFT we additionally should update the tokenOwner
++            // If we're transferring an NFT we additionally should update the tokenOwner and emit the corresponding event
+             if (tokenType[_tokenIds[i]] == NFT) {
+                 tokenOwner[_tokenIds[i]] = _to;
++                emit Transfer(_from, _to, _tokenIds[i]);
+             }

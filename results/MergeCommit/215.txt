@@ -1,0 +1,7 @@
+@@ -112,6 +129,8 @@ contract Staking is IStaking, Initializable, Ownable, Pausable, ReentrancyGuard
+         onlyOwner
+     {
+         userStakingSchedules[account] = userSchedulesIdxs;
++
++        emit UserSchedulesSet(account, userSchedulesIdxs);
+     }

@@ -1,0 +1,7 @@
+@@ -155,7 +155,7 @@ abstract contract Module is Context {
+ 
+         _proposal.status = DataTypes.ProposalStatus.Scheduled;
+ 
+-        emit Events.ModuleProposalScheduled(address(this), id, _msgSender(), block.timestamp);
++        emit ModuleProposalScheduled(address(this), id, _msgSender(), block.timestamp);
+     }

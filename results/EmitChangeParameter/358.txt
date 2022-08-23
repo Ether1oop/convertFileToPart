@@ -1,0 +1,37 @@
+@@ -177,33 +182,33 @@ contract Treasury is ContractGuard, Epoch {
+     function setFund(address newFund) public onlyOperator {
+         address oldFund = fund;
+         fund = newFund;
+-        emit ContributionPoolChanged(msg.sender, oldFund, newFund);
++        emit ContributionPoolChanged(_msgSender(), oldFund, newFund);
+     }
+ 
+     function setFundAllocationRate(uint256 newRate) public onlyOperator {
+         uint256 oldRate = fundAllocationRate;
+         fundAllocationRate = newRate;
+-        emit ContributionPoolRateChanged(msg.sender, oldRate, newRate);
++        emit ContributionPoolRateChanged(_msgSender(), oldRate, newRate);
+     }
+ 
+     // ORACLE
+     function setBondOracle(address newOracle) public onlyOperator {
+         address oldOracle = bondOracle;
+         bondOracle = newOracle;
+-        emit BondOracleChanged(msg.sender, oldOracle, newOracle);
++        emit BondOracleChanged(_msgSender(), oldOracle, newOracle);
+     }
+ 
+     function setSeigniorageOracle(address newOracle) public onlyOperator {
+         address oldOracle = seigniorageOracle;
+         seigniorageOracle = newOracle;
+-        emit SeigniorageOracleChanged(msg.sender, oldOracle, newOracle);
++        emit SeigniorageOracleChanged(_msgSender(), oldOracle, newOracle);
+     }
+ 
+     // TWEAK
+     function setCeilingCurve(address newCurve) public onlyOperator {
+         address oldCurve = newCurve;
+         curve = newCurve;
+-        emit CeilingCurveChanged(msg.sender, oldCurve, newCurve);
++        emit CeilingCurveChanged(_msgSender(), oldCurve, newCurve);
+     }

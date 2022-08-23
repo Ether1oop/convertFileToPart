@@ -1,0 +1,10 @@
+@@ -588,9 +588,9 @@ contract Rebaser {
+         onlyGov
+     {
+         require(deviationThreshold > 0);
+-        oldDeviationThreshold = deviationThreshold;
++        uint256 oldDeviationThreshold = deviationThreshold;
+         deviationThreshold = deviationThreshold_;
+-        NewDeviationThreshold( oldDeviationThreshold, deviationThreshold_)
++        emit NewDeviationThreshold(oldDeviationThreshold, deviationThreshold_);
+     }

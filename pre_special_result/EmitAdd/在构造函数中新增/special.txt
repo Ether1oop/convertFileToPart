@@ -1,0 +1,10 @@
+https://github.com/makerdao/dss-flash/commit/bb0e8b72d8e4d50621727e7e28e0bd51c8573683/src/flash.sol
+https://github.com/makerdao/dss-crop-join/commit/1801b71caa1b4a01a1b5c55e8f0c6cf2cbf4c4ad/src/sushi.sol
+https://github.com/centrifuge/tinlake/commit/1fb4cf2546c5047e9e3f30c543fc09785b7b680e/src/lender/admin/member.sol
+https://github.com/centrifuge/tinlake/commit/1fb4cf2546c5047e9e3f30c543fc09785b7b680e/src/borrower/feed/navfeed.sol
+https://github.com/centrifuge/tinlake/commit/ce1a82bea65478bf405be12ff55005365b1fbec0/src/lender/admin/member.sol
+https://github.com/makerdao/univ2-lp-oracle/commit/d92ff84ffd58290324aabce69339a33b8f28b20a/src/Univ2LpOracle.sol
+https://github.com/centrifuge/tinlake/commit/1fb4cf2546c5047e9e3f30c543fc09785b7b680e/src/borrower/collect/collector.sol
+https://github.com/centrifuge/tinlake/commit/1fb4cf2546c5047e9e3f30c543fc09785b7b680e/src/lender/admin/pool.sol
+https://github.com/centrifuge/tinlake-maker-lib/commit/64bf327aa523236e5863e7e7a33032267eda4487/src/mgr.sol
+https://github.com/xdefilab/xdefi-base/commit/f663b5888ba3aabe592fce42de27ef6160294644/contracts/XFactory.sol

@@ -1,0 +1,9 @@
+@@ -215,7 +215,7 @@ contract TokenProxy is ERC1132 {
+             if (lockedTokens > 0) {
+                 unlockableTokens = unlockableTokens.add(lockedTokens);
+                 locked[_of][lockReason[_of][i]].claimed = true;
+-                emit Unlock(_of, lockReason[_of][i], lockedTokens);
++                emit Unlocked(_of, lockReason[_of][i], lockedTokens);
+             }
+         }  
+ 

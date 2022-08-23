@@ -1,0 +1,9 @@
+@@ -211,7 +211,7 @@ contract PendleCompoundForge is IPendleForge, Permissions {
+         tokens.xyt.mint(_to, amountToMint);
+         lastRate[_underlyingAsset][_expiry][_to] = currentRate;
+ 
+-        emit MintYieldToken(_underlyingAsset, amountToMint, _expiry);
++        emit MintYieldToken(forgeId, _underlyingAsset, _expiry, amountToMint);
+         return (address(tokens.ot), address(tokens.xyt));
+     }
+ 

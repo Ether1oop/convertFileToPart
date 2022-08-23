@@ -1,0 +1,7 @@
+@@ -73,8 +75,6 @@ contract MapleLoan is IMapleLoan, MapleLoanInternals {
+         }
+ 
+         _drawdownFunds(amount_, destination_);
+-
+-        emit FundsDrawnDown(amount_, destination_);
+     }

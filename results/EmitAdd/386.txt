@@ -1,0 +1,6 @@
+@@ -190,6 +214,7 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+                 _feePrep = wmul(_feePrep, feeDerivative);
+ 
+                 _numeraireShellsToBurn += wmul(wmul(_withdrawal, WAD + _feePrep), WAD + feeBase);
++                emit log_uint("zing", _numeraireShellsToBurn);
+ 

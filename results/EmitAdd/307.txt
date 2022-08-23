@@ -1,0 +1,6 @@
+@@ -286,6 +286,7 @@ contract CommunityNFT is ERC721, ERC721URIStorage, AccessControl, ReentrancyGuar
+     {
+         super._mint(account, tokenId);
+         communityIds[account].push(tokenId);
++        emit NFTCreated(tokenId, account);
+     }

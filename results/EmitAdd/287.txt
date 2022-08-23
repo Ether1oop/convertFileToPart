@@ -1,0 +1,6 @@
+@@ -114,6 +120,7 @@ contract CarvEvents is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
+         require(newIngredientBadgeIds.length > 0 && newIngredientBadgeIds.length == newIngredientBadgeAmounts.length, "CarvEvents: Ingredient token IDs and amounts should have the same length greater than zero");
+         _ingredientBadgeIds[id] = newIngredientBadgeIds;
+         _ingredientBadgeAmounts[id] = newIngredientBadgeAmounts;
++        emit IngredientBadgesSet(id, newIngredientBadgeIds, newIngredientBadgeAmounts);
+     }

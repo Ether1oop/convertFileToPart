@@ -1,0 +1,8 @@
+@@ -131,7 +131,7 @@ abstract contract PendleForgeBase is IPendleForge, Permissions {
+         _settleDueInterests(tokens, _underlyingAsset, _expiry, _account);
+         tokens.ot.burn(_account, redeemedAmount);
+ 
+-        emit RedeemYieldToken(_underlyingAsset, _expiry, redeemedAmount);
++        emit RedeemYieldToken(forgeId, _underlyingAsset, _expiry, redeemedAmount);
+     }
+ 

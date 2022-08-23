@@ -1,0 +1,14 @@
+@@ -510,11 +510,11 @@ contract Escrow is EscrowStorage, Governed, IERC777Recipient, IEscrowCallable {
+         bytes calldata, /*userData*/
+         bytes calldata /*operatorData*/
+     ) external override {
+-        uint16 currencyGroupId = addressToCurrencyId[msg.sender];
+-        require(currencyGroupId != 0, $$(ErrorCode(INVALID_CURRENCY)));
+-        cashBalances[currencyGroupId][from] = cashBalances[currencyGroupId][from].add(SafeCast.toUint128(amount));
++        uint16 currencyId = addressToCurrencyId[msg.sender];
++        require(currencyId != 0, $$(ErrorCode(INVALID_CURRENCY)));
++        cashBalances[currencyId][from] = cashBalances[currencyId][from].add(SafeCast.toUint128(amount));
+ 
+-        emit Deposit(currencyGroupId, from, amount);
++        emit Deposit(currencyId, from, amount);
+     }

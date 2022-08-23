@@ -1,0 +1,6 @@
+@@ -97,6 +117,7 @@ contract NudgePool is NPStorage, NPProxy, Pausable {
+             "auctionPool(address,address,address,uint256,uint256)")),
+             _ip, _ipToken, _baseToken, _ipTokensAmount, _dgtTokensAmount));
+         require(status == true, "Auction Pool Failed");
++        emit AuctionPool(_ip, _ipToken, _baseToken, _ipTokensAmount, _dgtTokensAmount);
+     }

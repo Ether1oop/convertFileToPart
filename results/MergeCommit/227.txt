@@ -1,0 +1,7 @@
+@@ -364,7 +346,7 @@ abstract contract ERC20Gauges is ERC20, Auth {
+ 
+         _writeGaugeWeight(_getGaugeWeight[gauge], _subtract, weight, cycle);
+ 
+-        emit DecrementGaugeWeight(user, gauge, weight);
++        emit DecrementGaugeWeight(user, gauge, weight, cycle);
+     }

@@ -1,0 +1,6 @@
+https://github.com/provable-things/ethereum-examples/commit/6bb9a62dbe50cd6cf9107490fba379feb2bb7c31/solidity/random-datasource/randomExample.sol
+https://github.com/provable-things/ethereum-examples/commit/6bb9a62dbe50cd6cf9107490fba379feb2bb7c31/solidity/truffle-examples/random-datasource/contracts/RandomExample.sol
+https://github.com/sublime-finance/sublime-v1/commit/e5f0666f0321cf404df13f2d9028c022c2e66be1/contracts/CreditLine/CreditLine.sol
+https://github.com/kleros/kleros/commit/8f98774642adc2458fe11cbf8b1de8451492ff1b/contracts/kleros/PolicyRegistry.sol
+https://github.com/celer-network/sgn-v2-contracts/commit/e7fc15eee882c60025ed9e5bca52e9b9b502480d/contracts/message/apps/TestRefund.sol
+https://github.com/syscoin/sysethereum-contracts/commit/bc731fe7d0e8af68c6a88eac72a135bcaf342a67/contracts/SyscoinClaimManager.sol

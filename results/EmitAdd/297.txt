@@ -1,0 +1,6 @@
+@@ -148,6 +172,7 @@ contract NudgePool is NPStorage, NPProxy, Pausable {
+             _ipToken, _baseToken, _baseTokensAmount, _create));
+         require(status == true, "GP Deposit Failed");
+         amount = data.bytesToUint256();
++        emit RaisingGPDeposit(_ipToken, _baseToken, _baseTokensAmount);
+         return amount;

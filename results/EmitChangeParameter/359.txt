@@ -1,0 +1,12 @@
+@@ -251,10 +256,10 @@ contract Treasury is ContractGuard, Epoch {
+         amount = Math.min(amount, bondCap.mul(cashPrice).div(1e18));
+         require(amount > 0, 'Treasury: amount exceeds bond cap');
+ 
+-        IBasisAsset(cash).burnFrom(msg.sender, amount);
+-        IBasisAsset(bond).mint(msg.sender, amount.mul(1e18).div(cashPrice));
++        IBasisAsset(cash).burnFrom(_msgSender(), amount);
++        IBasisAsset(bond).mint(_msgSender(), amount.mul(1e18).div(cashPrice));
+ 
+-        emit BoughtBonds(msg.sender, amount);
++        emit BoughtBonds(_msgSender(), amount);
+     }

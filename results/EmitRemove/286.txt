@@ -1,0 +1,24 @@
+@@ -267,17 +266,17 @@ contract Loihi is LoihiRoot {
+             int128[] memory _oBals,
+             int128[] memory _nBals ) = getSwapData(_o.ix, _t.ix, _oAmt, _o.addr, true, address(0));
+ 
+-        emit log_int("shell.omega", shell.omega.muli(1e18));
+-        emit log_int("_amt", _amt.muli(1e18));
+-        emit log_int("_oGLiq", _oGLiq.muli(1e18));
+-        for (uint i = 0; i < _oBals.length; i++) emit log_int("_oBals from transferByOrigin", _oBals[i].muli(1e18));
+-        emit log_int("_nGLiq", _nGLiq.muli(1e18));
+-        for (uint i = 0; i < _nBals.length; i++) emit log_int("_nBals from transferByOrigin", _nBals[i].muli(1e18));
++        // emit log_int("shell.omega", shell.omega.muli(1e18));
++        // emit log_int("_amt", _amt.muli(1e18));
++        // emit log_int("_oGLiq", _oGLiq.muli(1e18));
++        // for (uint i = 0; i < _oBals.length; i++) emit log_int("_oBals from transferByOrigin", _oBals[i].muli(1e18));
++        // emit log_int("_nGLiq", _nGLiq.muli(1e18));
++        // for (uint i = 0; i < _nBals.length; i++) emit log_int("_nBals from transferByOrigin", _nBals[i].muli(1e18));
+ 
+         ( _amt, shell.omega ) = shell.calculateOriginTrade(_t.ix, _amt, _oGLiq, _nGLiq, _oBals, _nBals);
+ 
+-        emit log_int("shell.omega", shell.omega.muli(1e18));
+-        emit log_int("_amt", _amt.muli(1e18));
++        // emit log_int("shell.omega", shell.omega.muli(1e18));
++        // emit log_int("_amt", _amt.muli(1e18));
+ 

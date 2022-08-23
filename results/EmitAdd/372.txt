@@ -1,0 +1,6 @@
+@@ -424,6 +425,7 @@ contract RToken is IRToken, ReentrancyGuard {
+         distributeLoans(msg.sender, mintAmount, cMintedAmount);
+ 
+         emit Mint(msg.sender, mintAmount);
++        emit Transfer(address(this), msg.sender, mintAmount);
+     }

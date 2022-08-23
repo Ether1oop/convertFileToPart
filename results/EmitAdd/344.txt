@@ -1,0 +1,7 @@
+@@ -1021,6 +1024,8 @@ contract SwapPairContract is ITokensReceivedCallback, ISwapPairInformation, IUpg
+ 
+         if (provided2 == 0 || provided1 == 0)
+             remainder = amount;
++        else
++            emit ProvideLiquidity(liquidityTokensMinted, provided1, provided2);
+ 

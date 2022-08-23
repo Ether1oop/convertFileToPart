@@ -1,0 +1,7 @@
+@@ -339,8 +308,6 @@ library Shells {
+ 
+         shells_ = _shells.abs().mul(ONE.add(shell.epsilon)).mulu(1e18);
+ 
+-        emit log_uint("shells_", shells_);
+-
+     }

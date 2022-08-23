@@ -1,0 +1,6 @@
+@@ -925,6 +1035,7 @@ contract BPool is BMath, BToken {
+                 ssAmountOut,
+                 poolAmountIn
+             );
++            emit LOG_BPT_SS(poolAmountIn);
+         }

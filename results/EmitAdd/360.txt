@@ -1,0 +1,7 @@
+@@ -189,6 +190,8 @@ contract PCVDepositAggregator is IPCVDepositAggregator, IPCVDeposit, CoreRef {
+         }
+ 
+         IERC20(token).safeTransfer(to, amount);
++
++        emit Withdrawal(amount);
+     }

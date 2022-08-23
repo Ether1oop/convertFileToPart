@@ -1,0 +1,6 @@
+@@ -258,7 +252,6 @@ contract Loihi is LoihiRoot {
+                 sub(add(oPool, oNAmt), feeThreshold),
+                 wmul(o.weight, grossLiq)
+             ));
+-            emit log_uint("fee from partial application", fee);
+             oNAmt = add(

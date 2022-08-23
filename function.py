@@ -1,4 +1,5 @@
 import os
+import random
 
 
 def verifyPart(strings):
@@ -168,10 +169,45 @@ def convertFileToPart(working_dir):
 
 
 def randomSelect(working_dir):
+    special_list = []
+    for root, dirs, files in os.walk("pre_special_result"):
+        for item in files:
+            if item == "special.txt":
+                special_list.append(os.path.join(root, item))
+
+    url_list = []
+    for item in special_list:
+        with open(item, "r") as file:
+            url_list.extend(file.read().split("\n"))
+            if "" in url_list:
+                url_list.remove("")
+
+    jump_list = ["DeBUG","NoChanges+FilterError","MergeCommit","Unjudgeable"]
+    unselect_files = []
     for root, dirs, files in os.walk(working_dir):
         for item in files:
-            print(os.path.join(root,item))
+            if item == "special.txt":
+                continue
+            if root.split("/")[-1] in jump_list:
+                continue
+            filename = os.path.join(root,item)
+            unselect_files.append(filename)
 
+    results = []
+    while len(results) < 96:
+        _id = random.randint(0, len(unselect_files))
+        item = unselect_files[_id]
+        _dir = "/".join(item.split("/")[:-1])
+        filename_id = int(item.split("/")[-1][:-4])
+        with open(_dir + "/special.txt","r") as file:
+            url = file.read().split("\n")[filename_id]
+        if url not in url_list:
+            results.append(unselect_files[_id])
+
+    with open("tmp.txt","w") as file:
+        file.write("\n".join(results))
+
+    return 1
 # convertFileToPart("special_result")
 # path = 'results/225.txt'
 # generateNewFiles(path)

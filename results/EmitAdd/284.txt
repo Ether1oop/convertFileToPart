@@ -1,0 +1,6 @@
+@@ -78,6 +81,7 @@ contract CarvEvents is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
+ 
+     function setMaxSupply(uint256 id, uint256 newMaxSupply) external onlyOwner {
+         _maxSupply[id] = newMaxSupply;
++        emit MaxSupplySet(id, newMaxSupply);
+     }

@@ -1,0 +1,6 @@
+@@ -219,6 +216,7 @@ contract FaaSPoolLite is BPoolLite, IFaaSPool {
+             user.accumulatedEarned[_pid] = user.accumulatedEarned[_pid].add(_pendingReward);
+             rewardPool.totalPaidRewards = rewardPool.totalPaidRewards.add(_pendingReward);
+             rewardFund.safeTransfer(rewardPool.rewardToken, _account, _pendingReward);
++            emit RewardPaid(_pid, _account, _pendingReward);
+             user.rewardDebt[_pid] = user.amount.mul(rewardPoolInfo[_pid].accRewardPerShare).div(1e18);

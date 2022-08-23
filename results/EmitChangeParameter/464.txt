@@ -1,0 +1,12 @@
+@@ -422,11 +422,11 @@ contract SynapseBridge is Initializable, AccessControlUpgradeable, ReentrancyGua
+         emit TokenWithdrawAndRemove(to, token, finalSwappedAmount, fee, swapTokenIndex, swapMinAmount, swapDeadline, true, kappa);
+       } catch {
+         IERC20(token).safeTransfer(to, amount.sub(fee));
+-        emit TokenWithdrawAndRemove(to, token, amount, fee, swapTokenIndex, swapMinAmount, swapDeadline, false, kappa);
++        emit TokenWithdrawAndRemove(to, token, amount.sub(fee), fee, swapTokenIndex, swapMinAmount, swapDeadline, false, kappa);
+       }
+     } else {
+       token.safeTransfer(to, amount.sub(fee));
+-      emit TokenWithdrawAndRemove(to, token, amount, fee, swapTokenIndex, swapMinAmount, swapDeadline, false, kappa);
++      emit TokenWithdrawAndRemove(to, token, amount.sub(fee), fee, swapTokenIndex, swapMinAmount, swapDeadline, false, kappa);
+     }

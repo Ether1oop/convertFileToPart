@@ -1,0 +1,6 @@
+@@ -697,5 +698,6 @@ contract LenderPool is ERC1155Upgradeable, ReentrancyGuard, OwnableUpgradeable {
+ 
+     function _updateMaxStartFee(uint256 _maxStartFee) internal {
+         maxStartFee = _maxStartFee;
++        emit MaxStartFeeUpdated(_maxStartFee);
+     }

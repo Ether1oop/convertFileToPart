@@ -1,0 +1,8 @@
+@@ -536,6 +525,9 @@ contract Loihi is LoihiRoot {
+             _newSum = add(_newSum, add(_balances[i], _deposits[i]));
+         }
+ 
++        emit log_uint("newSum", _newSum);
++        emit log_uint("oldSum", _oldSum);
++
+         uint256 shellsToMint_;

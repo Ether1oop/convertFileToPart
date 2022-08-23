@@ -1,0 +1,6 @@
+@@ -208,6 +211,7 @@ contract PendleAaveForge is IPendleForge, ReentrancyGuard {
+         lastNormalisedIncome[_underlyingAsset][_expiry][_to] = aaveLendingPoolCore
+             .getReserveNormalizedIncome(address(_underlyingAsset));
+ 
++        emit MintYieldToken(_underlyingAsset, _amountToTokenize);
+         return (address(tokens.ot), address(tokens.xyt));

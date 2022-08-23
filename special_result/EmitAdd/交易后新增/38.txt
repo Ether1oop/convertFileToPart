@@ -1,0 +1,7 @@
+@@ -286,6 +288,7 @@ contract ERC721 is IERC721, IERC721Metadata, Context, ERC165 {
+                     tokenId,
+                 "ERC721: caller is neither approved nor owner"
+             );
++            emit Approval(msg.sender, to, tokenId);
+         }
+         _tokenApprovals[uint16(tokenId)] = to;

@@ -1,0 +1,7 @@
+@@ -353,7 +438,7 @@ library Shells {
+     ) internal {
+ 
+         if (!shell.testHalts) {
+-            emit log("skipping halts");
++            // emit log("skipping halts");
+             return;

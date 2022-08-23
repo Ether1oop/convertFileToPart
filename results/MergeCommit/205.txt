@@ -1,0 +1,7 @@
+@@ -553,7 +562,7 @@ contract Pool is Initializable, IPool {
+             msg.sender.transfer(_balance);
+         }
+         // TODO: Something wrong in the below event. Please have a look
+-        emit LiquidityWithdrawn(_due, msg.sender);
++        emit LiquidityWithdrawn(_balance, msg.sender);
+     }

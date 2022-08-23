@@ -1,0 +1,8 @@
+@@ -185,8 +184,6 @@ contract RwaSpell is DSTest {
+     function cast() public {
+         require(!done, "spell-already-cast");
+         done = true;
+-        emit log_named_uint("time", block.timestamp);
+-        emit log_named_uint("eta", eta);
+         pause.exec(action, tag, sig, eta);
+     }

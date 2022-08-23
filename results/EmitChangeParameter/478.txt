@@ -1,0 +1,7 @@
+@@ -162,7 +147,7 @@ contract AnchorAccount is Ownable {
+         ActionFlag = true;
+ 
+         // emit initredemption event
+-        emit InitRedemption(tx.origin, amount, terraAddress);
++        emit InitRedemption(msg.sender, amount, terraAddress);
+     }

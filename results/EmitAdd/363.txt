@@ -1,0 +1,7 @@
+@@ -429,5 +450,7 @@ contract PCVDepositAggregator is IPCVDepositAggregator, IPCVDeposit, CoreRef {
+ 
+         delete pcvDepositWeights[depositAddress];
+         pcvDepositAddresses.remove(depositAddress);
++
++        emit DepositRemvoed(depositAddress);
+     }

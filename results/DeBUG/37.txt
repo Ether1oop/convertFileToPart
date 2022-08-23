@@ -1,0 +1,7 @@
+@@ -126,7 +127,7 @@ contract ArbitrableProxy is IDisputeResolver {
+             lastRound.feeRewards += paidFeesInLastRound;
+             lastRound.fundedRulings.push(_ruling);
+             lastRound.hasPaid[_ruling] = true;
+-            emit RulingFunded(_localDisputeID, rounds.length - 1, _ruling);
++            emit RulingFunded(_localDisputeID, roundsLength - 1, _ruling);
+         }

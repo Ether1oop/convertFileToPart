@@ -1,0 +1,12 @@
+@@ -412,10 +411,10 @@ contract Loihi is LoihiRoot {
+     ) {
+ 
+ 
+-        emit log_uints("_amts", _amts);
+-        emit log_addrs("_flvrs", _flvrs);
++        // emit log_uints("_amts", _amts);
++        // emit log_addrs("_flvrs", _flvrs);
+         uint _length = shell.reserves.length;
+-        emit log_uint("_length", _length);
++        // emit log_uint("_length", _length);
+         int128[] memory oBals_ = new int128[](_length);

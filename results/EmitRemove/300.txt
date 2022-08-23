@@ -1,0 +1,38 @@
+@@ -289,39 +279,27 @@ contract Loihi is LoihiRoot {
+         for (uint i = 0; i < _flavors.length; i++) {
+             Flavor memory d = flavors[_flavors[i]]; // depositing adapter/weight
+             for (uint j = 0; j < reserves.length; j++) {
+-                // emit log_uint("squeegee", j);
+-                // emit log_address("d.reserve", d.reserve);
+-                // emit log_address_arr("reserves", reserves);
+                 if (reserves[j] == d.reserve) {
+                     if (balances[j*3] == 0) {
+-                        // emit log_uint("ping j", j);
+                         uint256 balance = dGetNumeraireBalance(d.adapter);
+-                        emit log_uint("balance", balance);
+                         balances[j*3] = balance;
+                         uint256 deposit = dGetNumeraireAmount(d.adapter, _amounts[i]);
+-                        emit log_uint("deposit", deposit);
+                         balances[j*3+1] = deposit;
+                         balances[j*3+2] = d.weight;
+                         newSum = add(balance + deposit, newSum);
+                         oldSum += balance;
+-                        emit log_uint("newSum", newSum);
+                         break;
+                     } else {
+-                        // emit log_uint("pong", j);
+                         uint256 deposit = dGetNumeraireAmount(d.adapter, _amounts[i]);
+-                        emit log_uint("deposit2", deposit);
+                         balances[j*3+1] = add(deposit, balances[j*3+1]);
+                         newSum = add(deposit, newSum);
+-                        emit log_uint("newSum", newSum);
+                         break;
+                     }
+                     break;
+                 }
+             }
+         }
+ 
+-        emit log_uint_arr("balances", balances);
+-
+         for (uint i = 0; i < balances.length; i += 3) {

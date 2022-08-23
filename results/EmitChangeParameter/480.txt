@@ -1,0 +1,7 @@
+@@ -322,7 +331,7 @@ contract RealitioProxyWithAppeals is IRealitio, IDisputeResolver {
+         round.contributions[_contributor][_ruling] = 0;
+         if (sum != 0) {
+             _contributor.send(sum); // User is responsible for accepting the reward.
+-            emit Withdrawal(_disputeID, _roundNumber, _ruling, _contributor, sum);
++            emit Withdrawal(arbitrator, _disputeID, _roundNumber, _ruling, _contributor, sum);
+         }

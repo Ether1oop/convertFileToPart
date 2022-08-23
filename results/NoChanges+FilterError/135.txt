@@ -1,0 +1,10 @@
+@@ -42,7 +43,9 @@ contract SWMPriceOracle is IPriceUSD, Ownable {
+      */
+     function updatePrice(uint256 newSWMPriceUSD) external onlyOwner returns (bool) {
+         _SWMPriceUSD = newSWMPriceUSD;
+-        emit updatedSWMPrice(_SWMPriceUSD, newSWMPriceUSD);
++
++        emit UpdatedSWMPrice(_SWMPriceUSD, newSWMPriceUSD);
++
+         return true;
+     }

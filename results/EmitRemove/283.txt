@@ -1,0 +1,6 @@
+@@ -267,7 +266,6 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+         uint256 _withdrawMultiplier = wdiv(_withdrawal, totalSupply);
+ 
+         _burn(msg.sender, _withdrawal);
+-        emit ShellsBurned(msg.sender, _withdrawal);
+ 

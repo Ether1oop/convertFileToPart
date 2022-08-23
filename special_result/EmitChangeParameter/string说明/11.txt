@@ -1,0 +1,8 @@
+@@ -1098,7 +1097,7 @@ contract OptinoFactory is Owned, CloneFactory {
+         require(seriesData[_seriesKey].timestamp == 0, "addSeries: Cannot add duplicate");
+ 
+         Pair memory pair = pairData[_pairKey];
+-        emit LogInfo("addSeries.pair.index", address(0), pair.index);
++        emit LogInfo("addSeries.pair.index", msg.sender, pair.index);
+         seriesIndex[pair.index].push(_seriesKey);
+         uint _seriesIndex = seriesIndex[pair.index].length - 1;

@@ -1,0 +1,7 @@
+@@ -425,7 +424,7 @@ contract Loihi is LoihiRoot {
+ 
+             if ( nBals_[_assim.ix] == 0 && oBals_[_assim.ix] == 0 ) {
+ 
+-                emit log("ping");
++                // emit log("ping");
+ 

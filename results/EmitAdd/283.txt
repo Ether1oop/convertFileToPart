@@ -1,0 +1,6 @@
+@@ -70,6 +72,7 @@ contract CarvEvents is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
+ 
+     function setTokenURI(uint256 id, string memory tokenURI) external onlyOwner {
+         _uris[id] = tokenURI;
++        emit URI(tokenURI, id);
+     }

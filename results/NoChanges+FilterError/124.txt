@@ -1,0 +1,7 @@
+@@ -129,7 +129,7 @@ abstract contract Module is Context {
+         _proposals[id].confirmations++;
+         isConfirmed[id][_tokenId] = true;
+ 
+-        emit Events.ModuleProposalConfirmed(address(this), id, _msgSender(), block.timestamp);
++        emit ModuleProposalConfirmed(address(this), id, _msgSender(), block.timestamp);
+     }

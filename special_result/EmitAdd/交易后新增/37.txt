@@ -1,0 +1,7 @@
+@@ -250,6 +251,7 @@ contract ERC721 is IERC721, IERC721Metadata, Context, ERC165 {
+                 "ERC721: token already exists"
+             );
+             tokenExists[BytesLib.toUint16(tokenIds, i)] = true;
++            emit Transfer(address(0), to, BytesLib.toUint16(tokenIds, i));
+         }
+         _tokensByOwner[to] = bytes.concat(_tokensByOwner[to], tokenIds);

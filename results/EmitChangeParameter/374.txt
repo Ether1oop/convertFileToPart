@@ -1,0 +1,7 @@
+@@ -372,7 +375,7 @@ contract RealitioArbitratorProxyWithAppeals is IDisputeResolver {
+     function submitEvidence(uint256 _questionID, string calldata _evidenceURI) external override {
+         Question storage question = questions[_questionID];
+         require(question.status == Status.Disputed, "The status should be Disputed.");
+-        if (bytes(_evidenceURI).length > 0) emit Evidence(arbitrator, _questionID, msg.sender, _evidenceURI);
++        emit Evidence(arbitrator, _questionID, msg.sender, _evidenceURI);
+     }

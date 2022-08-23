@@ -1,0 +1,6 @@
+@@ -69,7 +85,6 @@ contract BaseWallet {
+                 require(modules > 0, "BW: wallet must have at least one module");
+                 delete authorised[_module];
+             }
+-            emit AuthorisedModule(_module, _value);
+         }

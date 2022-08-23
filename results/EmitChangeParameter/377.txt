@@ -1,0 +1,10 @@
+@@ -225,9 +225,9 @@ contract VeJoeStaking is Initializable, OwnableUpgradeable {
+         userInfo.balance = userInfo.balance.add(_amount);
+         userInfo.rewardDebt = accVeJoePerShare.mul(userInfo.balance).div(ACC_VEJOE_PER_SHARE_PRECISION);
+ 
+-        joe.safeTransferFrom(msg.sender, address(this), _amount);
++        joe.safeTransferFrom(_msgSender(), address(this), _amount);
+ 
+-        emit Deposit(msg.sender, _amount);
++        emit Deposit(_msgSender(), _amount);
+     }

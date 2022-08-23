@@ -1,0 +1,7 @@
+@@ -301,7 +301,7 @@ contract QToken is QMarket {
+         accountBalances[account] = accountBalances[account].sub(qAmountToRedeem);
+         _doTransferOut(account, uAmountToRedeem);
+ 
+-        emit Transfer(account, address(this), qAmountToRedeem);
++        emit Transfer(account, address(0), qAmountToRedeem);
+         emit Redeem(account, uAmountToRedeem, qAmountToRedeem);

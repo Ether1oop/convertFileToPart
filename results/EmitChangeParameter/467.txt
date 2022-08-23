@@ -1,0 +1,7 @@
+@@ -456,7 +456,7 @@ contract DOSProxy is Ownable {
+                 uint idx = dispatchJob(TrafficType.UserQuery, queryId);
+                 // TODO: keep id receipt and handle later in v2.0.
+                 if (idx == UINTMAX) {
+-                    emit LogMessage("No live working group, skipped query");
++                    emit LogMessage("skipped-user-query-no-live-wgrp");
+                     return 0;

@@ -1,0 +1,6 @@
+@@ -63,6 +63,7 @@ address _treasure_fund;
+         locked_balances[msg.sender] = price;
+         authorized_status[msg.sender] = true;
+         MetaAuthorization[msg.sender] = AuthorizationType.bail_list;
++        emit AuthorizationSubmit(msg.sender, AuthorizationType.bail_list, msg.sender);
+     }

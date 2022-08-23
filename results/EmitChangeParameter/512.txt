@@ -1,0 +1,7 @@
+@@ -255,6 +259,8 @@ contract Vault is ERC20, DSTestPlus {
+         }
+ 
+         if (pool.isCEther()) {
++            emit log("Function _withdrawFromPool, if(cEther) not covered");
++
+             // Withdraw from the pool.

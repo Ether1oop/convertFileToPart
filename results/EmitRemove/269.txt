@@ -1,0 +1,7 @@
+@@ -344,8 +343,6 @@ contract GebUniswapV3LiquidityManager is ERC20 {
+                 collected1 + 1
+             );
+ 
+-            emit DEPOL(compoundLiquidity);
+-
+             emit Rebalance(msg.sender, block.timestamp);

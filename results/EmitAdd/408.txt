@@ -1,0 +1,6 @@
+@@ -157,6 +157,7 @@ contract StrategyIdle is IStrategy, AccessControlUpgradeable, UUPSUpgradeable, Q
+             totalUsdc += wmaticUsdc;
+         }
+ 
++        emit Reward(totalUsdc);
+         return totalUsdc;

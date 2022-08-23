@@ -1,0 +1,9 @@
+@@ -410,9 +410,9 @@ contract SyscoinClaimManager is Initializable, SyscoinDepositsManager, SyscoinEr
+             claim.decided = true;
+             uint err = trustedSuperblocks.invalidate(superblockHash, claim.submitter);
+             require(err == ERR_SUPERBLOCK_OK);
+-            emit SuperblockClaimFailed(superblockHash, claim.challenger, inProcessCounter-1);
+             doPayChallenger(superblockHash, claim);
+             inProcessCounter--;
++            emit SuperblockClaimFailed(superblockHash, claim.challenger, inProcessCounter);
+             return false;

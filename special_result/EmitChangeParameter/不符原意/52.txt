@@ -1,0 +1,8 @@
+@@ -130,7 +130,7 @@ contract Market is IMarket, ERC20, Delegable {
+         _burn(msg.sender, tokensBurned);
+         dai.transfer(msg.sender, daiReturned);
+         yDai.transfer(msg.sender, yDaiReturned);
+-        emit Liquidity(maturity, msg.sender, msg.sender, toInt256(daiReturned), toInt256(yDaiReturned), -toInt256(tokensBurned)); // TODO: Fix after merging https://github.com/yieldprotocol/ytoken-mvp/pull/173
++        emit Liquidity(maturity, msg.sender, msg.sender, toInt256(daiReturned), toInt256(yDaiReturned), -toInt256(tokensBurned));
+     }
+ 

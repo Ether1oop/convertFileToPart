@@ -1,0 +1,7 @@
+@@ -287,7 +296,7 @@ contract Controller is IController, Orchestrated(), Delegable(), DecimalMath {
+             _treasury.pullChai(to, amount);
+         }
+ 
+-        emit Posted(collateral, from, -int256(amount)); // TODO: Watch for overflow
++        emit Posted(collateral, from, -toInt256(amount));
+     }

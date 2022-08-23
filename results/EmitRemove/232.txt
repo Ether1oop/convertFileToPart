@@ -1,0 +1,6 @@
+@@ -172,7 +172,6 @@ contract RwaSpell is DSTest {
+         assembly { _tag := extcodehash(_action) }
+         tag = _tag;
+         expiration = block.timestamp + 30 days;
+-        emit log_named_uint("exp", expiration);
+     }

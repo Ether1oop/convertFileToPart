@@ -1,0 +1,7 @@
+@@ -126,7 +126,7 @@ inited = true;
+ 
+     function completeProposal(uint _proposalID) internal {
+         string memory _typeStr = mapPID_type[_proposalID];
+-        emit FinalisedProposal(msg.sender, _proposalID, mapPID_votes[_proposalID], iUSDV(USDV).totalFunds(), _typeStr);
++        emit FinalisedProposal(msg.sender, _proposalID, mapPID_votes[_proposalID], iUSDV(USDV).totalWeight(), _typeStr);
+         mapPID_votes[_proposalID] = 0;

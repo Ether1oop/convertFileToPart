@@ -1,0 +1,7 @@
+@@ -145,7 +147,7 @@ contract Keg is LibNote {
+         bud = buds[msg.sender];
+         pals[bud] = address(0);
+         buds[msg.sender] = address(0);
+-        emit DelegateRemoved(msg.sender, bud);
++        emit NoNewFriends(msg.sender, bud);
+     }

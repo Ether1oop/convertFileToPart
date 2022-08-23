@@ -1,0 +1,13 @@
+@@ -135,10 +176,13 @@ contract Rebalancer {
+         _minAmounts[1] = 0;
+         uint256 _bpt = balanceOfBpt();
+         if (_bpt > seedBptAmount) {
++            emit Debug("_bpt.sub(seedBptAmount)", _bpt.sub(seedBptAmount));
++            emit Debug("pooledBalanceA", pooledBalanceA());
++            emit Debug("pooledBalanceB", pooledBalanceB());
+             bpt.exitPool(_bpt.sub(seedBptAmount), _minAmounts);
++            emit Debug("exit success", 0);
+         }
+ 
+-        // TODO enforce pool weight limts
+         uint256 _debtAUsd = providerA.totalDebt().mul(providerA.getPriceFeed()).div(10 ** providerA.getPriceFeedDecimals());

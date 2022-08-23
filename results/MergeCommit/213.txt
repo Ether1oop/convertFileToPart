@@ -1,0 +1,6 @@
+@@ -1081,6 +1081,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
+         uint256 allShare = _totalAsset.elastic + bentoBox.toShare(asset, totalBorrow.elastic, true);
+         share = fraction.mul(allShare) / _totalAsset.base;
+         balanceOf[msg.sender] = balanceOf[msg.sender].sub(fraction);
++        emit Transfer(msg.sender, address(0), fraction);
+         _totalAsset.elastic = _totalAsset.elastic.sub(share.to128());

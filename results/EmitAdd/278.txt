@@ -1,0 +1,6 @@
+@@ -391,6 +404,7 @@ contract Recycler is IRecycler, Lock, Auth, Pause {
+             revert InvalidFee();
+ 
+         fee = fee_;
++        emit SetFee(fee);
+     }

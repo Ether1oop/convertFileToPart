@@ -1,0 +1,13 @@
+@@ -292,6 +319,14 @@ library Shells {
+         int128[] memory _nBals
+     ) internal {
+ 
++        emit log("enforce halts");
++        emit log_int("MAX", MAX.muli(1e18));
++
++        emit log_int("_oGLiq", _oGLiq.muli(1e18));
++        for (uint i = 0; i < _oBals.length; i++) emit log_int("_oBals[i]", _oBals[i].muli(1e18));
++        emit log_int("_nGLiq", _nGLiq.muli(1e18));
++        for (uint i = 0; i < _nBals.length; i++) emit log_int("_nBals[i]", _nBals[i].muli(1e18));
++
+         if (!shell.testHalts) {

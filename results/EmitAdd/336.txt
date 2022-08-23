@@ -1,0 +1,6 @@
+@@ -378,6 +383,7 @@ contract ImpermanentGain is Ownable, ERC20Mintable {
+         poolA = poolA.sub(_a);
+         b[msg.sender] = b[msg.sender].sub(_b);
+         a[msg.sender] = a[msg.sender].add(_a);
++        emit Swap(msg.sender, false, _b, _a);
+     }

@@ -1,0 +1,7 @@
+@@ -368,7 +370,7 @@ contract Ships is Ownable
+       ship.authenticationKey = _authenticationKey;
+       ship.keyRevisionNumber++;
+ 
+-      ChangedKeys(_ship, _encryptionKey, _authenticationKey);
++      emit ChangedKeys(_ship, _encryptionKey, _authenticationKey);
+     }

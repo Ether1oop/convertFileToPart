@@ -1,0 +1,3 @@
+https://github.com/LlamaPay/llamapay/commit/6cf16f7e00486bfd02af37738eae36417d8cf370/contracts/LlamaPay.sol
+https://github.com/MyBitFoundation/MyBit-Network.tech/commit/4bbf80cc6d775c94257027fa7eece092de3ae511/contracts/tokens/distribution/EqualDistribution.sol
+https://github.com/kleros/kleros/commit/4a14484e7e9fb46a9e9fc9d46c3faa5eb81878a4/contracts/kleros/KlerosLiquid.sol

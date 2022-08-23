@@ -1,0 +1,9 @@
+@@ -149,8 +149,8 @@ contract USDV is iERC20 {
+             require(account != address(0), "address err");
+             _balances[account] -= amount;
+             totalSupply -= amount;
+-            emit Transfer(account, address(0), amount);
+         }
++        emit Transfer(account, address(0), amount);
+     }
+ 

@@ -1,0 +1,12 @@
+@@ -79,9 +87,13 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+             _newSum = add(_newSum, add(_balances[i], _deposits[i]));
+         }
+ 
++        emit log_uint("oldSum", _oldSum);
++        emit log_uint("newSum", _newSum);
++
+         uint256 shellsToMint_;
+ 
+         for (uint i = 0; i < _balances.length; i++) {
++            emit log_uint("i", i);
+             if (_deposits[i] == 0) continue;

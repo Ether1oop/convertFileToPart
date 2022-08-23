@@ -1,0 +1,6 @@
+@@ -279,7 +279,6 @@ contract StakingRewardsV2 is IStakingRewards, RewardsDistributionRecipient, Reen
+             // Give the tokens to the withdrawer
+             stakingToken.safeTransfer(msg.sender, theAmount);
+ 
+-            emit Withdrawn(msg.sender, theAmount);
+             emit WithdrawnLocked(msg.sender, theAmount, kek_id);

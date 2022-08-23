@@ -1,0 +1,8 @@
+@@ -206,7 +206,7 @@ contract PresaleSecond is Ownable {
+         buyers[_addr] = 0;
+ 
+         _addr.transfer(refundAmount);
+-        emit Refund(_addr, buyers[_addr]);
++        emit Refund(_addr, refundAmount);
+ 
+         return true;

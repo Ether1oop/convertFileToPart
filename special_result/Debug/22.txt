@@ -1,0 +1,8 @@
+@@ -98,7 +98,7 @@ contract TokenProxy is ERC1132 {
+ 
+         locked[_to][_reason] = lockToken(_amount, validUntil, false);
+         
+-        emit Lock(_to, _reason, _amount, validUntil);
++        emit Locked(_to, _reason, _amount, validUntil);
+         return true;
+     }

@@ -1,0 +1,8 @@
+@@ -147,7 +147,7 @@ contract PendleCompoundForge is IPendleForge, Permissions {
+         _settleDueInterests(tokens, _underlyingAsset, _expiry, _msgSender);
+         tokens.ot.burn(_msgSender, redeemedAmount);
+ 
+-        emit RedeemYieldToken(_underlyingAsset, cTokensToRedeem, _expiry);
++        emit RedeemYieldToken(forgeId, _underlyingAsset, _expiry, cTokensToRedeem);
+     }
+ 

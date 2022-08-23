@@ -1,0 +1,7 @@
+@@ -55,8 +54,6 @@ contract PrincipalRepayTest is BaseSystemTest {
+         // assert: loan has open debt
+         assert(pile.debt(loanId) > 0);
+         // assert: debt includes accrued interest (tolerance +/- 1)
+-        emit log_named_uint("debt", pile.debt(loanId));
+-
+         assertEq(pile.debt(loanId), expectedDebt, 10);

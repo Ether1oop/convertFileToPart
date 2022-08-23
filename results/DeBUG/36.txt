@@ -1,0 +1,20 @@
+@@ -222,18 +220,20 @@ contract StableCoin is
+     }
+ 
+     // Check Transfer Allowed
+-    function checkTransferAllowed(address account) public returns (bool) {
++    function checkTransferAllowed(address account) public view returns (bool) {
+         return isKycPassed(account) && !isFrozen(account);
+     }
+ 
+     // Pause: Only APM
+     function pause() private onlyAssetProtectionManager {
+         _pause();
++        emit Pause(_msgSender());
+     }
+ 
+     // Unpause: Only APM
+     function unpause() private onlyAssetProtectionManager {
+         _unpause();
++        emit Unpause(_msgSender());
+     }

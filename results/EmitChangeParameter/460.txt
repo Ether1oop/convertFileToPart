@@ -1,0 +1,16 @@
+@@ -867,11 +867,15 @@ contract YUANIncentivizer is LPTokenWrapper, IRewardDistributionRecipient {
+             );
+             require(!initialized, "already initialized");
+             initialized = true;
+-            yuan.mint(address(this), initreward);
++
++            uint256 scalingFactor = YUAN(address(yuan)).yuansScalingFactor();
++            uint256 newRewards = initreward.mul(scalingFactor).div(10**18);
++            yuan.mint(address(this), newRewards);
++
+             rewardRate = initreward.div(DURATION);
+             lastUpdateTime = starttime;
+             periodFinish = starttime.add(DURATION);
+-            emit RewardAdded(reward);
++            emit RewardAdded(initreward);
+         }

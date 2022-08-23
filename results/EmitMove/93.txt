@@ -1,0 +1,11 @@
+@@ -187,11 +186,9 @@ contract Amm is IAmm, LiquidityERC20, Reentrant {
+             reserve0 = _baseReserve - outputAmount;
+             reserve1 = _quoteReserve + inputAmount;
+         }
+-
++        emit ForceSwap(trader, inputToken, outputToken, inputAmount, outputAmount);
+         _update(reserve0, reserve1, _baseReserve, _quoteReserve, true);
+         if (feeOn) kLast = uint256(baseReserve) * quoteReserve;
+-
+-        emit ForceSwap(trader, inputToken, outputToken, inputAmount, outputAmount);
+     }

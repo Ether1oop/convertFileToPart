@@ -1,0 +1,8 @@
+@@ -243,6 +243,7 @@ contract StrategyBalancer is Strategy, BalancerExchange, QuickswapExchange {
+             totalUsdc += tusdUsdc;
+         }
+ 
++        emit Reward(totalUsdc);
+         return totalUsdc;
+     }
+ }

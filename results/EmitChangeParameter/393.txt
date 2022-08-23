@@ -1,0 +1,7 @@
+@@ -828,7 +813,7 @@ contract DAISO is IArbitrable, IEvidence, OwnableWithoutRenounce, PausableWithou
+         });
+ 
+         emit MetaEvidence(projectId, _metaEvidence);
+-        emit Arbitration(projectId, project.sender, msg.sender, projectId, block.timestamp);
++        emit Arbitration(projectId, _metaEvidence, project.sender, msg.sender,msg.value, block.timestamp);
+     }

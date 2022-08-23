@@ -1,0 +1,7 @@
+@@ -644,7 +641,7 @@ contract DOSProxy is Ownable {
+     ///  Anyone including but not limited to DOS client node can be a guardian and claim rewards.
+     function signalRandom() public {
+         if (lastUpdatedBlock + refreshSystemRandomHardLimit > block.number) {
+-            emit LogMessage("SystemRandom not expired yet");
++            emit LogMessage("sys-random-not-expired");
+             return;

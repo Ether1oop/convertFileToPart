@@ -1,0 +1,7 @@
+@@ -586,7 +593,7 @@ library TellorLibrary{
+                     self.uintVars[keccak256("apiIdOnQ")] = _apiId;
+                     self.apiOnQ = _api.apiHash;
+                     self.uintVars[keccak256("apiOnQPayout")] = _payout;
+-                    emit NewAPIonQinfo(_apiId,_api.apiString,self.apiOnQ,_payout);
++                    emit NewAPIonQinfo(_apiId,_api.queryString,self.apiOnQ,_payout);
+             }

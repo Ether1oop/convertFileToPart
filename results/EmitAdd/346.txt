@@ -1,0 +1,18 @@
+@@ -262,18 +264,13 @@ contract Rebalancer {
+         _maxAmountIn[1] = looseBalanceB();
+         _bptOut = _bptOut.mul(params.joinPoolMultiplier).div(100);
+         bpt.joinPool(_bptOut, _maxAmountIn);
+-        emit Debug("currentWeightA", currentWeightA());
+-        emit Debug("currentWeightB", currentWeightB());
+-        emit Debug("looseBalanceA", looseBalanceA());
+-        emit Debug("looseBalanceB", looseBalanceB());
+-        emit Debug("pooledBalanceA", pooledBalanceA());
+-        emit Debug("pooledBalanceB", pooledBalanceB());
+ 
+         // when at limit, don't pool in rest of balance since
+         // it'll just create positive slippage opportunities for arbers
+         if (!_atWeightLimit) {
+             joinPoolSingles();
+         }
++
+     }

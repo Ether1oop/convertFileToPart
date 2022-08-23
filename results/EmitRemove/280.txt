@@ -1,0 +1,6 @@
+@@ -100,7 +94,6 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+             if (_newBalance <= _feeThreshold) {
+ 
+                 shellsToMint_ += _depositAmount;
+-                emit log_uint("shells to mint no fee", shellsToMint_);
+ 

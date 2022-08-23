@@ -1,0 +1,3 @@
+https://github.com/FrankieIsLost/TWAMM/commit/84927c791cabc937f9277a7574e5f76c61bf8a30/contracts/TWAMM.sol
+https://github.com/TokenySolutions/T-REX/commit/a0661e0ae61656e67809b887e125106df6c593a7/contracts/token/Token.sol
+https://github.com/ShipChain/smart-contracts/commit/d714c4d5734f5856fc313aca5a0094feb99e28c6/truffle/contracts/Load/lib/Escrow.sol

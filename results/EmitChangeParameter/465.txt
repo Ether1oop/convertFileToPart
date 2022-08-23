@@ -1,0 +1,7 @@
+@@ -576,7 +583,7 @@ library TellorLibrary{
+             self.uintVars[keccak256("miningApiId")] = _apiId;
+             self.uintVars[keccak256("miningPayout")] = _payout;
+             self.currentChallenge = keccak256(abi.encodePacked(_payout, self.currentChallenge, blockhash(block.number - 1))); // Save hash for next proof
+-            emit NewChallenge(self.currentChallenge,self.uintVars[keccak256("miningApiId")],self.uintVars[keccak256("difficulty_level")],self.apiDetails[self.uintVars[keccak256("miningApiId")]].apiUintVars[keccak256("granularity")],self.apiDetails[self.uintVars[keccak256("miningApiId")]].apiString,self.uintVars[keccak256("miningPayout")]);
++            emit NewChallenge(self.currentChallenge,self.uintVars[keccak256("miningApiId")],self.uintVars[keccak256("difficulty_level")],self.apiDetails[self.uintVars[keccak256("miningApiId")]].apiUintVars[keccak256("granularity")],self.apiDetails[self.uintVars[keccak256("miningApiId")]].queryString,self.uintVars[keccak256("miningPayout")]);
+         }

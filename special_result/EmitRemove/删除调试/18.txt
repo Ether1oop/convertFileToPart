@@ -1,0 +1,12 @@
+@@ -1250,10 +1248,10 @@ contract OptinoFactory is Owned, CloneFactory {
+             series.optinoToken = address(_optinoToken);
+             series.coverToken = address(_coverToken);
+             addSeries(_pairKey, optinoData, address(_optinoToken), address(_coverToken));
+-            emit LogInfo("_mint a", address(0), 0);
+             series = seriesData[_seriesKey];
+-            emit LogInfo("_mint b", msg.sender, optinoData.tokens);
++            emit LogInfo("mint optinoToken", msg.sender, optinoData.tokens);
+             _optinoToken.initOptinoToken(this, _seriesKey, _coverToken, (pair.index + 3) * 100000 + series.index + 5, false, OPTINODECIMALS);
++            emit LogInfo("mint coverToken", msg.sender, optinoData.tokens);
+             _coverToken.initOptinoToken(this, _seriesKey, _optinoToken, (pair.index + 3) * 100000 + series.index + 5, true, OPTINODECIMALS);
+         } else {

@@ -1,0 +1,6 @@
+@@ -90,6 +94,7 @@ contract CarvEvents is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
+ 
+     function setSynthetic(uint256 id, bool newIsSynthetic) external onlyOwner {
+         _synthetic[id] = newIsSynthetic;
++        emit SyntheticSet(id, newIsSynthetic);
+     }

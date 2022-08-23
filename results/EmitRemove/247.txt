@@ -1,0 +1,7 @@
+@@ -756,6 +756,8 @@ contract ERC20Deflationary is Context, IERC20, Ownable {
+                 break;
+             }
+         }
++
++        emit IncludeAccountInReward(account);
+     }

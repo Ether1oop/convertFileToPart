@@ -1,0 +1,11 @@
+@@ -609,9 +614,9 @@ contract DSTest {
+ 
+     function assertEq0(bytes memory a, bytes memory b) internal {
+         if (!checkEq0(a, b)) {
+-            emit log('Error: a == b not satisfied [bytes]');
+-            emit log_named_bytes('  Expected', a);
+-            emit log_named_bytes('    Actual', b);
++            emit log("Error: a == b not satisfied [bytes]");
++            emit log_named_bytes("  Expected", a);
++            emit log_named_bytes("    Actual", b);
+             fail();

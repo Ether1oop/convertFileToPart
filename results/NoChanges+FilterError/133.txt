@@ -1,0 +1,6 @@
+@@ -73,6 +74,7 @@ address _treasure_fund;
+         authorized_status[author_] = false;
+         MetaAuthorization[author_] = AuthorizationType.blocked;
+         block_list[author_] = true;
++        emit Blocked(author_);
+     }

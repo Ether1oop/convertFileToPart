@@ -1,0 +1,8 @@
+@@ -93,7 +105,9 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+             uint256 _feeThreshold = wmul(_weight, wmul(_newSum, beta + WAD));
+             if (_newBalance <= _feeThreshold) {
+ 
++
+                 shellsToMint_ += _depositAmount;
++                emit log_uint("ping", shellsToMint_);
+ 

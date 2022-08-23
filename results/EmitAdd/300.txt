@@ -1,0 +1,6 @@
+@@ -195,6 +222,7 @@ contract NudgePool is NPStorage, NPProxy, Pausable {
+             _ipToken, _baseToken, _baseTokensAmount));
+         require(status == true, "GP Withdraw Failed");
+         amount = data.bytesToUint256();
++        emit RunningGPWithdraw(_ipToken, _baseToken, _baseTokensAmount);
+         return amount;

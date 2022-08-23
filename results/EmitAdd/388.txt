@@ -1,0 +1,12 @@
+@@ -93,6 +93,13 @@ library Shells {
+         int128 _delta
+     ) internal returns (int128 fee_) {
+ 
++        emit log('~<>~<>~<>~<>~<>~<>~<>~');
++
++        emit log_int("_bal", _bal.muli(1e6));
++        emit log_int("_ideal", _ideal.muli(1e6));
++        emit log_int("_beta", _beta.muli(1e6));
++        emit log_int("_delta", _delta.muli(1e6));
++
+         if (_bal < _ideal) {

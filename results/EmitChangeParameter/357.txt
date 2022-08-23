@@ -1,0 +1,8 @@
+@@ -376,7 +379,7 @@ contract EvidenceModule is IArbitrable, IEvidence {
+         evidenceData.ruling = Party(_ruling);
+         moderation.closed = true;
+ 
+-        emit Ruling(arbitrator, _disputeID, ruling);
++        emit Ruling(arbitrator, _disputeID, _ruling);
+     }
+ 

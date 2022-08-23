@@ -1,0 +1,2 @@
+https://github.com/Loopring/protocols/commit/7032672266147567bb95c7369cbba635cd24cbd8/packages/hebao_v1/contracts/modules/security/SecurityModule.sol
+https://github.com/vetherasset/vaderprotocol-contracts/commit/3730979319ba506b153966b5795dfdfc053c1a79/contracts/USDV.sol

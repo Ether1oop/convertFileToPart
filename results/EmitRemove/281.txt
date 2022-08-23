@@ -1,0 +1,6 @@
+@@ -110,7 +103,6 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+                 ));
+ 
+                 shellsToMint_ = add(shellsToMint_, wmul(_depositAmount, WAD - _feePrep));
+-                emit log_uint("shells to mint all fee", shellsToMint_);
+ 

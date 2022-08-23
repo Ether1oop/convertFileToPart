@@ -1,0 +1,7 @@
+@@ -468,8 +468,6 @@ library StreamSwapLibrary {
+             updateSuperTokenPointers(ctx, address(superToken), entry.prevForSrcSuperToken, entry.nextForSrcSuperToken);
+             updateSuperTokenPointers(ctx, entry.destSuperToken, entry.prevForDestSuperToken, entry.nextForDestSuperToken);
+ 
+-            emit LOG_SET_FLOW(context.msgSender, address(superToken), entry.destSuperToken, 0, 0, 0);
+-
+             uint64 nextStateIdx = entry.nextSenderAccount;

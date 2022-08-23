@@ -1,0 +1,7 @@
+@@ -286,8 +295,6 @@ contract PendleMarket is IPendleMarket, PendleBaseToken {
+         // Update reserves and operate underlying LP and outToken
+         outTokenReserve.balance = outTokenReserve.balance.sub(outAmountToken);
+ 
+-        emit Exit(_outToken, outAmountToken);
+-
+         _transferInLp(_inLp);

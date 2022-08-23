@@ -1,0 +1,7 @@
+@@ -67,8 +59,6 @@ library ProportionalLiquidity {
+ 
+             for (uint8 i = 0; i < _length; i++) {
+ 
+-                emit log_uint("i", i);
+-
+                 deposits_[i] = Assimilators.intakeNumeraire(shell.numeraires[i].addr, _shells.mul(shell.weights[i]));

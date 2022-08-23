@@ -1,0 +1,7 @@
+@@ -529,5 +528,8 @@ contract GebUniswapV3LiquidityManager is ERC20 {
+         if (amount1Owed > amt1FromThis) {
+             TransferHelper.safeTransferFrom(token1, sender, msg.sender, amount1Owed - amt1FromThis);
+         }
++
++        emit DEBUGBAL(ERC20(token0).balanceOf(address(this)));
++        emit DEBUGBAL(ERC20(token1).balanceOf(address(this)));

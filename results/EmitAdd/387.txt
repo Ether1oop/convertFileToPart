@@ -1,0 +1,6 @@
+@@ -201,6 +226,7 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+                     sub(_oldBal, _feeThreshold),
+                     wmul(sub(_feeThreshold, _newBal), WAD + _feePrep)
+                 ), WAD + feeBase);
++                emit log_uint("ming", _numeraireShellsToBurn);
+ 

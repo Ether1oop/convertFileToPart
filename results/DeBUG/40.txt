@@ -1,0 +1,7 @@
+@@ -245,7 +251,7 @@ contract TotlePrimary is Withdrawable, Pausable {
+             );
+ 
+         }
+-        emit LogRebalance(id, totalTraded, totalFee)
++        emit LogRebalance(id, totalTraded, totalFee);
+         if(totalFee > 0){
