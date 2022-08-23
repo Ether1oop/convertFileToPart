@@ -10,5 +10,3 @@
          bal = chai.balanceOf(address(this)) - bal;
 -        emit log_uint("bal2", bal);
          return bal;
-     }
- 

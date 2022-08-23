@@ -7,5 +7,3 @@
          disputeID = disputes.length - 1;
 +        emit DisputeCreation(disputeID, IArbitrable(msg.sender));
      }
- 
-     /** @dev Give a ruling. UNTRUSTED.

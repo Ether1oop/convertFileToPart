@@ -6,4 +6,3 @@
 +    emit Serialized(_record.account, _record.token.uuid);
    }
  
-   function _exists(address _account, Token.Instance memory _token) internal view returns (bool) {

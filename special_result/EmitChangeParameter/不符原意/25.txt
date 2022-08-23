@@ -6,4 +6,3 @@
 +        emit Withdraw(msg.sender, r);
      }
  
-     // A view function that makes it easier for the UI to display LPs of users

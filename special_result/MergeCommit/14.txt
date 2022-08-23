@@ -5,4 +5,3 @@
 +        emit Transfer(address(0), _creator, _totalSupply);
      }
  
-     function transfer(address to, uint256 amount) public returns (bool) {

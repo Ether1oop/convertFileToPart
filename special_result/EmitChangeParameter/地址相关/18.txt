@@ -19,4 +19,3 @@
 +    emit TransferWithQuantity(_tokenOwner, address(0), _tokenId, _quantity);
    }
  
-   function _mint(address _buyer, address _seller, bytes32 _derivativeHash, uint256 _quantity) internal {

@@ -6,4 +6,3 @@
 +        emit Evidence(request.arbitrator, request.disputeID, msg.sender, _evidence);
      }
  
-     // ************************ //

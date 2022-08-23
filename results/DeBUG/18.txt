@@ -5,5 +5,3 @@
 -        emit Debt(_address, _registrationFee, true);
 +        emit Debt(_address, _registrationFee, true, "ETH");
      }
- 
-     /**

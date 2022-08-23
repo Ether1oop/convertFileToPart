@@ -15,5 +15,3 @@
 -        emit log_named_uint("Total Deposited", totalDeposited);
 -
          // Transfer fvTokens (representing fees) to the fee holder
-         uint256 _fee = harvestFee;
-         if (_fee > 0) {

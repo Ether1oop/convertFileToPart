@@ -6,4 +6,3 @@
 +                emit AccrueFees(from, fee);
              }
  
-             uint credit;

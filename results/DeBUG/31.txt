@@ -7,4 +7,3 @@
      }
  
      function revokeRelayer(address toUnlist, bytes data) public {
-

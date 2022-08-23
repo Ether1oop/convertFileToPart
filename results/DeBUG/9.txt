@@ -8,5 +8,3 @@
 -      emit TransferBatchRewards(from, to, ids, amounts, data);
 +      emit TransferBatchRewards(from, to, ids, amounts);
      }
-     
-     // Call OZ `safeBatchTransferFrom` implementation

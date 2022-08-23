@@ -6,4 +6,3 @@
 +        emit ZooClaim(msg.sender, amount, _type, tokenId);
      }
  
-     function isStakeFinished(uint _type) public view returns (bool) {

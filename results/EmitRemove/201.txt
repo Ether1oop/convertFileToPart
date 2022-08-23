@@ -5,5 +5,3 @@
 -            emit SetQuota(users[i],quotas[i]);
 +            // emit SetQuota(users[i],quotas[i]);
          }
-     }
- 

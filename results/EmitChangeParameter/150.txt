@@ -5,5 +5,3 @@
 -        emit Withdrawn(address(token), tokens, tokenId);
 +        emit Withdrawn(token, tokens, tokenId);
      }
- }
- 

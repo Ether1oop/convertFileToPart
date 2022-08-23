@@ -7,5 +7,3 @@
 +            emit log_named_string("  Value a", a);
 +            emit log_named_string("  Value b", b);
              fail();
-         }
-     }

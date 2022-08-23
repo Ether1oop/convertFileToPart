@@ -4,5 +4,3 @@
         _yamBalances[to] = _yamBalances[to].add(yamValue);
 +       emit Transfer(msg.sender, to, value);
         return true;
-     }
- 

@@ -22,3 +22,4 @@ https://github.com/velo-finance/velo-protocol/commit/22ccf6d3790ea5460c2951bbe80
 https://github.com/woonetwork/woofi_swap_smart_contracts/commit/82d25b10cd7c6358ab7cf22296c01b58840ecced/contracts/WooRouter.sol
 https://github.com/yearn/strategies-keep3r/commit/27e094d994a7db8ddf2f2098e36d68562f477357/contracts/jobs/VaultKeep3rJob.sol
 https://github.com/yearn/strategies-keep3r/commit/5881062a65e3168e9aa2b9bb890574e61eb0223c/contracts/jobs/VaultKeep3rJob.sol
+https://github.com/makerdao/keg/commit/08a1071b232a9a7f6647f25931f439d364359de2/src/Keg.sol

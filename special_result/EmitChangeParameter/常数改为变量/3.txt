@@ -6,4 +6,3 @@
 +        emit ChannelSettled(channel_identifier, data1.total_withdraw, 0, data2.total_withdraw, 0); // FIXME
      }
  
-     /// @notice Close the channel defined by the two participant addresses.

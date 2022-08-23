@@ -4,5 +4,3 @@
              state.approvedTx[owners[i]][transactionHashes[i]] = true;
 -            emit TransactionApproved(owners[i], transactionHashes[i]);
          }
-     }
- 

@@ -5,4 +5,3 @@
 +        emit SetERC20ownerBalance(_erc20, _ownerBalance);
      }
      
-     /// @dev access control modifier that requires modified function to be called by account with `ownerbalance` of `erc20`

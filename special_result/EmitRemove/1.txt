@@ -6,4 +6,3 @@
 +        // emit UpdateAccountInfo(dividendToken, account, owing, accounts[account].owing[dividendToken], accounts[account].lastDividendPoints[dividendToken], totalDividendPoints[dividendToken], unclaimedDividends[dividendToken]);
      }
      function depositDividends(address dividendToken, uint dividends) public {
-         // emit LogInfo("depositDividends: dividendToken", 0, 0x0, "", dividendToken);

@@ -4,5 +4,3 @@
              reservedETH = reservedETH.subCap(arbitrationCost);
 +            emit Dispute(arbitrator, session.disputeID, 0, sessions.length - 1);
          }
-     }
- 

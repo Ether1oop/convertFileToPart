@@ -5,5 +5,3 @@
 -      emit KeyManagerChanged(_tokenId, address(0));
 +      emit KeyManagerChanged(_tokenId, _keyManager);
      }
-   }
- 

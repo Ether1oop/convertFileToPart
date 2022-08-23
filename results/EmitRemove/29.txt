@@ -4,5 +4,3 @@
      uint256 numTokens = assetToken.totalSupply();
 -    emit LogConsensus(numVotesID, database.uintStorage(numVotesID), numTokens, executionID, database.uintStorage(numVotesID).mul(100).div(numTokens));
      return database.uintStorage(numVotesID).mul(scalingFactor).mul(100).div(numTokens).div(scalingFactor) >= consensus;
-   }
- 

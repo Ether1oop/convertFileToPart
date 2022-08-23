@@ -8,5 +8,3 @@
 -        emit log("from queued? -> ", _fromQueued ? 1 : 0);
 -
          uint _userOiShares = _shares;
-         uint _userNotional = _shares * pos.notional(_priceFrame, _oi, _oiShares) / _totalPosShares;
-         uint _userDebt = _shares * pos.debt / _totalPosShares;

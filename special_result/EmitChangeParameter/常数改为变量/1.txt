@@ -6,4 +6,3 @@
 +      emit KeyManagerChanged(_tokenId, _keyManager);
      }
    }
- 

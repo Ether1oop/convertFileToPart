@@ -12,5 +12,3 @@
          mix.transfer(msg.sender, what);
 +        emit Unstake(msg.sender, share);
      }
- }
-\ No newline at end of file

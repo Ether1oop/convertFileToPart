@@ -8,4 +8,3 @@
 +        // emit Log("remove", "before delete self.nodes[SENTINEL]", SENTINEL, self.nodes[SENTINEL].parent, self.nodes[SENTINEL].left, self.nodes[SENTINEL].right, self.nodes[SENTINEL].red);
          if (self.nodes[SENTINEL].parent != SENTINEL) {
              delete self.nodes[SENTINEL];
-         }

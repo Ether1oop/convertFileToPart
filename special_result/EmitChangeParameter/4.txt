@@ -6,4 +6,3 @@
 +        emit NewSaleRecipient(_saleRecipient, type(uint256).max, true);
      }
  
-     /// @dev Lets a module admin set the recipient of all primary sales for a given token ID.

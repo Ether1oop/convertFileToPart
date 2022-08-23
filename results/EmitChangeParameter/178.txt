@@ -11,5 +11,3 @@
 -        emit Config(ITheSpaceRegistry.ConfigOptions.mintTax, 0);
 +        emit Config(CONFIG_MINT_TAX, 0);
          thespace = new TheSpace(address(currency), ACL_MANAGER, MARKET_ADMIN, TREASURY_ADMIN);
-         registry = thespace.registry();
- 

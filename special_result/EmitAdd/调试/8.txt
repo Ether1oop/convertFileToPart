@@ -12,4 +12,3 @@
 +            emit LogInfo("settleFor tokenOwner for Cover token", tokenOwner, 0);
              uint optinoTokens = ERC20(pair).balanceOf(tokenOwner);
              uint coverTokens = ERC20(this).balanceOf(tokenOwner);
-             require (optinoTokens > 0 || coverTokens > 0);

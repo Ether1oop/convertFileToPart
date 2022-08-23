@@ -5,4 +5,3 @@
 +        emit Transfer(address(0), _to, _amount);
      }
  
-     // Function to clone ourselves.

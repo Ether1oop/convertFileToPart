@@ -5,15 +5,3 @@
 -        emit CancelProposal(msg.sender, oldProposalID, mapPID_votes[oldProposalID], mapPID_votes[newProposalID], totalWeight);
 +        emit CancelProposal(msg.sender, oldProposalID, mapPID_votes[oldProposalID], mapPID_votes[newProposalID], _DAOVAULT.totalWeight());
      }
- 
-     // Proposal with quorum can finalise after cool off period
-@@ -544,7 +498,7 @@ contract Dao {
-     
-     function completeProposal(uint _proposalID) internal {
-         string memory _typeStr = mapPID_type[_proposalID];
--        emit FinalisedProposal(msg.sender, _proposalID, mapPID_votes[_proposalID], totalWeight, _typeStr);
-+        emit FinalisedProposal(msg.sender, _proposalID, mapPID_votes[_proposalID],_DAOVAULT.totalWeight(), _typeStr);
-         mapPID_votes[_proposalID] = 0;
-         mapPID_finalised[_proposalID] = true;
-         mapPID_finalising[_proposalID] = false;
-

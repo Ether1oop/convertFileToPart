@@ -6,4 +6,3 @@
 +        emit AddedPoints(_user, _pointAmount);
      }
  
-     function subPoints(address _user, uint256 _pointAmount) public auth {

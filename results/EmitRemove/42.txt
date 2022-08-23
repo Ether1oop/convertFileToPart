@@ -5,5 +5,3 @@
 -                emit Withdraw(msg.sender, 69);
 -
                  // We can just pass 0 as the poolIndex as it won't be used in the function.
-                 _withdrawFromPool(0, underlyingAmount);
- 

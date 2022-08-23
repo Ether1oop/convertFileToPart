@@ -5,5 +5,3 @@
 -        emit FreezeStatusUpdated(msg.sender, frozen);
 +        emit FreezeStatusUpdated(msg.sender, freeze);
      }
- 
-     /*///////////////////////////////////////////////////////////////

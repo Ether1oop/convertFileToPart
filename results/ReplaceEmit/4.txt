@@ -13,5 +13,3 @@
 -        emit Events.AddInvestor(to, _tokenId);
 +        emit Events.InvestorAdded(to, _tokenId, block.timestamp);
          _tokenIdTracker.increment();
-         return _tokenId;
-     }

@@ -9,5 +9,3 @@
 -        emit log_uint("_lambda", _lambda);
 -
          _loihi.setParams(_alpha, _beta, _max, _epsilon, _lambda);
- 
-     }

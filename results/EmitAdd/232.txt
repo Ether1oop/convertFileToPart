@@ -6,4 +6,3 @@
          constitution.sendBudgetToGuild(1000000, address(locksmiths));
          hevm.warp(block.timestamp + 10 days);
          ursus.claimReward(0);
-

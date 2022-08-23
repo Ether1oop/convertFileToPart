@@ -6,4 +6,3 @@
 +        emit Approval(msg.sender, spender, amount);
          return true;
      }
- 

@@ -4,5 +4,3 @@
          emit Redeem(redeemer, remainedAmount, vars.redeemTokens);
 -        emit RedeemFee(redeemer, feeAmount, vars.redeemTokens);
  
-         /* We call the defense hook */
-         comptroller.redeemVerify(address(this), redeemer, vars.redeemAmount, vars.redeemTokens);

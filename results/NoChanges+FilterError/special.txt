@@ -121,3 +121,17 @@ https://github.com/Citadel-DAO/citadel-contracts/commit/9f4e5b5703ddaa09dd24d2c5
 https://github.com/sublime-finance/sublime-v1/commit/4d662b6f545eba0b0685ca7339f5b672923011fb/contracts/yield/CompoundYield.sol
 https://github.com/sublime-finance/sublime-v1/commit/4d662b6f545eba0b0685ca7339f5b672923011fb/contracts/yield/YearnYield.sol
 https://github.com/Rari-Capital/vaults/commit/38ba48f4d98b1bb86b8659e35b671b77ac676a7b/src/Vault.sol
+https://github.com/CodeforDAO/contracts/commit/be872502a60f0145de78007b69b37d9b13132785/contracts/core/Module.sol
+https://github.com/CodeforDAO/contracts/commit/be872502a60f0145de78007b69b37d9b13132785/contracts/core/Module.sol
+https://github.com/CodeforDAO/contracts/commit/be872502a60f0145de78007b69b37d9b13132785/contracts/core/Module.sol
+https://github.com/CodeforDAO/contracts/commit/be872502a60f0145de78007b69b37d9b13132785/contracts/core/Module.sol
+https://github.com/provable-things/ethereum-examples/commit/869d193ebcc89fb383383c3f0978ffe18fe39b31/solidity/truffle-examples/random-datasource/contracts/RandomExample.sol
+https://github.com/kleros/tcr/commit/0a5a9271b4b038fbde7866669de4cc81d5f6e2d0/contracts/LightGeneralizedTCR.sol
+https://github.com/makerdao/keg/commit/2a01f8b151275159aaac8b5f48f81d7a3f69f2ab/src/Keg.sol
+https://github.com/makerdao/keg/commit/2a01f8b151275159aaac8b5f48f81d7a3f69f2ab/src/Keg.sol
+https://github.com/MoonSHRD/UniversalNFTMarketplace/commit/fff9fe7bad28454144fe255919ada86b63a70257/contracts/721/singleton/Label.sol
+https://github.com/MoonSHRD/UniversalNFTMarketplace/commit/fff9fe7bad28454144fe255919ada86b63a70257/contracts/721/singleton/Label.sol
+https://github.com/Rari-Capital/charity-vaults/commit/bc991298fcd4cba7ad80a65508470cd0099f64d0/src/CharityVault.sol
+https://github.com/swarmfund/swarm-compliant-contract/commit/a0ac20b0b780eaa7a9f3da7b4d609c55f86fb4c5/contracts/factories/SWMPriceOracle.sol
+https://github.com/provable-things/ethereum-examples/commit/03e4fd557124bae59554470cb0c68337a91fe695/solidity/truffle-examples/random-datasource/contracts/RandomExample.sol
+https://github.com/provable-things/ethereum-examples/commit/03e4fd557124bae59554470cb0c68337a91fe695/solidity/truffle-examples/random-datasource/contracts/RandomExample.sol

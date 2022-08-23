@@ -14,4 +14,3 @@
      }
  
      function helper_getAbsInt24(int24 val) internal returns (uint256 abs) {
-

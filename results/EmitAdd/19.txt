@@ -4,5 +4,3 @@
        tokenApprovals[_tokenId] = address(0);
 -      emit Approval(_owner, address(0), _tokenId);
      }
-   }
- 

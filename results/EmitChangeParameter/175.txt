@@ -5,5 +5,3 @@
 -        emit ClaimedFees(accumulatedFees);
 +        emit ClaimedFees(claimedAccumulatedFees);
      }
- 
-     /**

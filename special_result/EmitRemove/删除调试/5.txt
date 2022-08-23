@@ -5,4 +5,3 @@
 -    emit Print("store_funct3", uint(funct3));
      if(funct3 == 0x0000){
        /*funct3 == 0x0000*/
-       //return "SB";

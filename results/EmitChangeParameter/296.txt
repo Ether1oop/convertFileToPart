@@ -5,5 +5,3 @@
 -      emit TokenConvert(msg.sender, _pid, _to, user.amount);
 +      emit TokenConvert(msg.sender, _pid, _to, _amount);
  
-     }
- 

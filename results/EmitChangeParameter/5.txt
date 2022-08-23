@@ -5,5 +5,3 @@
 -                emit AccrueFees(from, value);
 +                emit AccrueFees(from, fee);
              }
- 
-             uint credit;

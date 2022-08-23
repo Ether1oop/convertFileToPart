@@ -5,5 +5,3 @@
 -            emit RewardPaid(msg.sender, trueReward);
 +            emit RewardPaid(msg.sender, reward);
          }
-     }
- 

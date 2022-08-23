@@ -4,5 +4,3 @@
                  _indexedTokenIds[recipient].push(tokenId);
 +                emit Pulled(owner, recipient);
                  return;
-             }
-         }

@@ -1,8 +1,8 @@
-@@ -228,7 +228,7 @@ contract Market is IERC1155Receiver, ReentrancyGuard {
-     saleWindow[msg.sender][_listingId].start =  block.timestamp + _secondsUntilStart;
-     saleWindow[msg.sender][_listingId].end = _secondsUntilEnd == 0 ? type(uint256).max : block.timestamp + _secondsUntilEnd;
+@@ -224,7 +224,7 @@ contract NFTXStakingZap is OwnableUpgradeable, ReentrancyGuardUpgradeable, ERC72
+       IERC20Upgradeable(vault).transfer(msg.sender, minTokenIn-amountToken);
+     }
  
--    emit SaleWindowUpdate(msg.sender, _listingId, _secondsUntilStart, _secondsUntilEnd);
-+    emit SaleWindowUpdate(msg.sender, _listingId, saleWindow[msg.sender][_listingId].start, saleWindow[msg.sender][_listingId].end);
+-    emit UserStaked(vaultId, minTokenIn, liquidity, lockTime);
++    emit UserStaked(vaultId, minTokenIn, liquidity, lockEndTime);
+     return (amountToken, amountEth, liquidity);
    }
- 

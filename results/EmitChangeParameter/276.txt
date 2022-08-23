@@ -5,5 +5,3 @@
 -        emit Mint(address(0), value);
 +        emit Mint(user, value);
          emit Transfer(address(0), user, value);
-     }
- 

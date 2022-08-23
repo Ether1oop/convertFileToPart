@@ -6,4 +6,3 @@
 +        emit Create(msg.sender, engine, poolId, strike, sigma, maturity, gamma, delLiquidity - MIN_LIQUIDITY);
      }
  
-     address private _engine;

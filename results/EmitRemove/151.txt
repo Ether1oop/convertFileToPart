@@ -4,13 +4,3 @@
                      insertToPendingNodeListTail(member);
 -                    emit LogRegisteredNewPendingNode(member);
                  }
-             }
-         }
-@@ -700,6 +706,7 @@ contract DOSProxy is Ownable {
-             // Reset pendingNodeTail if necessary.
-             if (removed) {
-                 numPendingNodes--;
-+                nodeToGroupIdList[node][HEAD_I] = 0;
-                 emit LogUnRegisteredNewPendingNode(node,1);
-             }
-         }

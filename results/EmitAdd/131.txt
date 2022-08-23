@@ -4,5 +4,3 @@
          }
 +        emit RemoveLiquidity(getCaller(), optionAddress, liquidity);
          return (underlyingTokensWithdrawn.add(proceeds));
-     }
- 

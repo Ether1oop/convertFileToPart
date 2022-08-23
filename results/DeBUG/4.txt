@@ -5,5 +5,3 @@
 -        emit SecondsAgoSet(secodnsAgo_);
 +        emit SecondsAgoSet(secondsAgo_);
      }
- 
-     /**

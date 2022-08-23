@@ -4,5 +4,3 @@
          tokenUris[tokenId] = newuri;
 +        emit URI(newuri, tokenId);
      }
- 
-     /**

@@ -6,4 +6,3 @@
 +                emit RelayTransaction(bytes32(0), ret);
                  return ret;
              }
-             ProcessTransactionParams memory params = txParams[txHash];

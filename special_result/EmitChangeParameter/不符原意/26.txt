@@ -6,4 +6,3 @@
 +            emit RewardPaid(msg.sender, reward);
          }
      }
- 

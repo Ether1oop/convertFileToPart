@@ -5,5 +5,3 @@
 -    emit RemoveLiquidity(msg.sender, tokenAAmount, tokenBAmount);
 +    emit RemoveLiquidity(recipient, tokenAAmount, tokenBAmount);
      emit Transfer(msg.sender, address(0), amount);
-     return (tokenAAmount, tokenBAmount);
-   }

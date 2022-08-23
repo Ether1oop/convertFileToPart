@@ -5,5 +5,3 @@
 -        emit EmergencyWithdraw(msg.sender, user.amount);
 +        emit EmergencyWithdraw(msg.sender, amount);
      }
- 
-     // Withdraw reward. EMERGENCY ONLY.

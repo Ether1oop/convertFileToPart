@@ -4,5 +4,3 @@
          IWallet(_wallet).enableStaticCall(address(this), ERC1155_BATCH_RECEIVED);
 -        emit ERC1155TokenReceiverEnabled(_wallet);
      }
- 
-     /**

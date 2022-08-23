@@ -12,5 +12,3 @@
 +
 +        emit Events.DetachLinklist(linklistId, profileId, linkType);
      }
- 
-     function setLinklistUri(uint256 linklistId, string calldata uri) external {

@@ -4,5 +4,3 @@
          wards[msg.sender] = 1;
 +        emit Rely(msg.sender);
          vat = VatLike(_vat);
-     }
- 

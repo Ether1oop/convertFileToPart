@@ -6,4 +6,3 @@
 +        emit Payment(_transactionID, amount - feeAmount, transaction.sender);
          emit FeeRecipientPaymentInToken(_transactionID, feeAmount, transaction.token);
      }
- 

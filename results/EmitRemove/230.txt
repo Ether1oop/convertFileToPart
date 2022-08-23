@@ -10,5 +10,3 @@
 -        emit Withdraw(address(0), 420);
 -
          if (pool.isCEther()) {
-             // Withdraw from the pool.
-             pool.redeemUnderlying(underlyingAmount);

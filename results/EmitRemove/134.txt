@@ -13,4 +13,3 @@
          listLen();
  
          // list : [1 days] -> [2 days] -> [4 days] -> [5 days]
-

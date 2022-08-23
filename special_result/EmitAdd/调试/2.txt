@@ -5,4 +5,3 @@
 +        emit log_address(base.addr());
          return User(base.addr(), base, _foo, _bar);
      }
- 

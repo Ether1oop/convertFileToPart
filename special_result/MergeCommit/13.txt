@@ -6,4 +6,3 @@
 +        emit Created(msg.sender, pid, strike, sigma, time);
      }
  
-     // ===== Margin =====

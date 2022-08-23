@@ -13,4 +13,3 @@
 +        emit TransferSingle(msg.sender, _from, address(0x0), _id, _amount / 1 ether);
      }
  
-     function mint(address to,uint256 id, uint256 value) external {

@@ -21,5 +21,3 @@
          uint256 id = slot.toTokenId();
 -        emit log_uint(id);
          AuditLibrary.AuditSlot memory parsed = AuditLibrary.parseTokenId(id);
-         assertEq(slot.auditFirmId, parsed.auditFirmId);
-         assertEq(slot.nonuce, parsed.nonuce);

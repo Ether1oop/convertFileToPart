@@ -12,4 +12,3 @@
          mix.transfer(msg.sender, what);
 +        emit Unstake(msg.sender, share);
      }
- }

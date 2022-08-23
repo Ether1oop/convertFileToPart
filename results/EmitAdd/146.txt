@@ -4,5 +4,3 @@
      emit OwnershipTransferred(address(0), msg.sender);
 +    emit SetFeeBps(_feeBps);
    }
- 
-   /// @dev Transfers ownership to a new address.

@@ -5,5 +5,3 @@
 -        emit DepositorBalance(msg.sender, depositsByAddress[msg.sender]);
 +        emit DepositorBalance(msg.sender, 0);
          return depositorBalance;
-     }
- 

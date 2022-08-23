@@ -6,4 +6,3 @@
          bytes32 queryId = oraclize_newRandomDSQuery(delay, N, callbackGas); // this function internally generates the correct oraclize_query and returns its queryId
 +        emit LogNewOraclizeQuery("Oraclize query was sent, standing by for the answer...");
      }
- }

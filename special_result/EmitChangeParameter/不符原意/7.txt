@@ -5,4 +5,3 @@
 -        emit ETFBurned(msg.sender, etf, amount);
 +        emit ETFBurned(msg.sender, etf, redeemAmount);
      }
- }

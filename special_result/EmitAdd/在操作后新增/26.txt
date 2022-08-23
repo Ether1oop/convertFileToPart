@@ -5,4 +5,3 @@
 +        emit Propose(msg.sender, _proposalContract, _endTime);
          // adding vote
          proposalStorage.forVotes = uint96(proposerBalance);
-         proposalStorage.voted[msg.sender] = Voted(uint96(proposerBalance), true);

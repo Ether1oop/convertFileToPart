@@ -4,4 +4,3 @@
          emit Burn(user, value);
 +        emit Transfer(user, address(0), value);
      }
- }

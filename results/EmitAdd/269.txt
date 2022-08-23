@@ -5,5 +5,3 @@
 +
 +        emit ContractRemoved(account);
      }
- 
-     function isDAOContract(address account)

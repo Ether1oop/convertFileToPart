@@ -5,5 +5,3 @@
 -    emit NewOffer(outbound_tkn, inbound_tkn, offerId, owner);
 +    emit NewOwnedOffer(outbound_tkn, inbound_tkn, offerId, owner);
    }
- 
-   function ownerOf(

@@ -5,4 +5,3 @@
 +            emit ChangeTokenIdMap(spreadIds[i], true);
          }
  
-         emit FilterInit(filterAdmin, nftCollection, filterName);

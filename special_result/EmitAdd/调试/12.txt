@@ -11,4 +11,3 @@
 +        emit log_string(valenftines.tokenURI(1));
          // emit log_string(string(valenftines.svgImage(1)));
      }
- }

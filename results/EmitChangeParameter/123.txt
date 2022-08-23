@@ -5,5 +5,3 @@
 -    emit PosthookFail(_base, _quote, ofr);
 +    emit PosthookFail(_base, _quote, ofr,"posthookFail");
    }
- 
-   function badReturn_fails_test() public {

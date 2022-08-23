@@ -6,4 +6,3 @@
 +    emit Transfer(_account, address(0), ElasticMath.t(_deltaLambda, token.k, token.m));
    }
  
-   function _mint(address _account, uint256 _deltaT) internal {

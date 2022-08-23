@@ -8,5 +8,3 @@
      }
  
      function getETHRate() public view returns (uint) {
-
-\ No newline at end of file

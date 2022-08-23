@@ -23,5 +23,3 @@
 +        emit OwnerSet(owner);
      }
  }
-+
-+abstract contract int_setOwner_AccessControl is int_setOwner_AccessControl_v1 {}

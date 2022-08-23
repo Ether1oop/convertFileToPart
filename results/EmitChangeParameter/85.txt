@@ -5,5 +5,3 @@
 -        emit Transfer(msg.sender, dst, wad);
 +        emit Transfer(src, dst, wad);
          if( msg.sender != src && _allowance[src][msg.sender] != uint256(-1) ) {
-             _allowance[src][msg.sender] = bsub(_allowance[src][msg.sender], wad);
-         }

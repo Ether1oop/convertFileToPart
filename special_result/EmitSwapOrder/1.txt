@@ -5,4 +5,3 @@
 -        emit RefundedRequest(creator, request.requester, index, request.amount);
 +        emit RefundedRequest(creator, request.requester, request.amount, index);
      }
- }

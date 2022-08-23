@@ -6,4 +6,3 @@
 +        emit ReceivedEther(msg.sender, msg.value);
      }
  
-     /// @notice Getter for maximum voting power

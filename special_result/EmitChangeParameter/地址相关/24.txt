@@ -6,4 +6,3 @@
 +            emit Transfer(from, address(treasuryHandler), tax);
          }
  
-         treasuryHandler.afterTransferHandler(from, to, amount);

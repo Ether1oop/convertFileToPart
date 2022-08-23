@@ -6,4 +6,3 @@
 -
          for (uint i = 0; i < targets.length; i++) {
  
-             emit log_uint("i", i);

@@ -5,4 +5,3 @@
 +        emit LogEthReceived(msg.value, msg.sender);
      }
  
-     /**

@@ -1,18 +1,3 @@
-@@ -118,12 +122,12 @@ contract TurboSafe is Auth, ERC20, ERC4626 {
-         // Ensure the vault accepts Fei underlying.
-         require(vault.underlying() == fei, "NOT_FEI");
- 
-+        slurp(vault); // Accrue any fees earned by the vault.
-+
-         // Call the Master where it will do extra validation
-         // and update it's total count of funds used for boosting.
-         master.onSafeBoost(vault, feiAmount);
- 
--        slurp(vault); // Accrue any fees earned by the vault to the Master.
--
-         unchecked {
-             // Update the total Fei deposited into the vault proportionately.
-             // Overflow is safe because it will be caught when updating the total.
 @@ -133,6 +137,8 @@ contract TurboSafe is Auth, ERC20, ERC4626 {
          // Increase the boost total proportionately.
          totalFeiBoosted += feiAmount;
@@ -22,4 +7,3 @@
          // Borrow the Fei amount from the Fei cToken in the Turbo Fuse Pool.
          require(feiTurboCToken.borrow(feiAmount) == 0, "BORROW_FAILED");
  
-

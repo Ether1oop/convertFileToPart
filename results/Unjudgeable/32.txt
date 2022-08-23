@@ -5,5 +5,3 @@
 -        emit Dispute(arbitrator, disputeID, RULING_OPTIONS);
 +        emit LinkMetaEvidence(arbitrator, disputeID, 0);
      }
- 
-     /** @dev Reimburse owner if claimant fails to pay the fee.

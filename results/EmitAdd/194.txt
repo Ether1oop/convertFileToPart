@@ -4,12 +4,3 @@
      enabled[token] = true;
 +    emit TokenAdded(token);
    }
- 
-   /**
-@@ -30,5 +31,6 @@ contract FantomTokenRegistry is Ownable {
-   function remove(address token) external onlyOwner {
-     require(enabled[token], "token not exist");
-     enabled[token] = false;
-+    emit TokenRemoved(token);
-   }
- }

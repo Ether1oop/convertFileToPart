@@ -33,3 +33,15 @@ https://github.com/kleros/kleros-interaction/commit/4130f7694c0c832df6e6a47e9ebf
 https://github.com/pendle-finance/pendle-core/commit/e34fb3a8b164cb1cbde56f057d6be1d8d4428603/contracts/core/PendleForgeBase.sol
 https://github.com/pendle-finance/pendle-core/commit/6f73b477b5a116bfba422cc0334edbeb5674a286/contracts/core/PendleCompoundForge.sol
 https://github.com/nayms/contracts/commit/f6da439c96cab8788cca6f7401b0f915efbfc932/contracts/EntitySimplePolicyFacet.sol
+https://github.com/hashgraph/hedera-stable-coin-solidity-ethereum/commit/e7faca7d2774b944d6e7d7531353c45a1d0816d5/contracts/StableCoin.sol
+https://github.com/kleros/arbitrable-proxy-contracts/commit/cd8eeb253b5c4fd52325de941c278f1bd2916779/contracts/ArbitrableProxy.sol
+https://github.com/synassets/contracts/commit/73b821a85b3f60a57707377c28ffb4b51ee63ea9/contracts/PreSale.sol
+https://github.com/TotlePlatform/contracts/commit/157657752a75e6dd7042bb48a1e6b445ae77edfe/contracts/TotlePrimary.sol
+https://github.com/TotlePlatform/contracts/commit/157657752a75e6dd7042bb48a1e6b445ae77edfe/contracts/TotlePrimary.sol
+https://github.com/pendle-finance/pendle-core/commit/e34fb3a8b164cb1cbde56f057d6be1d8d4428603/contracts/core/PendleForgeBase.sol
+https://github.com/pendle-finance/pendle-core/commit/e34fb3a8b164cb1cbde56f057d6be1d8d4428603/contracts/core/PendleForgeBase.sol
+https://github.com/pendle-finance/pendle-core/commit/e34fb3a8b164cb1cbde56f057d6be1d8d4428603/contracts/core/PendleForgeBase.sol
+https://github.com/pendle-finance/pendle-core/commit/e34fb3a8b164cb1cbde56f057d6be1d8d4428603/contracts/core/PendleForgeBase.sol
+https://github.com/pendle-finance/pendle-core/commit/6f73b477b5a116bfba422cc0334edbeb5674a286/contracts/core/PendleCompoundForge.sol
+https://github.com/pendle-finance/pendle-core/commit/6f73b477b5a116bfba422cc0334edbeb5674a286/contracts/core/PendleCompoundForge.sol
+https://github.com/pendle-finance/pendle-core/commit/6f73b477b5a116bfba422cc0334edbeb5674a286/contracts/core/PendleCompoundForge.sol

@@ -19,12 +19,3 @@
 -        emit GovernorPushed(vault, newVault, _effectiveImmediately);
 +        emit VaultPushed(vault, newVault, _effectiveImmediately);
      }
- 
- 
-@@ -98,4 +98,4 @@ contract OlympusAuthority is IOlympusAuthority, OlympusAccessControlled {
-         emit VaultPulled(vault, newVault);
-         vault = newVault;
-     }
--}
-\ No newline at end of file
-+}

@@ -16,5 +16,3 @@
 -        emit log_int("balance_", balance_);
 -
      }
- 
-     // takes raw amount and returns numeraire amount

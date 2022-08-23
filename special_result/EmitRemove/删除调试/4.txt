@@ -11,4 +11,3 @@
 -        emit log_uint("bal2", bal);
          return bal;
      }
- 

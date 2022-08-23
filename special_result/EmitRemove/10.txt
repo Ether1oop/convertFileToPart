@@ -1,7 +1,7 @@
-@@ -165,7 +166,6 @@ contract LlamaPay is BoringBatchable {
-         streamToStart[streamId] = lastUpdate;
-         payers[from].lastPayerUpdate = lastUpdate;
-         token.safeTransfer(to, amountToTransfer);
--        emit Withdraw(from, to, amountPerSec, streamId, amountToTransfer);
+@@ -125,7 +125,6 @@ contract SBF is IBEP20, IMintBurnToken, Tokenlock, UserLock {
+         _decimals = 18;
+         _mint(account, 46000000e18);
+         super.initializeOwner(account);
+-        emit Transfer(address(0), account, _totalSupply);
      }
  

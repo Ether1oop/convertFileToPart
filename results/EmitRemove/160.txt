@@ -29,18 +29,3 @@
 -        // }
 -
      }
- 
-     function hasSufficientCapital(address shellAddress) public  returns(bool) {
-@@ -204,11 +186,7 @@ contract ShellGovernance is DSMath, CowriState {
-     }
- 
-     function getActiveShellsForPair (address one, address two) public  returns (address[] memory) {
--        emit log_named_address("one", one);
--        emit log_named_address("two", two);
--        address[] memory result = pairsToActiveShellAddresses[one][two];
--        emit log_addr_arr("result", result);
--        return result;
-+        return pairsToActiveShellAddresses[one][two];
-     }
- 
-     function getShellBalance(uint index, address _address) public view returns(uint) {

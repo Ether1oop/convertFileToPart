@@ -12,4 +12,3 @@
 +            emit LOG_EXIT(msg.sender, token, tokenBalanceWithdrawn);
          }
  
-         _streamSwapContext.updateFlowRates(token, _records, oldRecord);

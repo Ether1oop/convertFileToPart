@@ -5,4 +5,3 @@
 +        emit ValidatorParamsUpdate(valAddr, _signer, validator.minSelfDelegation, validator.commissionRate);
      }
  
-     /**

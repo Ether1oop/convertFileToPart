@@ -11,5 +11,3 @@
 -        emit log_uint(feesTaken);
 -        emit log_uint(vault.balanceOf(address(1)));
      }
- 
-     function test_harvest_pulls_into_float(uint256 amount) public {

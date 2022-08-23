@@ -6,4 +6,3 @@
 +        emit staked(msg.sender, _optionId, stakeAmount);
      }
      
-     

@@ -6,4 +6,3 @@
 +      emit Approval(_from, msg.sender, _allowances[_from][msg.sender]);
      }
  
-     _transfer(_from, _to, _amount);

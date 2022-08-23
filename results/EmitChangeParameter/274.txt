@@ -11,5 +11,3 @@
 -        emit Deny(msg.sender);
 +        emit Deny(usr);
      }
- 
-     function setImplementation(address implementation_) external auth {

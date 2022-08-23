@@ -7,4 +7,3 @@
 -        emit CreatePool(token, pool);
          return pool;
      }
- 

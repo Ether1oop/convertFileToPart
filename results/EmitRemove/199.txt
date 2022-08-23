@@ -3,5 +3,3 @@
          totalSupply = totalSupply.sub(value);
          emit Burn(user, value);
 -        emit Transfer(user, address(0), value);
-     }
- }

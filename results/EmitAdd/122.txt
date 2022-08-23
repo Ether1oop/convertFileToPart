@@ -4,5 +4,3 @@
  
 +        emit Reward(totalUsdc);
          return totalUsdc;
-     }
- }

@@ -5,4 +5,3 @@
 +        emit SignersUpdated(_ss);
      }
  
-     // set new signers

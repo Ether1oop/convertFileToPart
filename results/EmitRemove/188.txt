@@ -1,18 +1,3 @@
-@@ -9,14 +9,6 @@ import "../../LoihiRoot.sol";
- 
- contract LocalCDaiAdapter is LoihiRoot {
- 
--    IChai chai;
--    ICToken cdai;
--    IERC20 dai;
--    IPot pot;
--    ICToken cusdc;
--    IERC20 usdc;
--    IERC20 usdt;
--
-     constructor () public { }
- 
-     // takes raw cdai amount
 @@ -43,16 +35,32 @@ contract LocalCDaiAdapter is LoihiRoot {
          return cdaiAmount;
      }
@@ -46,5 +31,3 @@
      function getNumeraireBalance () public returns (uint256) {
 -        emit log_address("cdai", address(cdai));
          return cdai.balanceOfUnderlying(address(this));
-     }
- 

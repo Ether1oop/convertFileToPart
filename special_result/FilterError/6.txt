@@ -6,4 +6,3 @@
 +        emit Events.UnlinkLinklist(fromProfileId, toLinkListId, linkType, linklistId);
      }
  
-     // set link module for his profile

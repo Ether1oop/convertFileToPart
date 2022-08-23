@@ -3,5 +3,3 @@
          IERC20(dodoToken).safeTransfer(_to, _amount);
          realizedReward[_to] = realizedReward[_to].add(_amount);
 +        emit Claim(_to, _amount);
-     }
- }

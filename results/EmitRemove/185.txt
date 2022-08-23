@@ -7,4 +7,3 @@
 -        emit log_named_uint("totes cap",totalCapital);
          for (uint i = 0; i < tokens.length; i++) {
              totalCapital = add(totalCapital, shells[shell][address(tokens[i])]);
-         }

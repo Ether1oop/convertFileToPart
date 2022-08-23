@@ -6,4 +6,3 @@
 +        emit Liquidation(user, now, userCollateral, userDebt);
      }
  
-     /// @dev Buy a portion of a position under liquidation.

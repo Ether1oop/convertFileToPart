@@ -7,14 +7,3 @@
          msg.sender.transfer(amount);
 -        emit LogIncomeCollected(now, msg.sender, amount);
          return true;
-     }
- 
-@@ -116,7 +116,7 @@ contract DividendToken is MintableToken {
- 
-     // @notice Calculates how much value _user holds
-     function getAmountOwed(address _user)
--    private
-+    public
-     view
-     returns (uint) {
-         uint valuePerTokenDifference = valuePerToken.sub(previousValuePerToken[_user]);

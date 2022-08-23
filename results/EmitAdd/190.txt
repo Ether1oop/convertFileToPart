@@ -6,5 +6,3 @@
          // raise creditLine
 +        emit log_named_address("clerk", address(clerk));
          clerk.raise(amountDAI);
- 
-         // assert creditLine was increased

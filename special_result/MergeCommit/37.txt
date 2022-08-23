@@ -6,4 +6,3 @@
 +        emit UpdatedTokenInformation(name, symbol, decimals, version, onchainID);
      }
  
-     /**

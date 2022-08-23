@@ -1,14 +1,3 @@
-@@ -23,10 +23,6 @@ contract VaultKeep3rJob is UtilsReady, Keep3rJob, IVaultKeep3rJob {
-         _setEarnCooldown(_earnCooldown);
-     }
- 
--    function isVaultKeep3rJob() external pure override returns (bool) {
--        return true;
--    }
--
-     // Setters
-     function addVaults(address[] calldata _vaults, uint256[] calldata _requiredEarns) external override onlyGovernor {
-         require(_vaults.length == _requiredEarns.length, "VaultKeep3rJob::add-vaults:vaults-required-earns-different-length");
 @@ -105,24 +101,25 @@ contract VaultKeep3rJob is UtilsReady, Keep3rJob, IVaultKeep3rJob {
          return false;
      }
@@ -38,5 +27,3 @@
 -        emit EarnByGovernor(_vault);
 +        emit ForceWorked(_vault);
      }
- 
-     function _earn(address _vault) internal {

@@ -7,4 +7,3 @@
          }
  
          assertTrue(tCase.status == result);
-

@@ -4,5 +4,3 @@
              dispute.period = Period.appeal;
 +            emit AppealPossible(_disputeID, dispute.arbitrated);
          } else if (dispute.period == Period.appeal) {
-             require(now - dispute.lastPeriodChange >= courts[dispute.subcourtID].timesPerPeriod[uint(dispute.period)], "The appeal period time has not passed yet.");
-             dispute.period = Period.execution;

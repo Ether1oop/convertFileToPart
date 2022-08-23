@@ -5,14 +5,3 @@
 -        emit URI(id, uri);
 +        emit URI(uri, id);
      }
- 
-     ///////////////////// VIEW/PURE FUNCTIONS /////////////////////
-@@ -268,7 +268,4 @@ contract ERC1155Proxy is
-     /// @notice Emitted when the ERC1155Proxy is initialized
-     event ERC1155ProxyInitialized(address controller);
- 
--    /// @notice Emitted when the URI is changed
--    event URI(uint256 id, string uri);
--
- }
-\ No newline at end of file

@@ -12,5 +12,3 @@
      proposals[_proposalID] = Proposal(now, 0, 0, 0);
 +    emit Propose(_proposalID);
    }
- 
-   /**

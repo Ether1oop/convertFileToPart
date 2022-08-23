@@ -6,4 +6,3 @@
 +        emit ContinuousMint(msg.sender, _deposit, amount);
          return amount;
      }
- 

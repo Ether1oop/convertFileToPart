@@ -5,5 +5,3 @@
 -        emit Events.UninkLinklist(fromProfileId, toLinkListId, linkType, linklistId);
 +        emit Events.UnlinkLinklist(fromProfileId, toLinkListId, linkType, linklistId);
      }
- 
-     // set link module for his profile

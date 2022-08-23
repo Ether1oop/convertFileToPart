@@ -9,4 +9,3 @@
          string memory pixelation = renderer.tokenSVG(img_bytes);
 +        emit log_uint(bytes(pixelation).length);
      }
- }

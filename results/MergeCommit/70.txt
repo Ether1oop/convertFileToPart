@@ -5,15 +5,3 @@
 -
 -            emit CollateralDeposited(loanID, request.borrower, msg.value);
          }
- 
-         borrowerLoans[request.borrower].push(loanID);
-@@ -232,6 +230,9 @@ contract Loans is Base, LoansInterface {
-             request.duration,
-             termsExpiry
-         );
-+        if (msg.value > 0) {
-+            emit CollateralDeposited(loanID, request.borrower, msg.value);
-+        }
-     }
- 
-     /**

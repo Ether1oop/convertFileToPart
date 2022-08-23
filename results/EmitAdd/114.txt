@@ -8,15 +8,3 @@
 -        emit LogBytes(msg.data);
 +        // emit LogBytes(msg.data);
          bytes memory copy;
-         uint ptr;
-         assembly {
-@@ -222,7 +223,7 @@ contract Exchange is IExchange, NoDefaultFunc {
-         uint offset = 2;
-         uint16[] memory encodeSpecs = data.copyToUint16Array(offset, encodeSpecsLen);
-         offset += 2 * encodeSpecsLen;
--        // emit LogInt16Arr(encodeSpecs);
-+        emit LogInt16Arr(encodeSpecs);
- 
-         uint16 miningSpec = uint16(MemoryUtil.bytesToUintX(data, offset, 2));
-         offset += 2;
-

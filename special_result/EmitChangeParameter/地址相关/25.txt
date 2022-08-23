@@ -5,4 +5,3 @@
 -        emit COLLECT(TI, collected);
 +        emit COLLECT(token, collected);
      }
- }

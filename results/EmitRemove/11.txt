@@ -4,5 +4,3 @@
      function redeemOrder(uint wad) public {
 -        emit log_named_uint("hi", 5);
          calls["redeemOrder"]++;
-         values_uint["redeemOrder_wad"] = wad;
-     }

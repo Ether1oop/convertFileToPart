@@ -8,5 +8,3 @@
 -
 -        emit GovernanceClaimed(pendingGovernance, governance);
      }
- 
-     /**

@@ -6,4 +6,3 @@
 +        emit leveled(msg.sender, level[_summoner], _summoner);
      }
  
-     function summoner(uint _summoner) external view returns (uint _xp, uint _log, uint _class, uint _level) {

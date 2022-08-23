@@ -6,4 +6,3 @@
 +        emit DAppCreated(_id, e_balance);
      }
      
-     /**

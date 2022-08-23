@@ -9,4 +9,3 @@
 +            emit Log("remove", "after removeFixup", x, self.nodes[x].parent, self.nodes[x].left, self.nodes[x].right, self.nodes[x].red);
              // TODO Check if required delete self.nodes[0];
              // delete self.nodes[0];
-         }

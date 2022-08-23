@@ -6,4 +6,3 @@
 +        emit AmountBorrowed(_tokensLent.sub(_protocolFee), _protocolFee);
      }
  
-     /**

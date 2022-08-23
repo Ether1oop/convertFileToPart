@@ -12,5 +12,3 @@
 -    emit Approval(msg.sender, _to, _allowances[_from][msg.sender]);
 -
      return true;
-   }
- 

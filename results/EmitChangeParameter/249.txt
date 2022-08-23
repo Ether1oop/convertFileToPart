@@ -5,14 +5,3 @@
 -        emit CreatePool(token, pool); // Emit CreatePool before the AddLiquidity event for subgraph
 +        emit CreatePool(_token, pool); // Emit CreatePool before the AddLiquidity event for subgraph
          Pool(pool).addForMember(msg.sender); // Perform the liquidity-add for the user
-         return pool;
-     }
-@@ -154,4 +154,7 @@ contract PoolFactory is ReentrancyGuard {
-     function getPoolArray(uint256 i) external view returns(address){
-         return arrayPools[i];
-     }
-+    function vaultAssetsLength() external view returns(uint256){
-+        return vaultAssets.length;
-+    }
- }
-\ No newline at end of file

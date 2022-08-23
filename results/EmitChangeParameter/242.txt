@@ -5,5 +5,3 @@
 -        emit DelaySet(delay);
 +        emit DelaySet(delay_);
      }
- 
-     /// @dev Schedule a transaction batch for execution between `eta` and `eta + GRACE_PERIOD`

@@ -1,12 +1,3 @@
-@@ -120,7 +120,7 @@ library Orchestrator {
-             
-             includeAsset(
-                 shell,
--                _assets[ix], // numeraire
-+                _assets[ix],   // numeraire
-                 _assets[1+ix], // numeraire assimilator
-                 _assets[2+ix], // reserve
-                 _assets[3+ix], // reserve assimilator
 @@ -191,11 +191,11 @@ library Orchestrator {
  
          emit AssetIncluded(_numeraire, _reserve, _weight);
@@ -18,6 +9,4 @@
  
 -            emit AssimilatorIncluded(_numeraire, _numeraire, _reserve, _reserveAssim);
 +            emit AssimilatorIncluded(_reserve, _numeraire, _reserve, _reserveAssim);
- 
-         }
  

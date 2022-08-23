@@ -1,53 +1,3 @@
-@@ -2,8 +2,12 @@
- pragma solidity 0.8.10;
- 
- import "ds-test/test.sol";
--import "src/Valenftines.sol";
-+import {Valenftines} from "src/Valenftines.sol";
- import "forge-std/Vm.sol";
-+import "src/libraries/ValenftinesDescriptors.sol";
-+import {ERC721Enumerable} from "openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-+
-+import 'src/libraries/HexStrings.sol';
- 
- contract ContractTest is DSTest {
-     Vm vm = Vm(HEVM_ADDRESS);
-@@ -16,7 +20,6 @@ contract ContractTest is DSTest {
-     bytes32[] proofArray;
-     bytes32 proof = 0x00314e565e0574cb412563df634608d76f5c59d9f817e85966100ec1d48005c0;
- 
--
-     function setUp() public {
-         valenftines = new Valenftines(
-             earlymintStartTimestamp,
-@@ -30,7 +33,7 @@ contract ContractTest is DSTest {
- 
-     function testMint() public {
-         address mintTo = address(1);
--        vm.warp(5);
-+        vm.warp(mintStartTimestamp + 1);
-         valenftines.mint{value: 3e16}(mintTo, 1, 2, 3);
-         assertEq(valenftines.ownerOf(1), mintTo);
-     }
-@@ -47,6 +50,18 @@ contract ContractTest is DSTest {
-         valenftines.mint{value: 3e16}(address(1), 1, 2, 3);
-     }
- 
-+    function testMintInvalidHeartType() public {
-+        vm.warp(mintStartTimestamp + 1);
-+        vm.expectRevert("7");
-+        valenftines.mint{value: 3e16}(address(1), 0, 2, 3);
-+    }
-+
-+    function testMintInvalidHeartType2() public {
-+        vm.warp(mintStartTimestamp + 1);
-+        vm.expectRevert("7");
-+        valenftines.mint{value: 3e16}(address(1), 1, 24, 3);
-+    }
-+
-     function testMintValentineInfo() public {
-         address mintTo = address(1);
-         vm.warp(5);
 @@ -143,12 +158,12 @@ contract ContractTest is DSTest {
      function testTokenURI() public {
          vm.warp(5);
@@ -63,5 +13,3 @@
 +        // emit log_string(valenftines.tokenURI(1));
 +        // emit log_string(valenftines.tokenURI(2));
      }
-+
- }

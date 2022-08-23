@@ -4,5 +4,3 @@
          operators[msg.sender][operator] = approved;
 +        emit ApprovalForAll(msg.sender, operator, approved);
      }
- 
-     /**

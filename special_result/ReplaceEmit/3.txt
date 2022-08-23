@@ -6,4 +6,3 @@
 +        emit EscrowRefunded(_shipmentUuid, amount);
      }
  }
-\ No newline at end of file

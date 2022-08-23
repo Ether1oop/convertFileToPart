@@ -6,4 +6,3 @@
 +        emit AccessControlTemplateAdded(accessControlTemplate, _template);
          accessControlTemplate = _template;
      }
- 

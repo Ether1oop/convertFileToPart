@@ -1,12 +1,14 @@
-@@ -1250,10 +1248,10 @@ contract OptinoFactory is Owned, CloneFactory {
-             series.optinoToken = address(_optinoToken);
-             series.coverToken = address(_coverToken);
-             addSeries(_pairKey, optinoData, address(_optinoToken), address(_coverToken));
--            emit LogInfo("_mint a", address(0), 0);
-             series = seriesData[_seriesKey];
--            emit LogInfo("_mint b", msg.sender, optinoData.tokens);
-+            emit LogInfo("mint optinoToken", msg.sender, optinoData.tokens);
-             _optinoToken.initOptinoToken(this, _seriesKey, _coverToken, (pair.index + 3) * 100000 + series.index + 5, false, OPTINODECIMALS);
-+            emit LogInfo("mint coverToken", msg.sender, optinoData.tokens);
-             _coverToken.initOptinoToken(this, _seriesKey, _optinoToken, (pair.index + 3) * 100000 + series.index + 5, true, OPTINODECIMALS);
-         } else {
+@@ -58,14 +58,10 @@ contract ElementFiValueProvider is Oracle, Convert {
+         balancerVaultAddress = balancerVaultAddress_;
+         poolToken = poolToken_;
+         poolTokenDecimals = ERC20(poolToken_).decimals();
+-        emit loguint(101);
+-        emit loguint(ERC20(poolToken_).decimals());
+         underlier = underlier_;
+         underlierDecimals = ERC20(underlier_).decimals();
+-        emit loguint(102);
+         ePTokenBond = ePTokenBond_;
+         ePTokenBondDecimals = ERC20(ePTokenBond_).decimals();
+-        emit loguint(103);
+         timeScale = timeScale_;
+         maturity = maturity_;

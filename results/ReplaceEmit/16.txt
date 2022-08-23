@@ -16,5 +16,3 @@
 -        emit log_uint(vault.calculateTotalFreeUnderlying());
 +        emit log_named_uint("Exchange rate after full harvest", vault.exchangeRateCurrent());
  
-         //assertEq(vault.exchangeRateCurrent(), 1.5e18);
-     }

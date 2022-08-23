@@ -13,5 +13,3 @@
          offset += 2 * encodeSpecs.orderSpecSize();
 -        // emit LogIntArr(encodeSpecs);
  
-         address[] memory addressList = data.copyToAddressArray(offset, encodeSpecs.addressListSize());
-         emit LogAddrArr(addressList);

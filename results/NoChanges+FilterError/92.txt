@@ -5,5 +5,3 @@
 -	        emit UpdateInvertOraclePrice(_invertOraclePrice);	
 +	      emit UpdateInvertOraclePrice(_invertOraclePrice);	
      }
- 
-     // =======================================================================

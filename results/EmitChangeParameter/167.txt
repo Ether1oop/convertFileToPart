@@ -5,5 +5,3 @@
 -        emit AddMarketTerms(marketTerms.length, terms);
 +        emit AddMarketTerms(marketTerms.length-1, terms);
      }
-     
-     function amendMarketTerms(uint256 index, string calldata terms) external onlyLexDAO {

@@ -5,5 +5,3 @@
 -        emit Ruling(Arbitrator(msg.sender), _externalDisputeID, _ruling);
 +        emit Ruling(Arbitrator(msg.sender), externalDisputeIDToLocalDisputeID[_externalDisputeID], _ruling);
  
-         executeRuling(_externalDisputeID, _ruling);
-     }

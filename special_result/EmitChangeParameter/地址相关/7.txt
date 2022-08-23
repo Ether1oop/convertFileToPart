@@ -6,4 +6,3 @@
 +                emit AssetSwap(msg.sender, address(0), BZRX, 0, bzrxAmount);
              }
  
-             IWethERC20(BNB).withdraw(bnbOutput);

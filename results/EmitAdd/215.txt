@@ -8,5 +8,3 @@
          cdai.mint(amount);
 +        emit log_uint("cdai mint", amount);
          return amount;
-     }
- 

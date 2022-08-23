@@ -21,18 +21,3 @@
 -    Print("vaddr", vaddr);
 +    emit Print("vaddr", vaddr);
      (translateBool, paddr) = translate_virtual_address(vaddr, RiscVConstants.PTE_XWR_CODE_SHIFT());
- 
-     //translate_virtual_address failed
-@@ -336,9 +336,10 @@ contract MonolithicRiscV {
- 
-     //TO-DO: Check lastPma - this is probably wrong.
-     uint64 lastPma = 62; // 0 - 31 * 2 words
--
-+    emit Print("paddr", paddr);
-     for(uint64 i = 0; i < lastPma; i+=2){
--      uint64 start = uint64(mm.read(mmIndex, pmaAddress + (i*8)));
-+      // TO-DO: Shouldnt have -1 on start
-+      uint64 start = uint64(mm.read(mmIndex, pmaAddress + (i*8))) - 1;
-       uint64 length = uint64(mm.read(mmIndex, pmaAddress + ((i * 8 + 8))));
-       if(paddr >= start && paddr < (start + length)){
-         return (start, length);

@@ -7,4 +7,3 @@
      }
  
      function icoMint(address payable to, uint256 amount) public {
-

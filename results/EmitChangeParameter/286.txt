@@ -12,5 +12,3 @@
 -    emit Distributed(token, amount);
 +    emit Distributed(address(token), amount);
    }
- 
-   function distribute(address token, uint256 amount) external override {

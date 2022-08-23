@@ -7,5 +7,3 @@
          IERC20(_token).safeTransfer(receiver, _amount);
 +        emit Refunded(_token, _amount, _message);
          return true;
-     }
- 

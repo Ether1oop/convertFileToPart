@@ -13,15 +13,3 @@
 -        emit PeripheryChanged(periphery);
 +        emit PeripheryChanged(_periphery);
      }
- 
-     /// @notice Set paused flag
-@@ -482,7 +476,7 @@ contract Divider is Trust, ReentrancyGuard, Pausable {
-     /// @param _permissionless bool
-     function setPermissionless(bool _permissionless) external requiresTrust {
-         permissionless = _permissionless;
--        emit PermissionlessChanged(permissionless);
-+        emit PermissionlessChanged(_permissionless);
-     }
- 
-     /// @notice Backfill a Series' Scale value at maturity if keepers failed to settle it
-

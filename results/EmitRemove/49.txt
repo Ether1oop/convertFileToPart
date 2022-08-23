@@ -4,14 +4,3 @@
              _mint(address(0), _mintForFeesNextHarvest);
 -            emit log_uint(exchangeRateCurrent());
          }
-         // Ensure that the harvest does not occur too early.
-         require(block.number >= nextHarvest());
-@@ -267,8 +266,6 @@ contract Vault is ERC20, DSTestPlus {
-             mintForFeesNextHarvest = fee;
-         }
- 
--        emit log_uint(exchangeRateCurrent());
--
-         emit Harvest(msg.sender, maxLockedProfit);
-     }
- 

@@ -8,4 +8,3 @@
 -
      }
  
-     function setTokenConfig(address token, string memory symbol, uint upperBoundAnchorRatio, uint lowerBoundAnchorRatio) public onlyOwner {

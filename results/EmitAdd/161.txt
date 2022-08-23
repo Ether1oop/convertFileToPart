@@ -6,4 +6,3 @@
              emit log_named_uint("    Actual", a);
              fail();
          }
-

@@ -6,4 +6,3 @@
 +        emit FundDeposited(address(_token), _from, _amount);
          return true;
      }
- 

@@ -6,4 +6,3 @@
 +        emit FreezeStatusUpdated(msg.sender, freeze);
      }
  
-     /*///////////////////////////////////////////////////////////////

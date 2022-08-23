@@ -5,5 +5,3 @@
 -    emit UserStaked(vaultId, minTokenIn, liquidity, lockTime);
 +    emit UserStaked(vaultId, minTokenIn, liquidity, lockEndTime);
      return (amountToken, amountEth, liquidity);
-   }
- 

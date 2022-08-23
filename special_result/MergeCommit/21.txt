@@ -6,4 +6,3 @@
 +        emit DripAmountUpdate(0, _dripAmount);
  
          // start timer
-         _initTimed();

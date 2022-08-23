@@ -1,18 +1,8 @@
-@@ -926,15 +926,15 @@ contract SyscoinBattleManager is Initializable, SyscoinErrorCodes {
-     function convictChallenger(bytes32 sessionId, uint err) private {
-         BattleSession storage session = sessions[sessionId];
-         sessionDecided(sessionId, session.superblockHash, session.submitter, session.challenger);
--        emit ChallengerConvicted(sessionId, session.superblockHash, err, session.challenger);
-+        emit ChallengerConvicted(session.superblockHash, sessionId, err, session.challenger);
-         disable(sessionId);
-     }
- 
-     // @dev - To be called when a submitter is convicted
-     function convictSubmitter(bytes32 sessionId, uint err) private {
-         BattleSession storage session = sessions[sessionId];
-         sessionDecided(sessionId, session.superblockHash, session.challenger, session.submitter);
--        emit SubmitterConvicted(sessionId, session.superblockHash, err, session.submitter);
-+        emit SubmitterConvicted(session.superblockHash, sessionId, err, session.submitter);
-         disable(sessionId);
+@@ -422,7 +422,7 @@ contract ImpermanentGain is ERC20Mintable {
+         poolB = poolB.sub(amount);
+         _burn(msg.sender, lp);
+         doTransferOut(baseToken, msg.sender, amount);
+-        emit RemoveLP(msg.sender, lp, amount, amount);
++        emit RemoveLP(msg.sender, amount, amount, lp);
      }
  

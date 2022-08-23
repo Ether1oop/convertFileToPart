@@ -5,5 +5,3 @@
 +        emit FlashBorrow(borrower, target, loanTokenAddress, borrowAmount);
 +
          bytes memory callData;
-         if (bytes(signature).length == 0) {
-             callData = data;

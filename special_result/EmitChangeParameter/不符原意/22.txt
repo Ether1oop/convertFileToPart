@@ -6,4 +6,3 @@
 +        emit Joined(campaignAddress, plasmaOf(referrer), last_address);
      }
  
- 

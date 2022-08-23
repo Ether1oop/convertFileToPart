@@ -4,5 +4,3 @@
              p.finished = true;
 -            emit VoteMintProposal(_tunnelKey, _txid, _amount, to, trustee, p.voteCount, trusteeCount);
              return true;
-         } else {
-             return false;

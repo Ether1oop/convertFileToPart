@@ -6,4 +6,3 @@
      }
  
      function depend(bytes32 contractName, address addr) public auth {
-

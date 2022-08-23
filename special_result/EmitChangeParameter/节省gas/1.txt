@@ -6,4 +6,3 @@
 +        emit Received(msg.value, msg.sender, "");
      }
  }
-\ No newline at end of file

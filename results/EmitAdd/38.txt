@@ -10,14 +10,3 @@
          emissionSetter = _emissionSetter;
 +        emit LogSetEmissionSetter(_emissionSetter);
      }
- 
-     /// @notice Implement ERC165 to return which interfaces this contract conforms to
-@@ -280,7 +282,7 @@ contract Reliquary is Relic, AccessControlEnumerable, Multicall, ReentrancyGuard
-         uint256 pid,
-         uint256 allocPoint,
-         IRewarder _rewarder,
--        string memory name,
-+        string calldata name,
-         bool isPair,
-         bool overwriteRewarder
-     ) public onlyRole(OPERATOR) {

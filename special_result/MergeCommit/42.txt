@@ -8,4 +8,3 @@
 +            emit log_named_string("  Value b", b);
              fail();
          }
-     }

@@ -5,4 +5,3 @@
 -        emit Burn(_amount);
          emit Transfer(msg.sender, _burnAddress, _amount);
      }
- 

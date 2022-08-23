@@ -8,5 +8,3 @@
          delete pendingCraft[user];
 -
 -        emit CraftDone(user, ci.elixirId, ci.tokenId0, ci.tokenId1, totalSupply, level, category, item);
-     }
- }

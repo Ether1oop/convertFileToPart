@@ -19,5 +19,3 @@
 +        emit LogInit(id);
 +        emit LogInit(id2Ind[id]);
          RubiconMarket(RubiconMarketAddress).cancel(id);
-         removeElement(id2Ind[id]);
-     }

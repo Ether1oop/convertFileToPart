@@ -4,4 +4,3 @@
          realizedReward[_to] = realizedReward[_to].add(_amount);
 +        emit Claim(_to, _amount);
      }
- }

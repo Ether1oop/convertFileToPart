@@ -17,5 +17,3 @@
      function submitEvidence(uint256 _evidenceGroupID, string calldata _evidence) external {
 -        emit Evidence(NULL_ARBITRATOR, _evidenceGroupID, msg.sender, _evidence);
 +        emit Evidence(arbitrator, _evidenceGroupID, msg.sender, _evidence);
-     }
- }

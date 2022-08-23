@@ -8,4 +8,3 @@
 +        emit MetaEvidence(2 * metaEvidenceUpdates + 1, _clearingMetaEvidence);
      }
  
-     /* Public Views */

@@ -7,4 +7,3 @@
 +        emit WalletLock(wallet, 0);
      }
  
-     function getWalletLock(address wallet)

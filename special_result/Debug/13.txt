@@ -6,4 +6,3 @@
 +            emit DelegateVotesChanged(accounts[i], 0, getVotes(accounts[i]));
  
              unchecked {
-                 i++;

@@ -12,5 +12,3 @@
      }
 
  
-
-     function mint(address owner) public override _pool_ {

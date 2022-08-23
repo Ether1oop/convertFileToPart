@@ -4,5 +4,3 @@
          super.initializeOwner(account);
 -        emit Transfer(address(0), account, _totalSupply);
      }
- 
-     /**

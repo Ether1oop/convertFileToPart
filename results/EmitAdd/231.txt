@@ -4,5 +4,3 @@
          transfersAllowed[from][msg.sender] = state;  // T:[CF-43]
 +        emit TransferAccountAllowed(from, msg.sender, state); // T:[CF-43]
      }
- 
-     function allowanceForAccountTransfers(address from, address to) external view override returns(bool) {

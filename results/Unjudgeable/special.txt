@@ -36,3 +36,7 @@ https://github.com/DODOEX/contractV2/commit/9f974667a739b6a7ff42c6c51d143786c135
 https://github.com/VisorFinance/visor-core/commit/71797204108fee8375bfb99a435c0e379bbcbd84/contracts/visor/Visor.sol
 https://github.com/OokiTrade/contractsV2/commit/c2aba5aa1f4cd13e4380c10c7b8d65790f04c749/contracts/connectors/loantoken/LoanTokenLogicStandard.sol
 https://github.com/OokiTrade/contractsV2/commit/b227aff75878297cf0573fe9cd323a768fa0912f/contracts/modules/LoanClosings.sol
+https://github.com/brianmcmichael/ds-deed/commit/0b8c2ef213a0d69fbeacbb8edd35ced4eb99a646/src/deed.sol
+https://github.com/spartan-protocol/spartanswap-contracts/commit/31797c435270f0f44b799c931e35b901ee7b6723/contracts/poolV2.sol
+https://github.com/spartan-protocol/spartanswap-contracts/commit/58e924ef32c7a308d3b41f8c2232718bb8c002d6/contracts/poolV2.sol
+https://github.com/spartan-protocol/spartanswap-contracts/commit/644d45cacc873ecf9610ca7ac5f541e834015621/contracts/synth.sol

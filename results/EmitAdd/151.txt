@@ -11,5 +11,3 @@
              _pushUnderlying(token, _factory, tokenExitFee);
 +            emit LOG_EXIT(msg.sender, token, tokenBalanceWithdrawn);
          }
- 
-         _streamSwapContext.updateFlowRates(token, _records, oldRecord);

@@ -6,4 +6,3 @@
 +    emit LogDestruction(_holdingAddress, address(this).balance, msg.sender);
      selfdestruct(_holdingAddress);
    }
- 

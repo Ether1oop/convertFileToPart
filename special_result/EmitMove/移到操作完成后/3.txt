@@ -7,4 +7,3 @@
 +            emit CompleteCreditLineRepaid(_id, _amount);
          } else {
              emit PartialCreditLineRepaid(_id, _amount);
-         }

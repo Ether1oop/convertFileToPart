@@ -1,16 +1,3 @@
-@@ -2,8 +2,10 @@
- 
- pragma solidity >=0.7.0 <0.9.0;
- 
--import "../../contracts/utils/Initializable.sol";
--import "../../contracts/utils/Proxiable.sol";
-+/* solhint-disable var-name-mixedcase */
-+
-+import "../../contracts/patterns/Initializable.sol";
-+import "../../contracts/patterns/Proxiable.sol";
- 
- /**
-  * @title Witnet Requests Board Trojan Horse: Proxiable but not-Upgradable
 @@ -14,29 +16,29 @@ import "../../contracts/utils/Proxiable.sol";
   * @author Witnet Foundation
   */
@@ -47,5 +34,3 @@
 -    emit Initialized(msg.sender, __base, __codehash, "trojan-horse-not-upgradable");
 +    emit Initialized(msg.sender, _BASE, _CODEHASH, "trojan-horse-not-upgradable");
    }
- 
-   function isUpgradableFrom(address) external pure returns (bool) {

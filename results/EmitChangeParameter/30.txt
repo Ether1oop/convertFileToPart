@@ -6,4 +6,3 @@
 +        emit TokensPurchased(_msgSender(), beneficiary, weiAmount, tokens);
  
          _updatePurchasingState(beneficiary, weiAmount);
- 

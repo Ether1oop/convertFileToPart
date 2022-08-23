@@ -5,4 +5,3 @@
 +        emit log_named_uint('creditLineId', creditLineId);
  
          admin.transferToken(address(mockToken1), address(borrower), borrowLimit);
-         admin.transferToken(address(mockToken2), address(lender1), borrowLimit);

@@ -5,5 +5,3 @@
 -        emit PolicyUpdate(_subcourtID, policies[_subcourtID]);
          policies[_subcourtID] = _policy;
 +        emit PolicyUpdate(_subcourtID, policies[_subcourtID]);
-     }
- }

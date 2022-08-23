@@ -6,4 +6,3 @@
 +        emit Ruling(IArbitrator(msg.sender), _externalDisputeID, uint(dispute.ruling));
      }
  
-     /** @dev Allows to submit evidence for a given dispute.

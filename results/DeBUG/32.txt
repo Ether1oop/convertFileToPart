@@ -5,5 +5,3 @@
 -        emit Ruling(transactionID, Arbitrator(msg.sender), _disputeID, _ruling);
 +        emit Ruling(Arbitrator(msg.sender), _disputeID, _ruling);
  
-         executeRuling(transactionID, _ruling);
-     }

@@ -4,5 +4,3 @@
          wards[msg.sender] = 1;
 +        emit Rely(msg.sender);
          src  = _src;
-         wat  = _wat;
-         normalizer0 = 10 ** sub(18, uint256(ERC20Like(UniswapV2PairLike(_src).token0()).decimals()));  // Calculate normalization factor of token0

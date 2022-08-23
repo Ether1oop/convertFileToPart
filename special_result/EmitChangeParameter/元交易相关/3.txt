@@ -6,4 +6,3 @@
 +            emit WorldUnstaked(tokenId, _msgSender()); // World `id` unstaked from `address`
          }
          // update rewards
-         _updateRewardsPerWeight(totalWeights.toUint32(), false);

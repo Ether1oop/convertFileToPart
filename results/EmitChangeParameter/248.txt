@@ -5,5 +5,3 @@
 -        emit CreatePool(_token, pool); // Emit CreatePool before the AddLiquidity event for subgraph
 +        emit CreatePool(token, pool); // Emit CreatePool before the AddLiquidity event for subgraph
          Pool(pool).addForMember(msg.sender); // Perform the liquidity-add for the user
-         return pool;
-     }

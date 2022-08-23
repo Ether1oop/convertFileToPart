@@ -5,4 +5,3 @@
 -        emit log_uint(uint256(IRollCallVoter.ProposalState.Finalized));
          assertEq(
              uint256(voter.state(address(governor), 1)),
-             uint256(IRollCallVoter.ProposalState.Finalized)

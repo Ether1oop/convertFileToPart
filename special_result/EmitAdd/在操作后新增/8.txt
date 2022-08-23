@@ -5,4 +5,3 @@
 +            emit LogSetStrategyExecutor(_strategyExecutor, true);
          }
      }
- 
