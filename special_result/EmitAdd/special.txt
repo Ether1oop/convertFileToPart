@@ -2,3 +2,5 @@ https://github.com/LlamaPay/llamapay/commit/6cf16f7e00486bfd02af37738eae36417d8c
 https://github.com/MyBitFoundation/MyBit-Network.tech/commit/4bbf80cc6d775c94257027fa7eece092de3ae511/contracts/tokens/distribution/EqualDistribution.sol
 https://github.com/kleros/kleros/commit/4a14484e7e9fb46a9e9fc9d46c3faa5eb81878a4/contracts/kleros/KlerosLiquid.sol
 https://github.com/LlamaPay/llamapay/commit/6cf16f7e00486bfd02af37738eae36417d8cf370/contracts/LlamaPay.sol
+https://github.com/bokkypoobah/Nix/commit/a21cb94ea2631c5aaf1bf6bee639c861c8f242fc/contracts/Nix.sol
+https://github.com/pentagonxyz/gov-of-venice/commit/7d2bee671586528f4bb7d987aa88b4f701f9bf5e/src/test/guild.t.sol

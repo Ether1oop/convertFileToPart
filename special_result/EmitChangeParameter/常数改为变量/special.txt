@@ -1,3 +1,4 @@
 https://github.com/unlock-protocol/unlock/commit/a26c4e42d732864a030032424e14e0a6e9e4dd19/smart-contracts/contracts/mixins/MixinKeys.sol
 https://github.com/NFTX-project/nftx-protocol-v2/commit/db6f4e11528b9dd44595a3a6f1bc3ee8b4e63e5e/contracts/solidity/NFTXInventoryStaking.sol
 https://github.com/raiden-network/raiden-contracts/commit/8f78d077d001c0f8ced8ee6a787a621938b69127/raiden_contracts/data/source/raiden/TokenNetwork.sol
+https://github.com/jointerinc/jointer-token/commit/a94260e1493353ac82ad2122103dffe7d3980fe1/contracts/TokenVault/TokenVault.sol

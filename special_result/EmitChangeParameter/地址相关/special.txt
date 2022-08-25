@@ -26,3 +26,9 @@ https://github.com/xdefilab/xdefi-base/commit/cea6e47e09be93f863c2211473b8ec59ff
 https://github.com/deusfinance/staking-contracts/commit/8e4329f82863620d9f72b4893366fa66825a18c2/DEAToken.sol
 https://github.com/jointerinc/jointer-token/commit/0fab82e453d8f194a27c6e44c39cf939350dec86/contracts/TokenVault/TokenVault.sol
 https://github.com/Rari-Capital/solmate/commit/f4648ee81cb516269a9726f8a0545d89b585f910/src/erc20/ERC20.sol
+https://github.com/primitivefinance/v1-contracts/commit/c3563bba2fb5189173746c1fd5694eee97e9e883/packages/primitive-contracts/contracts/option/primitives/Option.sol
+https://github.com/dapphub/dappsys-monolithic/commit/a493957a08a5af4112ea48b266a9c30dce7c4212/auth.sol
+https://github.com/primitivefinance/v1-contracts/commit/c3563bba2fb5189173746c1fd5694eee97e9e883/packages/primitive-contracts/contracts/option/primitives/Option.sol
+https://github.com/Moloch-Mystics/Molochv2.1/commit/ef94734a460f00deb61433e225f4be169ad1cc23/Molochv2.1.sol
+https://github.com/thirdweb-dev/contracts/commit/a6d292487ce2c46bd4b53dc0064b7f75e998a922/contracts/NFT.sol
+https://github.com/rtoken-project/rtoken-monorepo/commit/015bd105347abf966bbf3e39120bc08af2183226/contracts/RToken.sol

@@ -9,3 +9,6 @@ https://github.com/provable-things/ethereum-examples/commit/6bb9a62dbe50cd6cf910
 https://github.com/syscoin/sysethereum-contracts/commit/bc731fe7d0e8af68c6a88eac72a135bcaf342a67/contracts/SyscoinClaimManager.sol
 https://github.com/syscoin/sysethereum-contracts/commit/bc731fe7d0e8af68c6a88eac72a135bcaf342a67/contracts/SyscoinClaimManager.sol
 https://github.com/syscoin/sysethereum-contracts/commit/bc731fe7d0e8af68c6a88eac72a135bcaf342a67/contracts/SyscoinClaimManager.sol
+https://github.com/ApeX-Protocol/core/commit/54e166749f4468a162ab141f683523ace50df9ab/contracts/core/Amm.sol
+https://github.com/kleros/arbitrable-proxy-contracts/commit/c15f366a80f7437cc473345c501a739cf27561df/contracts/AutoAppealableArbitrator.sol
+https://github.com/fractional-finance/frabric-protocol/commit/359b7e409f8dc93624b397746931a283977491fc/contracts/thread/Crowdfund.sol

@@ -13,3 +13,15 @@ https://github.com/Generative-Transfer-Art/valenftines-solidity/commit/79381d78e
 https://github.com/mangrovedao/mangrove/commit/32053578bee0e6a2786302124fc2cdcb2191744f/packages/mangrove-solidity/contracts/Tests/TakerOperations.sol
 https://github.com/mangrovedao/mangrove/commit/32053578bee0e6a2786302124fc2cdcb2191744f/packages/mangrove-solidity/contracts/Tests/Integration/Scenarii.sol
 https://github.com/centrifuge/tinlake/commit/b0de69160f3d4e6f31a569d759e49bd4b28eefab/src/test/system/base_system.sol
+https://github.com/reflexer-labs/geb-uni-v3-manager/commit/2883670b26deea4326d088ddc2649f5499fa34c1/src/test/GebUniswapv3LiquidityManager.t.sol
+https://github.com/reflexer-labs/geb-safe-saviours/commit/94dbc8a72c61878deb1bc64683280f933c2bd1e0/src/saviours/NativeUnderlyingUniswapV3SafeSaviour.sol
+https://github.com/reflexer-labs/geb-uni-v3-manager/commit/2883670b26deea4326d088ddc2649f5499fa34c1/src/test/GebUniswapv3LiquidityManager.t.sol
+https://github.com/mangrovedao/mangrove/commit/bcf93070d1ca59ae3724b27ed3ab9907ae2f56da/packages/mangrove-solidity/contracts/Strategies/OfferLogics/SingleUser/Deployable/MarketMaking/Mango.sol
+https://github.com/syscoin/sysethereum-contracts/commit/d5d2b8615f928c19a5c27cda0fbaaaff312da622/contracts/SyscoinClaimManager.sol
+https://github.com/RubiconDeFi/rubicon_protocol/commit/143e55fde7f555f6a3397de90ac228227302aee0/contracts/rubiconPools/BathToken.sol
+https://github.com/cowri/shell-solidity-v1/commit/a824c6f7eb6ca657006d3757296bf0ffcac5e558/src/Loihi.sol
+https://github.com/0xmostima/EBMP/commit/be95971fe265d38873c238fe745544593b440967/src/test/benchmark.sol
+https://github.com/cowri/shell-solidity-v1/commit/a824c6f7eb6ca657006d3757296bf0ffcac5e558/src/Loihi.sol
+https://github.com/reflexer-labs/geb-safe-saviours/commit/13205fedb005b80537e92704f51aa52396f8becb/src/saviours/CompoundSystemCoinSafeSaviour.sol
+https://github.com/cowri/shell-solidity-v1/commit/bb39fabd9a84b38edd8b8edc50417baf4c07dae8/src/Shells.sol
+https://github.com/tonkers-kuma/strategy-rebalancer/commit/b54aa2793782082cf1b7a565942228d74ec11391/contracts/Rebalancer.sol

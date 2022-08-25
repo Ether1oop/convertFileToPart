@@ -1,3 +1,5 @@
 https://github.com/FrankieIsLost/TWAMM/commit/84927c791cabc937f9277a7574e5f76c61bf8a30/contracts/TWAMM.sol
 https://github.com/TokenySolutions/T-REX/commit/a0661e0ae61656e67809b887e125106df6c593a7/contracts/token/Token.sol
 https://github.com/ShipChain/smart-contracts/commit/d714c4d5734f5856fc313aca5a0094feb99e28c6/truffle/contracts/Load/lib/Escrow.sol
+https://github.com/cowri/shell-solidity-v1/commit/9bac5f409828d10fdcbc6c959ac306bede3e95e0/src/ExchangeEngine.sol
+https://github.com/yearn/strategies-keep3r/commit/27e094d994a7db8ddf2f2098e36d68562f477357/contracts/jobs/VaultKeep3rJob.sol

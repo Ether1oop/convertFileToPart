@@ -13,3 +13,8 @@ https://github.com/deusfinance/staking-contracts/commit/11b25a10de4672f5e9fb8472
 https://github.com/ClementWalter/gas-benchmark/commit/2fd71b5e6ecb64ec9153c0fb271da2d13af4bbae/contracts/tokens/ERC721.sol
 https://github.com/ClementWalter/gas-benchmark/commit/2fd71b5e6ecb64ec9153c0fb271da2d13af4bbae/contracts/tokens/ERC721.sol
 https://github.com/LlamaPay/llamapay/commit/6cf16f7e00486bfd02af37738eae36417d8cf370/contracts/LlamaPay.sol
+https://github.com/streamswap/streamswap/commit/df0a478bca49c909424c648ef2ec986e336cdcef/packages/core/contracts/StreamSwapLibrary.sol
+https://github.com/pendle-finance/pendle-core/commit/3c28478e571e0ebc183fe0949779bb3fc62ba3b8/contracts/core/PendleMarket.sol
+https://github.com/argentlabs/argent-contracts/commit/b50342eb3993528f8e0068c8c32bbc1e87509648/contracts/wallet/BaseWallet.sol
+https://github.com/MyBitFoundation/MyBit-Network.tech/commit/03fca2015dc4e6e05a2ce34c454be9929bd6d6aa/contracts/tokens/erc20/MintableToken.sol
+https://github.com/MyBitFoundation/MyBit-Network.tech/commit/03fca2015dc4e6e05a2ce34c454be9929bd6d6aa/contracts/tokens/erc20/MintableToken.sol

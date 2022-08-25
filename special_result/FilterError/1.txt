@@ -1,8 +1,0 @@
-@@ -43,7 +43,7 @@ contract RandomExample is usingOraclize {
-             // the proof verification has passed
-             // now that we know that the random number was safely generated, let's use it...
- 
--            emit newRandomNumber_bytes(bytes(_result)); // emit the resulting random number (in bytes)
-+            emit newRandomNumber_bytes(bytes(_result)); // emit the random bytes result
- 
-             /**

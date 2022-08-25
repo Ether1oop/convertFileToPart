@@ -8,3 +8,4 @@ https://github.com/fei-protocol/tribe-turbo/commit/f4f69b822a77a8c16ba1cbbf562c7
 https://github.com/yieldprotocol/yield-utils/commit/ff869bced035ac57e7b30909ace066a9ec0b9131/contracts/Liquidations.sol
 https://github.com/yieldprotocol/yieldspace-v1/commit/ff869bced035ac57e7b30909ace066a9ec0b9131/contracts/Liquidations.sol
 https://github.com/thirdweb-dev/contracts/commit/bc05f0ddb72bb9e75d8638055f3180a048d0c877/contracts/royalty/TWPayments.sol
+https://github.com/sense-finance/sense-v1/commit/76c5178b6e9f266d9d27b1a8bf3c0100d463eb7b/pkg/core/src/Divider.sol

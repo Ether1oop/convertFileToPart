@@ -8,3 +8,5 @@ https://github.com/centrifuge/tinlake/commit/1fb4cf2546c5047e9e3f30c543fc09785b7
 https://github.com/centrifuge/tinlake/commit/1fb4cf2546c5047e9e3f30c543fc09785b7b680e/src/lender/admin/pool.sol
 https://github.com/centrifuge/tinlake-maker-lib/commit/64bf327aa523236e5863e7e7a33032267eda4487/src/mgr.sol
 https://github.com/xdefilab/xdefi-base/commit/f663b5888ba3aabe592fce42de27ef6160294644/contracts/XFactory.sol
+https://github.com/BellwoodStudios/dss-psm/commit/8fa3aa9779863017d79dc6672ae4addd20afe9c5/src/psm.sol
+https://github.com/makerdao/dss-flash/commit/bb0e8b72d8e4d50621727e7e28e0bd51c8573683/src/flash.sol
