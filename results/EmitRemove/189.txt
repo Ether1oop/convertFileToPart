@@ -1,36 +1,3 @@
-@@ -8,7 +8,13 @@ import "../adaptersSetup.sol";
- import "../../Loihi.sol";
- import "../../adapters/kovan/kovanCUsdcAdapter.sol";
- import "../../adapters/kovan/kovanCDaiAdapter.sol";
--
-+import "../../adapters/kovan/kovanUsdtAdapter.sol";
-+import "../../adapters/local/localCUsdcAdapter.sol";
-+import "../../adapters/local/localCDaiAdapter.sol";
-+import "../../adapters/local/localUsdtAdapter.sol";
-+import "../../LoihiLiquidity.sol";
-+import "../../LoihiExchange.sol";
-+import "../../LoihiERC20.sol";
- 
- contract LoihiTest is AdaptersSetup, DSMath, DSTest {
-     Loihi l;
-@@ -17,12 +23,15 @@ contract LoihiTest is AdaptersSetup, DSMath, DSTest {
- 
-         // setupFlavors();
-         // setupAdapters();
--        // l = new Loihi(chai, cdai, dai, pot, cusdc, usdc, usdt);
-+        // address exchange = address(new LoihiExchange());
-+        // address liquidity = address(new LoihiLiquidity());
-+        // address erc20 = address(new LoihiERC20());
-+        // l = new Loihi(erc20, exchange, liquidity, chai, cdai, dai, pot, cusdc, usdc, usdt);
-         // approveFlavors(address(l));
-         
-         setupFlavors();
-         setupAdapters();
--        l = new Loihi(address(0), address(0), address(0), address(0), address(0), address(0), address(0));
-+        l = new Loihi();
-         approveFlavors(address(l));
- 
-         uint256 weight = WAD / 3;
 @@ -43,15 +52,19 @@ contract LoihiTest is AdaptersSetup, DSMath, DSTest {
      function testproportionalDeposit () public {
  

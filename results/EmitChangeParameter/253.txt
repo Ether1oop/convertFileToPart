@@ -1,11 +1,3 @@
-@@ -22,7 +22,6 @@ import "./imports/govern/Governed.sol";
- contract MemberRoles is Governed {
-     event MemberRole(uint256 indexed roleId, bytes32 roleName, string roleDescription, bool limitedValidity);
-     using SafeMath for uint;
--    enum Role { UnAssigned, AdvisoryBoard, TokenHolder }
- 
-     bytes32[] internal memberRole;
-     StandardToken public dAppToken;
 @@ -61,17 +60,17 @@ contract MemberRoles is Governed {
      function addInitialMemberRoles() public {
          require(!adderCheck);

@@ -1,20 +1,3 @@
-@@ -5,7 +5,7 @@ import "./Set.sol";
- import "./../SyscoinTransactionProcessor.sol";
- import "openzeppelin-solidity/contracts/math/SafeMath.sol";
- 
--contract SyscoinToken is HumanStandardToken(0, "SyscoinToken", 8, "SYSCOINTOKEN"), SyscoinTransactionProcessor {
-+contract SyscoinToken is HumanStandardToken(0, "SyscoinToken", 8, "SYSX"), SyscoinTransactionProcessor {
- 
-     using SafeMath for uint;
- 
-@@ -63,7 +63,6 @@ contract SyscoinToken is HumanStandardToken(0, "SyscoinToken", 8, "SYSCOINTOKEN"
-         public returns (uint) {
-             
-         require(msg.sender == trustedRelayerContract);
--        // TODO js test for these conditions
-         if (assetGUID != _assetGUID){
-             emit ErrorSyscoinToken(ERR_UNLOCK_ASSET_MISMATCH);
-             return;         
 @@ -92,15 +91,9 @@ contract SyscoinToken is HumanStandardToken(0, "SyscoinToken", 8, "SYSCOINTOKEN"
  
          uint superblockSubmitterFee = value.mul(SUPERBLOCK_SUBMITTER_LOCK_FEE) / 1000;

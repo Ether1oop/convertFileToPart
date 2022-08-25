@@ -1,9 +1,0 @@
-@@ -67,8 +67,8 @@ contract WooAccessManager is IWooAccessManager, Ownable, Pausable {
-         for (uint256 i = 0; i < feeAdmins.length; i++) {
-             require(feeAdmins[i] != address(0), 'WooAccessManager: feeAdmin_ZERO_ADDR');
-             isFeeAdmin[feeAdmins[i]] = flags[i];
-+            emit FeeAdminUpdated(feeAdmins[i], flags[i]);
-         }
--        emit BatchFeeAdminUpdated(feeAdmins, flags);
-     }
- 

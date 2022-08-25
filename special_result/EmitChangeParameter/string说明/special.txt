@@ -11,3 +11,6 @@ https://github.com/ogDAO/Optino/commit/c7bb2ba5606871c938d34fa99434403889f2bda7/
 https://github.com/ogDAO/Optino/commit/c7bb2ba5606871c938d34fa99434403889f2bda7/test/OptinoFactory_flattened.sol
 https://github.com/ogDAO/Optino/commit/c7bb2ba5606871c938d34fa99434403889f2bda7/test/OptinoFactory_flattened.sol
 https://github.com/ogDAO/Optino/commit/c7bb2ba5606871c938d34fa99434403889f2bda7/test/OptinoFactory_flattened.sol
+https://github.com/DOSNetwork/smart-contracts/commit/9d01cb907154fc23a8b63c156e52215d04dd2b7d/contracts/DOSProxy.sol
+https://github.com/RubiconDeFi/rubicon_protocol/commit/5dcc43be7f52a4bf48f1bc12cb87d9752c028724/contracts/rubiconPoolsv0/BathPair.sol
+https://github.com/pythonpete32/hive-template/commit/6dd6c86216fcb04c32c7558e02aed8457c3e6c52/contracts/HiveTemplate.sol

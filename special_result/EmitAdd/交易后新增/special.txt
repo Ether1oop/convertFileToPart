@@ -38,3 +38,15 @@ https://github.com/ClementWalter/gas-benchmark/commit/a5e05cef5e730bfd6278d8d17e
 https://github.com/ClementWalter/gas-benchmark/commit/a5e05cef5e730bfd6278d8d17edbffe9c5eb3ecf/contracts/tokens/ERC721.sol
 https://github.com/OpiumProtocol/erc721o/commit/59deecaa88b0bff37a001e59f38f6d4086a4eee3/contracts/ERC721OTransferable.sol
 https://github.com/thematters/contracts/commit/3cba1ade1293c2586e0f5e98f2da163e182c35dc/src/Logbook/Royalty.sol
+https://github.com/artistic709/ImpermanentGain/commit/f00418cad4a11bf93081351cae939a407cecab49/ImpermanentGain.sol
+https://github.com/thematters/contracts/commit/3cba1ade1293c2586e0f5e98f2da163e182c35dc/src/Logbook/Royalty.sol
+https://github.com/Dinosaur-eggs/core/commit/b0cb395da761f3b784613e70c98b1f681e77f37a/contracts/governance/vDsgReserve.sol
+https://github.com/darwinia-network/darwinia-bridges-sol/commit/69bf634b4745a8f646e4eed273d988501c0e1b48/contracts/tokens/WRING.sol
+https://github.com/volt-protocol/volt-protocol-core/commit/4f8ad8aafad25c14ea369e66cc7547025380d91c/contracts/pcv/PCVDepositAggregator.sol
+https://github.com/witnet/witnet-solidity-bridge/commit/cecf7cd4cb3d0fd7fe85ce874e2efeefe289144a/contracts/WitnetRequestBoard.sol
+https://github.com/volt-protocol/volt-protocol-core/commit/4f8ad8aafad25c14ea369e66cc7547025380d91c/contracts/pcv/PCVDepositAggregator.sol
+https://github.com/marginswap/marginswap-core/commit/dc084038d7ec536c796f43aaeca6c888a7e8234d/contracts/isolated/IsolatedMarginRouter.sol
+https://github.com/artistic709/ImpermanentGain/commit/f00418cad4a11bf93081351cae939a407cecab49/ImpermanentGain.sol
+https://github.com/DODOEX/contractV2/commit/8babc610282b5e533b229e3e9385713de5ec9911/contracts/impl/DODOLpToken.sol
+https://github.com/DevSCNinja/Sushiswap/commit/d9f646bde82c3a8b75ca79429f227bf3a87b2a10/contracts/MasterChefV2.sol
+https://github.com/upala-digital-identity/upala/commit/b3d4f79b65df80c2166ce02f59605bd487fa5795/contracts/protocol/pool-factory.sol

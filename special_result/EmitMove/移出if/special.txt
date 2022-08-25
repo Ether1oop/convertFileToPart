@@ -2,3 +2,5 @@ https://github.com/Loopring/protocols/commit/7032672266147567bb95c7369cbba635cd2
 https://github.com/vetherasset/vaderprotocol-contracts/commit/3730979319ba506b153966b5795dfdfc053c1a79/contracts/USDV.sol
 https://github.com/vetherasset/vaderprotocol-contracts/commit/3730979319ba506b153966b5795dfdfc053c1a79/contracts/USDV.sol
 https://github.com/vetherasset/vaderprotocol-contracts/commit/3730979319ba506b153966b5795dfdfc053c1a79/contracts/USDV.sol
+https://github.com/AlkemiNetwork/alkemi-reserve-contracts/commit/0f95e8e405e7e0880141c966d92f0431931021f1/contracts/liquidity-reserve/LiquidityReserve.sol
+https://github.com/fetchai/mettalex-market-maker/commit/eca775d12374b28a1c97c0058165792702f9661d/on-chain/mettalex-protocol/contracts/MettalexContract.sol

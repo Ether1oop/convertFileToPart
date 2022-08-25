@@ -141,6 +141,7 @@ def generateNewFiles(absolute_path):
     url = getUrlFromSpecial(absolute_path)
 
     if len(passages) == 0:
+        os.remove(absolute_path)
         return False
 
     with open(absolute_path, "w") as file:
@@ -193,23 +194,31 @@ def randomSelect(working_dir):
             filename = os.path.join(root,item)
             unselect_files.append(filename)
 
+    if 'tmp.txt' in os.listdir():
+        with open("tmp.txt","r") as file:
+            tmp_url_list = file.read().split("\n")
+
+    if 'temp.txt' in os.listdir():
+        with open("temp.txt","r") as file:
+            tmp_url_list.extend(file.read().split("\n"))
+
     results = []
-    while len(results) < 96:
+    while len(results) < 30:
         _id = random.randint(0, len(unselect_files))
         item = unselect_files[_id]
         _dir = "/".join(item.split("/")[:-1])
         filename_id = int(item.split("/")[-1][:-4])
         with open(_dir + "/special.txt","r") as file:
             url = file.read().split("\n")[filename_id]
-        if url not in url_list:
+        if url not in url_list and url not in tmp_url_list:
             results.append(unselect_files[_id])
 
-    with open("tmp.txt","w") as file:
+    with open("_temp.txt","w") as file:
         file.write("\n".join(results))
 
     return 1
-# convertFileToPart("special_result")
+convertFileToPart("pre_result")
 # path = 'results/225.txt'
 # generateNewFiles(path)
 # generateNewFiles("results/333.txt")
-randomSelect("results")
+# randomSelect("results")
