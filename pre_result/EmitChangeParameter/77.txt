@@ -1,0 +1,8 @@
+@@ -78,7 +78,7 @@ contract TWPayments is IERC2981, Initializable {
+      */
+     function _setRoyaltyRecipient(address _royaltyRecipient) internal {
+         royaltyRecipient = _royaltyRecipient;
+-        emit RoyaltyUpdated(royaltyRecipient, royaltyBps);
++        emit RoyaltyUpdated(_royaltyRecipient, royaltyBps);
+     }
+ 

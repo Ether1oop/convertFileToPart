@@ -1,0 +1,13 @@
+@@ -137,7 +140,13 @@ contract GeneralTokenReserveSafeSaviour is SafeMath, SafeSaviourLike {
+         require(collateralJoin.decimals() == 18, "GeneralTokenReserveSafeSaviour/invalid-join-decimals");
+         require(collateralJoin.contractEnabled() == 1, "GeneralTokenReserveSafeSaviour/join-disabled");
+ 
++        emit AddAuthorization(msg.sender);
++        emit ModifyParameters("keeperPayout", keeperPayout);
++        emit ModifyParameters("minKeeperPayoutValue", minKeeperPayoutValue);
+         emit ModifyParameters("cRatioSetter", cRatioSetter_);
++        emit ModifyParameters("taxCollector", taxCollector_);
++        emit ModifyParameters("liquidationEngine", liquidationEngine_);
++        emit ModifyParameters("oracleRelayer", oracleRelayer_);
+     }
+ 

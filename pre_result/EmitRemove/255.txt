@@ -1,0 +1,7 @@
+@@ -125,7 +167,6 @@ contract Rebalancer {
+ 
+     // pull from providers
+     function adjustPosition() public onlyAllowed {
+-        emit Debug("adjustPosition", 0);
+         if (providerA.totalDebt() == 0 || providerB.totalDebt() == 0) return;
+         tokenA.transferFrom(address(providerA), address(this), providerA.balanceOfWant());

@@ -1,0 +1,12 @@
+@@ -199,10 +200,10 @@ function encodePayload(uint8 packageType, uint256 relayFee, bytes memory msgByte
+     uint8 channelIdLocal = channelId; // fix error: stack too deep, try removing local variables
+     (bool success, uint8 packageType, uint256 relayFee, bytes memory msgBytes) = decodePayloadHeader(payloadLocal);
+     if (!success) {
+-      emit unsupportedPackage(channelSendSequenceMap[channelIdLocal], channelIdLocal, payloadLocal);
++      emit unsupportedPackage(packageSequence, channelIdLocal, payloadLocal);
+       return;
+     }
+-
++    emit receivedPackage(packageType, packageSequence, channelIdLocal);
+     if (packageType == SYN_PACKAGE) {
+       address handlerContract = channelHandlerContractMap[channelIdLocal];

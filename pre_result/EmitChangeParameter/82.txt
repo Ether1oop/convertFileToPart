@@ -1,0 +1,8 @@
+@@ -118,7 +118,7 @@ contract HPLBase is
+             emit Transfer(sender, address(0), burnAmount);
+             emit Transfer(sender, stakingRewardTreasury, stakingRewardTreasuryAmount);
+             emit Transfer(sender, address(liquidityHolder), liquidityHolderAmount);
+-            emit Transfer(sender, recipient, amount);
++            emit Transfer(sender, recipient, amount - burnAmount - stakingRewardTreasuryAmount - liquidityHolderAmount);
+         } else {
+             _balances[recipient] += amount;

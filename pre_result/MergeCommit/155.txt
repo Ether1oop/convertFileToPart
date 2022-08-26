@@ -1,0 +1,8 @@
+@@ -241,7 +242,7 @@ contract LinguoToken is Arbitrable {
+         task.requesterDeposit = _maxPrice;
+ 
+         emit MetaEvidence(taskID, _metaEvidence);
+-        emit TaskCreated(taskID, msg.sender, _token, now);
++        emit TaskCreated(taskID, msg.sender, task.token, now);
+     }
+ 

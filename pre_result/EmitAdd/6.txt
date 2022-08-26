@@ -1,0 +1,7 @@
+@@ -380,6 +392,7 @@ contract Recycler is IRecycler, Lock, Auth, Pause {
+         auth
+     {
+         maintainer = maintainer_;
++        emit SetMaintainer(maintainer);
+     }
+ 

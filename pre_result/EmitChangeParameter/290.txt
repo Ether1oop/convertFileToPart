@@ -1,0 +1,17 @@
+@@ -239,15 +247,15 @@ contract RealitioProxyWithAppeals is IRealitio, IDisputeResolver {
+         uint256 paidFeesInLastRound = lastRound.paidFees[_ruling];
+ 
+         uint256 contribution = totalCost.sub(paidFeesInLastRound) > msg.value ? msg.value : totalCost.sub(paidFeesInLastRound);
+-        emit Contribution(_disputeID, roundsLength - 1, _ruling, msg.sender, contribution);
++        emit Contribution(arbitrator, _disputeID, roundsLength - 1, _ruling, msg.sender, contribution);
+ 
+         lastRound.contributions[msg.sender][_ruling] += contribution;
+ 
+         if (paidFeesInLastRound >= totalCost) {
+             lastRound.feeRewards += paidFeesInLastRound;
+             lastRound.fundedRulings.push(_ruling);
+             lastRound.hasPaid[_ruling] = true;
+-            emit RulingFunded(_disputeID, roundsLength - 1, _ruling);
++            emit RulingFunded(arbitrator, _disputeID, roundsLength - 1, _ruling);
+         }
+ 

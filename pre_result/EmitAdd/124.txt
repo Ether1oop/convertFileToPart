@@ -1,0 +1,21 @@
+@@ -118,16 +108,17 @@ contract StrategyAave is IStrategy, AccessControlUpgradeable, UUPSUpgradeable {
+     }
+ 
+ 
+-    function netAssetValue(address _holder) external view override returns (uint256){
+-        return aUsdc.balanceOf(_holder);
++    function netAssetValue() external view override returns (uint256){
++        return aUsdc.balanceOf(address(this));
+ 
+     }
+ 
+-    function liquidationValue(address _holder) external view override returns (uint256){
+-        return aUsdc.balanceOf(_holder);
++    function liquidationValue() external view override returns (uint256){
++        return aUsdc.balanceOf(address(this));
+     }
+ 
+     function claimRewards(address _beneficiary) external override returns (uint256){
++        emit Reward(0);
+         return 0;
+     }

@@ -1,0 +1,7 @@
+@@ -130,6 +153,7 @@ contract NudgePool is NPStorage, NPProxy, Pausable {
+             _ipToken, _baseToken, _ipTokensAmount));
+         require(status == true, "IP Deposit Failed");
+         amount = data.bytesToUint256();
++        emit RunningIPDeposit(_ipToken, _baseToken, _ipTokensAmount);
+         return amount;
+     }

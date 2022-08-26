@@ -1,0 +1,7 @@
+@@ -309,6 +303,7 @@ contract Loihi is LoihiRoot {
+                 sub(_tBal, _feeThreshold),
+                 wmul(sub(_feeThreshold, sub(_tBal, _tNAmt)), WAD - _fee)
+             ), WAD - feeBase);
++            emit log_uint("ring", tNAmt_);
+ 
+         }

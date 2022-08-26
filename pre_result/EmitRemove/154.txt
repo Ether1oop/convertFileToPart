@@ -1,0 +1,7 @@
+@@ -291,7 +274,6 @@ contract GovernanceData is Upgradeable, Governed { //solhint-disable-line
+ 
+     /// @dev Changes the status of a given proposal.
+     function changeProposalStatus(uint _id, uint8 _status) public onlyInternal {
+-        emit ProposalStatus(_id, _status, now); //solhint-disable-line
+         updateProposalStatus(_id, _status);
+     }

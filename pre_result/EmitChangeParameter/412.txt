@@ -1,0 +1,20 @@
+@@ -299,16 +300,16 @@ contract DSTest {
+         string memory err
+     ) internal {
+         if (a <= b) {
+-            emit log_named_string('Error', err);
++            emit log_named_string("Error", err);
+             assertGtDecimal(a, b, decimals);
+         }
+     }
+ 
+     function assertGe(uint256 a, uint256 b) internal {
+         if (a < b) {
+-            emit log('Error: a >= b not satisfied [uint]');
+-            emit log_named_uint('  Value a', a);
+-            emit log_named_uint('  Value b', b);
++            emit log("Error: a >= b not satisfied [uint]");
++            emit log_named_uint("  Value a", a);
++            emit log_named_uint("  Value b", b);
+             fail();
+         }

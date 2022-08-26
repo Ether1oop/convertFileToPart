@@ -1,0 +1,8 @@
+@@ -194,7 +174,7 @@ contract TurboMaster is Auth {
+         // Store the id/index of the new Safe.
+         getSafeId[safe] = id;
+ 
+-        emit TurboSafeCreated(msg.sender, underlying, safe, id);
++        emit TurboSafeCreated(msg.sender, asset, safe, id);
+ 
+         // Prepare a users array to whitelist the Safe.

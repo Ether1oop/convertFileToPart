@@ -1,0 +1,7 @@
+@@ -463,6 +467,7 @@ contract ArbitrableTokenList is PermissionInterface, Arbitrable {
+                 request.disputeID = arbitrator.createDispute.value(cost)(2, arbitratorExtraData);
+                 disputeIDToTokenID[request.disputeID] = _tokenID;
+                 request.disputed = true;
++                emit Dispute(arbitrator, request.disputeID, token.status == TokenStatus.RegistrationRequested ? 0 : 1);
+             } else {
+                 // Later round, raise an appeal.

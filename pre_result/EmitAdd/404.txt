@@ -1,0 +1,7 @@
+@@ -188,6 +190,7 @@ contract PendleAaveForge is IPendleForge, ReentrancyGuard {
+         tokens.ot.burn(_msgSender, _amountToRedeem);
+         tokens.xyt.burn(_msgSender, _amountToRedeem);
+ 
++        emit RedeemYieldToken(_underlyingAsset, _amountToRedeem);
+         return _amountToRedeem;
+     }

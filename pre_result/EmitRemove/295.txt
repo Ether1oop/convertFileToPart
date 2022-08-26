@@ -1,0 +1,9 @@
+@@ -395,7 +480,7 @@ library Shells {
+             }
+         }
+ 
+-        emit log("passed halts");
++        // emit log("passed halts");
+ 
+     }
+ 

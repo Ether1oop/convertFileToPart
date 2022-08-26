@@ -1,0 +1,8 @@
+@@ -9749,7 +9749,7 @@ contract HiveTemplate is BaseTemplate {
+     {
+         acl.createPermission(mbrVoting, addressBook, addressBook.ADD_ENTRY_ROLE(), mbrVoting);
+         acl.createPermission(mbrVoting, addressBook, addressBook.REMOVE_ENTRY_ROLE(), mbrVoting);
+-        emit InstalledApp(addressBook, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("address-book"))));
++        emit InstalledApp(addressBook, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("address-book-preview"))));
+ 
+ 

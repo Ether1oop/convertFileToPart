@@ -1,0 +1,11 @@
+@@ -144,12 +162,10 @@ contract VaultFactoryTest is DSTest {
+         // 2. Approve this address to spend impersonated account tokens.
+         user.approve(address(vault), amount);
+         balance = SGX.balanceOf(address(user));
+-        emit log_uint(balance);
+ 
+         // 3. Impersonate user. 
+         vault.createVault(amount);
+         balance = SGX.balanceOf(address(user));
+-        emit log_uint(balance);
+         

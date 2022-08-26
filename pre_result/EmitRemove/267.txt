@@ -1,0 +1,9 @@
+@@ -502,9 +498,6 @@ contract GebUniswapV3LiquidityManager is ERC20 {
+ 
+         (address sender, uint256 amt0FromThis, uint256 amt1FromThis) = abi.decode(data, (address, uint256, uint256));
+ 
+-        emit DEBUGBAL(ERC20(token0).balanceOf(address(this)));
+-        emit DEBUGBAL(ERC20(token1).balanceOf(address(this)));
+-
+         // Pay what this contract owes
+         if (amt0FromThis > 0) {

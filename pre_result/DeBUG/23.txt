@@ -1,0 +1,8 @@
+@@ -230,7 +231,7 @@ contract LANDRegistry is Storage, Ownable, FullAssetRegistry, ILANDRegistry {
+ 
+   function setEstateRegistry(address registry) onlyProxyOwner external {
+     estateRegistry = IEstateRegistry(registry);
+-    emit EstateFactorySet(registry);
++    emit EstateRegistrySet(registry);
+   }
+ 

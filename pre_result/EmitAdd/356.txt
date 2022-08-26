@@ -1,0 +1,7 @@
+@@ -313,6 +314,7 @@ contract Ships is Ownable
+       {
+         ships[getPrefix(_ship)].spawnCount++;
+       }
++      emit Activated(_ship);
+     }
+ 

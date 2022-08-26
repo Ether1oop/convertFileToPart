@@ -1,0 +1,8 @@
+@@ -749,7 +749,7 @@ contract SyscoinBattleManager is Initializable, SyscoinErrorCodes {
+                 convictChallenger(sessionId, err);
+                 return;
+             }
+-            emit RespondBlockHeaders(sessionId, session.superblockHash, session.merkleRoots.length, session.submitter);
++            emit RespondBlockHeaders(session.superblockHash, sessionId, session.merkleRoots.length, session.submitter);
+         }
+     }     

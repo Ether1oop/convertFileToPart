@@ -1,0 +1,7 @@
+@@ -157,7 +164,6 @@ contract TotlePrimary is Withdrawable, Pausable {
+         Affiliate affiliate = Affiliate(feeAccount);
+         uint256 feePercentage = affiliate.getTotalFeePercentage();
+ 
+-        emit LogRebalance(id);
+         /* logger.log("Starting Rebalance..."); */
+ 

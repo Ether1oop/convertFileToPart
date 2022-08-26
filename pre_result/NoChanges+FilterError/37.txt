@@ -1,0 +1,8 @@
+@@ -1194,6 +1249,7 @@ contract Liquadity is LiquadityFormula, TokenTransfer {
+     }
+ 
+     function() external payable {
+-        emit FundDeposited(address(0), msg.sender, msg.value);
++       emit FundDeposited(address(0), msg.sender, msg.value); 
+     }
++

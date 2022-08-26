@@ -1,0 +1,8 @@
+@@ -145,7 +145,7 @@ contract UBIScheme is AbstractUBI {
+             if (activeUsersCount > 0) {
+                 dailyUbi = currentBalance.div(activeUsersCount);
+             }
+-            emit UBICalculated(currentDay,dailyUbi, block.number)
++            emit UBICalculated(currentDay, dailyUbi, block.number);
+         }
+ 

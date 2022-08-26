@@ -1,0 +1,8 @@
+@@ -113,7 +111,7 @@ contract CompoundYield is IYield, Initializable, OwnableUpgradeable, ReentrancyG
+             received = _withdrawERC(_asset, investedTo, amount);
+             IERC20(_asset).safeTransfer(_wallet, received);
+         }
+-        emit EmergencyWithdraw(_asset,_wallet,received);
++        emit EmergencyWithdraw(_asset, _wallet, received);
+     }
+ 

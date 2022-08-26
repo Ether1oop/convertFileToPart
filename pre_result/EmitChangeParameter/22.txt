@@ -1,0 +1,15 @@
+@@ -43,13 +43,13 @@ contract StrategyV2Pair is StrategyV2Data, Ownable, IStrategyV2Pair, ICompAction
+     }
+ 
+     function utils() external view returns(address) {
+-        // Compatible with old version
++        // Compatible with old version 1
+         return address(0);
+     }
+ 
+     function setPoolImpl(address _swapPoolImpl) external onlyOwner {
+         require(address(swapPoolImpl) == address(0), 'only once');
+-        emit SetPoolImpl(address(this), _swapPoolImpl);
++        emit SetPoolImpl(_this, _swapPoolImpl);
+         swapPoolImpl = IStrategyV2SwapPool(_swapPoolImpl);
+     }

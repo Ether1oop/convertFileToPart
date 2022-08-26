@@ -1,0 +1,8 @@
+@@ -494,7 +500,7 @@ contract DAISO is IArbitrable, IEvidence, OwnableWithoutRenounce, PausableWithou
+         nextStreamId = nextStreamId + 1;
+ 
+         require(IERC20(project.projectFundTokenAddress).transferFrom(msg.sender, address(this), investSellDeposit), "32");
+-        emit CreateStream(streamId, msg.sender,projectId, investSellDeposit, investFundDeposit, project.startTime, project.stopTime);
++        emit CreateStream(streamId, msg.sender);
+         return streamId;
+     }

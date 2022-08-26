@@ -1,0 +1,17 @@
+@@ -284,14 +282,15 @@ contract RealitioArbitratorProxyWithAppeals is IDisputeResolver {
+                 ? (round.contributions[_beneficiary][_answer] * round.feeRewards) / (round.paidFees[round.fundedAnswers[0]] + round.paidFees[round.fundedAnswers[1]])
+                 : 0;
+         } else if (question.answer == _answer) {
++            uint256 paidFees = round.paidFees[_answer];
+             // Reward the winner.
+-            reward = round.paidFees[_answer] > 0 ? (round.contributions[_beneficiary][_answer] * round.feeRewards) / round.paidFees[_answer] : 0;
++            reward = paidFees > 0 ? (round.contributions[_beneficiary][_answer] * round.feeRewards) / paidFees : 0;
+         }
+ 
+         if (reward != 0) {
+             round.contributions[_beneficiary][_answer] = 0;
+             _beneficiary.transfer(reward);
+-            emit Withdrawal(_questionID, _round, _answer + 1, _beneficiary, reward);
++            emit Withdrawal(_questionID, _round, _answer, _beneficiary, reward);
+         }
+     }

@@ -1,0 +1,8 @@
+@@ -671,7 +671,7 @@ contract SyscoinSuperblocks is Initializable, SyscoinSuperblocksI, SyscoinErrorC
+             uint8 precision;
+             (ret, value, destinationAddress, assetGUID, precision, erc20ContractAddress) = parseTransaction(_txBytes);
+             if(ret != 0){
+-                emit RelayTransaction(bytes32(0), ret);
++                emit RelayTransaction(bytes32(txHash), ret);
+                 return ret;
+             }

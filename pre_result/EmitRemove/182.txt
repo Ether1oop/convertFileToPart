@@ -1,0 +1,8 @@
+@@ -129,7 +124,7 @@ contract ExchangeEngine is CowriRoot {
+         adjustedTransferFrom(ERC20Token(origin), recipient, originAmount);
+         uint256 adjustedAmount = adjustedTransfer(ERC20Token(target), recipient, targetAmount);
+ 
+-        emit transfer(msg.sender, origin, originAmount, target, adjustedAmount);
++        emit trade(msg.sender, origin, originAmount, target, adjustedAmount);
+ 
+         return adjustedAmount;

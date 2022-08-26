@@ -1,0 +1,8 @@
+@@ -128,7 +128,7 @@ contract NFT is ERC721PresetMinterPauserAutoId, ERC2771Context, IERC2981 {
+ 
+         nextTokenId = id;
+ 
+-        emit MintedBatch(creator, _to, ids, _uris);
++        emit MintedBatch(_creator, _to, ids, _uris);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -123,8 +104,6 @@ contract Staking is IStaking, Initializable, Ownable, Pausable, ReentrancyGuard,
+         onlyOwner
+     {
+         permissionedDepositors[account] = canDeposit;
+-
+-        emit PermissionedDepositorSet(account, canDeposit);
+     }
+ 

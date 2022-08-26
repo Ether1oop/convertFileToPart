@@ -1,0 +1,8 @@
+@@ -169,6 +171,8 @@ contract Snowflake is Ownable {
+                 identity.fields[field].entries[entry].resolversFor.remove(resolvers[j]);
+             }
+         }
++
++        emit RemovededEntryResolver(field, entry, resolvers);
+     }
+ 

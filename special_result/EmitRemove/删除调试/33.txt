@@ -1,0 +1,20 @@
+@@ -246,20 +264,15 @@ contract Rebalancer {
+         _token.transfer(_to, _liquidatedAmount);
+     }
+ 
+-    // only applicable when pool is skewed and strat wants to completely pull out
++    // only applicable when pool is skewed and strat wants to completely pull out. Sells one token for another
+     function evenOut() internal {
+-        emit Debug("evenOut", 0);
+ 
+         uint256 _looseA = looseBalanceA();
+         uint256 _looseB = looseBalanceB();
+         uint256 _debtA = providerA.totalDebt();
+         uint256 _debtB = providerB.totalDebt();
+         uint256 _amount;
+         address[] memory path;
+-        emit Debug("_looseA", _looseA);
+-        emit Debug("_looseB", _looseB);
+-        emit Debug("_debtA", _debtA);
+-        emit Debug("_debtB", _debtB);
+ 

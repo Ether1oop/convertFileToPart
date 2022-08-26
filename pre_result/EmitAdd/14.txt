@@ -1,0 +1,12 @@
+@@ -58,10 +58,12 @@ contract CarvEvents is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
+ 
+     function addTrustedForwarder(address forwarder) external onlyOwner {
+         _trustedForwarders[forwarder] = true;
++        emit TrustedForwarderAdded(forwarder);
+     }
+ 
+     function removeTrustedForwarder(address forwarder) external onlyOwner {
+         delete _trustedForwarders[forwarder];
++        emit TrustedForwarderRemoved(forwarder);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -85,7 +86,7 @@ contract MSC2 {
+                 }
+         }
+         lastStatusChange = now;
+-	    emit Transaction (msg.sender, from, address(this), amount, "", "");
++	    //emit Transaction (msg.sender, from, address(this), amount, "", "");
+     }
+ 

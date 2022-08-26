@@ -1,0 +1,8 @@
+@@ -49,7 +54,7 @@ contract ChannelDevidend is DSAuth, SettingIds {
+ 
+             ERC20(ring).transfer(channelDividend, balance.sub(frozenBalance));
+             
+-            emit TrasnferredChannelDividend(channelDividend, balance);
++            emit TrasnferredChannelDividend(channelDividend, balance.sub(frozenBalance));
+         }
+     }

@@ -1,0 +1,8 @@
+@@ -445,7 +438,7 @@ contract BPool is
+         I.balance = badd(I.balance, Ai);
+         O.balance = bsub(O.balance, Ao);
+ 
+-        emit LOG_SWAP(msg.sender, Ti, To, Ai, Ao, tradeFee);
++        emit LOG_SWAP(msg.sender, Ti, To, Ai, Ao, fee);
+ 
+         if ( ! wrap) {

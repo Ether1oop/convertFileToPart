@@ -1,0 +1,8 @@
+@@ -657,7 +657,7 @@ contract LexLocker is Context, ReentrancyGuard {
+      */
+     function addMarketTerms(string calldata terms) external nonReentrant onlyManager {
+         marketTerms.push(terms);
+-        emit AddMarketTerms(marketTerms.length, terms);
++        emit AddMarketTerms(marketTerms.length-1, terms);
+     }
+     

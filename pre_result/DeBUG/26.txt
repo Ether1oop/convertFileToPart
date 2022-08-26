@@ -1,0 +1,8 @@
+@@ -190,7 +190,7 @@ contract Treasury is Treasury_Interface, ERC20 {
+ 
+         _relayer = toRegister;
+ 
+-        emit AuthorizedRelayer(toRegister);
++        emit RegisteredRelayer(toRegister);
+ 
+         return true;

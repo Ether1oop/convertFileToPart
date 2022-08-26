@@ -1,0 +1,7 @@
+@@ -863,6 +915,7 @@ contract DOSProxy is Ownable {
+                 "No enough expired working group");
+         require(numPendingNodes >= groupSize * groupingThreshold / 100,
+                 "Not enough newly registered nodes");
++          emit LogError("__callback__");
+ 
+         uint arrSize = groupSize * (groupToPick + 1);

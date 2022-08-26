@@ -1,0 +1,8 @@
+@@ -274,7 +274,7 @@ contract ImpermanentGain is ERC20Mintable {
+             b[msg.sender] = _a.sub(_b);
+             doTransferIn(baseToken, msg.sender, _a);
+         }
+-        emit AddLP(msg.sender, _lp, _a, _b);
++        emit AddLP(msg.sender, _a, _b, _lp);
+     }
+ 

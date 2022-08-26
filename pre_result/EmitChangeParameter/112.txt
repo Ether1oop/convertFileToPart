@@ -1,0 +1,8 @@
+@@ -265,7 +265,7 @@ contract Protocol is IProtocol, Initializable, ReentrancyGuard, Ownable {
+       _incidentTimestamp,
+       uint48(block.timestamp)
+     ));
+-    emit ClaimAccepted(claimNonce);
++    emit ClaimAccepted(_protocolNonce);
+     return true;
+   }

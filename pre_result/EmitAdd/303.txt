@@ -1,0 +1,7 @@
+@@ -244,6 +274,7 @@ contract NudgePool is NPStorage, NPProxy, Pausable {
+             abi.encodeWithSelector(bytes4(keccak256(
+             "LPDoDepositRunning(address,address)")), _ipToken, _baseToken));
+         require(status == true, "LP Do Deposit Failed");
++        emit RunningLPDoDeposit(_ipToken, _baseToken);
+     }
+ 

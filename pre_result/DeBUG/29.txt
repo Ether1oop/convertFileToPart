@@ -1,0 +1,9 @@
+@@ -41,7 +41,7 @@ contract ERCXXX_SGXRelay is ERCXXX_Base("BTC-SGX-Relay", "BTH", 1) {
+         require(msg.sender != _relayer);
+ 
+         _relayer = toRegister;
+-        emit AuthorizeRelayer(toRegister, data);
++        emit AuthorizedRelayer(toRegister);
+     }
+ 
+     // ---------------------

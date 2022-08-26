@@ -1,0 +1,8 @@
+@@ -161,7 +172,7 @@ contract WalkBadgeOracle is ReentrancyGuard, ChainlinkClient {
+             .sliceInt(results, 11, 15)
+             .div(10**18);
+         AddresstoBadge[_walker].totalPaid = newPay;
+-        emit paidTo(msg.sender, payOut, "Walk Pay", block.timestamp);
++        emit paidTo(_walker, payOut, "Walk Pay", block.timestamp);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -216,8 +216,6 @@ contract Loans is Base, LoansInterface {
+         if (msg.value > 0) {
+             // update collateral, totalCollateral, and lastCollateralIn
+             _payInCollateral(loanID, msg.value);
+-
+-            emit CollateralDeposited(loanID, request.borrower, msg.value);
+         }
+ 

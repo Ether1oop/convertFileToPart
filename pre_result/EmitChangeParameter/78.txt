@@ -1,0 +1,8 @@
+@@ -138,7 +177,7 @@ contract ThirdwebFees is Ownable {
+         FeeType _feeType
+     ) external onlyOwner onlyValidFee(_feeBps) {
+         feeBpsByModuleType[_moduleType][_feeType] = _feeBps;
+-        emit FeeForModuleType(_feeBps, _moduleType, FeeType.Royalty);
++        emit FeeForModuleType(_feeBps, _moduleType, _feeType);
+     }
+ 

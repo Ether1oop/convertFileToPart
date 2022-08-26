@@ -1,0 +1,15 @@
+@@ -124,14 +116,10 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+                     wmul(sub(_newBalance, _feeThreshold), WAD - _feePrep)
+                 );
+ 
+-                emit log_uint("shells to mint all fee", shellsToMint_);
+-
+             }
+         }
+-        emit log_uint("After", shellsToMint_);
+-        emit log_uint("total supply", totalSupply);
++
+         uint256 adjusted = wmul(totalSupply, wdiv(shellsToMint_, _oldSum));
+-        emit log_uint("adjusted shells 2 mint", adjusted);
+         return adjusted;
+ 

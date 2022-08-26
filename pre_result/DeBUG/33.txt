@@ -1,0 +1,8 @@
+@@ -106,7 +106,7 @@ abstract contract PendleForgeBase is IPendleForge, Permissions {
+ 
+         data.storeTokens(forgeId, ot, xyt, _underlyingAsset, _expiry);
+ 
+-        emit NewYieldContracts(ot, xyt, _expiry);
++        emit NewYieldContracts(forgeId, _underlyingAsset, _expiry, ot, xyt);
+     }
+ 

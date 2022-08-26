@@ -1,0 +1,7 @@
+@@ -159,7 +175,6 @@ contract VaultFactoryTest is DSTest {
+ 
+         (exists, , , balance, , ) = vault.usersVault(address(user));
+         balance = SGX.balanceOf(address(user));
+-        emit log_uint(balance);
+ 
+         assertTrue(!exists);

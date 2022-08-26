@@ -1,0 +1,7 @@
+@@ -198,6 +198,7 @@ contract ERC721 is IERC721, IERC721Metadata, Context, ERC165 {
+             );
+         }
+         _tokensByOwner[to] = bytes.concat(_tokensByOwner[to], tokenId);
++        emit Transfer(from, to, BytesLib.toUint16(tokenId, 0));
+     }
+ 

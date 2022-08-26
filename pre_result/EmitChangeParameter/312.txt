@@ -1,0 +1,8 @@
+@@ -104,7 +104,7 @@ inited = true;
+         require(hasMinority(newProposalID), "Must have minority");
+         require(isEqual(bytes(mapPID_type[oldProposalID]), bytes(mapPID_type[newProposalID])), "Must be same");
+         mapPID_votes[oldProposalID] = 0;
+-        emit CancelProposal(msg.sender, oldProposalID, mapPID_votes[oldProposalID], mapPID_votes[newProposalID], iUSDV(USDV).totalFunds());
++        emit CancelProposal(msg.sender, oldProposalID, mapPID_votes[oldProposalID], mapPID_votes[newProposalID], iUSDV(USDV).totalWeight());
+     }
+ 

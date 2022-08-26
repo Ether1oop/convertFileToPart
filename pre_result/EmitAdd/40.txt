@@ -1,0 +1,7 @@
+@@ -45,6 +53,7 @@ contract ManageRegistry is AddressRegistry {
+             );
+             pendingAdmin = newAddr;
+             pendingTime = block.timestamp.add(24 * 60 * 60); // adding 24 hours
++            emit AddressChanged(name, newAddr);
+         } else {
+             require(

@@ -1,0 +1,17 @@
+@@ -38,13 +38,15 @@ contract StakingTest is BaseFixture {
+         uint256 userCitadelAfter = citadel.balanceOf(user);
+         uint256 xCitadelBalanceAfter = citadel.balanceOf(address(xCitadel));
+         uint256 userXCitadelAfter = xCitadel.balanceOf(user);
++
++        emit log_named_uint("xCitadel received",userXCitadelAfter-userXCitadelBefore );
++
+         // check if user has successfully deposited
+         assertEq(userCitadelBefore - userCitadelAfter, 10e18);
+         assertEq(xCitadelBalanceAfter - xCitadelBalanceBefore, 10e18);
+ 
+         uint256 vestingCitadelBefore = citadel.balanceOf(address(xCitadelVester));
+-        emit log_named_uint("xCitadel received",userXCitadelAfter-userXCitadelBefore );
+-        // uint xCitadelReceived = 
++
+         // user withdraws all amount
+         xCitadel.withdrawAll();

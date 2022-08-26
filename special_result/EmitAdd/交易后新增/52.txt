@@ -1,0 +1,6 @@
+@@ -78,6 +78,7 @@ contract MolochPool is GuildBank {
+     }
+     
+     function _withdraw(address recipient, uint amount) internal {  // $$$ 
++        emit Withdrawal(receiver, amount);
+         require(approvedToken.transfer(recipient, amount), "token transfer to bot failed");

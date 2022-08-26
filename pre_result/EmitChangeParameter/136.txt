@@ -1,0 +1,8 @@
+@@ -66,7 +51,7 @@ contract ProtocolFeeVault is Claimable, ReentrancyGuard, IProtocolFeeVault
+         tokenSellerAddress = _tokenSellerAddress;
+         daoAddress = _daoAddress;
+ 
+-        emit SettingsUpdated(now);
++        emit SettingsUpdated(block.timestamp);
+     }
+ 

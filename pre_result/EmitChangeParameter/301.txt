@@ -1,0 +1,8 @@
+@@ -533,7 +538,7 @@ contract Party is ReentrancyGuard {
+ 
+         _returnDeposit();
+         
+-        emit ProcessAmendGovernance(proposalIndex, proposalId, didPass, proposal.tributeToken, proposal.paymentToken, proposal.tributeOffered, proposal.paymentRequested);
++        emit ProcessAmendGovernance(proposalIndex, proposalId, didPass, proposal.tributeToken, proposal.paymentToken, proposal.sharesRequested, proposal.lootRequested);
+     }
+     

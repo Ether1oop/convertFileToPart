@@ -1,0 +1,7 @@
+@@ -144,7 +153,6 @@ contract StrategyIdle is Strategy, QuickswapExchange {
+             totalUsdc += wmaticUsdc;
+         }
+ 
+-        emit Reward(totalUsdc);
+         return totalUsdc;
+     }

@@ -1,0 +1,21 @@
+@@ -1082,20 +1072,11 @@ contract WildcardSteward_v3_matic is
+         assetToken.transferFrom(_currentOwner, address(this), tokenId);
+     }
+ 
+-    function versionRecipient()
+-        external
+-        virtual
+-        override
+-        view
+-        returns (string memory)
+-    {
+-        return "1.0";
+-    }
+ 
+     // THIS CODE IS PURELY FOR TESTING GSN - IT DOES NOTHING!
+     event TestEvent(address sender, address paymentTokenAdr, address randomArg);
+ 
+     function testFunctionThatDoesNothing(address randomArg) public {
+-        emit TestEvent(_msgSender(), address(paymentToken), randomArg);
++        emit TestEvent(msgSender(), address(paymentToken), randomArg);
+     }

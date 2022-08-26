@@ -1,0 +1,7 @@
+@@ -135,6 +136,7 @@ contract ERC721OTransferable is ERC721OBase, ReentrancyGuard {
+       balTo = balTo.updateTokenBalance(index, _amounts[i], ObjectLib.Operations.ADD);
+ 
+       emit Transfer(_from, _to, _tokenIds[i]);
++      emit TransferWithQuantity(_from, _to, _tokenIds[i], _amounts[i]);
+     }
+ 

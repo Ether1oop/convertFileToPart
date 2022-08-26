@@ -1,0 +1,8 @@
+@@ -161,6 +161,8 @@ contract PendleAaveForge is IPendleForge, ReentrancyGuard {
+ 
+         _settleDueInterests(tokens, _underlyingAsset, _expiry, _msgSender);
+         tokens.ot.burn(_msgSender, redeemedAmount);
++
++        emit RedeemYieldToken(_underlyingAsset, redeemedAmount);
+     }
+ 

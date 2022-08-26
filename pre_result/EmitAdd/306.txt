@@ -1,0 +1,8 @@
+@@ -266,7 +266,7 @@ contract CommunityNFT is ERC721, ERC721URIStorage, AccessControl, ReentrancyGuar
+         public onlyOperator
+     {
+         communityRank[nftId] = newRank;
+-
++        emit RankUpdated(nftId, newRank);
+     }
+ 

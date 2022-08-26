@@ -1,0 +1,7 @@
+@@ -219,6 +219,8 @@ contract MasterChefV2 is BoringOwnable, BoringBatchable {
+         // Interactions
+         lpToken[pid].safeTransferFrom(msg.sender, address(this), amount);
+ 
++        emit Deposit(msg.sender, pid, amount, to);
++
+         address _rewarder = address(rewarder[pid]);

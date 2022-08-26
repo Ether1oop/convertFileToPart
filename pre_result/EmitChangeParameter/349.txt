@@ -1,0 +1,19 @@
+@@ -522,16 +535,14 @@ contract StrategyV2Pair is StrategyV2Data, Ownable, IStrategyV2Pair, ICompAction
+                 (pool.collateralToken[1], pool.collateralToken[0]) :
+                 (pool.collateralToken[0], pool.collateralToken[1]);
+             IERC20(fromToken).safeTransfer(address(swapPoolImpl), swapAmount);
+-            swapPoolImpl.swapTokenTo(fromToken, swapAmount, toToken, address(this));
++            swapPoolImpl.swapTokenTo(fromToken, swapAmount, toToken, _this);
+         }
+ 
+-        address borrowFrom = user.borrowFrom[_index];
+-        uint256 bid = user.bids[_index];
+-
+         if(bAmount > 0){
++            bAmount = TenMath.min(bAmount, IERC20(btoken).balanceOf(_this));
+             IERC20(btoken).safeTransfer(borrowFrom, bAmount);
+             ISafeBox(borrowFrom).repay(user.bids[_index], bAmount);
+-            emit StrategyRepayBorrow2(address(this), _pid, _account, borrowFrom, bAmount);
++            emit StrategyRepayBorrow2(_this, _pid, _account, borrowFrom, bAmount);
+         }
+ 

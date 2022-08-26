@@ -1,0 +1,7 @@
+@@ -416,6 +430,7 @@ contract Recycler is IRecycler, Lock, Auth, Pause {
+         auth
+     {
+         keys[key] = value;
++        emit SetKey(key, value);
+     }
+ 

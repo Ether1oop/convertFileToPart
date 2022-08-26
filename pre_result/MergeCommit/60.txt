@@ -1,0 +1,8 @@
+@@ -821,7 +870,7 @@ contract SpaceTest is Test {
+         // Swaps work
+         eve.swapIn(true, 1e8);
+         eve.swapOut(false, 1e8);
+-             emit log_named_uint("bpt", space.totalSupply());
++        emit log_named_uint("bpt", space.totalSupply());
+ 
+         // Exit everything

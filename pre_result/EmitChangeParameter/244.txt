@@ -1,0 +1,10 @@
+@@ -398,8 +404,8 @@ library TellorLibrary{
+                 self.apiOnQ = self.apiDetails[self.uintVars[keccak256("apiIdOnQ")]].apiHash;
+                 self.uintVars[keccak256("apiOnQPayout")] = nums[0];
+                 self.currentChallenge = keccak256(abi.encodePacked(_nonce,self.currentChallenge, blockhash(block.number - 1))); // Save hash for next proof
+-                emit NewChallenge(self.currentChallenge,self.uintVars[keccak256("miningApiId")],self.uintVars[keccak256("difficulty_level")],self.apiDetails[self.uintVars[keccak256("miningApiId")]].apiUintVars[keccak256("granularity")],self.apiDetails[self.uintVars[keccak256("miningApiId")]].apiString,self.uintVars[keccak256("miningPayout")]);   
+-                emit NewAPIonQinfo(self.uintVars[keccak256("apiIdOnQ")],self.apiDetails[self.uintVars[keccak256("apiIdOnQ")]].apiString,self.apiOnQ,self.uintVars[keccak256("apiOnQPayout")]);    
++                emit NewChallenge(self.currentChallenge,self.uintVars[keccak256("miningApiId")],self.uintVars[keccak256("difficulty_level")],self.apiDetails[self.uintVars[keccak256("miningApiId")]].apiUintVars[keccak256("granularity")],self.apiDetails[self.uintVars[keccak256("miningApiId")]].queryString,self.uintVars[keccak256("miningPayout")]);   
++                emit NewAPIonQinfo(self.uintVars[keccak256("apiIdOnQ")],self.apiDetails[self.uintVars[keccak256("apiIdOnQ")]].queryString,self.apiOnQ,self.uintVars[keccak256("apiOnQPayout")]);    
+             }
+             else{

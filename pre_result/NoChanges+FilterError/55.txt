@@ -1,0 +1,8 @@
+@@ -70,7 +70,7 @@ contract MarginRouter is RoleAware, IncentivizedHolder, BaseRouter {
+             withdrawAmount
+         );
+         Fund(fund()).withdraw(withdrawToken, msg.sender, withdrawAmount);
+-                emit AccountUpdated(msg.sender);
++        emit AccountUpdated(msg.sender);
+     }
+ 

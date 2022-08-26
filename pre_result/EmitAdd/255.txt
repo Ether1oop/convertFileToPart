@@ -1,0 +1,8 @@
+@@ -334,6 +334,8 @@ abstract contract PendleMarketBase is IPendleMarket, PendleBaseToken {
+ 
+         updatedReserveData = encodeReserveData(xytBalance, tokenBalance, xytWeight); // repack data
+         reserveData = updatedReserveData;
++        emit Sync(xytBalance, xytWeight, tokenBalance);
++
+         // Deal with lp last.
+         _collectFees(exitFees);

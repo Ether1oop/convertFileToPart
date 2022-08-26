@@ -1,0 +1,8 @@
+@@ -240,7 +243,7 @@ contract LightGeneralizedTCR is IArbitrable, IEvidence {
+         );
+ 
+         // Note that if the item is added directly once, the next time it is added it will emit this event again.
+-        if (item.requests.length == 0) emit NewItem(itemID, _item);
++        if (item.requests.length == 0) emit NewItem(itemID, _item, true);
+ 
+         item.status = Status.Registered;

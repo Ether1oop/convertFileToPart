@@ -1,0 +1,7 @@
+@@ -138,7 +145,6 @@ contract PendleMarket is IPendleMarket, PendleBaseToken {
+         require(amountXytUsed != 0, "ZERO_XYT_IN_AMOUNT");
+         require(amountXytUsed <= _maxInXyt, "LOW_XYT_IN_LIMIT");
+         reserves[xyt].balance = reserves[xyt].balance.add(amountXytUsed);
+-        emit Join(xyt, amountXytUsed);
+         _transferIn(xyt, amountXytUsed);
+ 

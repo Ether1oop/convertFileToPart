@@ -1,0 +1,11 @@
+@@ -238,9 +238,9 @@ contract TokenTransfer is BaseModule, RelayerModule, LimitManager {
+         onlyOwner(_wallet) 
+         onlyWhenUnlocked(_wallet) 
+     {
+-        require(configs[_wallet].pendingTransfers[_id] > 0, "TT: unknown pending transfer");
++        require(configs[address(_wallet)].pendingTransfers[_id] > 0, "TT: unknown pending transfer");
+         removePendingTransfer(_wallet, _id);
+-        emit PendingTransferCanceled(_wallet, _id);
++        emit PendingTransferCanceled(address(_wallet), _id);
+     }
+ 

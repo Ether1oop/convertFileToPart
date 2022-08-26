@@ -1,0 +1,7 @@
+@@ -397,7 +394,7 @@ contract RiseTokenVault is RisedleVault {
+         riseTokens[token].totalCollateralPlusFee -= riseTokenMetadata.totalPendingFees;
+         riseTokens[token].totalPendingFees = 0;
+ 
+-        emit FeeCollected(msg.sender, collectedFees, FEE_RECIPIENT);
++        emit FeeCollected(msg.sender, riseTokenMetadata.totalPendingFees, FEE_RECIPIENT);
+     }

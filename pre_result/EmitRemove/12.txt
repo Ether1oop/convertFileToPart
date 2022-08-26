@@ -1,0 +1,8 @@
+@@ -124,8 +126,6 @@ contract SpellAction is DSTest {
+ 
+         // 5 Million debt ceiling
+         VatAbstract(MCD_VAT).file(ilk, "line", NS2DRP_A_INITIAL_DC);
+-        emit log_named_uint("initial", VatAbstract(MCD_VAT).Line());
+-        emit log_named_uint("filed", VatAbstract(MCD_VAT).Line() + NS2DRP_A_INITIAL_DC);
+         VatAbstract(MCD_VAT).file("Line", VatAbstract(MCD_VAT).Line() + NS2DRP_A_INITIAL_DC);
+ 

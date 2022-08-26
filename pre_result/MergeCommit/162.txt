@@ -1,0 +1,8 @@
+@@ -250,7 +250,7 @@ contract ElementTest is DSTest {
+         elementDeploymentValidator.validateAddresses(wrappedPositions['USDC'], config.poolAddress);
+ 
+         vm.expectEmit(false, false, false, true);
+-        emit PoolAdded(config.poolAddress, wrappedPositions['USDC'], config.expiry);        
++        emit PoolAdded(config.poolAddress, wrappedPositions['USDC'], config.expiry);
+ 
+         elementBridge

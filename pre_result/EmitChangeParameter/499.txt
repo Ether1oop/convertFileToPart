@@ -1,0 +1,8 @@
+@@ -324,7 +333,7 @@ contract Controller is IController, Orchestrated(), Delegable(), DecimalMath {
+         );
+ 
+         series[maturity].mint(to, yDaiAmount);
+-        emit Borrowed(collateral, maturity, from, int256(yDaiAmount)); // TODO: Watch for overflow
++        emit Borrowed(collateral, maturity, from, toInt256(yDaiAmount));
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -138,6 +158,8 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+ 
+         shellsBurned_ = calculateShellsToBurn(_balances, _withdrawals, _weights);
+ 
++        emit log_uint("shellsToBurn", shellsBurned_);
++
+         require(shellsBurned_ <= _maxShells, "more shells burned than max shell limit");
+ 

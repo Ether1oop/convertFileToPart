@@ -1,0 +1,8 @@
+@@ -303,7 +347,7 @@ contract BurnPool is Ownable, Curve, Initializable {
+         onlyOwner
+     {
+         maximumRewardAccruedCap = maximumRewardAccruedCap_;
+-        emit LogSetMaximumRewardAccruedCap(maximumRewardAccruedCap_);
++        emit LogSetMaximumRewardAccruedCap(maximumRewardAccruedCap);
+     }
+ 

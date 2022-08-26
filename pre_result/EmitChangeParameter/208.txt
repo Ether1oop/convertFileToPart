@@ -1,0 +1,8 @@
+@@ -201,7 +204,7 @@ contract xvUSDT is ERC20 {
+     }
+ 
+     _mint(to, shares);
+-    emit Transfer(ZERO_ADDRESS, to, shares);
++    emit Transfer(address(0), to, shares);
+   }
+ 

@@ -1,0 +1,7 @@
+@@ -967,6 +969,7 @@ contract SwapPairContract is ITokensReceivedCallback, ISwapPairInformation, IUpg
+         }
+         else {
+             (uint128 rtp1, uint128 rtp2, ) = _provideLiquidity(lppi.a1, lppi.a2, sender_public_key, sender_address, lpWallet);
++            emit ProvideLiquidity(liquidityTokensMinted, rtp1, rtp2);
+ 
+             TvmBuilder payloadTB;

@@ -1,0 +1,8 @@
+@@ -587,7 +602,7 @@ contract FraxFarm_UniV3_veFXS is Owned, ReentrancyGuard {
+                 }
+             }
+ 
+-            emit RewardPaid(rewardee, reward0, accumulated_token0, accumulated_token1, address(rewardsToken0), destination_address);
++            emit RewardPaid(rewardee, reward_0, accumulated_token0, accumulated_token1, address(rewardsToken0), destination_address);
+         }
+     }

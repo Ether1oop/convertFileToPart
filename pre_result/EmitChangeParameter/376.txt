@@ -1,0 +1,8 @@
+@@ -187,7 +187,7 @@ contract VeJoeStaking is Initializable, OwnableUpgradeable {
+             "VeJoeStaking: expected _speedUpThreshold to be > 0 and <= 100"
+         );
+         speedUpThreshold = _speedUpThreshold;
+-        emit UpdateSpeedUpThreshold(msg.sender, _speedUpThreshold);
++        emit UpdateSpeedUpThreshold(_msgSender(), _speedUpThreshold);
+     }
+ 

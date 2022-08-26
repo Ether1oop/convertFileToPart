@@ -1,0 +1,7 @@
+@@ -182,6 +205,7 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+             if (_newBal >= _feeThreshold) {
+ 
+                 _numeraireShellsToBurn += wmul(_withdrawal, WAD + feeBase);
++                emit log_uint("ping", _numeraireShellsToBurn);
+ 
+             } else if (_oldBal <= _feeThreshold) {

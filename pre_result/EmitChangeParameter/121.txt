@@ -1,0 +1,8 @@
+@@ -37,7 +37,7 @@ contract NurseParts is NursePartsInterface {
+         
+         balances[id][from] -= value;
+         balances[id][to] += value;
+-        emit TransferSingle(msg.sender, from, to, id, amount);
++        emit TransferSingle(msg.sender, from, to, id, value);
+         
+         uint32 size;

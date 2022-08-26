@@ -1,0 +1,7 @@
+@@ -169,6 +169,7 @@ contract BathToken is IBathToken {
+ 
+         uint256 oldTotal = yieldTracker[yieldTracker.length - 1][0];
+         yieldTracker.push([yieldAmount + oldTotal, now]);
++        emit LogYield(yieldAmount + oldTotal);
+     }
+ 

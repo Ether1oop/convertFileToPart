@@ -1,0 +1,8 @@
+@@ -191,7 +189,7 @@ contract AaveYield is IYield, Initializable, OwnableUpgradeable, ReentrancyGuard
+             received = _withdrawERC(_asset, amount);
+             IERC20(_asset).safeTransfer(_wallet, received);
+         }
+-        emit EmergencyWithdraw(_asset,_wallet,received);
++        emit EmergencyWithdraw(_asset, _wallet, received);
+     }
+ 

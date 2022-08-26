@@ -1,0 +1,8 @@
+@@ -232,7 +238,7 @@ contract FlywheelCore is Auth {
+         
+         rewardsAccrued[user] = supplierAccrued;
+ 
+-        emit AccrueRewards(strategy, user, supplierDelta, supplyIndex);
++        emit AccrueRewards(strategy, user, supplierDelta, strategyIndex);
+ 
+         return supplierAccrued;

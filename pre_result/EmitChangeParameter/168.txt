@@ -1,0 +1,8 @@
+@@ -229,7 +229,7 @@ contract LexToken {
+     
+     function addOffer(string calldata offer) external onlyManager {
+         offers.push(offer);
+-        emit AddOffer(offers.length, offer);
++        emit AddOffer(offers.length-1, offer);
+     }
+     

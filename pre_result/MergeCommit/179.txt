@@ -1,0 +1,10 @@
+@@ -66,8 +90,8 @@ contract ConquerMode is ZBGameMode  {
+         player1.status = uint(Stages.Playing);
+         player2.status = uint(Stages.Playing);
+ 
+-        emit ZBGameMode.MatchedStarted(useraddr1);
+-        emit ZBGameMode.MatchedStarted(useraddr2);
++        emit MatchedStarted(useraddr1);
++        emit MatchedStarted(useraddr2);
+     }
+ 

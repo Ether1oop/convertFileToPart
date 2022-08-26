@@ -1,0 +1,104 @@
+@@ -381,104 +346,63 @@ contract Loihi is LoihiRoot {
+         uint256[] memory balances = new uint256[](reserves.length * 3);
+         for (uint i = 0; i < _flavors.length; i++) {
+             Flavor memory w = flavors[_flavors[i]]; // withdrawing adapter + weight
+-            emit log_address("w.adapter", w.adapter);
+-            emit log_address("w.reserve", w.reserve);
+             for (uint j = 0; j < reserves.length; j++) {
+                 if (reserves[j] == w.reserve) {
+                     if (balances[j*3] == 0) {
+                         uint256 balance = dGetNumeraireBalance(w.adapter);
+                         balances[j*3] = balance;
+-                        emit log_uint("balance", balance);
+                         uint256 withdrawal = dGetNumeraireAmount(w.adapter, _amounts[i]);
+                         balances[j*3+1] = withdrawal;
+-                        emit log_uint("withdrawal", withdrawal);
+                         balances[j*3+2] = w.weight;
+                         newSum = add(newSum, sub(balance, withdrawal));
+                         oldSum += balance;
+                         break;
+                     } else {
+                         uint256 withdrawal = dGetNumeraireAmount(w.adapter, _amounts[i]);
+-                        emit log_uint("withdrawal", withdrawal);
+                         balances[j*3+1] = add(withdrawal, balances[j*3+1]);
+                         newSum = sub(newSum, withdrawal);
+                         break;
+                     }
+                     break;
+         } } }
+ 
+-        emit log_uint_arr("balances", balances);
+ 
+         for (uint i = 0; i < reserves.length; i++) {
+-            emit log_uint("zlizarpadon", i);
+             uint256 withdrawAmount = balances[i*3+1];
+             if (withdrawAmount == 0) continue;
+-            emit log_uint("zlizarpadentini", i);
+             uint256 oldBalance = balances[i*3];
+             uint256 newBalance = sub(oldBalance, withdrawAmount);
+ 
+-            emit log_uint("ping", 0);
+-            emit log_uint("weight", balances[i*3+2]);
+-            emit log_uint("newBalance", newBalance);
+-            emit log_uint("oldBalance", oldBalance);
+-            emit log_uint("withdraw amount", withdrawAmount);
+-
+-
+             bool haltCheck = newBalance >= wmul(balances[i*3+2], wmul(newSum, WAD - alpha));
+             require(haltCheck, "withdraw halt check");
+ 
+-            emit log_uint("ping", 1);
+-
+-            emit log_uint("rhs", wmul(newBalance, WAD - beta));
+             uint256 feeThreshold = wmul(balances[i*3+2], wmul(newSum, WAD - beta));
+-            emit log_uint("feeThreshold", feeThreshold);
+             if (newBalance >= feeThreshold) {
+-                emit log_uint("ping", 2);
+-                emit log_uint("shellsBurned pre---", shellsBurned);
+                 shellsBurned += wmul(withdrawAmount, WAD + feeBase);
+-                emit log_uint("shellsBurned post", shellsBurned);
+-                emit log_uint("ping", 25);
+             } else if (oldBalance < feeThreshold) {
+-                    emit log_uint("ping", 3);
+                 uint256 feePrep = wmul(wdiv(
+                     withdrawAmount,
+                     wmul(balances[i*3+2], newSum)
+                 ), feeDerivative);
+-
+-                emit log_uint("feePrep", feePrep);
+-                emit log_uint("blarby", wmul(withdrawAmount, WAD + feePrep));
+-                emit log_uint("shellsBurned pre $$$$$", shellsBurned);
+                 shellsBurned += wmul(
+                     wmul(withdrawAmount, WAD + feePrep),
+                     WAD + feeBase
+                 );
+-                emit log_uint("shellsBurned pre", shellsBurned);
+             } else {
+-                // emit log_uint("ping", 4);
+                 uint256 feePrep = wdiv(
+                     sub(feeThreshold, newBalance),
+                     wmul(balances[i*3+2], newSum)
+                 );
+                 feePrep = wmul(feeDerivative, feePrep);
+-                emit log_uint("shellsBurned pre ~@~@~", shellsBurned);
+                 shellsBurned += wmul(add(
+                     sub(oldBalance, feeThreshold),
+                     wmul(sub(feeThreshold, newBalance), WAD + feePrep)
+                 ), WAD + feeBase);
+-
+-                // emit log_uint("shellsBurned pre ~@~@~", shellsBurned);
+             }
+ 
+-            // emit log_uint("zlurp", 5);
+         }
+ 
+-        // emit log_uint("zing", 333);
+-
+-        // emit log_uint("!?!?!?!?!shellsBurned", shellsBurned);
+-        // emit log_uint("oldSum", oldSum);
+-        // emit log_uint("totalSupply", totalSupply());
+-        // shellsBurned = wmul(shellsBurned, wdiv(oldSum, totalSupply()));
+ 
+-        // emit log_uint("shellsBurned", shellsBurned);
+         // for (uint i = 0; i < _flavors.length; i++) dOutputNumeraire(_flavors[i], msg.sender, _amounts[i]);
+ 

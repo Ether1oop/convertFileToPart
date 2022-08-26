@@ -1,0 +1,10 @@
+@@ -96,8 +124,8 @@ contract Bridge is Transferable, ERC677TransferReceiver, Pausable {
+         address originalTokenAddress = originalTokens[msg.sender];
+         require(originalTokenAddress != address(0), "Sender is not one of the crossed token contracts");
+         SideToken sideToken = SideToken(msg.sender);
+-        emit Cross(originalTokenAddress, getMappedAddress(from), amount, ERC20Detailed(originalTokenAddress).symbol());
+         sideToken.burn(amount);
++        emit Cross(originalTokenAddress, getMappedAddress(from), amount, ERC20Detailed(originalTokenAddress).symbol());
+         return true;
+     }
+ 

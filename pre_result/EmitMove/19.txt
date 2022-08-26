@@ -1,0 +1,37 @@
+@@ -406,32 +315,31 @@ contract ForkFarmLaunch is IForkFarmLaunch, Ownable {
+   }
+ 
+   // Harvest CHECKs earn from the pool.
+-  function harvest(uint256 _pid) public override {
++  function harvest(uint256 _pid) public  {
+     PoolInfo storage pool = poolInfo[_pid];
+     UserInfo storage user = userInfo[_pid][msg.sender];
+     updatePool(_pid);
+     _harvest(msg.sender, _pid);
+     user.rewardDebt = user.amount.mul(pool.accCheckPerShare).div(1e12);
+-    user.bonusDebt = user.amount.mul(pool.accCheckPerShareTilBonusEnd).div(1e12);
+   }
+ 
+-  function _harvest(address _to, uint256 _pid) internal {
++  function _harvest(uint256 _pid) internal {
+     PoolInfo storage pool = poolInfo[_pid];
+-    UserInfo storage user = userInfo[_pid][_to];
++    UserInfo storage user = userInfo[_pid][msg.sender];
+     require(user.amount > 0, "nothing to harvest");
+     uint256 pending = user.amount.mul(pool.accCheckPerShare).div(1e12).sub(user.rewardDebt);
+     require(pending <= check.balanceOf(address(this)), "wtf not enough check");
+-    _safeCheckTransfer(_to, pending);
++    _safeCheckTransfer(msg.sender, pending);
+   }
+ 
+   // Withdraw without caring about rewards. EMERGENCY ONLY.
+   function emergencyWithdraw(uint256 _pid) public {
+     PoolInfo storage pool = poolInfo[_pid];
+     UserInfo storage user = userInfo[_pid][msg.sender];
+     IERC20(pool.stakeToken).safeTransfer(address(msg.sender), user.amount);
+-    emit EmergencyWithdraw(msg.sender, _pid, user.amount);
+     user.amount = 0;
+     user.rewardDebt = 0;
++    emit EmergencyWithdraw(msg.sender, _pid, user.amount);
+   }
+ 

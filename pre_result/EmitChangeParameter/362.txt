@@ -1,0 +1,8 @@
+@@ -111,7 +111,7 @@ contract LoopssWrapper is ERC20Interface, Owned, SafeMath {
+         // sub amount for _from balance
+         balances[_from] = safeSub(balances[_from], _amount);
+ 
+-        emit Transfer(_from, addressLOOPSS, _amount);
++        emit Transfer(_from, LOOPSSMEaddress, _amount);
+     }
+ 

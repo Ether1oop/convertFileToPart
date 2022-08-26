@@ -1,0 +1,8 @@
+@@ -91,7 +92,7 @@ contract TwoKeyDonationConversionHandler is UpgradeableCampaign, TwoKeyConversio
+         // Deploy an ERC20 token which will be used as the Invoice
+         erc20InvoiceToken = new InvoiceTokenERC20(tokenName,tokenSymbol,address(this));
+         // Emit an event with deployed token address, name, and symbol
+-        emit InvoiceTokenCreated(erc20InvoiceToken, tokenName, tokenSymbol);
++        emit InvoiceTokenCreated(address(erc20InvoiceToken), tokenName, tokenSymbol);
+         isCampaignInitialized = true;
+     }

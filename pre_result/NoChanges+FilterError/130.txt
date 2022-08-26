@@ -1,0 +1,8 @@
+@@ -136,7 +138,7 @@ contract Keg is LibNote {
+         buds[msg.sender] = bud;
+         //delegated addr -> original addr
+         pals[bud] = msg.sender;
+-        emit DelegateUpdated(msg.sender, bud);
++        emit DrinkingBuddy(msg.sender, bud);
+     }
+ 

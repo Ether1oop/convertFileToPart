@@ -1,0 +1,34 @@
+@@ -99,28 +98,25 @@ contract MerkleAirdropFacet is Modifiers, ERC1155Holder {
+ 
+     function claimForAddress(
+         uint256 _airdropId,
+-        address _account,
+         uint256 _itemId,
+         uint256 _amount,
+         bytes32[] calldata merkleProof,
+         bytes calldata data
+-    ) external onlyUnclaimedAddress(_account, _airdropId) {
+-        if (_airdropId > s.airdropCounter) {
+-            revert("Airdrop is not created yet");
+-        }
++    ) external onlyUnclaimedAddress(msg.sender, _airdropId) {
++        require(_airdropId < s.airdropCounter, "Airdrop is not created yet");
+         AddressAirdrop storage drop = s.addressAirdrops[_airdropId];
+         // Verify the merkle proof.
+-        bytes32 node = keccak256(abi.encodePacked(_account, _itemId, _amount));
++        bytes32 node = keccak256(abi.encodePacked(msg.sender, _itemId, _amount));
+         bytes32 merkleRoot = drop.merkleRoot;
+         address token = drop.tokenAddress;
+         require(MerkleProof.verify(merkleProof, merkleRoot, node), "MerkleDistributor: Invalid proof.");
+ 
+         // Mark it claimed and send the token.
+-        _setAddressClaimed(_account, _airdropId);
+-        IERC1155(token).safeTransferFrom(address(this), _account, _itemId, _amount, data);
++        _setAddressClaimed(msg.sender, _airdropId);
++        IERC1155(token).safeTransferFrom(address(this), msg.sender, _itemId, _amount, data);
+         drop.claims++;
+         //only emit when successful
+-        emit AddressClaim(_airdropId, _account, _itemId, _amount);
++        emit AddressClaim(_airdropId, msg.sender, _itemId, _amount);
+     }
+ 

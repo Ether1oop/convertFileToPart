@@ -1,0 +1,7 @@
+@@ -46,7 +46,7 @@ contract DSAuth is DSAuthEvents {
+         auth
+     {
+         authority = authority_;
+-        emit LogSetAuthority(authority);
++        emit LogSetAuthority(address(authority));
+     }

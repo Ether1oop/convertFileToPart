@@ -1,0 +1,8 @@
+@@ -490,6 +488,7 @@ contract Vault is ERC20, Auth {
+         // Decrease the totalDeposited amount to account for the withdrawals.
+         totalStrategyHoldings -= underlyingAmount;
+ 
+-        emit WithdrawalQueueUpdated(withdrawalQueue);
++        // If we went beyond the starting index, at least one item on the queue was popped.
++        if (currentQueueIndex != startingIndex) emit WithdrawalQueueUpdated(withdrawalQueue);
+     }

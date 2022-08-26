@@ -1,0 +1,8 @@
+@@ -677,6 +620,7 @@ contract Validators is Params {
+ 
+         if (highestValidatorsSet.length < MaxValidators) {
+             highestValidatorsSet.push(val);
++            emit LogAddToTopValidators(val, block.timestamp);
+             return;
+         }
+ 

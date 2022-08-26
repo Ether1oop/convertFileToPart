@@ -1,0 +1,12 @@
+@@ -105,10 +105,10 @@ contract ConquerMode is ZUBGGameMode  {
+ 
+             //TODO perhaps switch this to a state machine
+             if(player.wins == 7){
+-                emit ZUBGGameMode.AwardTokens(playerAddr, costToEnter);
++                emit ZBGameMode.AwardTokens(playerAddr, costToEnter);
+             }
+             if(player.wins == 12){
+-                emit ZUBGGameMode.AwardPack(playerAddr, 1, 0);
++                emit ZBGameMode.AwardPack(playerAddr, 1, 0);
+                 player.status = uint(Stages.Finished);
+             }

@@ -1,0 +1,8 @@
+@@ -328,7 +328,7 @@ contract DAISO is IArbitrable, IEvidence, OwnableWithoutRenounce, PausableWithou
+                 Types.Stream storage stream = streams[project.streamId[i]];
+                 (,uint256 nowBalance) = investBalanceOf(project.streamId[i]);
+                 streams[project.streamId[i]].voteForWight = nowBalance;
+-                emit LaunchProposal(projectId, project.streamId[i], amount, block.timestamp, block.timestamp + 86400, stream.sender, nowBalance);
++                emit LaunchProposal(projectId, project.streamId[i], amount, block.timestamp, block.timestamp + 600, stream.sender, nowBalance);
+             }
+         }

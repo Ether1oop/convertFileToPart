@@ -1,0 +1,8 @@
+@@ -33,7 +33,7 @@ contract Governance is IGovernance, Reporter {
+     s.deleteAddressByKeys(ProtoUtilV1.NS_REPORTING_WITNESS_YES, key);
+     s.deleteUintByKeys(ProtoUtilV1.NS_REPORTING_WITNESS_YES, key);
+ 
+-    emit Finalized(key, super._msgSender(), incidentDate);
++    emit Finalized(key, msg.sender, incidentDate);
+   }
+ 

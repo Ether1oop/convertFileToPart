@@ -1,0 +1,8 @@
+@@ -548,7 +547,7 @@ contract Visor is
+       timelockERC721Keys[nftContract].push(key);
+ 
+       IERC721(nftContract).safeTransferFrom(msg.sender, address(this), tokenId);
+-      emit TimeLockERC20(recipient, nftContract, tokenId, expires);
++      emit TimeLockERC721(recipient, nftContract, tokenId, expires);
+     }
+ 

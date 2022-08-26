@@ -1,0 +1,8 @@
+@@ -409,6 +428,8 @@ contract PCVDepositAggregator is IPCVDepositAggregator, IPCVDeposit, CoreRef {
+         pcvDepositWeights[depositAddress] = weight;
+ 
+         totalWeight = totalWeight + weight;
++
++        emit DepositAdded(depositAddress, weight);
+     }
+ 

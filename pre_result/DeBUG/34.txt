@@ -1,0 +1,8 @@
+@@ -121,7 +121,7 @@ contract PendleCompoundForge is IPendleForge, Permissions {
+         IPendleData data = router.data();
+         data.storeTokens(forgeId, ot, xyt, _underlyingAsset, _expiry);
+ 
+-        emit NewYieldContracts(ot, xyt, _expiry);
++        emit NewYieldContracts(forgeId, _underlyingAsset, _expiry, ot, xyt);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -662,7 +659,7 @@ contract DOSProxy is Ownable {
+             emit GuardianReward(block.number, msg.sender);
+             DOSPaymentInterface(addressBridge.getPaymentAddress()).claimGuardianReward(msg.sender);
+         } else {
+-            emit LogMessage("No expired pending group to clean up");
++            emit LogMessage("no-expired-pgrp-to-clean");
+         }
+     }

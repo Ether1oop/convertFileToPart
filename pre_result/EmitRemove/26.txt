@@ -1,0 +1,11 @@
+@@ -62,10 +82,6 @@ contract WePiggyPriceOracleV1 is WePiggyPriceOracleInterface, OwnableUpgradeSafe
+             datum.value = price;
+             datum.timestamp = block.timestamp;
+         }
+-
+-
+-        emit PriceUpdated(token, price);
+-
+     }
+ 
+     function setTokenConfig(address token, string memory symbol, uint upperBoundAnchorRatio, uint lowerBoundAnchorRatio) public onlyOwner {

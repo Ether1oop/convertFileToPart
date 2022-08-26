@@ -1,0 +1,8 @@
+@@ -209,7 +207,7 @@ contract DSDeed is ERC721, ERC721Enumerable, ERC721Metadata, DSAuth {
+ 
+         delete _deeds[nft]; // Remove from deed mapping
+ 
+-        emit Burn(guy, nft);
++        emit Transfer(guy, address(0), nft);
+     }
+ 

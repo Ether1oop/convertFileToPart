@@ -1,0 +1,7 @@
+@@ -226,7 +288,5 @@ contract VaultFactoryTest is DSTest {
+         vault.claimRewards(msg.sender);
+ 
+         uint256 dominance = vault.getGSGXDominance();
+-
+-        emit log_uint(dominance);
+     }

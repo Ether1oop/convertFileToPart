@@ -1,0 +1,7 @@
+@@ -98,6 +103,7 @@ contract CarvEvents is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
+ 
+     function setOpenToCarv(uint256 id, bool newOpenToCarv) external onlyOwner {
+         _openToCarv[id] = newOpenToCarv;
++        emit OpenToCarvSet(id, newOpenToCarv);
+     }
+ 

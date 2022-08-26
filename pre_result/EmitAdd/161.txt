@@ -1,0 +1,8 @@
+@@ -28,6 +29,7 @@ contract Test is DSTest {
+         if (diff > _tolerance) {
+             emit log("Error: abs(a, b) < threshold not satisfied [uint]");
+             emit log_named_uint("  Expected", b);
++            emit log_named_uint("  Threshold", _tolerance);
+             emit log_named_uint("    Actual", a);
+             fail();
+         }

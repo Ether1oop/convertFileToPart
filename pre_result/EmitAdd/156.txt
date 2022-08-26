@@ -1,0 +1,7 @@
+@@ -36,6 +36,7 @@ library StreamExchangeHelper {
+     // Update Subscriptions
+     _updateSubscription(self, self.subsidyIndexId, streamer, 0, self.subsidyToken);
+     _updateSubscription(self, self.outputIndexId, streamer, 0, self.outputToken);
++    emit UpdatedStream(streamer, 0, self.cfa.getNetFlow(self.inputToken, address(this)));
+ 
+     // Close the streamers stream

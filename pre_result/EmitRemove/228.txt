@@ -1,0 +1,10 @@
+@@ -76,10 +77,7 @@ contract VaultsTest is DSTestPlus {
+ 
+         // Deposit into the vault, minting fvTokens.
+         underlying.approve(address(vault), amount);
+-        emit log_uint(vault.exchangeRateCurrent());
+         vault.deposit(amount);
+-
+-        emit log_uint(vault.exchangeRateCurrent());
+     }
+ 

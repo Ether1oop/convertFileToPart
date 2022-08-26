@@ -1,0 +1,24 @@
+@@ -448,23 +422,18 @@ contract SelectiveDepositTest is Setup, DSMath, DSTest {
+         emit log_named_uint("starting reserves", startingReserves);
+         emit log_named_uint("starting shells", startingShells);
+ 
+-        assertEq(newShells, 16998625195108995468);
++        assertEq(newShells, 17007126629845201617);
+ 
+     }
+ 
+     function testSelectiveDeposit_noSlippage_36CDAI_into_300Proportional () public {
+ 
+         uint256 startingShells = l.proportionalDeposit(300e18);
+ 
+-        ( uint256 startingReserves, ) = l.totalReserves();
+-
+         uint256 cdaiOf36Numeraire = cdaiAssimilator.viewRawAmount(uint(36e18).divu(1e18));
+ 
+         uint256 shellsMinted = l.deposit(address(cdai), cdaiOf36Numeraire);
+ 
+-        emit log_named_uint("starting reserves", startingReserves);
+-        emit log_named_uint("starting shells", startingShells);
+-
+         assertEq(shellsMinted, 35991000239800010000);
+ 

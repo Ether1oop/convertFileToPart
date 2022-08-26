@@ -1,0 +1,8 @@
+@@ -233,7 +236,7 @@ contract ClockAuction is PausableDSAuth, AuctionSettingIds {
+         // Tell the world!
+         // 0x0 refers to ETH
+         // NOTE: priceInRING, not priceInETH
+-        emit NewBid(_tokenId, msg.sender, _referer, ethRequired, 0x0, bidMoment, returnToLastBidder);
++        emit NewBidWithETH(_tokenId, msg.sender, _referer, ethRequired, priceInRING, 0x0, bidMoment, returnToLastBidder);
+ 
+         return priceInRING;

@@ -1,0 +1,18 @@
+@@ -182,8 +173,7 @@ contract GeneralUnderlyingUniswapV3SafeSaviour is SafeMath, SafeSaviourLike {
+         emit AddAuthorization(msg.sender);
+
+         emit ModifyParameters("minKeeperPayoutValue", minKeeperPayoutValue);
+
+         emit ModifyParameters("oracleRelayer", oracleRelayer_);
+
+-        emit ModifyParameters("taxCollector", taxCollector_);
+
+-        emit ModifyParameters("liquidationEngine", liquidationEngine_);
+
++        emit ModifyParameters("liquidityRemover", liquidityRemover_);
+
+         emit ModifyParameters("positionManager", positionManager_);
+
+     }
+
+ 

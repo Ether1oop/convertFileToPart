@@ -1,0 +1,9 @@
+@@ -487,9 +487,6 @@ contract DssSpellTestBase is DSTest, DSMath {
+         {
+         // Line values in RAD
+         assertEq(vat.Line(), values.vat_Line);
+-
+-        emit log_named_uint("moin",vat.Line());
+-
+         assertTrue(
+             (vat.Line() >= RAD && vat.Line() < 100 * BILLION * RAD) ||

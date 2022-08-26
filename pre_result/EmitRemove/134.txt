@@ -1,0 +1,15 @@
+@@ -226,14 +250,12 @@ contract NAVTest is DSTest, Math {
+         pile.setReturn("debt_loan", amount);
+         shelf.setReturn("shelf", mockNFTRegistry, tokenId);
+         uint maturityDate = feed.maturityDate(feed.nftID(loan));
+-
+         uint navBefore = feed.currentNAV();
+ 
+         // loan id doesn't matter because shelf is mocked
+         // repay not full amount
+         uint navDecrease = feed.repay(loan, 30 ether);
+ 
+-        emit log_named_uint("decrease val", navDecrease);
+         listLen();
+ 
+         // list : [1 days] -> [2 days] -> [4 days] -> [5 days]

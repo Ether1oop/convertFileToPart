@@ -1,0 +1,9 @@
+@@ -276,9 +269,6 @@ contract Loihi is LoihiRoot {
+ 
+     function selectiveDeposit (address[] calldata _flavors, uint256[] calldata _amounts) external returns (uint256) {
+ 
+-        emit log_address_arr("flavors", _flavors);
+-        emit log_uint_arr("amounts", _amounts);
+-
+         uint256 oldSum;
+         uint256 newSum;

@@ -1,0 +1,34 @@
+@@ -242,12 +242,14 @@ contract DefiHedge {
+     	    underlying.transferFrom(msg.sender, address(this), bondContracts[offerKey].interest);
+
+     	    
+
+     	    bondContracts[offerKey].lockTime = now + bondContracts[offerKey].duration;
+
+-            
+
+-            bondContracts[offerKey].taker = msg.sender;
+
+-            bondContracts[offerKey].state = 1;
+
++
+
+             uint value = bondContracts[offerKey].interest.add(bondContracts[offerKey].base);
+
+             
+
+             mintCToken(bondContracts[offerKey].tokenAddress, bondContracts[offerKey].cTokenAddress, value, offerKey);
+
++            
+
++            bondContracts[offerKey].taker = msg.sender;
+
++    	    bondContracts[offerKey].state = 1;
+
++    	    emit Activated(offerKey);
+
+ 	    }
+
+ 	    
+
+         if (bondContracts[offerKey].side == 1) {

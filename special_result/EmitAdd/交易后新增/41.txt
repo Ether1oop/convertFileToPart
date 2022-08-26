@@ -1,0 +1,7 @@
+@@ -531,6 +539,8 @@ contract ImpermanentGain is Ownable, ERC20Mintable {
+                 }
+         }
+ 
++        emit Burn(to, amount);
++
+     }

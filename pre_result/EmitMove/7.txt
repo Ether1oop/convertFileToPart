@@ -1,0 +1,16 @@
+@@ -290,13 +293,13 @@ contract Controller is Ownable {
+             block.timestamp
+         );
+ 
++        emit Liquidation(_account, msg.sender, pos.collateral, collateralRatio, pos.debt);
++
+         pos.collateral = 0;
+         pos.debt = 0;
+ 
+         // TODO account for shortfall
+-        // Shortfall (in xSUSHI) = [100% - colRat (if<100%) ] * collateral
+-
+-        emit Liquidation(_account, msg.sender, 0, 0, 0);
++        // Shortfall (in xSUSHI) = [100% - colRat (if<100%) ] * collateral        
+     }
+ 

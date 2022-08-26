@@ -1,0 +1,8 @@
+@@ -16,7 +15,7 @@ abstract contract FrabricWhitelist is Initializable, IFrabricWhitelist {
+   mapping(address => bytes32) public override info;
+ 
+   function _setParentWhitelist(address parent) internal {
+-    emit ParentWhitelistChanged(parentWhitelist, parent);
++    emit ParentWhitelistChange(parentWhitelist, parent);
+     parentWhitelist = parent;
+   }

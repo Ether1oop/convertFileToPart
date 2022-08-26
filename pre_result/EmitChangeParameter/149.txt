@@ -1,0 +1,16 @@
+@@ -401,13 +401,13 @@ contract Escrow is EscrowStorage, Governed, IERC777Recipient, IEscrowCallable {
+             uint256 postTransferBalance = IERC20(token).balanceOf(address(this));
+ 
+             amount = SafeCast.toUint128(postTransferBalance.sub(preTransferBalance));
+-            cashBalances[currencyGroupId][to] = cashBalances[currencyGroupId][to].add(amount);
++            cashBalances[currencyId][to] = cashBalances[currencyId][to].add(amount);
+         } else {
+             SafeERC20.safeTransferFrom(IERC20(token), to, address(this), amount);
+-            cashBalances[currencyGroupId][to] = cashBalances[currencyGroupId][to].add(amount);
++            cashBalances[currencyId][to] = cashBalances[currencyId][to].add(amount);
+         }
+ 
+-        emit Deposit(currencyGroupId, to, amount);
++        emit Deposit(currencyId, to, amount);
+     }
+ 

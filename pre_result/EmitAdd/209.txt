@@ -1,0 +1,16 @@
+@@ -47,12 +48,16 @@ library TellorLibrary {
+     */
+     function addTip(TellorStorage.TellorStorageStruct storage self, uint256 _requestId, uint256 _tip) public {
+         require(_requestId > 0, "RequestId is 0");
++        emit print(1);
+         //If the tip > 0 transfer the tip to this contract
+         if (_tip > 0) {
++            emit print(2);
+             TellorTransfer.doTransfer(self, msg.sender, address(this), _tip);
++       emit print(3);
+         }
+         //Update the information for the request that should be mined next based on the tip submitted
+         updateOnDeck(self, _requestId, _tip);
++        emit print(4);
+         emit TipAdded(msg.sender, _requestId, _tip, self.requestDetails[_requestId].apiUintVars[keccak256("totalTip")]);
+     }

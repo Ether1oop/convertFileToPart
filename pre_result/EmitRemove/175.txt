@@ -1,0 +1,10 @@
+@@ -28,10 +48,6 @@ contract Loihi is LoihiRoot {
+         cusdc = CTokenI(_cusdc);
+         usdc = ERC20I(_usdc);
+         usdt = IERC20(_usdt);
+-
+-        emit log_address("_cdai", _cdai);
+-        emit log_address("address(cdai)", address(cdai));
+-
+     }
+ 

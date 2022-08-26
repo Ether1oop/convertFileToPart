@@ -1,0 +1,8 @@
+@@ -82,6 +81,8 @@ contract Web3Entry is IWeb3Entry, NFTBase, Web3EntryStorage, Initializable {
+         _validateCallerIsProfileOwner(profileId);
+ 
+         _profileById[profileId].uri = newUri;
++
++        emit Events.SetProfileUri(profileId, newUri);
+     }
+ 

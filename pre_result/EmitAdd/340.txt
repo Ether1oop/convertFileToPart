@@ -1,0 +1,8 @@
+@@ -127,7 +128,7 @@ contract MSC2 {
+         
+         p.value -= amount;
+         targetP.value += amount;
+-        //emit Transaction(msg.sender, msg.sender, to, amount, "", "");
++        emit Give(msg.sender, to, amount);
+     }
+ 

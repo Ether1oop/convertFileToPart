@@ -1,0 +1,12 @@
+@@ -350,9 +351,9 @@ contract DSTest {
+         uint256 decimals
+     ) internal {
+         if (a < b) {
+-            emit log('Error: a >= b not satisfied [decimal int]');
+-            emit log_named_decimal_int('  Value a', a, decimals);
+-            emit log_named_decimal_int('  Value b', b, decimals);
++            emit log("Error: a >= b not satisfied [decimal int]");
++            emit log_named_decimal_int("  Value a", a, decimals);
++            emit log_named_decimal_int("  Value b", b, decimals);
+             fail();
+         }

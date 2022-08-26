@@ -1,0 +1,7 @@
+@@ -253,6 +253,7 @@ contract RToken is IRToken, ReentrancyGuard {
+             account.rAmount = account.rAmount.add(interestAmount);
+             totalSupply = totalSupply.add(interestAmount);
+             emit InterestPaid(owner, interestAmount);
++            emit Transfer(address(this), owner, interestAmount);
+         }
+     }

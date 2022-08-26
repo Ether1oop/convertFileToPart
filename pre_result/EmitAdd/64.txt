@@ -1,0 +1,8 @@
+@@ -59,6 +59,8 @@ contract MapleLoan is IMapleLoan, MapleLoanInternals {
+     function drawdownFunds(uint256 amount_, address destination_) external override returns (uint256 collateralPosted_) {
+         require(msg.sender == _borrower, "ML:DF:NOT_BORROWER");
+ 
++        emit FundsDrawnDown(amount_, destination_);
++
+         // Post additional collateral required to facilitate this drawdown, if needed.
+         uint256 additionalCollateralRequired = getAdditionalCollateralRequiredFor(amount_);

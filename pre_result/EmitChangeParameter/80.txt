@@ -1,0 +1,8 @@
+@@ -176,7 +175,7 @@ contract SignatureMint1155 is
+ 
+         collectPrice(_req);
+ 
+-        emit MintWithSignature(signer, receiver, tokenIdMinted, _req);
++        emit MintWithSignature(signer, receiver, _req.tokenId, _req);
+     }
+ 

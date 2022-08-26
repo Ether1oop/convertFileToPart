@@ -1,0 +1,8 @@
+@@ -106,7 +106,7 @@ contract Lending is ERC721Holder, Ownable {
+       )
+     );
+     
+-    emit newLoan(id, msg.sender, percentage, now, currency, Status.LISTED);
++    emit newLoan(id, msg.sender, percentage, block.timestamp, currency, Status.LISTED);
+   }
+ 

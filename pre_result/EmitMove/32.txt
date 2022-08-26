@@ -1,0 +1,9 @@
+@@ -36,8 +34,8 @@ contract WitnetBridgeInterface {
+ 
+   function report_result (uint256 id, bytes memory result) public {
+     requests[id].result = result;
+-    emit PostResult(msg.sender, id);
+     msg.sender.transfer(requests[id].reward);
++    emit PostResult(msg.sender, id);
+   }
+ 

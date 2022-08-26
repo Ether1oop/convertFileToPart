@@ -1,0 +1,8 @@
+@@ -347,7 +345,7 @@ contract Option is IOption, ERC20, ReentrancyGuard {
+ 
+         // Update the cached balances.
+         _fund(underlyingBalance, strikeCache);
+-        emit Close(receiver, outUnderlyings);
++        emit Close(msg.sender, outUnderlyings);
+     }
+ 

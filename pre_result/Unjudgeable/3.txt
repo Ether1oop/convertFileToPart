@@ -1,0 +1,8 @@
+@@ -83,7 +83,7 @@ contract Loans is LoansInterface, SignerRole {
+           msg.sender.transfer(withdrawalAmount);
+         }
+ 
+-        emit CollateralDeposited(loanID, msg.sender, withdrawalAmount);
++        emit CollateralWithdrawn(loanID, msg.sender, withdrawalAmount);
+     }
+ 

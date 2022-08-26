@@ -1,0 +1,40 @@
+@@ -146,28 +146,32 @@ contract OverlayV1Comptroller {
+         uint brrrr_
+     ) {
+ 
+-        uint _lastMoment;
+-        Roller memory _rollerNow;
+-
+-        (   _lastMoment,
+-            _rollerNow, 
+-            brrrr_ ) = _brrrr(__brrrr);
++        (   Roller memory _rollerNow, 
++            uint _lastMoment,
++            uint ___brrrr ) = _brrrr(__brrrr);
+ 
+         roll(_rollerNow, _lastMoment);
+ 
++        brrrr_ = ___brrrr;
++
+     }
+ 
+     function _brrrr (
+         uint __brrrr
+-    ) internal view returns (
+-        uint lastMoment_,
++    ) internal returns (
+         Roller memory rollerNow_,
++        uint lastMoment_,
+         uint brrrr_
+     ) {
+ 
+         (   uint _lastMoment,
+             Roller memory _rollerNow, 
+             Roller memory _rollerThen ) = scry(brrrrWindow);
++
++        emit log("roller  now.time", _rollerNow.time);
++        emit log("roller  now.brrr", _rollerNow.brrrr);
++        emit log("roller then.time", _rollerThen.time);
++        emit log("roller then.brrr", _rollerThen.brrrr);
+         
+         _rollerNow.brrrr += __brrrr;

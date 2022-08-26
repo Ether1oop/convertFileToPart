@@ -1,0 +1,8 @@
+@@ -245,7 +248,7 @@ contract EvidenceModule is IArbitrable, IEvidence {
+             );
+             disputeIDtoEvidenceID[evidenceData.disputeID] = _evidenceID;
+ 
+-            emit Dispute(arbitrator, evidenceData.disputeID, arbitratorData.metaEvidenceUpdates, _evidenceID);
++            emit Dispute(arbitrator, evidenceData.disputeID, arbitratorData.metaEvidenceUpdates, uint256(_evidenceID));
+             evidenceData.disputed = true;
+             moderation.bondDeadline = 0;

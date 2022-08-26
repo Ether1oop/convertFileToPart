@@ -1,0 +1,8 @@
+@@ -178,7 +176,7 @@ contract StableCoin is
+     // KYC: only APM
+     function setKycPassed(address account) public onlyAssetProtectionManager {
+         grantRole(KYC_PASSED, account);
+-        emit SetKycPassed(address);
++        emit SetKycPassed(account);
+     }
+ 

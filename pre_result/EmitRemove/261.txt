@@ -1,0 +1,14 @@
+@@ -224,14 +244,12 @@ contract Rebalancer {
+         } else {
+             _liquidated = _amountNeeded;
+         }
+-        emit Debug("_amount", _liquidated);
+ 
+         _token.transfer(_to, _liquidated);
+         _short = _amountNeeded.sub(_liquidated);
+     }
+ 
+     function liquidateAllPositions(IERC20 _token, address _to) public onlyAllowed returns (uint256 _liquidatedAmount){
+-        emit Debug("liquidateAllPositions", 0);
+         require(_to == address(providerA) || _to == address(providerB));
+         uint256[] memory _minAmountsOut = new uint256[](2);

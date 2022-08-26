@@ -1,0 +1,7 @@
+@@ -331,7 +358,6 @@ contract MettalexContract {
+             "arbitration price must be within contract bounds"
+         );
+         PRICE_SPOT = price;
+-        emit UpdatedLastPrice(price);
+         // Deal with trade at settlement orders
+         // For each settlement event we store the total amount of position tokens crossed

@@ -1,0 +1,7 @@
+@@ -381,6 +398,7 @@ contract Router {
+         totalPooled += _actualInputBase;
+         addLiquidityTx += 1;
+         units = Pool(pool).addLiquidityForMember(member);
++        emit AddLiquidity(member,inputBase,inputToken,units);
+         return units;
+     }

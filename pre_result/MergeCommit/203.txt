@@ -1,0 +1,8 @@
+@@ -109,7 +112,7 @@ contract DNSSECImpl is DNSSEC, Owned {
+      */
+     function setDigest(uint8 id, Digest digest) public owner_only {
+         digests[id] = digest;
+-        emit DigestUpdated(id, digest);
++        emit DigestUpdated(id, address(digest));
+     }
+ 

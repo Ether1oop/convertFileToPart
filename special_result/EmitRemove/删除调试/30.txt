@@ -1,0 +1,9 @@
+@@ -60,10 +60,6 @@ abstract contract OverlayV1Market is OverlayV1Governance {
+         uint t1Compounding_
+     ) {
+ 
+-        emit log("collateral", _collateral);
+-        emit log("leverage", _leverage);
+-        emit log("mothership.fee()", mothership.fee());
+-
+         require(_leverage <= leverageMax, "OVLV1:lev>max");

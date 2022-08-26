@@ -1,0 +1,7 @@
+@@ -196,7 +221,6 @@ contract Rebalancer {
+     function liquidatePosition(uint256 _amountNeeded, IERC20 _token, address _to) public onlyAllowed returns (uint256 _liquidated, uint256 _short){
+         require(_to == address(providerA) || _to == address(providerB));
+         uint256 _loose = _token.balanceOf(address(this));
+-        emit Debug("_amountNeeded", _amountNeeded);
+ 
+         if (_amountNeeded > _loose) {

@@ -1,0 +1,8 @@
+@@ -383,8 +384,6 @@ contract ZooKeeperFarming is Ownable {
+         PoolInfo storage pool = poolInfo[_pid];
+         pool.emergencyMode = true;
+         IWaspFarming(wanswapFarming).emergencyWithdraw(_pid);
+-
+-        emit EmergencyWithdraw(msg.sender, _pid, amount);
+     }
+ 

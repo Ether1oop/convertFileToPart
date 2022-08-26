@@ -1,0 +1,9 @@
+@@ -325,7 +334,7 @@ contract Controller is IController, Orchestrated(), Delegable(), DecimalMath {
+         debtYDai[collateral][maturity][user] = debtYDai[collateral][maturity][user].sub(yDaiAmount);
+         totalDebtYDai[collateral][maturity] = totalDebtYDai[collateral][maturity].sub(yDaiAmount);
+ 
+-        emit Borrowed(collateral, maturity, user, -int256(yDaiAmount)); // TODO: Watch for overflow
++        emit Borrowed(collateral, maturity, user, -toInt256(yDaiAmount));
+     }
+ 
+     /// @dev Removes all collateral and debt for an user, for a given collateral type.

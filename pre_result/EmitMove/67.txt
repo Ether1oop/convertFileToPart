@@ -1,0 +1,8 @@
+@@ -186,8 +191,6 @@ contract DODONFTPoolProxy is InitializableOwnable, ReentrancyGuard {
+             priceRules,
+             spreadIds
+         );
+-
+-        emit CreateFilterV1(filterAdmin, newFilterV1, nftCollection, key);
+     }
+ 

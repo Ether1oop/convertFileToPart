@@ -1,0 +1,35 @@
+@@ -516,29 +514,29 @@ abstract contract Dayswappers is Ownable, NRTReceiver {
+         uint256[3] memory _rewardRatio,
+         uint32 _month
+     ) private {
+-        Seat storage seat = seats[_seatIndex];
++        Monthly storage seatMonthlyData = seats[_seatIndex].monthlyData[_month];
+ 
+         uint256 _rewardSum = _rewardRatio[0] + _rewardRatio[1] + _rewardRatio[2];
+ 
+         if (_isDefinite) {
+             for (uint256 i = 0; i <= 2; i++) {
+                 if (_rewardRatio[i] > 0) {
+-                    seat.definiteEarnings[i] = seat.definiteEarnings[i].add(
++                    seatMonthlyData.definiteEarnings[i] = seatMonthlyData.definiteEarnings[i].add(
+                         _value.mul(_rewardRatio[i]).div(_rewardSum)
+                     );
+                 }
+             }
+         } else {
+             for (uint256 i = 0; i <= 2; i++) {
+                 if (_rewardRatio[i] > 0) {
+-                    seat.monthlyData[_month].nrtEarnings[i] = seat.monthlyData[_month]
+-                        .nrtEarnings[i]
+-                        .add(_value.mul(_rewardRatio[i]).div(_rewardSum));
++                    seatMonthlyData.nrtEarnings[i] = seatMonthlyData.nrtEarnings[i].add(
++                        _value.mul(_rewardRatio[i]).div(_rewardSum)
++                    );
+                 }
+             }
+         }
+ 
+-        emit Reward(msg.sender, _seatIndex, _isDefinite, _fromTree, _value, _rewardRatio);
++        emit Reward(msg.sender, _seatIndex, _month, _isDefinite, _fromTree, _value, _rewardRatio);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -656,7 +656,7 @@ contract PreSale is Governable {
+         if (enableWhiteList) {
+             require(saleInfos[msg.sender].whitelistNum > 0, 'sender not on whitelist');
+             saleInfos[msg.sender].whitelistNum--;
+-            emit WhitelistTransfer(sender, address(0x000000000000000000000000000000000000dEaD), 1);
++            emit WhitelistTransfer(msg.sender, address(0x000000000000000000000000000000000000dEaD), 1);
+ 
+             amount = saleInfos[msg.sender].quota;

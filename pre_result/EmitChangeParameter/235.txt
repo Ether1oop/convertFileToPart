@@ -1,0 +1,8 @@
+@@ -291,7 +297,7 @@ contract Lifeform is NFTSVG, Trust, ReentrancyGuard {
+             NFTSVG.SVGParams({tokenId: tokenId, tokenBalance: tokenBalances[tokenId] / BASE_UNIT, tokenCap: tokenCap})
+         );
+ 
+-        emit TokenWithdraw(msg.sender, tokenId, underlyingAmount);
++        emit TokenWithdraw(to, tokenId, underlyingAmount);
+     }
+ 

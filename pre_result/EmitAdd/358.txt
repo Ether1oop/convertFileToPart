@@ -1,0 +1,8 @@
+@@ -411,7 +413,7 @@ contract Ships is Ownable
+       Hull storage ship = ships[_ship];
+       ship.escapeRequestedTo = _sponsor;
+       ship.escapeRequested = true;
+-      EscapeRequested(_ship, _sponsor);
++      emit EscapeRequested(_ship, _sponsor);
+     }
+ 

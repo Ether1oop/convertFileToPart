@@ -1,0 +1,8 @@
+@@ -458,7 +447,7 @@ contract ERC721Upgradeable is Initializable, ContextUpgradeable, ERC165Upgradeab
+ 
+     function _approve(address to, uint256 tokenId) private {
+         _tokenApprovals[tokenId] = to;
+-        emit Approval(ERC721Upgradeable.ownerOf(tokenId), to, tokenId); // internal owner
++        emit Approval(ERC721UpgradeableCustom.ownerOf(tokenId), to, tokenId); // internal owner
+     }
+ 

@@ -1,0 +1,11 @@
+@@ -614,9 +630,10 @@ contract Loihi is LoihiRoot {
+ 
+     }
+ 
+-
+     function proportionalDeposit (uint256 totalDeposit) public returns (uint256) {
+ 
++        emit log_address("msg.sender", msg.sender);
++
+         uint256 totalBalance;
+         uint256 _totalSupply = totalSupply();

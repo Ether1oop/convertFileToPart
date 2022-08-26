@@ -1,0 +1,8 @@
+@@ -112,7 +112,7 @@ contract GameAutoCheess is BaseGame, EasyRandom, IGameAutoCheess {
+         uint256[] memory otherCards,
+         address to
+     ) private {
+-        emit eventStartBattle(msg.sender,to);
++        emit eventStartBattle(msg.sender, to);
+         // 创建对战数据
+         AutoChessEntryFunc.CardInstance[]

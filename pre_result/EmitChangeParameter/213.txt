@@ -1,0 +1,7 @@
+@@ -49,6 +49,6 @@ contract UniswapV2Factory is IUniswapV2Factory {
+ 
+         _getExchange[token0][token1] = exchange;
+         _getTokens[exchange] = [token0, token1];
+-        emit ExchangeCreated(token0, token1, exchange, getExchanges.push(exchange));
++        emit ExchangeCreated(token0, token1, exchange, exchanges.push(exchange));
+     }

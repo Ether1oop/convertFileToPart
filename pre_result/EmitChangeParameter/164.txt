@@ -1,0 +1,8 @@
+@@ -315,7 +315,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
+      */
+     function _approve(address to, uint256 tokenId) internal virtual {
+         _tokenApprovals[tokenId] = to;
+-        emit Approval(ERC721.ownerOf(tokenId), to, tokenId);
++        emit Approval(RarePizzas.ownerOf(tokenId), to, tokenId);
+     }
+ 

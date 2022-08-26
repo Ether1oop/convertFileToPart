@@ -1,0 +1,9 @@
+@@ -212,10 +236,6 @@ contract Rebalancer {
+             // This is harmless, as any extras will just be redeposited
+             _bptNeeded = _bptNeeded.mul(1001).div(1000);
+ 
+-            emit Debug("_amountNeededMore", _amountNeededMore);
+-            emit Debug("_pooled", _pooled);
+-            emit Debug("_percentBptNeeded", _percentBptNeeded);
+-            emit Debug("_bptNeeded", _bptNeeded);
+             uint256 _bptOut = Math.min(_bptNeeded, _bptTotal.sub(seedBptAmount));

@@ -1,0 +1,7 @@
+@@ -397,6 +397,7 @@ contract Mango is Persistent {
+         return 0;
+       } catch {
+         // `newOffer` can fail when Mango is underprovisioned or if `offer.gives` is below density
++        emit LogIncident(BASE, QUOTE, 0, "Mango/writeAsk/newOfferFail");
+         return gives;
+       }

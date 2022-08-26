@@ -1,0 +1,7 @@
+@@ -53,6 +52,7 @@ address _treasure_fund;
+     function whiteList(address author_) public onlyOwner {
+         authorized_status[author_] = true;
+         MetaAuthorization[author_] = AuthorizationType.white_list;
++        emit AuthorizationSubmit(author_,AuthorizationType.white_list, msg.sender);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -229,7 +230,7 @@ abstract contract ERC721 is IERC721, IERC721Metadata {
+         }
+ 
+         delete ownerOf[id];
+-        emit Transfer(owner, adderss(0), id);
++        emit Transfer(owner, address(0), id);
+     }
+ 

@@ -1,0 +1,7 @@
+@@ -166,6 +169,7 @@ contract CompoundSystemCoinSafeSaviour is SafeMath, SafeSaviourLike {
+         emit ModifyParameters("keeperPayout", keeperPayout);
+         emit ModifyParameters("minKeeperPayoutValue", minKeeperPayoutValue);
+         emit ModifyParameters("liquidationEngine", liquidationEngine_);
++        emit ModifyParameters("taxCollector", taxCollector_);
+         emit ModifyParameters("oracleRelayer", oracleRelayer_);
+         emit ModifyParameters("systemCoinOrcl", systemCoinOrcl_);

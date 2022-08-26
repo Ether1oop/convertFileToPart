@@ -1,0 +1,8 @@
+@@ -87,7 +87,7 @@ contract WooRouter is Ownable, ReentrancyGuard {
+         wooPool = IWooPP(newPool);
+         quoteToken = wooPool.quoteToken();
+         require(quoteToken != address(0), 'WooRouter: quoteToken_ADDR_ZERO');
+-        emit PoolChanged(newPool);
++        emit WooPoolChanged(newPool);
+     }
+ 

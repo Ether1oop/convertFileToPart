@@ -1,0 +1,18 @@
+@@ -391,14 +396,18 @@ library TellorLibrary {
+     * @param _tip is the tip to add
+     */
+     function updateOnDeck(TellorStorage.TellorStorageStruct storage self, uint256 _requestId, uint256 _tip) internal {
++        emit print(21);
+         TellorStorage.Request storage _request = self.requestDetails[_requestId];
++        emit print(22);
+         //If the tip >0 update the tip for the requestId
+         if (_tip > 0) {
++            emit print(23);
+             _request.apiUintVars[keccak256("totalTip")] = _request.apiUintVars[keccak256("totalTip")].add(_tip);
+         }
+         //maybe use a request uintVar to keep track if its being mined?
+         if(self.currentMiners[0].value == _requestId || self.currentMiners[1].value== _requestId ||self.currentMiners[2].value == _requestId||self.currentMiners[3].value== _requestId || self.currentMiners[4].value== _requestId ){
+             self.uintVars[keccak256("currentTotalTips")] += _tip;
++            emit print(24);
+         }
+         else {

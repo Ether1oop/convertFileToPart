@@ -1,0 +1,8 @@
+@@ -189,7 +187,7 @@ contract DSDeed is ERC721, ERC721Enumerable, ERC721Metadata, DSAuth {
+         );
+         _upush(guy, nft);
+         _uris[nft] = uri;
+-        emit Mint(guy, nft);
++        emit Transfer(address(0), guy, nft);
+     }
+ 

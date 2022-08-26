@@ -1,0 +1,7 @@
+@@ -12,6 +12,7 @@ interface MemberlistLike {
+ contract MemberAdmin is Auth {
+     constructor() {
+         wards[msg.sender] = 1;
++        emit Rely(msg.sender);
+     }
+ 

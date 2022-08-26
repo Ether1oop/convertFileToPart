@@ -1,0 +1,8 @@
+@@ -274,7 +278,7 @@ contract ERCXXX_Base is ERCXXX_Base_Interface, ERC20 {
+         _issuerReplace = true;
+         _issuerReplaceTimelock = now + 1 seconds;
+ 
+-        emit RequestReplace(_issuer, _issuerCollateral);
++        emit RequestReplace(_issuer, _issuerCollateral, _issuerReplaceTimelock);
+     }
+ 

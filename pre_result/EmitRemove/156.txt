@@ -1,0 +1,12 @@
+@@ -46,12 +58,8 @@ contract Setup is StablecoinSetup, AssimilatorSetup, LoihiSetup {
+         includeAssetsSetOne(loihi_);
+         includeAssimilatorsSetOne(loihi_);
+ 
+-        emit log("before params set");
+-
+         setParamsSetOne(loihi_);
+ 
+-        emit log("after params set");
+-
+         approveStablecoins(address(loihi_));
+         interApproveStablecoinsLocal(address(loihi_));

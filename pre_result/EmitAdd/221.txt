@@ -1,0 +1,8 @@
+@@ -191,6 +193,8 @@ library Shells {
+ 
+             for (uint i = 0; i < 10; i++) {
+ 
++                emit log_uint("start gas", gasleft());
++
+                 psi_ = shell.calculateFee(_nBals, _nGLiq);
+ 

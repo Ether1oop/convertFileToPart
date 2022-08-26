@@ -1,0 +1,8 @@
+@@ -246,8 +272,6 @@ contract CharityVault is ERC20, Auth {
+ 
+         // Transfer tokens to the charity.
+         UNDERLYING.safeTransfer(CHARITY, underlyingAmount);
+-
+-        emit DonationWithdraw(underlyingAmount);
+     }
+ 

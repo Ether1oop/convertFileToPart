@@ -1,0 +1,7 @@
+@@ -227,7 +238,6 @@ contract PendleMarket is IPendleMarket, PendleBaseToken {
+         require(outAmount >= _minOutXyt, "INSUFFICIENT_XYT_OUT");
+         reserves[xyt].balance = reserves[xyt].balance.sub(outAmount);
+         xytOut = outAmount;
+-        emit Exit(xyt, outAmount);
+         _transferOut(xyt, outAmount);
+ 

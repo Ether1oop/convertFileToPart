@@ -1,0 +1,28 @@
+@@ -275,18 +376,27 @@ contract GebUniswapv3LiquidityManagerTest is DSTest {
+         (bytes32 end_id, int24 end_lowerTick, int24 end_upperTick, uint128 end_uniLiquidity) = manager.position();
+ 
+         assertTrue(end_uniLiquidity <= init_uniLiquidity);
++        // assertTrue(false);
++    }
++
++    function testFail_early_rebalancing() public {
++        hevm.warp(2 days); //Advance to the future
++        manager.rebalance(); // should pass
++        hevm.warp(2 minutes); //Advance to the future
++        manager.rebalance(); // should fail
+     }
+ 
+     function test_burning_liquidity() public {
+         uint256 wethAmount = 1 ether;
+         uint256 raiAmount = 10 ether;
+-        helper_addLiquidity(); //Starting with a bit of liquidity
++        helper_addLiquidity(1); //Starting with a bit of liquidity
+ 
+         uint256 liq = manager.balanceOf(address(u1));
+         (bytes32 inti_id, , , uint128 inti_uniLiquidity) = manager.position();
+         (uint128 _li, , , , ) = pool.positions(inti_id);
+ 
+         assertTrue(liq == _li);
++        emit log_named_uint("liq", liq);
+         emit log_named_uint("liq", inti_uniLiquidity);
+         emit log_named_uint("_li", _li);

@@ -1,0 +1,7 @@
+@@ -689,6 +689,7 @@ contract LenderPool is ERC1155Upgradeable, ReentrancyGuard, OwnableUpgradeable {
+     function _updateStartFeeFraction(uint256 _startFeeFraction) internal {
+         require(_startFeeFraction <= SCALING_FACTOR, 'IUSFF');
+         startFeeFraction = _startFeeFraction;
++        emit StartFeeFractionUpdated(_startFeeFraction);
+     }
+ 

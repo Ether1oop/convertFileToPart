@@ -1,0 +1,7 @@
+@@ -143,7 +171,6 @@ contract NFTFactoryDelegate is Initializable, AccessControl, NFTFactoryStorage {
+         IZooNFTMint(zooNFT).mint(tokenId, level, category, item, random);
+         IERC721(zooNFT).safeTransferFrom(address(this), msg.sender, tokenId);
+         emit MintNFT(level, category, item, random, tokenId);
+-        emit SilverBuy(msg.sender, currentPrice);
+     }
+ 

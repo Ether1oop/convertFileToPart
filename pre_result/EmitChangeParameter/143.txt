@@ -1,0 +1,8 @@
+@@ -113,7 +112,7 @@ contract NFTBid is NFTFactoryContract {
+     payable(msg.sender).call{ value: (sum - fee) }("");
+     payable(feeAddress).call{ value: fee }("");
+ 
+-    emit BidExecuted(Bids[_saleId][_bidOrderID].price);
++    emit BidExecuted(bids.price);
+   }
+ 

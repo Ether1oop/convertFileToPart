@@ -1,0 +1,8 @@
+@@ -443,7 +452,7 @@ abstract contract GyroFundV1 is GyroFund, Ownable, ERC20 {
+             require(success, "failed to transfer tokens");
+         }
+ 
+-        emit Redeem(msg.sender, _gyroAmountBurned);
++        // emit Redeem(msg.sender, _gyroAmountBurned);
+ 
+         return amountsOut;

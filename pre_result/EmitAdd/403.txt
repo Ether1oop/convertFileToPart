@@ -1,0 +1,10 @@
+@@ -370,6 +372,10 @@ abstract contract PendleMarketBase is IPendleMarket, PendleBaseToken {
+         _burnLp(_inLp.sub(exitFees));
+         transfers[0].amount = outAmountToken;
+         transfers[0].isOut = true;
++
++        (uint256 xytBalance, uint256 tokenBalance, uint256 xytWeight, ) =
++            decodeReserveData(updatedReserveData); // unpack data
++        emit Sync(xytBalance, xytWeight, tokenBalance);
+     }
+ 

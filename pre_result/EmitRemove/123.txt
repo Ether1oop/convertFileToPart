@@ -1,0 +1,7 @@
+@@ -338,7 +338,6 @@ contract SyscoinSuperblocks is SyscoinSuperblocksI, SyscoinErrorCodes {
+                 return ret;
+             }
+             syscoinERC20Manager.processTransaction(txHash, value, destinationAddress, superblocks[_superblockHash].submitter, erc20ContractAddress, assetGUID, precision);
+-            emit RelayTransaction(bytes32(txHash), value);
+             return value;
+         }

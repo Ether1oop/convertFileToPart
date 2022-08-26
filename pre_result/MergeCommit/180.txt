@@ -1,0 +1,8 @@
+@@ -86,7 +110,7 @@ contract ConquerMode is ZBGameMode  {
+         gameFinishedPlayer(player1Addr, player1Wins);
+         gameFinishedPlayer(player2Addr, player2Wins);
+ 
+-        emit ZBGameMode.MatchFinished(player1Addr, player2Addr, winner);
++        emit MatchFinished(player1Addr, player2Addr, winner);
+     }
+ 

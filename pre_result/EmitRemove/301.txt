@@ -1,0 +1,20 @@
+@@ -330,20 +308,14 @@ contract Loihi is LoihiRoot {
+             uint256 oldBalance = balances[i];
+             uint256 newBalance = add(oldBalance, depositAmount);
+ 
+-            emit log_uint("oldBalance", oldBalance);
+-            emit log_uint("halt check", wmul(balances[i+2], wmul(newSum, alpha + WAD)));
+-            emit log_uint("newSum", newSum);
+-
+             require(newBalance <= wmul(balances[i+2], wmul(newSum, alpha + WAD)), "halt check deposit");
+ 
+             uint256 feeThreshold = wmul(balances[i+2], wmul(newSum, beta + WAD));
+             if (newBalance <= feeThreshold) {
+                 newShells += depositAmount;
+-                emit log_uint("newShells from no fee", newShells);
+             } else if (oldBalance > feeThreshold) {
+                 uint256 feePrep = wmul(feeDerivative, wdiv(depositAmount, wmul(balances[i+2], newSum)));
+                 newShells = add(newShells, WAD - feePrep);
+-                emit log_uint("newShells from all fee", newShells);
+             } else {
+                 uint256 feePrep = wmul(feeDerivative, wdiv(

@@ -1,0 +1,8 @@
+@@ -25,7 +21,7 @@ contract OwnableUpgradeSafe is Initializable, ContextUpgradeSafe {
+     function __Ownable_init_unchained() internal initializer {
+         address msgSender = _msgSender();
+         _owner = msgSender;
+-        emit OwnershipTransferred(address(0), msgSender);
++        emit ClaimOwnership(msgSender);
+     }
+ 

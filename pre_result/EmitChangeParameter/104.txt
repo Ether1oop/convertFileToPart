@@ -1,0 +1,17 @@
+@@ -242,15 +236,15 @@ contract RealitioArbitratorProxyWithAppeals is IDisputeResolver {
+ 
+         // Take up to the amount necessary to fund the current round at the current costs.
+         uint contribution = totalCost.subCap(round.paidFees[_answer]) > msg.value ? msg.value : totalCost.subCap(round.paidFees[_answer]);
+-        emit Contribution(question.disputeID, question.rounds.length - 1, _answer + 1, msg.sender, contribution);
++        emit Contribution(_questionID, question.rounds.length - 1, _answer + 1, msg.sender, contribution);
+ 
+         round.contributions[msg.sender][_answer] += contribution;
+         round.paidFees[_answer] += contribution;
+         if (round.paidFees[_answer] >= totalCost) {
+             round.feeRewards += round.paidFees[_answer];
+             round.fundedAnswers.push(_answer);
+             round.hasPaid[_answer] = true;
+-            emit RulingFunded(_disputeID, question.rounds.length - 1, _answer + 1);
++            emit RulingFunded(_questionID, question.rounds.length - 1, _answer + 1);
+         }
+ 

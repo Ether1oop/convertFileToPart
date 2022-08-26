@@ -1,0 +1,7 @@
+@@ -479,7 +477,6 @@ contract ERC721 is IERC721, IERC721Metadata, Context, ERC165 {
+             "ERC721: from is not in owners list"
+         );
+         _transfer(from, fromIndex, to, tokenIndex);
+-        emit Transfer(from, to, tokenId);
+     }
+ 

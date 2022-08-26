@@ -1,0 +1,13 @@
+@@ -108,10 +108,10 @@ contract Rewards is ERC1155, Ownable {
+             nextTokenId++;
+         }
+ 
+-        // Mint reward tokens to `msg.sender`
+-        _mintBatch(msg.sender, rewardIds, _rewardSupplies, "");
++        // Mint reward tokens to `_msgSender()`
++        _mintBatch(_msgSender(), rewardIds, _rewardSupplies, "");
+ 
+-        emit NativeRewards(msg.sender, rewardIds, _rewardURIs, _rewardSupplies);
++        emit NativeRewards(_msgSender(), rewardIds, _rewardURIs, _rewardSupplies);
+     }
+ 

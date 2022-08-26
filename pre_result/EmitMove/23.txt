@@ -1,0 +1,8 @@
+@@ -58,8 +60,6 @@ contract Fin4TokenCreator {
+             }
+         }*/
+         Fin4TokenManagement(Fin4TokenManagementAddress).registerNewToken(address(token));
+-
+-        emit NewFin4TokenAddress(address(token));
+     }
+ }

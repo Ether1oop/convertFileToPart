@@ -1,0 +1,14 @@
+@@ -194,7 +198,6 @@ contract NativeUnderlyingMaxUniswapV3SafeSaviour is SafeMath, SafeSaviourLike {
+         emit AddAuthorization(msg.sender);
+
+         emit ModifyParameters("minKeeperPayoutValue", minKeeperPayoutValue);
+
+         emit ModifyParameters("oracleRelayer", oracleRelayer_);
+
+-        emit ModifyParameters("liquidityRemover", liquidityRemover_);
+
+         emit ModifyParameters("positionManager", positionManager_);
+
+     }
+
+ 

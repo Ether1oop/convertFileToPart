@@ -1,0 +1,13 @@
+@@ -686,11 +686,11 @@ contract Vault is ERC20, Auth {
+                 // Cannot overflow as we cap the amount to pull at the amount left to pull.
+                 amountLeftToPull -= amountToPull;
+ 
++                emit StrategyWithdrawal(strategy, amountToPull);
++
+                 // Withdraw from the strategy and revert if returns an error code.
+                 require(strategy.redeemUnderlying(amountToPull) == 0, "REDEEM_FAILED");
+ 
+-                emit StrategyWithdrawal(strategy, amountToPull);
+-
+                 // If we fully depleted the strategy:
+                 if (strategyBalanceAfterWithdrawal == 0) {

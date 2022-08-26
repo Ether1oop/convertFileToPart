@@ -1,0 +1,32 @@
+@@ -75,32 +127,21 @@ contract Rebalancer {
+         uint256 _pooledA = pooledBalanceA();
+         uint256 _pooledB = pooledBalanceB();
+         uint256 _bptTotal = balanceOfBpt();
+-        emit Debug("_debtA", _debtA);
+-        emit Debug("_debtB", _debtB);
+-        emit Debug("_pooledA", _pooledA);
+-        emit Debug("_pooledB", _pooledB);
+-        emit Debug("_bptTotal", _bptTotal);
+ 
+         if (_pooledA >= _debtA && _pooledB >= _debtB) {
+             uint256 _gainA = _pooledA.sub(_debtA);
+             uint256 _gainB = _pooledB.sub(_debtB);
+             uint256 _looseABefore = looseBalanceA();
+             uint256 _looseBBefore = looseBalanceB();
+-            emit Debug("_gainA", _gainA);
+-            emit Debug("_gainB", _gainB);
+-            emit Debug("_looseABefore", _looseABefore);
+-            emit Debug("_looseBBefore", _looseBBefore);
+ 
+             if (_gainA > 0) {
+                 bpt.exitswapExternAmountOut(address(tokenA), _gainA, balanceOfBpt());
+                 tokenA.transfer(address(providerA), looseBalanceA().sub(_looseABefore));
+-                emit Debug("looseBalanceA()", looseBalanceA());
+             }
+ 
+             if (_gainB > 0) {
+                 bpt.exitswapExternAmountOut(address(tokenB), _gainB, balanceOfBpt());
+                 tokenB.transfer(address(providerB), looseBalanceB().sub(_looseBBefore));
+-                emit Debug("looseBalanceB()", looseBalanceB());
+             }
+         }

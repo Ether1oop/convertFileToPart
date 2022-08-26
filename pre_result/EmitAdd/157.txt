@@ -1,0 +1,8 @@
+@@ -893,6 +893,8 @@ contract SwapPairContract is ITokensReceivedCallback, ISwapPairInformation, IUpg
+ 
+         SwapInfo si = _swap(token_root, amount);
+         if (si.targetTokenAmount != 0) {
++            emit Swap(token_root, _getOppositeToken(token_root), si.swappableTokenAmount, si.targetTokenAmount, si.fee);
++
+             address tokenWallet = tokenReceiver == tokenWallets[T1] ? tokenWallets[T2] : tokenWallets[T1];
+             _sendTokens(tokenWallet, transferTokensTo, si.targetTokenAmount, sender_address, true, _createSwapPayload(si));

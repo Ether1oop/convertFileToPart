@@ -1,0 +1,14 @@
+@@ -49,14 +49,8 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+           uint256[] memory _deposits,
+           uint256[] memory _weights ) = getBalancesTokenAmountsAndWeights(_flavors, _amounts);
+ 
+-        emit log_uints("balances", _balances);
+-        emit log_uints("deposits", _deposits);
+-        emit log_uints("weights", _weights);
+-
+         shellsToMint_ = calculateShellsToMint(_balances, _deposits, _weights);
+ 
+-        emit log_uint("shells to mint", shellsToMint_);
+-
+         require(shellsToMint_ >= _minShells, "minted shells less than minimum shells");
+ 

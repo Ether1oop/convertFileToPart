@@ -1,0 +1,8 @@
+@@ -300,7 +313,7 @@ contract VNFTx is Ownable, ERC1155Holder {
+             addons.balanceOf(msg.sender, _addonID) >= 1,
+             "!own the addon to use it"
+         );
+-        emit AttachAddon(_addonID, _nftId);
++
+         Addon storage _addon = addon[_addonID];
+ 

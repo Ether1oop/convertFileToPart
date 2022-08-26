@@ -1,0 +1,8 @@
+@@ -148,7 +153,7 @@ contract Treasury is ContractGuard, Epoch {
+         accumulatedSeigniorage = IERC20(cash).balanceOf(address(this));
+ 
+         initialized = true;
+-        emit Initialized(msg.sender, block.number);
++        emit Initialized(_msgSender(), block.number);
+     }
+ 

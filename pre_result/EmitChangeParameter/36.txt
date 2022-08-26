@@ -1,0 +1,16 @@
+@@ -186,14 +189,14 @@ contract EvidenceModule is IArbitrable, IEvidence {
+ 
+         Moderation storage moderation = evidenceData.moderations.push();
+         // Overpaying is allowed.
+-        contribute(moderation, Party.Submitter, msg.sender, msg.value, totalCost);
++        contribute(moderation, Party.Submitter, payable(msg.sender), msg.value, totalCost);
+         require(moderation.paidFees[uint256(Party.Submitter)] >= depositRequired, "Insufficient funding.");
+         moderation.bondDeadline = block.timestamp + bondTimeout;
+         moderation.currentWinner = Party.Submitter;
+         moderation.arbitratorDataID = arbitratorDataList.length - 1;
+ 
+         // When evidence is submitted for a foreign arbitrable, the arbitrator field of Evidence is ignored.
+-        emit Evidence(arbitrator, _evidenceGroupID, msg.sender, evidence);
++        emit Evidence(arbitrator, _evidenceGroupID, msg.sender, _evidence);
+     }
+ 

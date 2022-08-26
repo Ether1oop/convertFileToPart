@@ -1,0 +1,10 @@
+@@ -74,9 +74,9 @@ contract DividendToken is MintableToken {
+     updateIncomeClaimed(msg.sender)
+     returns (bool) {
+         uint amount = incomeClaimed[msg.sender].div(scalingFactor);
++        emit LogIncomeCollected(now, msg.sender, amount);
+         delete incomeClaimed[msg.sender];
+         msg.sender.transfer(amount);
+-        emit LogIncomeCollected(now, msg.sender, amount);
+         return true;
+     }

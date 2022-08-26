@@ -1,0 +1,15 @@
+@@ -125,13 +127,13 @@ contract ERC721v2ETHCollectionWhitelist is ERC721, ERC2981Collection, BAYC, Cont
+   // Function to receive ether, msg.data must be empty
+   receive() external payable {
+     // From PaymentSplitter.sol
+-    emit PaymentReceived(_msgSender(), msg.value);
++    emit PaymentReceived(_msgSender(), _msgValue());
+   }
+ 
+   // Function to receive ether, msg.data is not empty
+   fallback() external payable {
+     // From PaymentSplitter.sol
+-    emit PaymentReceived(_msgSender(), msg.value);
++    emit PaymentReceived(_msgSender(), _msgValue());
+   }
+ 

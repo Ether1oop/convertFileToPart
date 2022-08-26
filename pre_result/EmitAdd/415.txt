@@ -1,0 +1,9 @@
+@@ -581,6 +584,9 @@ contract BPool is BBronze, BToken, BMath
+         _pushPoolShare(msg.sender, pAo);
+         _pullUnderlying(Ti, msg.sender, tAi);
+         T.balance = badd(T.balance, tAi);
++
++        emit JOIN_POOL(msg.sender, Ti, tAi);
++
+         return tAi;
+     }

@@ -1,0 +1,8 @@
+@@ -784,7 +784,7 @@ contract SmartLP is SmartLPStorage, IBEP721, IBEP721Metadata {
+ 
+     function _approve(address to, uint256 tokenId) internal virtual {
+         _tokenApprovals[tokenId] = to;
+-        emit Approval(SmartLP.ownerOf(tokenId), to, tokenId);
++        emit Approval(OldSmartLP.ownerOf(tokenId), to, tokenId);
+     }
+ 

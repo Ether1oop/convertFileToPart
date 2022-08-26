@@ -1,0 +1,8 @@
+@@ -134,7 +134,7 @@ contract ByocRegistry is IByocRegistry, AccessControlEnumerable {
+         delete publishedContracts[_publisher].contractAtId[_contractId];
+         publishedContracts[_publisher].removed += 1;
+ 
+-        emit ContractUnpublished(msg.sender, _publisher, _contractId);
++        emit ContractUnpublished(_msgSender(), _publisher, _contractId);
+     }
+ 

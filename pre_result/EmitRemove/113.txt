@@ -1,0 +1,72 @@
+@@ -164,11 +172,71 @@ contract Rebalancer {
+         uint256 _debtB = providerB.totalDebt();
+         uint256 _pooledA = pooledBalanceA();
+         uint256 _pooledB = pooledBalanceB();
+-        return _pooledA >= _debtA && _pooledB >= _debtB;
++        return _pooledA >= _debtA && _pooledB >= _debtB && (_pooledA != _debtA && _pooledB != _debtB);
++    }
++
++    // If positive slippage caused by market movement is more than our swap fee, adjust position to erase slippage for user
++    // since positive slippage for user = negative slippage for pool aka loss for strat
++    function shouldTend() public view returns (bool _shouldTend, uint256, uint256){
++        uint256 _debtAUsd = providerA.totalDebt().mul(providerA.getPriceFeed()).div(10 ** providerA.getPriceFeedDecimals());
++        uint256 _debtBUsd = providerB.totalDebt().mul(providerB.getPriceFeed()).div(10 ** providerB.getPriceFeedDecimals());
++        uint256 _idealAUsd = _debtAUsd.add(_debtBUsd).mul(pool.getNormalizedWeight(address(tokenA))).div(1e18);
++        uint256 _idealBUsd = _debtAUsd.add(_debtBUsd).sub(_idealAUsd);
++
++        uint256 _balanceIn;
++        uint256 _balanceOut;
++        uint256 _weightIn;
++        uint256 _weightOut;
++        uint256 _amountIn;
++        uint256 _amountOutIfNoSlippage;
++
++        if (_idealAUsd > _debtAUsd) {
++            // if value of A is lower, users are incentivized to trade in A for B to make pool evenly balanced
++            _weightIn = currentWeightA();
++            _weightOut = currentWeightB();
++            _balanceIn = pooledBalanceA();
++            _balanceOut = pooledBalanceB();
++            _amountIn = _idealAUsd.sub(_debtAUsd).mul(10 ** providerA.getPriceFeedDecimals()).div(providerA.getPriceFeed());
++            _amountOutIfNoSlippage = _debtBUsd.sub(_idealBUsd).mul(10 ** providerB.getPriceFeedDecimals()).div(providerB.getPriceFeed());
++
++        } else {
++            // if value of B is lower, users are incentivized to trade in B for A to make pool evenly balanced
++            _weightIn = currentWeightB();
++            _weightOut = currentWeightA();
++            _balanceIn = pooledBalanceB();
++            _balanceOut = pooledBalanceA();
++            _amountIn = _idealBUsd.sub(_debtBUsd).mul(10 ** providerB.getPriceFeedDecimals()).div(providerB.getPriceFeed());
++            _amountOutIfNoSlippage = _debtAUsd.sub(_idealAUsd).mul(10 ** providerA.getPriceFeedDecimals()).div(providerA.getPriceFeed());
++        }
++
++        // calculate the actual amount out from trade
++        uint256 _amountOut = pool.calcOutGivenIn(_balanceIn, _weightIn, _balanceOut, _weightOut, _amountIn, 0);
++
++        // maximum positive slippage for user trading.
++        if (_amountOut > _amountOutIfNoSlippage) {
++            uint256 _slippage = _amountOut.sub(_amountOutIfNoSlippage).mul(1e18).div(_amountOutIfNoSlippage);
++            return (_slippage > pool.getSwapFee().sub(params.tendBuffer), _amountOutIfNoSlippage, _amountOut);
++        } else {
++            return (false, _amountOutIfNoSlippage, _amountOut);
++        }
++    }
++
++    function calculateNewWeights() internal view returns (uint256 _weightDenormedA, uint256 _weightDenormedB, bool _atWeightLimit){
++        uint256 _debtAUsd = providerA.totalDebt().mul(providerA.getPriceFeed()).div(10 ** providerA.getPriceFeedDecimals());
++        uint256 _debtBUsd = providerB.totalDebt().mul(providerB.getPriceFeed()).div(10 ** providerB.getPriceFeedDecimals());
++        uint256 _debtTotalUsd = _debtAUsd.add(_debtBUsd);
++
++        uint256 _weightA = Math.max(Math.min(_debtAUsd.mul(1e18).div(_debtTotalUsd), percent96), percent4);
++        if (_weightA == percent4 || _weightA == percent96) {
++            _atWeightLimit = true;
++        }
++        _weightDenormedA = totalDenormWeight.mul(_weightA).div(1e18);
++        _weightDenormedB = totalDenormWeight.sub(_weightDenormedA);
+     }
+ 
+     // pull from providers
+     function adjustPosition() public onlyAllowed {
++        emit Debug("adjust position", 0);
+         if (providerA.totalDebt() == 0 || providerB.totalDebt() == 0) return;
+         tokenA.transferFrom(address(providerA), address(this), providerA.balanceOfWant());

@@ -1,0 +1,15 @@
+@@ -63,13 +63,13 @@ contract ClipperMom {
+     }
+ 
+     function setOwner(address owner_) external onlyOwner {
+-        emit SetOwner(owner, owner_);
+         owner = owner_;
++        emit SetOwner(owner, owner_);
+     }
+ 
+     function setAuthority(address authority_) external onlyOwner {
+-        emit SetAuthority(authority, authority_);
+         authority = authority_;
++        emit SetAuthority(authority, authority_);
+     }
+ 

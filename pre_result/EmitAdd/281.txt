@@ -1,0 +1,18 @@
+@@ -37,15 +37,16 @@ contract DssPsm {
+     uint256 public tout;        // toll out [wad]
+ 
+     // --- Events ---
+-    event AuthUser(address indexed user);
+-    event DeauthUser(address indexed user);
++    event Rely(address indexed user);
++    event Deny(address indexed user);
+     event File(bytes32 indexed what, uint256 data);
+     event SellGem(address indexed owner, uint256 value, uint256 fee);
+     event BuyGem(address indexed owner, uint256 value, uint256 fee);
+ 
+     // --- Init ---
+     constructor(address gemJoin_, address daiJoin_, address vow_) public {
+         wards[msg.sender] = 1;
++        emit Rely(msg.sender);
+         AuthGemJoinAbstract gemJoin__ = gemJoin = AuthGemJoinAbstract(gemJoin_);
+         DaiJoinAbstract daiJoin__ = daiJoin = DaiJoinAbstract(daiJoin_);

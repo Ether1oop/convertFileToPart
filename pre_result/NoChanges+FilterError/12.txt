@@ -1,0 +1,8 @@
+@@ -109,7 +109,7 @@ abstract contract Module is Context {
+             description
+         );
+ 
+-        emit Events.ModuleProposalCreated(address(this), _id, _msgSender(), block.timestamp);
++        emit ModuleProposalCreated(address(this), _id, _msgSender(), block.timestamp);
+ 
+         return _id;

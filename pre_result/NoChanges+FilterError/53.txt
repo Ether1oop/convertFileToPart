@@ -1,0 +1,7 @@
+@@ -128,6 +129,7 @@ contract Keg is LibNote {
+     		//add balance wad to address in mug
+     		mugs[bum[i]] = add(mugs[bum[i]], wad[i]);
+     	}
++        emit BrewBeer(beer);
+     }
+ 

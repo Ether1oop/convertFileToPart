@@ -1,0 +1,16 @@
+@@ -121,16 +121,10 @@ contract ERC20Deflationary is Context, IERC20, Ownable {
+         _excludeFromFee(owner());
+         _excludeFromFee(address(this));
+ 
+-        emit ExcludeAccountFromFee(owner());
+-        emit ExcludeAccountFromFee(address(this));
+         // exclude owner, burnAccount, and this contract from receiving rewards.
+         excludeAccountFromReward(owner());
+         excludeAccountFromReward(burnAccount);
+         excludeAccountFromReward(address(this));
+-
+-        emit ExcludeAccountFromReward(owner());
+-        emit ExcludeAccountFromReward(burnAccount);
+-        emit ExcludeAccountFromReward(address(this));
+         
+         emit Transfer(address(0), _msgSender(), _totalSupply);

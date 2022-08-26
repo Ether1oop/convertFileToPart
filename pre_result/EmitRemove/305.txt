@@ -1,0 +1,15 @@
+@@ -524,15 +448,10 @@ contract Loihi is LoihiRoot {
+ 
+ 
+         for (uint i = 0; i < reserves.length; i++) {
+-            emit log_uint("totalWithdrawal", totalWithdrawal);
+-            emit log_uint("oldTotal", oldTotal);
+-            emit log_uint("balance of i", withdrawalAmounts[i]);
+             Flavor storage w = flavors[numeraires[i]];
+             uint256 numeraireToWithdraw = wmul(totalWithdrawal, wdiv(withdrawalAmounts[i], oldTotal));
+             // uint256 numeraireToWithdraw = wdiv(withdrawalAmounts[i], wmul(oldTotal, totalWithdrawal));
+-            emit log_uint("numeraireToWithdraw", numeraireToWithdraw);
+             uint256 amountWithdrawn = dOutputNumeraire(w.adapter, msg.sender, numeraireToWithdraw);
+-            emit log_uint("amountWithdrawn", amountWithdrawn);
+             withdrawalAmounts[i] = amountWithdrawn;
+         }

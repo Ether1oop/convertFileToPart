@@ -1,0 +1,8 @@
+@@ -56,7 +57,7 @@ contract PaymentSplitter {
+      * functions].
+      */
+     function () external payable {
+-        emit PaymentReceived(msg.sender, msg.value);
++        emit PaymentReceived(_msgSender(), msg.value);
+     }
+ 

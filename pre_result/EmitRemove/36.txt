@@ -1,0 +1,7 @@
+@@ -215,7 +215,6 @@ contract VaultsTest is DSTestPlus {
+         // Set the block number to the next block.
+         hevm.roll(block.number + vault.minimumHarvestDelay());
+ 
+-        emit log_uint(vault.exchangeRateCurrent());
+         //assertEq(vault.exchangeRateCurrent(), 1.5e18);
+     }

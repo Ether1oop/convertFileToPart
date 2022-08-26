@@ -1,0 +1,9 @@
+@@ -896,7 +893,7 @@ contract RToken is
+             account.rAmount = account.rAmount.add(interestAmount);
+             totalSupply = totalSupply.add(interestAmount);
+             emit InterestPaid(owner, interestAmount);
+-            emit Transfer(address(this), owner, interestAmount);
++            emit Transfer(address(0), owner, interestAmount);
+         }
+     }
+ 

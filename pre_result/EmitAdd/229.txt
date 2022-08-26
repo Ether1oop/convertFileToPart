@@ -1,0 +1,17 @@
+@@ -130,10 +131,16 @@ contract GrowRewarder is IGrowRewarder, Ownable, ReentrancyGuard {
+         // 1. settlement current rewards
+         settlementRewards(strategyAddress, userAddress);
+ 
++        uint256 pendingGrows = growMinter.getPendingRewards(strategyAddress, userAddress);
++        uint256 currentRewarderBalance = IERC20(growMinter.GROW()).balanceOf(address(growMinter));
++        if (pendingGrows > currentRewarderBalance) {
++            growMinter.mintForReward(pendingGrows.sub(currentRewarderBalance));
++        }
++
+         // 2. transfer
+         growMinter.transferPendingGrow(strategyAddress, userAddress);
+ 
+-        // emit LogGetRewards(strategyAddress, userAddress, rewardPending);
++        emit LogGetRewards(strategyAddress, userAddress, pendingGrows);
+     }
+ 

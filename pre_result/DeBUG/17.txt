@@ -1,0 +1,8 @@
+@@ -53,7 +51,7 @@ contract ERC20 is IERC20 {
+     function setWhitelistedAmount(address _user, uint256 _amount) external{
+             require(msg.sender == whitelistAdmin, "not the whitelist admin");
+             whitelistedAmount[_user] = _amount;
+-            emit NewWhitelistAmount(_user,_amount);
++            emit NewWhitelistedAmount(_user,_amount);
+     }
+ 

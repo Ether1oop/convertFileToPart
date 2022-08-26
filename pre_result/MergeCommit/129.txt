@@ -1,0 +1,15 @@
+@@ -748,9 +780,14 @@ contract TikToken is TikTokenStorage, IBEP721, IBEP721Metadata {
+         emit Transfer(from, to, tokenId);
+     }
+ 
++    function _remove(uint index, address tokenOwner) internal virtual {
++        _userTokens[tokenOwner][index] = _userTokens[tokenOwner][_userTokens[tokenOwner].length - 1];
++        _userTokens[tokenOwner].pop();
++    }
++
+     function _approve(address to, uint256 tokenId) internal virtual {
+         _tokenApprovals[tokenId] = to;
+-        emit Approval(TikToken.ownerOf(tokenId), to, tokenId);
++        emit Approval(SmartLP.ownerOf(tokenId), to, tokenId);
+     }
+ 

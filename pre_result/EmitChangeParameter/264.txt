@@ -1,0 +1,8 @@
+@@ -462,7 +464,7 @@ contract OptionMarket is ERC20UpgradeSafe, ReentrancyGuardUpgradeSafe, OwnableUp
+         // update cached payoff and pool value
+         lastPayoff = getCurrentPayoff();
+         poolValue = baseToken.uniBalanceOf(address(this)).sub(lastPayoff);
+-        emit Settle(expiryPrice);
++        emit Settle(_expiryPrice);
+     }
+ 

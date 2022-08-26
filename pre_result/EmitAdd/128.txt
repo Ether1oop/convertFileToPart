@@ -1,0 +1,7 @@
+@@ -1056,6 +1056,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
+         }
+         totalAsset = _totalAsset.add(share, fraction);
+         balanceOf[to] = balanceOf[to].add(fraction);
++        emit Transfer(address(0), to, fraction);
+         _addTokens(asset, share, totalAssetShare, skim);
+         emit LogAddAsset(skim ? address(bentoBox) : msg.sender, to, share, fraction);

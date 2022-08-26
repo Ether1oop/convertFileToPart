@@ -1,0 +1,10 @@
+@@ -361,8 +387,8 @@ contract MettalexContract {
+             IMintable short = IMintable(SHORT_POSITION_TOKEN);
+             long.burn(address(this), settled);
+             short.burn(address(this), settled);
+-            emit ContractSettled(price);
+         }
++        emit UpdatedLastPrice(price);
+     }
+ 
+     function settleContract(uint finalSettlementPrice)

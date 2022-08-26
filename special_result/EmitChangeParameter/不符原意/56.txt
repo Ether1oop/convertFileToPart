@@ -1,0 +1,24 @@
+@@ -261,19 +268,18 @@ contract MultipleArbitrableTransaction {
+         require(msg.sender == transaction.buyer || msg.sender == transaction.seller, "The caller must be the buyer or the seller.");
+ 
+         require(transaction.status >= Status.DisputeCreated, "The dispute has not been created yet.");
+-        emit Evidence(transaction.arbitrator, transaction.disputeId, msg.sender, _evidence);
++        emit Evidence(arbitrator, transaction.disputeId, msg.sender, _evidence);
+     }
+ 
+     /** @dev Appeal an appealable ruling.
+      *  Transfer the funds to the arbitrator.
+      *  Note that no checks are required as the checks are done by the arbitrator.
+      *  @param _transactionId The index of the transaction.
+-     *  @param _extraData Extra data for the arbitrator appeal procedure.
+      */
+-    function appeal(uint _transactionId, bytes _extraData) public payable {
++    function appeal(uint _transactionId) public payable {
+         Transaction storage transaction = transactions[_transactionId];
+ 
+-        transaction.arbitrator.appeal.value(msg.value)(transaction.disputeId, _extraData);
++        arbitrator.appeal.value(msg.value)(transaction.disputeId, arbitratorExtraData);
+     }
+ 
+     /** @dev Give a ruling for a dispute. Must be called by the arbitrator.
+

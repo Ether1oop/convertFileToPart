@@ -1,0 +1,7 @@
+@@ -410,7 +409,6 @@ contract ERC721 is IERC721, IERC721Metadata, Context, ERC165 {
+         );
+         _transfer(from, fromIndex, to, tokenIndex);
+         _checkOnERC721Received(from, to, tokenId, data);
+-        emit Transfer(from, to, tokenId);
+     }
+ 

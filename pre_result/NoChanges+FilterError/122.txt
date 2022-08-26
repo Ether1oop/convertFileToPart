@@ -1,0 +1,8 @@
+@@ -112,7 +110,7 @@ contract YearnYield is IYield, Initializable, OwnableUpgradeable, ReentrancyGuar
+             received = _withdrawERC(_asset, investedTo, amount);
+             IERC20(_asset).safeTransfer(_wallet, received);
+         }
+-        emit EmergencyWithdraw(_asset,_wallet,received);
++        emit EmergencyWithdraw(_asset, _wallet, received);
+     }
+ 

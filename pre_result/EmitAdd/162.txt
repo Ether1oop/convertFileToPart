@@ -1,0 +1,10 @@
+@@ -101,8 +103,8 @@ contract PrivacyCT {
+             require(!spentUTXOs[_inputIDs[i]], "input already spent");
+         }
+ 
+-        require(_amounts.length == _outputs.length.div(6));
+-
++        require(_amounts.length.div(2) == _outputs.length.div(6));
++        emit Inputs(_inputIDs);
+         //compute sum of input
+         (inputSum[0], inputSum[1]) = Secp256k1.decompressXY(utxos[_inputIDs[0]].commitment.yBit - 2, utxos[_inputIDs[0]].commitment.x);

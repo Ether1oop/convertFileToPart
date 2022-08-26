@@ -1,0 +1,9 @@
+@@ -169,7 +169,7 @@ contract SyscoinSuperblocks is SyscoinErrorCodes {
+ 
+         SuperblockInfo storage parent = superblocks[_parentId];
+         if (parent.status != Status.SemiApproved && parent.status != Status.Approved) {
+-            emit ErrorSuperblock(superblockHash, ERR_SUPERBLOCK_BAD_PARENT);
++            emit ErrorSuperblock(bytes32(0), ERR_SUPERBLOCK_BAD_PARENT);
+             return (ERR_SUPERBLOCK_BAD_PARENT, 0);
+         }
+ 

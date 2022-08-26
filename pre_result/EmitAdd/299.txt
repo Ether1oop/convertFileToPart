@@ -1,0 +1,7 @@
+@@ -179,6 +205,7 @@ contract NudgePool is NPStorage, NPProxy, Pausable {
+             abi.encodeWithSelector(bytes4(keccak256(
+             "GPDoDepositRunning(address,address)")), _ipToken, _baseToken));
+         require(status == true, "GP Do Deposit Failed");
++        emit RunningGPDoDeposit(_ipToken, _baseToken);
+     }
+ 

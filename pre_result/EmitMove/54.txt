@@ -1,0 +1,12 @@
+@@ -157,10 +157,11 @@ contract Amm is IAmm, LiquidityERC20, Reentrant {
+     ) external override nonReentrant onlyMargin returns (uint256[2] memory amounts) {
+         uint256[2] memory reserves;
+         (reserves, amounts) = _estimateSwap(inputToken, outputToken, inputAmount, outputAmount);
+-        emit Swap(trader, inputToken, outputToken, amounts[0], amounts[1]);
+         //check trade slippage
+         _checkTradeSlippage(reserves[0], reserves[1], baseReserve, quoteReserve);
+         _update(reserves[0], reserves[1], baseReserve, quoteReserve, false);
++
++        emit Swap(trader, inputToken, outputToken, amounts[0], amounts[1]);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -190,7 +196,7 @@ contract TotlePrimary is Withdrawable, Pausable {
+                 thisTradeFlag,
+                 amounts
+             );
+-            emit TradeLog(thisTrade.isSell, thisTrade.tokenAddress, thisTrade.isSell ? aamounts.amountReceivedFromTrade:amounts.amountSpentOnTrade, thisTrade.isSell?amounts.amountSpentOnTrade:amounts.amountReceivedFromTrade);
++            emit LogTrade(thisTrade.isSell, thisTrade.tokenAddress, thisTrade.isSell ? amounts.amountReceivedFromTrade:amounts.amountSpentOnTrade, thisTrade.isSell?amounts.amountSpentOnTrade:amounts.amountReceivedFromTrade);
+ 
+             uint256 ethTraded;

@@ -1,0 +1,17 @@
+@@ -215,10 +278,15 @@ contract Controller is IController, Orchestrated(), Delegable(), DecimalMath {
+             _treasury.pushChai(from, amount);
+         }
+         
+-        emit Posted(collateral, to, int256(amount)); // TODO: Watch for overflow
++        emit Posted(collateral, to, toInt256(amount));
+     }
+ 
+-    /// @dev Returns collateral to `to` address, taking it from `from` collateral account.
++    /// @dev Returns collateral to `to` wallet, taking it from `from` Yield vault account.
++    /// `from` can delegate to other addresses to take assets from him.
++    /// @param collateral Valid collateral type.
++    /// @param from Yield vault to take collateral from.
++    /// @param to Wallet to put the collateral in.
++    /// @param amount Amount of collateral to move.
+     // us(from) --- Token ---> to
+     function withdraw(bytes32 collateral, address from, address to, uint256 amount)

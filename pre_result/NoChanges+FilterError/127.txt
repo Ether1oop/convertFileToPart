@@ -1,0 +1,8 @@
+@@ -196,7 +196,7 @@ abstract contract Module is Context {
+             timelock.cancel(id);
+         }
+ 
+-        emit Events.ModuleProposalCancelled(address(this), id, _msgSender(), block.timestamp);
++        emit ModuleProposalCancelled(address(this), id, _msgSender(), block.timestamp);
+         delete _proposals[id];
+     }

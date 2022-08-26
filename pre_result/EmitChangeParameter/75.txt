@@ -1,0 +1,8 @@
+@@ -107,7 +109,7 @@ contract Fin4Claiming {
+         Fin4Underlyings(Fin4UnderlyingsAddress).callSuccessfulClaimNotifiers(tokenAddress, claimer, quantity);
+ 
+         // listen to this event if you provide your own minting policy
+-        emit ClaimApproved(tokenAddress, claimId, claimer, quantity, Fin4Token(tokenAddress).balanceOf(claimer));
++        emit ClaimApproved(tokenAddress, claimId, claimer, mintedQuantity, Fin4Token(tokenAddress).balanceOf(claimer));
+ 
+         // REP reward for a successful claim

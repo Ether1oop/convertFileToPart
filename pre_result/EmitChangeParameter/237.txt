@@ -1,0 +1,8 @@
+@@ -439,7 +442,7 @@ contract ZkSync is UpgradeableMaster, ZkSyncBase {
+             });
+         bytes memory pubData = Operations.writeQuickSwapPubdataForPriorityQueue(op);
+         addPriorityRequest(Operations.OpType.QuickSwap, pubData);
+-        emit QuickSwap(msg.sender, _amountIn, _amountOutMin, _withdrawFee, _fromTokenId, _toChainId, _toTokenId, _to, _nonce);
++        emit QuickSwap(_owner, _amountIn, _amountOutMin, _withdrawFee, _fromTokenId, _toChainId, _toTokenId, _to, _nonce);
+     }
+ 

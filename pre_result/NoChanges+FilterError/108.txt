@@ -1,0 +1,8 @@
+@@ -113,7 +116,7 @@ contract Claims is Owned {
+             // Check for overflow.
+             require(newVesting > oldVesting, "Overflow in addition.");
+             claimData.vested = newVesting;
+-            emit Vested(_eths[i], _vestingAmts[i]);
++            emit VestedIncreased(_eths[i], newVesting);
+         }
+     }

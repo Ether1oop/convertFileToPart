@@ -1,0 +1,8 @@
+@@ -172,7 +172,7 @@ contract Snowflake is Ownable {
+             }
+         }
+ 
+-        emit RemovededEntryResolver(field, entry, resolvers);
++        emit RemovedEntryResolver(field, entry, resolvers);
+     }
+ 

@@ -1,0 +1,7 @@
+@@ -49,6 +49,7 @@ contract ERC721XToken is ERC721X, ERC721XTokenNFT {
+ 
+         if (tokenType[_tokenIds[0]] == NFT) {
+             tokenOwner[_tokenIds[0]] = _to;
++            emit Transfer(_from, _to, _tokenIds[0]);
+         }
+ 

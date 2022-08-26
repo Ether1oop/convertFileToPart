@@ -1,0 +1,7 @@
+@@ -449,6 +456,7 @@ contract Mango is Persistent {
+         index_of_bid[BIDS[index]] = index;
+         return 0;
+       } catch {
++        emit LogIncident(QUOTE, BASE, 0, "Mango/writeBid/newOfferFail");
+         return gives;
+       }

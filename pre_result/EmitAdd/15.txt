@@ -1,0 +1,15 @@
+@@ -497,10 +484,13 @@ contract DssSpellTest is DSTest, DSMath {
+         );
+         assertTrue(diffCalc(expectedRate(values.pot_dsr), yearlyYield(expectedDSRRate)) <= TOLERANCE);
+ 
++
+         {
+         // Line values in RAD
+-        uint256 normalizedLine = values.vat_Line * RAD;
+-        assertEq(vat.Line(), normalizedLine);
++        assertEq(vat.Line(), values.vat_Line);
++
++        emit log_named_uint("moin",vat.Line());
++
+         assertTrue(
+             (vat.Line() >= RAD && vat.Line() < 100 * BILLION * RAD) ||

@@ -1,0 +1,8 @@
+@@ -99,7 +101,7 @@ contract NamedStaticPCVDepositWrapper is IPCVDepositBalances, CoreRef {
+         updatePCVDeposit.underlyingToken = underlyingToken;
+ 
+         emit DepositChanged(index, depositName);
+-        emit BalanceUpdate(oldBalance, balance, oldFEIBalance, feiReportBalance);
++        emit BalanceUpdate(oldBalance, newBalance, oldFEIBalance, newFeiReportBalance);
+     }
+ 

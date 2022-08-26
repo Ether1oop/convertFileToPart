@@ -1,0 +1,7 @@
+@@ -27,7 +27,6 @@ contract OperatorMock is Mock, Auth {
+     }
+ 
+     function redeemOrder(uint wad) public {
+-        emit log_named_uint("hi", 5);
+         calls["redeemOrder"]++;
+         values_uint["redeemOrder_wad"] = wad;

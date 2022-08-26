@@ -1,0 +1,8 @@
+@@ -164,7 +164,7 @@ contract ByocRegistry is IByocRegistry, AccessControlEnumerable {
+ 
+         registry.add(_publisher, deployedAddress);
+ 
+-        emit ContractDeployed(msg.sender, _publisher, _contractId, deployedAddress);
++        emit ContractDeployed(_msgSender(), _publisher, _contractId, deployedAddress);
+     }
+ 

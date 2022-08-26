@@ -1,0 +1,8 @@
+@@ -1269,7 +1274,7 @@ contract TradeMint is ITradeMint, Context, Owned {
+                 _tickLower,
+                 _tickUpper
+             );
+-            emit SnapshotLiquidity(
++            emit SnapshotMintLiquidity(
+                 tokenId,
+                 poolAddress,

@@ -1,0 +1,7 @@
+@@ -223,6 +214,6 @@ contract ImpossibleStaking is Ownable {
+             balance
+         );
+ 
+-        emit DevWithdraw(token, balance);
++        emit DevWithdraw(address(token), balance);
+     }

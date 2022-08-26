@@ -1,0 +1,8 @@
+@@ -108,7 +109,7 @@ contract AaveV2Migrator is MigrateResolver {
+ 
+         isPositionSafe();
+ 
+-        emit LogAaveV2Migrate(dsa, supplyTokens, borrowTokens, supplyAmts, supplyAmts);
++        emit LogAaveV2Migrate(dsa, supplyTokens, borrowTokens, supplyAmts, borrowAmts);
+     }
+ 

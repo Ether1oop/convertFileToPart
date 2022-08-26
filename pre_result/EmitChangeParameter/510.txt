@@ -1,0 +1,8 @@
+@@ -215,6 +215,8 @@ contract Vault is ERC20, DSTestPlus {
+ 
+                 break;
+             } else {
++                // A log to check if the coverage report is valid.
++                emit log("Function pullIntoFloat, else loop not covered");
+                 for (uint256 j = 0; j < depositedPools.length; j++) {
+                     if (depositedPools[j] == cToken) {

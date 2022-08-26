@@ -1,0 +1,8 @@
+@@ -70,7 +70,7 @@ contract ShellGovernance is CowriRoot {
+         shellList.push(_shell);
+         addSupportedTokens(tokens);
+ 
+-        emit shellActivated(shell, tokens);
++        emit shellActivated(_shell, tokens);
+ 
+         return true;

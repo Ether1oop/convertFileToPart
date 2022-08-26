@@ -1,0 +1,8 @@
+@@ -187,7 +187,7 @@ contract TokenTransfer is BaseModule, RelayerModule, LimitManager {
+     {
+         require(isWhitelisted(_wallet, _target), "TT: target not whitelisted");
+         transferStorage.setWhitelist(_wallet, _target, 0);
+-        emit RemovedFromWhitelist(_wallet, _target);
++        emit RemovedFromWhitelist(address(_wallet), _target);
+     }
+ 

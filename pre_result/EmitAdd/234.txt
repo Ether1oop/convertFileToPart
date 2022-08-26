@@ -1,0 +1,7 @@
+@@ -460,6 +462,7 @@ contract FixedDiscountCollateralAuctionHouse is Logging {
+         cdpEngine = CDPEngineLike(cdpEngine_);
+         collateralType = collateralType_;
+         authorizedAccounts[msg.sender] = 1;
++        emit AddAuthorization(msg.sender);
+     }
+ 

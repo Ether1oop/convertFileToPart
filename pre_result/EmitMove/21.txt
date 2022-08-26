@@ -1,0 +1,10 @@
+@@ -171,9 +171,9 @@ contract Crowdfund is DividendERC20, ICrowdfundSum {
+     }
+ 
+     burnInternal(msg.sender, amount);
++    emit Withdraw(msg.sender, amount);
+ 
+     IERC20(token).safeTransfer(msg.sender, amount);
+-    emit Withdraw(msg.sender, amount);
+   }
+ 

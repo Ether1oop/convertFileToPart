@@ -1,0 +1,8 @@
+@@ -97,6 +97,8 @@ contract ChannelImplementation is FundsRecovery {
+             identityBalance.add(hubBalance) == token.balanceOf(address(this)),
+             "sum balances must be equal to amount of locked tokens"
+         );
++
++        emit ChannelStateUpdated(identityBalance, hubBalance, lastSequence);
+     }
+ 

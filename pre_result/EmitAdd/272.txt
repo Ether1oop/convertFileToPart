@@ -1,0 +1,13 @@
+@@ -389,11 +407,13 @@ contract Repayments is Initializable, IRepayment, ReentrancyGuard {
+                 repaymentVars[_poolID].loanDurationCovered = (getInstalmentsCompleted(_poolID).add(10**30))
+                     .mul(repaymentConstants[_poolID].repaymentInterval)
+                     .div(10**30);
++                emit ExtensionRepaymentComplete(_poolID, _interestOverdue);
+             } else {
+                 _amountRequired = _amountRequired.add(_amount);
+                 repaymentVars[_poolID].loanDurationCovered = repaymentVars[_poolID].loanDurationCovered.add(
+                     _amount.mul(10**30).div(_interestPerSecond)
+                 );
++                emit PartialExtensionRepaid(_poolID, _amount);
+                 _amount = 0;
+             }

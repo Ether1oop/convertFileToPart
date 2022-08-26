@@ -1,0 +1,7 @@
+@@ -188,6 +191,7 @@ abstract contract HarbergerMarket is Multicall, Ownable {
+             // then update accumulatedUBI
+             uint256 collecting = _min(collectable, tax);
+             currency.transferFrom(property.ownerOf(tokenId), address(this), collecting);
++            emit Tax(tokenId, collecting);
+ 
+             // update tax record and accumulated ubi

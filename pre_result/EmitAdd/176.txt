@@ -1,0 +1,7 @@
+@@ -66,6 +73,7 @@ contract FeiRewardsDistributor is IRewardsDistributor, CoreRef, Timed {
+     /// @param amount the amount of tokens to send back to treasury
+     function governorWithdrawTribe(uint256 amount) external override onlyGovernor {
+         tribe().transfer(address(core()), amount);
++        emit TribeWithdraw(amount);
+     }
+ 

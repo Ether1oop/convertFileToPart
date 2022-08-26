@@ -1,0 +1,8 @@
+@@ -152,7 +153,7 @@ contract TspLPPooling is Ownable {
+         uint256 balanceOfPnut = Pnuts.balanceOf(address(this));
+ 
+         if (delegators[msg.sender].availablePeanuts > balanceOfPnut){
+-            emit NotEnoughBlanceOfPnut();
++            emit InsufficientBalance();
+         }
+         

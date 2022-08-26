@@ -1,0 +1,8 @@
+@@ -215,7 +215,7 @@ contract Rebaser {
+     {
+         uint256 oldPerc = rebaseMintPerc_;
+         rebaseMintPerc = rebaseMintPerc_;
+-        emit NewRebaseMintPercent(oldPerc, v);
++        emit NewRebaseMintPercent(oldPerc, rebaseMintPerc_);
+     }
+ 

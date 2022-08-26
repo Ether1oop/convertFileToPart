@@ -1,0 +1,8 @@
+@@ -230,7 +242,7 @@ contract XBRNetwork is XBRMaintained {
+ 
+         members[msg.sender] = Member(eula, profile, MemberLevel.ACTIVE);
+ 
+-        emit MemberCreated(eula, profile, MemberLevel.ACTIVE);
++        emit MemberCreated(msg.sender, eula, profile, MemberLevel.ACTIVE);
+     }
+ 

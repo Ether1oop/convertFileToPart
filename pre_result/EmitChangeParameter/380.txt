@@ -1,0 +1,8 @@
+@@ -451,7 +451,7 @@ contract Escrow is EscrowStorage, Governed, IERC777Recipient, IEscrowCallable {
+             SafeERC20.safeTransfer(IERC20(token), to, amount);
+         }
+ 
+-        emit Withdraw(currencyGroupId, to, amount);
++        emit Withdraw(currencyId, to, amount);
+     }
+ 

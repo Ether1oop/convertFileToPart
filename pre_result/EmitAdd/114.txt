@@ -1,0 +1,11 @@
+@@ -199,9 +199,10 @@ contract Exchange is IExchange, NoDefaultFunc {
+     event LogInt16Arr(uint16[] arr);
+     event LogIntArr(uint[] arr);
+     event LogAddrArr(address[] addrArr);
++    event LogUint8ArrList(uint8[][] al);
+ 
+     function bar(bytes bs) public {
+-        emit LogBytes(msg.data);
++        // emit LogBytes(msg.data);
+         bytes memory copy;
+         uint ptr;

@@ -1,0 +1,7 @@
+@@ -575,6 +575,7 @@ contract CrossMarginTrading is RoleAware, Ownable {
+             } else {
+                 uint256 shortfall =
+                     (borrowValue + mcCut4account) - holdingsValue;
++                emit LiquidationShortfall(shortfall);
+             }
+ 

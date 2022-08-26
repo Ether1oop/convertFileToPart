@@ -1,0 +1,16 @@
+@@ -234,16 +234,10 @@ contract Loihi is LoihiRoot {
+ 
+         oNAmt = tNAmt;
+ 
+-        emit log_uint("oNAmt", oNAmt);
+-        emit log_uint("grossLiq", grossLiq);
+-
+         require(add(oPool, oNAmt) <= wmul(o.weight, wmul(grossLiq, WAD + alpha)), "origin halt check for target trade");
+ 
+         feeThreshold = wmul(o.weight, wmul(grossLiq, WAD + beta));
+-        emit log_uint("fee threshold origin", feeThreshold);
+-        emit log_uint("opool + onamt", oPool + oNAmt);
+         if (oPool + oNAmt <= feeThreshold) {
+-            emit log_uint("ping", 55);
+ 
+         } else if (oPool >= feeThreshold) {

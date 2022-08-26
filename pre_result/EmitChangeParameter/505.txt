@@ -1,0 +1,8 @@
+@@ -62,7 +62,7 @@ contract ERC1155MixedFungibleMintable is ERC1155MixedFungible {
+             // You could use base-type id to store NF type balances if you wish.
+             // balances[_type][dst] = quantity.add(balances[_type][dst]);
+ 
+-            emit TransferSingle(msg.sender, 0x0, dst, id, 1);
++            emit TransferSingle(msg.sender, address(0x0), dst, id, 1);
+ 
+             if (dst.isContract()) {

@@ -1,0 +1,36 @@
+@@ -829,30 +819,30 @@ contract WildcardSteward_v3_matic is
+     )
+         public
+         collectPatronageAndSettleBenefactor(tokenId)
+-        collectPatronagePatron(_msgSender())
++        collectPatronagePatron(msgSender())
+         priceGreaterThanZero(_newPrice)
+-        youCurrentlyAreNotInDefault(_msgSender())
++        youCurrentlyAreNotInDefault(msgSender())
+         validWildcardsPercentage(serviceProviderPercentage, tokenId)
+     {
+         require(state[tokenId] == StewardState.Owned, "token on auction");
+         require(
+             price[tokenId] == previousPrice,
+             "must specify current price accurately"
+         );
+-        receiveErc20(depositAmount.add(price[tokenId]), _msgSender());
++        receiveErc20(depositAmount.add(price[tokenId]), msgSender());
+         address owner = assetToken.ownerOf(tokenId);
+ 
+         _distributePurchaseProceeds(tokenId);
+ 
+         serviceProviderPercentages[tokenId] = serviceProviderPercentage;
+-        deposit[_msgSender()] = deposit[_msgSender()].add(depositAmount);
++        deposit[msgSender()] = deposit[msgSender()].add(depositAmount);
+         transferAssetTokenTo(
+             tokenId,
+             assetToken.ownerOf(tokenId),
+-            _msgSender(),
++            msgSender(),
+             _newPrice
+         );
+-        emit Buy(tokenId, _msgSender(), _newPrice);
++        emit Buy(tokenId, msgSender(), _newPrice);
+     }
+ 

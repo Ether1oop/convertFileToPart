@@ -1,0 +1,8 @@
+@@ -407,7 +407,7 @@ contract NumeraiTournamentV3 is Initializable, Pausable {
+ 
+         griefingAgreement.increaseStake(currentStake, stakeAmount);
+ 
+-        emit IncreaseStakeErasure(agreement, staker, stakeAmount, currentStake);
++        emit IncreaseStakeErasure(agreement, staker, currentStake, stakeAmount);
+     }
+ 

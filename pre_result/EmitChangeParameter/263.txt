@@ -1,0 +1,11 @@
+@@ -342,9 +388,9 @@ contract Treasury is Treasury_Interface, ERC20 {
+         _issuer = _issuerCandidate;
+         _issuerCandidate = address(0);
+         _issuerReplace = false;
+-        _issuer.transfer(_issuerCollateral);
++        _issuer.transfer(_vaultCollateral);
+ 
+-        emit ExecuteReplace(_issuerCandidate, _issuerCollateral);
++        emit ExecuteReplace(_issuerCandidate, _vaultCollateral);
+ 
+         return true;

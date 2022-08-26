@@ -1,0 +1,7 @@
+@@ -83,6 +44,6 @@ contract Fraction is BondingCurve {
+ 
+         locked = true;
+ 
+-        emit Fungified(address(_nft), erc20Token.name(), erc20Token.symbol());
++        emit Fungified(address(_nft), curve.name(), curve.symbol());
+     }

@@ -1,0 +1,9 @@
+@@ -90,8 +90,8 @@ contract WooAccessManager is IWooAccessManager, Ownable, Pausable {
+         for (uint256 i = 0; i < vaultAdmins.length; i++) {
+             require(vaultAdmins[i] != address(0), 'WooAccessManager: vaultAdmin_ZERO_ADDR');
+             isVaultAdmin[vaultAdmins[i]] = flags[i];
++            emit VaultAdminUpdated(vaultAdmins[i], flags[i]);
+         }
+-        emit BatchVaultAdminUpdated(vaultAdmins, flags);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -305,8 +305,6 @@ contract LenderPool is ERC1155Upgradeable, ReentrancyGuard, OwnableUpgradeable {
+ 
+         POOLED_CREDIT_LINE.accept(_id, _amount);
+ 
+-        emit PooledCreditLineAccepted(_id, _amount);
+-
+         delete pooledCLConstants[_id].startTime;
+         delete pooledCLConstants[_id].borrowLimit;

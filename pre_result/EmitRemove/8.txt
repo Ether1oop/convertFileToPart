@@ -1,0 +1,7 @@
+@@ -213,7 +212,6 @@ contract TinlakeManager is LibNote, DSTest {
+         require(wards[msg.sender] == 1 || (msg.sender == owner && !live), "TinlakeManager/not-authorized");
+         (uint256 ink, ) = vat.urns(ilk, address(this));
+         safe = false;
+-        emit log_named_uint("ink", ink);
+         pool.redeemOrder(ink);
+     }

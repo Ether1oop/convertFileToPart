@@ -1,0 +1,20 @@
+@@ -208,17 +208,17 @@ contract DappManager is BaseModule, RelayerModule, LimitManager {
+         BaseWallet _wallet, 
+         address _dapp,
+         address _contract,
+-        bytes4[] _signatures
++        bytes4[] memory _signatures
+     )
+         public 
+         onlyOwner(_wallet) 
+         onlyWhenUnlocked(_wallet) 
+     {
+         bytes32 id = keccak256(abi.encodePacked(address(_wallet), _dapp, _contract, _signatures, true));
+-        DappManagerConfig storage config = configs[_wallet];
++        DappManagerConfig storage config = configs[address(_wallet)];
+         require(config.pending[id] > 0, "DM: No pending authorisation for the target dapp");
+         delete config.pending[id];
+-        emit ContractCallAuthorizationCanceled(_wallet, _dapp, _contract, _signatures);
++        emit ContractCallAuthorizationCanceled(address(_wallet), _dapp, _contract, _signatures);
+     }
+ 

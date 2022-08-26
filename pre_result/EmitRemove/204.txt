@@ -1,0 +1,7 @@
+@@ -369,7 +369,6 @@ contract BathPair {
+         );
+         // Divide the below by 1000
+         int128 shapeCoef = ABDKMath64x64.div(-5, 1000); // 5 / 1000
+-        emit LogNoteI("shapeCoef", shapeCoef);
+ 
+         // if the asset/quote is overweighted: underlyingBalance / (Proportion of quote allocated to pair) * underlyingQuote balance

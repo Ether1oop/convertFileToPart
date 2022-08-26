@@ -1,0 +1,8 @@
+@@ -632,6 +641,9 @@ contract BPool is BBronze, BToken, BMath
+         _burnPoolShare(poolAiBeforeFees);    
+         _pushUnderlying(To, msg.sender, tAo);
+         T.balance = bsub(T.balance, tAo);
++
++        emit EXIT_POOL(msg.sender, To, tAo);
++
+         return poolAiBeforeFees;

@@ -1,0 +1,8 @@
+@@ -25,7 +26,7 @@ contract SimpleERCFund is ISimpleERCFund, Operator {
+         string memory reason
+     ) public override onlyOperator {
+         IERC20(token).safeTransfer(to, amount);
+-        emit Withdrawal(msg.sender, to, now, reason);
++        emit Withdrawal(_msgSender(), to, block.timestamp, reason);
+     }
+ 

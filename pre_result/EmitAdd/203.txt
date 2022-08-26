@@ -1,0 +1,7 @@
+@@ -143,6 +147,7 @@ contract Rent is Owner {
+         //checks rent is ended
+         require(isRentEnded(itemID) == true, "Rent not ended");
+         _endRentAndWithdraw(itemID);
++        emit EndRent(itemID);
+     }
+ 

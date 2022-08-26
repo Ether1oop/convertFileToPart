@@ -1,0 +1,8 @@
+@@ -445,8 +447,6 @@ library StreamSwapLibrary {
+ 
+                 curStateIdx[1] = pos;
+             }
+-
+-            emit LOG_SET_FLOW(context.msgSender, address(superToken), args[i].destSuperToken, args[i].minOut, args[i].maxOut, args[i].inAmount);
+         }
+ 

@@ -1,0 +1,8 @@
+@@ -222,7 +222,7 @@ contract TokenTransfer is BaseModule, RelayerModule, LimitManager {
+         else {
+             transferERC20(_wallet, _token, _to, _amount, _data);
+         }
+-        emit PendingTransferExecuted(_wallet, id);
++        emit PendingTransferExecuted(address(_wallet), id);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -356,8 +356,6 @@ contract LightGeneralizedTCR is IArbitrable, IEvidence {
+         uint256 totalCost = arbitrationCost.addCap(removalBaseDeposit);
+         require(msg.value >= totalCost, "You must fully fund the request.");
+ 
+-        emit Contribution(_itemID, item.requestCount - 1, RESERVED_ROUND_ID, msg.sender, totalCost, Party.Requester);
+-
+         // Casting is safe here because this line will never be executed in case
+         // totalCost > type(uint128).max, since it would be an unpayable value.

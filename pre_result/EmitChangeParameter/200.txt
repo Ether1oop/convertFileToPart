@@ -1,0 +1,34 @@
+@@ -55,28 +56,28 @@ contract DSTest {
+         uint256 startGas = gasleft();
+         _;
+         uint256 endGas = gasleft();
+-        emit log_named_uint('gas', startGas - endGas);
++        emit log_named_uint("gas", startGas - endGas);
+     }
+ 
+     function assertTrue(bool condition) internal {
+         if (!condition) {
+-            emit log('Error: Assertion Failed');
++            emit log("Error: Assertion Failed");
+             fail();
+         }
+     }
+ 
+     function assertTrue(bool condition, string memory err) internal {
+         if (!condition) {
+-            emit log_named_string('Error', err);
++            emit log_named_string("Error", err);
+             assertTrue(condition);
+         }
+     }
+ 
+     function assertEq(address a, address b) internal {
+         if (a != b) {
+-            emit log('Error: a == b not satisfied [address]');
+-            emit log_named_address('  Expected', b);
+-            emit log_named_address('    Actual', a);
++            emit log("Error: a == b not satisfied [address]");
++            emit log_named_address("  Expected", b);
++            emit log_named_address("    Actual", a);
+             fail();
+         }

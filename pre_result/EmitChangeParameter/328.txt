@@ -1,0 +1,8 @@
+@@ -56,7 +55,7 @@ contract Permissions is IPermissions, ExecutionContext {
+ 
+     function _setupRole(bytes32 role, address account) internal virtual {
+         _hasRole[role][account] = true;
+-        emit RoleGranted(role, account, _msgSender());
++        emit RoleGranted(role, account, msg.sender);
+     }
+ 

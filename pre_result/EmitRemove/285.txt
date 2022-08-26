@@ -1,0 +1,8 @@
+@@ -198,8 +176,6 @@ contract Loihi is LoihiRoot {
+             ), WAD - feeBase);
+         }
+ 
+-        emit log_uint("oAmt", oAmt);
+-        emit log_uint("tNAmt", tNAmt);
+         dIntakeRaw(o.adapter, oAmt);
+         dOutputNumeraire(t.adapter, recipient, tNAmt);

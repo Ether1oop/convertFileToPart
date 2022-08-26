@@ -1,0 +1,8 @@
+@@ -568,7 +568,7 @@ contract Marketplace is
+ 
+         transferListingTokens(address(this), _winningBid.offeror, quantityToSend, _targetListing);
+ 
+-        emit AuctionClosed(_targetListing.listingId, _msgSender(), false, _winningBid.offeror, _targetListing.tokenOwner);
++        emit AuctionClosed(_targetListing.listingId, _msgSender(), false, _targetListing.tokenOwner, _winningBid.offeror);
+     }
+ 

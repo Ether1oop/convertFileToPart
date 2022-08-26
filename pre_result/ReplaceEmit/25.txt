@@ -1,0 +1,8 @@
+@@ -148,7 +150,7 @@ contract Keg is LibNote {
+         dai.move(msg.sender, address(this), beer);
+         if (dai.allowance(address(this), address(join)) != uint(-1)) require(dai.approve(address(join)));
+         join.join(address(this), beer);
+-        emit PourBeer(msg.sender, beer);
++        emit PouredBeer(msg.sender, beer);
+     }
+ 

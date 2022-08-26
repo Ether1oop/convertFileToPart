@@ -1,0 +1,7 @@
+@@ -288,6 +280,7 @@ contract Loihi is LoihiRoot {
+         if (sub(_tBal, _tNAmt) > _feeThreshold) {
+ 
+             tNAmt_ = wmul(_tNAmt, WAD - feeBase);
++            emit log_uint("ping", tNAmt_);
+ 
+         } else if (_tBal <= _feeThreshold) {

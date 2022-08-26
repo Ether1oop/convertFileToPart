@@ -1,0 +1,14 @@
+@@ -146,11 +147,14 @@ contract Rebalancer {
+ 
+             if (_gainA > 0) {
+                 bpt.exitswapExternAmountOut(address(tokenA), _gainA, balanceOfBpt());
++                emit Debug("collect A", looseBalanceA().sub(_looseABefore));
+                 tokenA.transfer(address(providerA), looseBalanceA().sub(_looseABefore));
++
+             }
+ 
+             if (_gainB > 0) {
+                 bpt.exitswapExternAmountOut(address(tokenB), _gainB, balanceOfBpt());
++                emit Debug("collect B", looseBalanceB().sub(_looseBBefore));
+                 tokenB.transfer(address(providerB), looseBalanceB().sub(_looseBBefore));
+             }

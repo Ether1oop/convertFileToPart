@@ -1,0 +1,8 @@
+@@ -422,7 +422,7 @@ contract ImpermanentGain is ERC20Mintable {
+         poolB = poolB.sub(amount);
+         _burn(msg.sender, lp);
+         doTransferOut(baseToken, msg.sender, amount);
+-        emit RemoveLP(msg.sender, lp, amount, amount);
++        emit RemoveLP(msg.sender, amount, amount, lp);
+     }
+ 

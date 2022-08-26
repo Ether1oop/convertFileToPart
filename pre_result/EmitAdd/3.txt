@@ -1,0 +1,8 @@
+@@ -132,6 +132,8 @@ contract DSTestPlus is DSTest {
+ 
+         // Account for decrementing x to make max inclusive.
+         if (max == type(uint256).max && x != 0) result++;
++
++        emit log_named_uint("Bound Result", result);
+     }
+ 

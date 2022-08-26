@@ -1,0 +1,7 @@
+@@ -195,6 +220,7 @@ contract CharityVault is ERC20, Auth {
+ 
+         // Burn inputed rcvTokens.
+         _burn(CHARITY, amount);
++        emit CharityWithdrawCV(user, underlyingAmount);
+ 
+         // TODO: how to get user since msg.sender == charity not the user :/

@@ -1,0 +1,8 @@
+@@ -136,7 +133,7 @@ contract VaultFactoryTest is DSTest {
+         uint256 lastClaimTime;
+ 
+ 
+-        emit log_named_address("Sender: ", msg.sender);
++        //emit log_named_address("Sender: ", msg.sender);
+         // 1. Mint token to account.
+         SGX.mint(msg.sender, amount);

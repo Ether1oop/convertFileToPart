@@ -1,0 +1,8 @@
+@@ -345,7 +347,7 @@ contract LimaToken is ERC20PausableUpgradeSafe {
+ 
+         _mint(_recipient, _amount);
+ 
+-        emit Create(msg.sender, _amount);
++        emit Create(_msgSender(), _amount);
+         return true;
+     }

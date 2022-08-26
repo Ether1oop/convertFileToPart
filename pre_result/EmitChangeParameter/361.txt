@@ -1,0 +1,8 @@
+@@ -315,7 +320,7 @@ contract Treasury is ContractGuard, Epoch {
+                 fundReserve,
+                 'Treasury: Seigniorage Allocation'
+             );
+-            emit ContributionPoolFunded(now, fundReserve);
++            emit ContributionPoolFunded(block.timestamp, fundReserve);
+         }
+ 

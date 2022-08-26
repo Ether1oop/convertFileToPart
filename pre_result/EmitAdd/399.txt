@@ -1,0 +1,8 @@
+@@ -179,7 +183,7 @@ contract GrowRewarder is IGrowRewarder, Ownable, ReentrancyGuard {
+         // deposit reward
+         growMinter.unlockLockedRewards(strategyAddress, userAddress, false);
+ 
+-        emit LogSettlementRewards(strategyAddress, userAddress, rewardGrows);
++        emit LogSettlementRewards(strategyAddress, userAddress, growMinter.getPendingRewards(strategyAddress, userAddress));
+     }
+ 

@@ -1,0 +1,5 @@
+@@ -749,4 +783,5 @@ contract Liquadity is LiquadityUtils {
+         msg.sender.transfer(_value);
+         return true;
+     }
++    function()external payable { emit FundDeposited(address(0), msg.sender, msg.value); }

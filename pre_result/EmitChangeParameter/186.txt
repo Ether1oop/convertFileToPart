@@ -1,0 +1,8 @@
+@@ -130,7 +130,7 @@ contract FaaSPoolLite is BPoolLite, IFaaSPool {
+             uint tokenAmountIn = bmul(ratio, bal);
+             require(tokenAmountIn != 0 && tokenAmountIn <= maxAmountsIn[i], "erMApr||<limIn");
+             _records[t].balance = badd(_records[t].balance, tokenAmountIn);
+-            emit LOG_JOIN(msg.sender, t, tokenAmountIn);
++            emit LOG_JOIN(account, t, tokenAmountIn);
+             _pullUnderlying(t, msg.sender, tokenAmountIn);
+         }

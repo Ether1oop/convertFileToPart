@@ -1,0 +1,8 @@
+@@ -838,7 +835,7 @@ contract DOSProxy is Ownable {
+                 return true;
+             } else {
+                 // TODO: Do small bootstrap in this condition?
+-                emit LogMessage("Skipped group formation, not enough expired working group.");
++                emit LogMessage("skipped-formation-not-enough-expired-wgrp");
+             }
+         } else if (numPendingNodes >= bootstrapStartThreshold) { // No working group alive and satisfies system re-bootstrap condition.

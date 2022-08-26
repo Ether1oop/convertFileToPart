@@ -1,0 +1,8 @@
+@@ -360,6 +392,7 @@ contract NudgePool is NPStorage, NPProxy, Pausable {
+             _ipToken, _baseToken, _baseTokensAmount));
+         require(status == true, "Withdraw Vault Failed");
+         amount = data.bytesToUint256();
++        emit WithdrawVault(_ipToken, _baseToken, _baseTokensAmount);
+         return amount;
+     }
+ }

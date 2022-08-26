@@ -1,0 +1,16 @@
+@@ -149,16 +193,8 @@ contract Rebalancer {
+         }
+         uint256 _weightDenormedA = totalDenormWeight.mul(_weightA).div(1e18);
+         uint256 _weightDenormedB = totalDenormWeight.sub(_weightDenormedA);
+-        emit Debug("_debtA", _debtAUsd);
+-        emit Debug("_debtB", _debtBUsd);
+-        emit Debug("_debtTotal", _debtTotalUsd);
+-        emit Debug("totalDenormWeight", totalDenormWeight);
+-        emit Debug("_weightDenormedA", _weightDenormedA);
+-        emit Debug("_weightDenormedB", _weightDenormedB);
+         bpt.updateWeight(address(tokenA), _weightDenormedA);
+         bpt.updateWeight(address(tokenB), _weightDenormedB);
+-        emit Debug("pool.currentWeightA()", currentWeightA());
+-        emit Debug("pool.currentWeightB()", currentWeightB());
+         uint256 _looseA = looseBalanceA();
+         uint256 _looseB = looseBalanceB();

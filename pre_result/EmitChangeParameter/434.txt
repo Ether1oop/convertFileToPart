@@ -1,0 +1,19 @@
+@@ -882,15 +872,15 @@ contract WildcardSteward_v3_matic is
+         state[tokenId] = StewardState.Owned;
+ 
+         serviceProviderPercentages[tokenId] = serviceProviderPercentage;
+-        receiveErc20(depositAmount.add(auctionTokenPrice), _msgSender());
+-        deposit[_msgSender()] = deposit[_msgSender()].add(depositAmount);
++        receiveErc20(depositAmount.add(auctionTokenPrice), msgSender());
++        deposit[msgSender()] = deposit[msgSender()].add(depositAmount);
+         transferAssetTokenTo(
+             tokenId,
+             assetToken.ownerOf(tokenId),
+-            _msgSender(),
++            msgSender(),
+             _newPrice
+         );
+-        emit Buy(tokenId, _msgSender(), _newPrice);
++        emit Buy(tokenId, msgSender(), _newPrice);
+     }
+ 

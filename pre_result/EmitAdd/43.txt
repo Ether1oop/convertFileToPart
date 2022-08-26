@@ -1,0 +1,8 @@
+@@ -36,6 +32,8 @@ contract vDsgReserve is InitializableOwner {
+     function donateToVDsg(uint256 amount) public onlyOwner {
+         dsg.approve(address(vdsg), uint(-1));
+         vdsg.donate(amount);
++
++        emit Donte(amount);
+     }
+ 

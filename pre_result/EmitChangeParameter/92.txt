@@ -1,0 +1,8 @@
+@@ -102,7 +102,7 @@ contract Enterprise is IEnterprise {
+         _powerTokens.push(powerToken);
+         _powerTokenIndexMap[powerToken] = _powerTokens.length;
+ 
+-        emit ServiceRegistered(address(powerToken), halfLife, factor);
++        emit ServiceRegistered(address(powerToken), halfLife, baseRate);
+     }
+ 

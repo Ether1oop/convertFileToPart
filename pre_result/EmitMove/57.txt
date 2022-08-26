@@ -1,0 +1,12 @@
+@@ -111,10 +111,10 @@ contract Lifeforms is Ownable, ERC721, NFTSVG {
+             NFTSVG.SVGParams({tokenId: tokenId, tokenBalance: tokenBalances[tokenId] / BASE_UNIT})
+         );
+ 
++        emit TokenDeposit(msg.sender, tokenId, underlyingAmount);
++
+         // Transfer the provided amount of underlying tokens from msg.sender to this contract.
+         UNDERLYING.safeTransferFrom(msg.sender, address(this), underlyingAmount);
+-
+-        emit TokenDeposit(msg.sender, tokenId, underlyingAmount);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -88,7 +89,7 @@ contract PortfolioManager is IPortfolioManager, AccessControl {
+             IActionBuilder.ExchangeAction[] memory actionOrder
+         ) {
+             //TODO: remove
+-            emit ConsoleLog(string(abi.encodePacked(uint2str(actionOrder.length), " actions")));
++//            emit ConsoleLog(string(abi.encodePacked(uint2str(actionOrder.length), " actions")));
+ 
+             // 2. execute them

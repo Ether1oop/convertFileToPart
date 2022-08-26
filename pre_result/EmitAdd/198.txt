@@ -1,0 +1,21 @@
+@@ -511,18 +302,16 @@ contract GebUniswapV3LiquidityManagerTest is DSTest {
+     }
+ 
+     function test_withdrawing_liquidity() public {
+-        uint256 wethAmount = 1 ether;
+-        uint256 raiAmount = 10 ether;
+         helper_addLiquidity(1); // Starting with a bit of liquidity
+ 
+         uint256 liq = manager.balanceOf(address(u1));
+         (bytes32 inti_id, , , uint128 inti_uniLiquidity,) = manager.position();
+         (uint128 _li, , , , ) = pool.positions(inti_id);
+ 
+         assertTrue(liq == _li);
+-        emit log_named_uint("liq", liq);
+-        emit log_named_uint("liq", inti_uniLiquidity);
+-        emit log_named_uint("_li", _li);
++        // emit log_named_uint("liq", liq);
++        // emit log_named_uint("liq", inti_uniLiquidity);
++        // emit log_named_uint("_li", _li);
+ 
+         // Withdraw half of the liquidity

@@ -1,0 +1,8 @@
+@@ -279,7 +279,7 @@ contract LootERC20 is IClub {
+ 
+     function setPause(bool paused_) external payable onlyGov {
+         paused = paused_;
+-        emit PauseFlipped(paused_);
++        emit PauseSet(paused_);
+     }
+ 

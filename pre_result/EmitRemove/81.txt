@@ -1,0 +1,12 @@
+@@ -229,9 +253,9 @@ contract Nix is Owned, ERC721TokenReceiver {
+         }
+ 
+         trade.netting[wethFrom] -= int(amount);
+-        emit NettingEvent(wethFrom, trade.netting[wethFrom]);
++        // emit NettingEvent(wethFrom, trade.netting[wethFrom]);
+         trade.netting[wethTo] += int(amount);
+-        emit NettingEvent(wethTo, trade.netting[wethTo]);
++        // emit NettingEvent(wethTo, trade.netting[wethTo]);
+     }
+ 
+     // event TransferFrom(address from, address to, uint amount);

@@ -1,0 +1,7 @@
+@@ -315,7 +315,6 @@ contract SyscoinClaimManager is Initializable, SyscoinDepositsManager, SyscoinEr
+             emit ErrorClaim(superblockHash, err);
+             return false;
+         }
+-        emit SuperblockClaimSuccessful(superblockHash, claim.submitter, inProcessCounter-1);
+         doPaySubmitter(superblockHash, claim);
+ 

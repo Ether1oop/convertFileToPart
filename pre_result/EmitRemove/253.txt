@@ -1,0 +1,15 @@
+@@ -221,10 +278,14 @@ contract Rebalancer {
+ 
+     function joinPoolSingles() public {
+         uint8 count;
+-        while (count < 4) {
++        while (count < params.joinPoolMaxTries) {
+             count++;
+             uint256 _looseA = looseBalanceA();
+             uint256 _looseB = looseBalanceB();
++            emit Debug("count", count);
++            emit Debug("_looseA", _looseA);
++            emit Debug("_looseB", _looseB);
++
+             if (_looseA > 0 || _looseB > 0) {
+                 if (_looseA > 0) bpt.joinswapExternAmountIn(address(tokenA), Math.min(_looseA, pooledBalanceA() / 2), 0);

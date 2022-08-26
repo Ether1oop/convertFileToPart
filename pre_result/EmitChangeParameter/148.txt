@@ -1,0 +1,8 @@
+@@ -484,7 +491,7 @@ function _submitProposal(
+             proposal.noVotes = proposal.noVotes.add(member.shares);
+         }
+      
+-        emit SubmitVote(proposalQueue[proposalIndex], proposalIndex, msg.sender, memberAddress, uintVote);
++        emit SubmitVote(proposalQueue[proposalIndex], proposalIndex, msg.sender, msg.sender, uintVote);
+     }
+ 

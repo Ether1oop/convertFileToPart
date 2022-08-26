@@ -1,0 +1,7 @@
+@@ -217,6 +226,7 @@ contract TaxCollector is Logging {
+         collateralType_.stabilityFee = RAY;
+         collateralType_.updateTime   = now;
+         collateralList.push(collateralType);
++        emit InitializeCollateralType(collateralType);
+     }
+     /**

@@ -1,0 +1,8 @@
+@@ -36,7 +36,7 @@ contract WitnetRequestBoardNotCompliantTroyHorse is Initializable, Proxiable {
+   }
+ 
+   function initialize(bytes calldata) external override onlyOwner {
+-    emit Initialized(msg.sender, __base, __codehash, "non-compliant-troy-horse");
++    emit Initialized(msg.sender, __base, __codehash, "trojan-horse-not-upgradable");
+   }
+ 

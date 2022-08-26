@@ -1,0 +1,8 @@
+@@ -397,9 +400,6 @@ contract GebUniswapV3LiquidityManager is ERC20 {
+         // Read all this from storage to minimize SLOADs
+         (int24 _currentLowerTick, int24 _currentUpperTick) = (position.lowerTick, position.upperTick);
+         (uint160 sqr6, , , , , , ) = pool.slot0();
+-        emit DEBUG(sqr6);
+-        emit DEBUG(TickMath.getSqrtRatioAtTick(_currentLowerTick));
+-        emit DEBUG(TickMath.getSqrtRatioAtTick(_currentUpperTick));
+ 

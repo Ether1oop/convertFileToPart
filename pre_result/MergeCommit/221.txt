@@ -1,0 +1,7 @@
+@@ -58,6 +60,7 @@ contract PoolAdmin is Auth {
+         } else if (contractName == "juniorMemberlist") {
+             juniorMemberlist = MemberlistLike(addr);
+         } else revert();
++        emit Depend(contractName, addr);
+     }
+ 

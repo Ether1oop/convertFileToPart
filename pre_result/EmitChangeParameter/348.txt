@@ -1,0 +1,8 @@
+@@ -479,7 +479,7 @@ contract StrategyV2Pair is StrategyV2Data, Ownable, IStrategyV2Pair, ICompAction
+         user.lpAmount = TenMath.safeSub(user.lpAmount, removedLPAmount);
+         pool.totalLPAmount = TenMath.safeSub(pool.totalLPAmount, removedLPAmount);
+ 
+-        emit StrategyWithdraw(address(this), _pid, _account, withdrawLPTokenAmount);
++        emit StrategyWithdraw(_this, _pid, _account, withdrawLPTokenAmount);
+ 
+         if(address(compActionPool) != address(0) && removedPoint > 0) {

@@ -1,0 +1,16 @@
+@@ -15,14 +16,14 @@ contract VoteProxy is Operator {
+     // Boardroom
+     address public boardroom;
+ 
+-    constructor(address _boardroom) public {
++    constructor(address _boardroom) {
+         boardroom = _boardroom;
+     }
+ 
+     function setBoardroom(address newBoardroom) public onlyOperator {
+         address oldBoardroom = boardroom;
+         boardroom = newBoardroom;
+-        emit BoardroomChanged(msg.sender, oldBoardroom, newBoardroom);
++        emit BoardroomChanged(_msgSender(), oldBoardroom, newBoardroom);
+     }
+ 

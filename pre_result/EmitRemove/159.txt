@@ -1,0 +1,9 @@
+@@ -61,9 +61,6 @@ contract DappTest is DSTest, ShellSetup {
+         pool.activateShell(shell7);
+         pool.activateShell(shell8);
+ 
+-        emit log_named_uint("shell 3 liq", shell3Liquidity);
+-        emit log_named_uint("shell 3 D balance ", pool.getShellBalanceOf(shell3, address(testD)));
+-        emit log_addrs("shell 3 tokens", Shell(shell3).getTokens());
+     }
+ 

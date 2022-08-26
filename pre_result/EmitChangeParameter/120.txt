@@ -1,0 +1,8 @@
+@@ -156,7 +178,7 @@ contract Governance is Policy {
+       VOTES.transferFrom(msg.sender, address(this), userVotes);
+       
+       // emit the corresponding event
+-      emit UserVoted(activeProposal.instructionsId, msg.sender, userVotes);
++      emit WalletVoted(activeProposal.instructionsId, msg.sender, userVotes);
+ 
+     }

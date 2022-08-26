@@ -1,0 +1,9 @@
+@@ -209,7 +211,8 @@ contract ArbitrableAddressList is PermissionInterface, Arbitrable {
+         uint _winnerStakeMultiplier,
+         uint _loserStakeMultiplier
+     ) Arbitrable(_arbitrator, _arbitratorExtraData) public {
+-        emit MetaEvidence(0, _metaEvidence);
++        emit MetaEvidence(0, _registrationMetaEvidence);
++        emit MetaEvidence(1, _clearingMetaEvidence);
+         governor = _governor;
+         arbitrationFeesWaitingTime = _arbitrationFeesWaitingTime;

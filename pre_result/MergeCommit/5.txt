@@ -1,0 +1,8 @@
+@@ -53,7 +77,7 @@ contract ConquerMode is ZBGameMode  {
+ 
+         //TODO make sure ticket is only used once
+ 
+-        emit ZBGameMode.UserRegistered(useraddr);
++        emit UserRegistered(useraddr);
+     }
+ 

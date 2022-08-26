@@ -1,0 +1,32 @@
+@@ -161,27 +162,27 @@ abstract contract ERC721 is IERC721, IERC721Metadata {
+     /// @param approved The new approved address for the NFT
+     /// @param id The NFT to approve
+     function approve(address approved, uint256 id) public virtual {
+-        address owner = ownerOf[tokenId];
++        address owner = ownerOf[id];
+ 
+         if (msg.sender != owner && !isApprovedForAll[owner][msg.sender]) {
+             revert UnauthorizedSender();
+         }
+ 
+         getApproved[id] = approved;
+ 
+-        emit Approval(owner, spender, id);
++        emit Approval(owner, approved, id);
+     }
+ 
+     /// @notice Sets the operator for `msg.sender` to `operator`.
+-    /// @param operator The operator that will manage the sender's NFTs
+-    /// @param approved Whether the operator is allowed to operate sender's NFTs
++    /// @param operator The operator that will manage the sender"s NFTs
++    /// @param approved Whether the operator is allowed to operate sender"s NFTs
+     function setApprovalForAll(address operator, bool approved) public virtual {
+         isApprovedForAll[msg.sender][operator] = approved;
+         emit ApprovalForAll(msg.sender, operator, approved);
+     }
+ 
+     /// @notice Checks if interface of identifier `interfaceId` is supported.
+-    /// @param interfaceId Interface's ERC-165 identifier 
++    /// @param interfaceId Interface"s ERC-165 identifier 
+     /// @return `true` if `interfaceId` is supported, `false` otherwise.
+     function supportsInterface(bytes4 interfaceId) public pure virtual returns (bool) {

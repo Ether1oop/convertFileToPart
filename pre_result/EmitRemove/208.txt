@@ -1,0 +1,7 @@
+@@ -316,7 +316,6 @@ contract BathPair {
+                     BathToken(bathQuoteAddress).cancel(
+                         outstandingPairIDs[x][1]
+                     );
+-                    emit LogNote("cancelled: ", outstandingPairIDs[x][1]);
+                     // true if quote fills -> asset yield
+                     logFill(outstandingPairIDs[x][0], true);

@@ -1,0 +1,8 @@
+@@ -129,6 +136,8 @@ library Shells {
+ 
+         }
+ 
++        emit log_int("fee_", fee_.muli(1e6));
++
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -87,7 +87,7 @@ contract ERC1155MixedFungibleMintable is ERC1155MixedFungible {
+             // Emit the Transfer/Mint event.
+             // the 0x0 source address implies a mint
+             // It will also provide the circulating supply info.
+-            emit TransferSingle(msg.sender, 0x0, to, _id, quantity);
++            emit TransferSingle(msg.sender, address(0x0), to, _id, quantity);
+ 
+             if (to.isContract()) {

@@ -1,0 +1,19 @@
+@@ -279,17 +279,17 @@ contract HiveTemplate is BaseTemplate {
+         // Dot-voting permissions
+         acl.createPermission(ANY_ENTITY, dotVoting, dotVoting.ROLE_CREATE_VOTES(), mbrVoting);
+         acl.createPermission(ANY_ENTITY, dotVoting, dotVoting.ROLE_ADD_CANDIDATES(), mbrVoting);
+-        emit InstalledApp(dotVoting, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("dot-voting")));
++        emit InstalledApp(dotVoting, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("dot-voting-preview"))));
+ 
+         // Allocations permissions:
+         acl.createPermission(mbrVoting, allocations, allocations.CREATE_ACCOUNT_ROLE(), mbrVoting);
+         acl.createPermission(dotVoting, allocations, allocations.CREATE_ALLOCATION_ROLE(), mbrVoting);
+         acl.createPermission(ANY_ENTITY, allocations, allocations.EXECUTE_ALLOCATION_ROLE(), mbrVoting);
+-        emit InstalledApp(allocations, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("allocations"))));
++        emit InstalledApp(allocations, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("allocations-preview"))));
+ 
+         // Rewards permissions:
+         acl.createPermission(mbrVoting, rewards, rewards.ADD_REWARD_ROLE(), mbrVoting);
+-        emit InstalledApp(rewards, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("rewards")));
++        emit InstalledApp(rewards, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("rewards-preview"))));
+     }

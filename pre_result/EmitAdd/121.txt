@@ -1,0 +1,8 @@
+@@ -91,7 +88,7 @@ contract StrategyQsMaiUsdt is IStrategy, AccessControlUpgradeable, UUPSUpgradeab
+         mai = IERC20(_mai);
+         usdt = IERC20(_usdt);
+         usdc = IERC20(_usdc);
+-        emit ConnectorQuickswapUsdtMai(_router, _pair, _mai, _usdt, _usdc);
++        emit ConnectorQuickswapUsdtMaiUpdated(_router, _pair, _mai, _usdt, _usdc);
+     }
+ 

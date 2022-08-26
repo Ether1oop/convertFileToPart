@@ -1,0 +1,8 @@
+@@ -83,6 +81,8 @@ library Shells {
+             int128 _ideal = _grossLiq.mul(_weights[i]);
+             psi_ += calculateMicroFee(_bals[i], _ideal, _beta, _delta);
+         }
++        
++        emit log('~<>~<>~<>~<>~<>~<>~<>~');
+ 
+     }

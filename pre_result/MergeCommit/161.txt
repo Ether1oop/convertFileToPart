@@ -1,0 +1,8 @@
+@@ -115,7 +121,7 @@ contract ClockAuction is AuctionRelated {
+ 
+         // Tell the world!
+         // 0x0 refers to ETH
+-        emit NewBid(_tokenId, _buyer, _referer, priceInRING, 0x0, bidMoment);
++        emit NewBid(_tokenId, _buyer, _referer, priceInETH, 0x0, bidMoment);
+ 
+         return priceInRING;

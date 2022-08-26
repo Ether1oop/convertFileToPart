@@ -1,0 +1,7 @@
+@@ -11,6 +11,6 @@ contract DSTokenFactory {
+         result = new DSToken(symbol);
+         result.setName(name);
+         result.setOwner(msg.sender);
+-        emit LogMake(msg.sender, result);
++        emit LogMake(msg.sender, address(result));
+     }

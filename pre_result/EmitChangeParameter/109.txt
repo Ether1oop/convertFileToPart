@@ -1,0 +1,8 @@
+@@ -78,7 +76,7 @@ contract MapleLoanFactory is IMapleLoanFactory, ProxyFactory {
+         ( success_, loan_ ) = _newInstanceWithSalt(defaultVersion, arguments_, keccak256(abi.encodePacked(msg.sender, nonceOf[msg.sender]++)));
+         require(success_, "MLF:CL:FAILED");
+ 
+-        emit LoanDeployed(defaultVersion, loanAtIndex[loanCount++] = loan_, arguments_);
++        emit LoanDeployed(defaultVersion, loan_, arguments_);
+     }
+ 

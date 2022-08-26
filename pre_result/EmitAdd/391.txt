@@ -1,0 +1,12 @@
+@@ -204,7 +208,12 @@ library Shells {
+ 
+                 if (_prev / 1e14 == _next / 1e14) break;
+ 
++
++                emit log_uint("end gas ", gasleft());
++                emit log_int("_assims[1].amt", assims_[1].amt.muli(1e18));
++
+             }
++                emit log_uint("end gas ", gasleft());
+ 
+         }

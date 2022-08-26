@@ -1,0 +1,8 @@
+@@ -193,7 +193,7 @@ abstract contract PendleForgeBase is IPendleForge, Permissions {
+         tokens.ot.mint(_to, amountToMint);
+         tokens.xyt.mint(_to, amountToMint);
+ 
+-        emit MintYieldToken(_underlyingAsset, _expiry, amountToMint);
++        emit MintYieldToken(forgeId, _underlyingAsset, _expiry, amountToMint);
+         return (address(tokens.ot), address(tokens.xyt));
+     }

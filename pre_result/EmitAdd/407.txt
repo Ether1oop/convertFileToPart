@@ -1,0 +1,7 @@
+@@ -263,7 +299,6 @@ contract PendleMarket is IPendleMarket, PendleBaseToken {
+ 
+         // Update reserves and operate underlying LP and inToken.
+         inTokenReserve.balance = inTokenReserve.balance.add(exactIn);
+-        emit Join(inToken, exactIn);
+         _transferIn(inToken, exactIn);
+ 

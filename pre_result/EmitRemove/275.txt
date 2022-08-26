@@ -1,0 +1,7 @@
+@@ -299,6 +292,7 @@ contract Loihi is LoihiRoot {
+             _tNAmt = wmul(_tNAmt, WAD - _fee);
+             tNAmt_ = wmul(_tNAmt, WAD - feeBase);
+ 
++            emit log_uint("zing", tNAmt_);
+         } else {
+ 

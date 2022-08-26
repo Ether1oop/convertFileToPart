@@ -1,0 +1,8 @@
+@@ -353,7 +356,7 @@ contract xvUSDT is ERC20 {
+ 
+   function _revokeStrategy(address _strategy) internal {
+     strategies[_strategy].debtRatio = 0;
+-    emit StrategyRevoked(strategy);
++    emit StrategyRevoked(_strategy);
+   }
+ 

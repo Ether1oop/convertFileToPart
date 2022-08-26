@@ -1,0 +1,8 @@
+@@ -141,6 +141,6 @@ contract RewardedVault is Vault {
+         lastUpdateTime = block.timestamp;
+         periodFinish = block.timestamp.add(DURATION);
+ 
+-        emit RewardAdded(Controller(controller).rewardToken(), _reward);
++        emit RewardAdded(IController(controller).rewardToken(), _reward);
+     }
+ }

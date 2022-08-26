@@ -1,0 +1,9 @@
+@@ -220,6 +227,9 @@ contract IsolatedMarginRouter is RoleAware, BaseRouter {
+         );
+ 
+         _fundSwapT4ExactT(amounts, amountInMax, pairs, tokens);
++        emit IsolatedAccountUpdated(msg.sender, _isolatedPair);
++        emit IsolatedMarginTrade(msg.sender, tokens[0], tokens[tokens.length -1], amounts[0], amounts[amounts.length - 1]);
++
+     }
+ 

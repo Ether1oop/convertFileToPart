@@ -1,0 +1,8 @@
+@@ -98,7 +101,7 @@ contract DNSSECImpl is DNSSEC, Owned {
+      */
+     function setAlgorithm(uint8 id, Algorithm algo) public owner_only {
+         algorithms[id] = algo;
+-        emit AlgorithmUpdated(id, algo);
++        emit AlgorithmUpdated(id, address(algo));
+     }
+ 

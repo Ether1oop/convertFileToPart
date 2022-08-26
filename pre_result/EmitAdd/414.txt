@@ -1,0 +1,7 @@
+@@ -471,6 +494,7 @@ contract Repayments is Initializable, IRepayment, ReentrancyGuard {
+         } else {
+             IERC20(_asset).safeTransferFrom(msg.sender, _poolID, _amount);
+         }
++        emit PrincipalRepaid(_poolID, _amount);
+ 
+         IPool(_poolID).closeLoan();

@@ -1,0 +1,8 @@
+@@ -397,7 +397,7 @@ contract KashiPair is ERC20, BoringOwnable, IMasterContract {
+ 
+         (totalBorrow, part) = totalBorrow.add(amount.add(feeAmount), true);
+         userBorrowPart[msg.sender] = userBorrowPart[msg.sender].add(part);
+-        emit LogBorrow(msg.sender, to, amount.add(feeAmount), part);
++        emit LogBorrow(msg.sender, to, amount, feeAmount, part);
+ 
+         share = bentoBox.toShare(asset, amount, false);

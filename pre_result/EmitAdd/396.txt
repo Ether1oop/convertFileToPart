@@ -1,0 +1,7 @@
+@@ -426,6 +430,7 @@ contract ArbitrableAddressList is PermissionInterface, Arbitrable {
+                 request.disputeID = arbitrator.createDispute.value(cost)(2, arbitratorExtraData);
+                 disputeIDToAddress[request.disputeID] = _address;
+                 request.disputed = true;
++                emit Dispute(arbitrator, request.disputeID, addr.status == AddressStatus.RegistrationRequested ? 0 : 1);
+             } else {
+                 // Later round, raise an appeal.

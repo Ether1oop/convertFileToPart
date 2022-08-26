@@ -1,0 +1,9 @@
+@@ -113,8 +113,8 @@ contract WooAccessManager is IWooAccessManager, Ownable, Pausable {
+         for (uint256 i = 0; i < rebateAdmins.length; i++) {
+             require(rebateAdmins[i] != address(0), 'WooAccessManager: rebateAdmin_ZERO_ADDR');
+             isRebateAdmin[rebateAdmins[i]] = flags[i];
++            emit RebateAdminUpdated(rebateAdmins[i], flags[i]);
+         }
+-        emit BatchRebateAdminUpdated(rebateAdmins, flags);
+     }
+ 

@@ -1,0 +1,9 @@
+@@ -370,9 +338,6 @@ contract Loihi is LoihiRoot {
+ 
+     function selectiveWithdraw (address[] calldata _flavors, uint256[] calldata _amounts) external returns (uint256) {
+ 
+-        emit log_uint_arr("amounts", _amounts);
+-        emit log_address_arr("flavors", _flavors);
+-
+         uint256 newSum;
+         uint256 oldSum;

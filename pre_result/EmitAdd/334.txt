@@ -1,0 +1,7 @@
+@@ -315,6 +318,7 @@ contract ImpermanentGain is Ownable, ERC20Mintable {
+         _b = getAmountIn(amount, poolB, poolA);
+         poolA = poolA.sub(amount);
+         poolB = poolB.add(_b);
++        emit Swap(msg.sender, false, _b, amount);
+         _b = _b.add(amount);
+         require(_b <= max_b, "SLIPPAGE_DETECTED");

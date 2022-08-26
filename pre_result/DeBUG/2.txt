@@ -1,0 +1,8 @@
+@@ -129,7 +129,7 @@ contract NFTXStakingZap is OwnableUpgradeable, ERC721HolderUpgradeable, ERC1155H
+     address xLPtoken = lpStaking.rewardDistributionToken(vaultId);
+     IERC20Upgradeable(xLPtoken).transfer(msg.sender, lockedBal);
+ 
+-    emit Withdraw(vaultId, lockedBal)
++    emit Withdraw(vaultId, lockedBal);
+   }
+ 

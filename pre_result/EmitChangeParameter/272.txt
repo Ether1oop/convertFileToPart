@@ -1,0 +1,8 @@
+@@ -317,7 +325,7 @@ abstract contract ERC721 {
+    */
+   function _approve(address to, uint256 tokenId) internal virtual {
+     _tokenApprovals[tokenId] = to;
+-    emit Approval(ERC721.ownerOf(tokenId), to, tokenId);
++    emit Approval(_owners[tokenId], to, tokenId);
+   }
+ 

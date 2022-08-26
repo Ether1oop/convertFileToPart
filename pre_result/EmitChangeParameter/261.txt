@@ -1,0 +1,13 @@
+@@ -191,11 +191,11 @@ library Orchestrator {
+ 
+         emit AssetIncluded(_numeraire, _reserve, _weight);
+ 
+-        emit AssimilatorIncluded(_numeraire, _numeraire, _numeraire, _numeraireAssim);
++        emit AssimilatorIncluded(_numeraire, _numeraire, _reserve, _numeraireAssim);
+ 
+         if (_numeraireAssim != _reserveAssim) {
+ 
+-            emit AssimilatorIncluded(_numeraire, _numeraire, _reserve, _reserveAssim);
++            emit AssimilatorIncluded(_reserve, _numeraire, _reserve, _reserveAssim);
+ 
+         }

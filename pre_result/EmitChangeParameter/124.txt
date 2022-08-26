@@ -1,0 +1,18 @@
+@@ -252,14 +150,14 @@ contract MolGamma { // Γ - mv - NFT - mkt - γ
+         emit ApprovalForAll(msg.sender, operator, approved);
+     }
+     function _transfer(address from, address to, uint256 tokenId) internal {
+-        balanceOf[from]--;
+-        balanceOf[to]++;
++        balanceOf[from]--; 
++        balanceOf[to]++; 
+         getApproved[tokenId] = address(0);
+         ownerOf[tokenId] = to;
+-        sale[tokenId].forSale = false;
++        sale[tokenId].forSale = 0;
+         tokenOfOwnerByIndex[from][tokenId - 1] = 0;
+         tokenOfOwnerByIndex[to][tokenId - 1] = tokenId;
+-        emit Transfer(from, to, tokenId);
++        emit Transfer(from, to, tokenId); 
+     }
+     function transfer(address to, uint256 tokenId) external {

@@ -1,0 +1,13 @@
+@@ -525,10 +524,10 @@ contract Loihi is LoihiRoot {
+             int128[] memory _oBals,
+             int128[] memory _nBals ) = getLiquidityData(_flvrs, _amts, true, address(0));
+ 
+-        emit log_int("_oGLiq", _oGLiq.muli(1e18));
+-        emit log_int("_nGLiq", _nGLiq.muli(1e18));
+-        emit log_ints("_oBals", _oBals);
+-        emit log_ints("_nBals", _nBals);
++        // emit log_int("_oGLiq", _oGLiq.muli(1e18));
++        // emit log_int("_nGLiq", _nGLiq.muli(1e18));
++        // emit log_ints("_oBals", _oBals);
++        // emit log_ints("_nBals", _nBals);
+ 

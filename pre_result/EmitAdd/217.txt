@@ -1,0 +1,8 @@
+@@ -29,6 +29,8 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+             }
+         }
+ 
++        emit log_uint("zing", 0);
++
+         return (balances_, tokenAmounts_, weights_);
+ 

@@ -1,0 +1,7 @@
+@@ -395,7 +402,6 @@ contract DOSProxy is Ownable {
+             if (removed && prev == HEAD_I) {
+                 if (backToPendingPool && pendingNodeList[member] == address(0)) {
+                     insertToPendingNodeListTail(member);
+-                    emit LogRegisteredNewPendingNode(member);
+                 }
+             }

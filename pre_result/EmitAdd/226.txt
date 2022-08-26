@@ -1,0 +1,8 @@
+@@ -187,6 +192,7 @@ contract DPoS is Ownable, Pausable, Whitelist, Govern {
+         require(valSigners[_signer].valAddr == address(0), "Signer already used");
+         validator.signer = _signer;
+         valSigners[_signer] = ValSigner(valAddr, false);
++        emit ValidatorParamsUpdate(valAddr, _signer, validator.minSelfDelegation, validator.commissionRate);
+     }
+ 
+     /**

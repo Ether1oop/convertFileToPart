@@ -1,0 +1,8 @@
+@@ -152,7 +149,7 @@ contract CreditProvider is ManagedContract {
+                 applyDebtInterestRate(from);
+                 setDebt(from, debts[from].add(credit));
+                 addBalance(to, credit);
+-                emit AccumulateDebt(to, value);
++                emit AccumulateDebt(to, credit);
+             }
+         }

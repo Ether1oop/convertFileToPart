@@ -1,0 +1,15 @@
+@@ -55,13 +71,15 @@ contract NudgePool is NPStorage, NPProxy, Pausable {
+         external onlyOwner
+     {
+         _pause();
++        emit Paused(msg.sender);
+     }
+ 
+     function unPause(
+     )
+         external onlyOwner
+     {
+         _unpause();
++        emit Unpaused(msg.sender);
+     }
+ 

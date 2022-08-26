@@ -1,0 +1,11 @@
+@@ -51,9 +55,10 @@ contract PoolFactory {
+         arrayTokens.push(_token);
+         isListedPool[pool] = true;
+         Pool(pool).addForMember(msg.sender);
+-        emit CreatePool(token,pool);
++        emit CreatePool(token, pool);
+         return pool;
+     }
++
+     function createPool(address token) external onlyDAO returns(address pool){
+         require(getPool(token) == address(0));

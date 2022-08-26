@@ -1,0 +1,8 @@
+@@ -164,7 +164,7 @@ contract VeJoeStaking is Initializable, OwnableUpgradeable {
+             "VeJoeStaking: expected new _maxCapPct to be non-zero and <= 10000000"
+         );
+         maxCapPct = _maxCapPct;
+-        emit UpdateMaxCapPct(msg.sender, _maxCapPct);
++        emit UpdateMaxCapPct(_msgSender(), _maxCapPct);
+     }
+ 

@@ -1,0 +1,22 @@
+@@ -90,13 +92,17 @@ contract Portfolios is PortfoliosStorage, IPortfoliosCallable, Governed {
+      * @notice Sets the haircut amount for liquidity token claims, this is set to a percentage
+      * less than 1e18, for example, a 5% haircut will be set to 0.95e18.
+      * @dev governance
+-     * @param haircut amount of negative haircut applied to debt
++     * @param liquidityHaircut amount of negative haircut applied to token claims
++     * @param fCashHaircut amount of negative haircut applied to fcash
++     * @param fCashMaxHaircut max haircut amount applied to fcash
+      */
+-    function setHaircut(uint128 haircut) external onlyOwner {
+-        G_LIQUIDITY_HAIRCUT = haircut;
+-        Escrow().setLiquidityHaircut(haircut);
++    function setHaircuts(uint128 liquidityHaircut, uint128 fCashHaircut, uint128 fCashMaxHaircut) external onlyOwner {
++        PortfoliosStorageSlot._setLiquidityHaircut(liquidityHaircut);
++        PortfoliosStorageSlot._setfCashHaircut(fCashHaircut);
++        PortfoliosStorageSlot._setfCashMaxHaircut(fCashMaxHaircut);
++        Escrow().setLiquidityHaircut(liquidityHaircut);
+ 
+-        emit SetLiquidityHaircut(haircut);
++        emit SetHaircuts(liquidityHaircut, fCashHaircut, fCashMaxHaircut);
+     }
+ 

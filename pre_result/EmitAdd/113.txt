@@ -1,0 +1,7 @@
+@@ -201,6 +201,7 @@ contract LRCToken is StandardToken {
+         balances[burner] = balances[burner].sub(_value);
+         totalSupply_ = totalSupply_.sub(_value);
+         emit Burn(burner, _value);
++        emit Transfer(burner, 0x0, _value);
+         return true;
+     }

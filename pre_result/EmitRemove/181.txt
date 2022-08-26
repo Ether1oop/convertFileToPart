@@ -1,0 +1,13 @@
+@@ -77,11 +77,11 @@ library Shells {
+         int128[] memory _weights = shell.weights;
+ 
+         for (uint i = 0; i < _weights.length; i++) {
+-            int128 _ideal = _grossLiq.mul(_weights[i]);
++            int128 _ideal = _grossLiq.unsafe_mul(_weights[i]);
+             psi_ += calculateMicroFee(_bals[i], _ideal, _beta, _delta);
+         }
+         
+-        emit log('~<>~<>~<>~<>~<>~<>~<>~');
++        // emit log('~<>~<>~<>~<>~<>~<>~<>~');
+ 
+     }

@@ -1,0 +1,9 @@
+@@ -66,8 +67,6 @@ abstract contract int_mint_ERC721_v1 is
+         erc721Store().balances[to] += 1;
+         erc721Store().owners[tokenId] = to;
+ 
+-        emit Transfer(address(0), to, tokenId);
++        emit ERC721EventsLib.Transfer(address(0), to, tokenId);
+     }
+ }
+-

@@ -1,0 +1,8 @@
+@@ -227,7 +227,7 @@ contract CommunityNFT is ERC721, ERC721URIStorage, AccessControl, ReentrancyGuar
+         public onlyOperator
+     {
+         credEarned[nftId] = credEarned[nftId] + newCredEarned;
+-
++        emit CREDAdded(nftId, newCredEarned);
+     }
+ 

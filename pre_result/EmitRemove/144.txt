@@ -1,0 +1,7 @@
+@@ -327,7 +327,6 @@ contract GebUniswapV3LiquidityManager is ERC20 {
+         uint256 collected0 = 0;
+         uint256 collected1 = 0;
+ 
+-        emit DEPOL(position.uniLiquidity);
+         // A possible optimization is to only rebalance if the tick diff is significant enough
+         if (position.uniLiquidity > 0 || (position.lowerTick != _nextLowerTick || _currentUpperTick != _nextUpperTick)) {

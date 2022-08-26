@@ -1,0 +1,8 @@
+@@ -135,7 +119,7 @@ contract AnchorAccount is Ownable {
+         ActionFlag = true;
+ 
+         // emit initdeposit event
+-        emit InitDeposit(tx.origin, amount, terraAddress);
++        emit InitDeposit(msg.sender, amount, terraAddress);
+     }
+ 

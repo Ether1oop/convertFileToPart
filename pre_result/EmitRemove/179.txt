@@ -1,0 +1,10 @@
+@@ -110,10 +110,6 @@ contract Loihi is LoihiRoot {
+     event log_address(bytes32, address);
+     event log_uint(bytes32, uint256);
+     function executeOriginTrade (address origin, address target, uint256 oAmt, uint256 minTargetAmount, uint256 deadline, address recipient) public returns (uint256) {
+-        emit log_address("origin", origin);
+-        emit log_address("target", target);
+-        emit log_uint("oAmt", oAmt);
+-        emit log_uint("minTargetAmount", minTargetAmount);
+ 
+         uint256 oNAmt; // origin numeraire amount

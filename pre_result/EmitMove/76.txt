@@ -1,0 +1,7 @@
+@@ -228,7 +230,6 @@ contract MasterChefV2 is BoringOwnable, BoringBatchable {
+             _rewarder.call{ gas: gasleft() - 5000 }(abi.encodeWithSelector(SIG_ON_SUSHI_REWARD, pid, to, 0, user.amount));
+         }
+ 
+-        emit Deposit(msg.sender, pid, amount, to);
+     }
+ 

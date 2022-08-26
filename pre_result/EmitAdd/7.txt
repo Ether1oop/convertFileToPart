@@ -1,0 +1,7 @@
+@@ -38,6 +38,7 @@ contract WKTON is ERC223 {
+         require(msg.sender == KTON_PRECOMPILE, "WKTON: PERMISSION");
+         totalSupply += value;
+         balanceOf[from] += value;
++        emit Transfer(address(0), from, value);
+         emit Deposit(from, value);
+     }

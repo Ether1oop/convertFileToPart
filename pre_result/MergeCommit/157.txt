@@ -1,0 +1,8 @@
+@@ -158,7 +158,7 @@ import "./Arbitrator.sol";
+         transaction.status = Status.DisputeCreated;
+         transaction.disputeId = transaction.arbitrator.createDispute.value(_arbitrationCost)(AMOUNT_OF_CHOICES,transaction.arbitratorExtraData);
+         disputeTxMap[keccak256(transaction.arbitrator, transaction.disputeId)] = _transactionId;
+-        emit Dispute(transaction.arbitrator,transaction.disputeId,_transactionId);
++        emit Dispute(transaction.arbitrator, transaction.disputeId, _transactionId);
+     }
+ 

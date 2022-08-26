@@ -1,0 +1,8 @@
+@@ -380,8 +384,6 @@ library StreamSwapLibrary {
+                 });
+                 newSfCtx = updateTrade(ctx, superToken, newSfCtx, newEntry, entry, state);
+ 
+-                emit LOG_SET_FLOW(context.msgSender, address(superToken), entry.destSuperToken, 0, 0, 0);
+-
+                 // update dest super token if it has changed
+                 if (args[i].destSuperToken != entry.destSuperToken) {

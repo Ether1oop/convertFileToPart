@@ -1,0 +1,8 @@
+@@ -433,8 +411,6 @@ contract SyscoinSuperblocks is SyscoinSuperblocksI, SyscoinErrorCodes {
+             emit VerifyTransaction(bytes32(_txHash), ERR_MERKLE_ROOT);
+             return (ERR_MERKLE_ROOT);
+         }
+-
+-        emit VerifyTransaction(bytes32(_txHash), 1);
+         return (1);
+     }

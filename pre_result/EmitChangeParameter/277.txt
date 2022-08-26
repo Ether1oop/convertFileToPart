@@ -1,0 +1,8 @@
+@@ -481,7 +480,7 @@ contract BathPair {
+                 uint maxSize = maxOrderSizeProportion * underlyingBalance / 100;
+                 uint shapeFactor = (SafeMath.eN() / SafeMath.eD());// ** (ABDKMath64x64.mulu(shapeCoef, ratio) / 1000);
+                 uint dynamicSize = maxSize * shapeFactor / 100; //TODO: determine the correct precision here
+-                emit LogNote("dynamic maxSize Asset", dynamicSize);
++                emit LogNote("dynamic maxSize Quote", dynamicSize);
+                 return dynamicSize;
+             }

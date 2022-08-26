@@ -1,0 +1,7 @@
+@@ -279,7 +305,6 @@ contract StrategyCurve is Strategy, QuickswapExchange {
+             totalUsdc += wmaticUsdc;
+         }
+ 
+-        emit Reward(totalUsdc);
+         return totalUsdc;
+     }

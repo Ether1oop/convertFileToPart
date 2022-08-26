@@ -1,0 +1,12 @@
+@@ -178,10 +178,10 @@ contract Vault is ERC20, Auth {
+     function deposit(uint256 underlyingAmount) external {
+         _mint(msg.sender, underlyingAmount.fdiv(exchangeRate(), BASE_UNIT));
+ 
++        emit Deposit(msg.sender, underlyingAmount);
++
+         // Transfer in underlying tokens from the sender.
+         UNDERLYING.safeTransferFrom(msg.sender, address(this), underlyingAmount);
+-
+-        emit Deposit(msg.sender, underlyingAmount);
+     }
+ 

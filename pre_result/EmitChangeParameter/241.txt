@@ -1,0 +1,8 @@
+@@ -206,7 +206,7 @@ contract SynapseBridge is Initializable, AccessControlUpgradeable, ReentrancyGua
+     require(hasRole(NODEGROUP_ROLE, msg.sender), 'Caller is not a node group');
+     require(amount > fee, 'Amount must be greater than fee');
+     fees[address(token)] = fees[address(token)].add(fee);
+-    emit TokenMint(to, token, amount, fee, kappa);
++    emit TokenMint(to, token, amount.sub(fee), fee, kappa);
+     token.mint(address(this), amount);
+     IERC20(token).safeTransfer(to, amount.sub(fee));

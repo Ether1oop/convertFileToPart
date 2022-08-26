@@ -1,0 +1,8 @@
+@@ -648,7 +654,7 @@ contract XPool is XApollo, XPToken, XConst {
+         inRecord.balance = (inRecord.balance).badd(tokenAmountIn);
+ 
+         _pushUnderlying(tokenIn, SAFU, _safuFee);
+-        emit LOG_JOIN(msg.sender, tokenIn, tokenAmountIn);
++        emit LOG_SINGLE_JOIN(msg.sender, tokenIn, tokenAmountIn);
+         _mintPoolShare(poolAmountOut);
+         _pushPoolShare(msg.sender, poolAmountOut);

@@ -1,0 +1,13 @@
+@@ -963,11 +1016,11 @@ contract DOSProxy is Ownable {
+             workingGroups[groupId] = Group(
+                 groupId,
+                 BN256.G2Point([suggestedPubKey[0], suggestedPubKey[1]], [suggestedPubKey[2], suggestedPubKey[3]]),
+-                numPendingGroups*lifeMagnify,
++                numPendingGroups*lifeDiversity,
+                 block.number,
+                 memberArray
+             );
+-
++            emit LogGroupBuild(groupId,numPendingGroups*lifeDiversity+groupMaturityPeriod,block.number);
+             // Update pendingGroupList
+             (uint prev, bool removed) = removeIdFromList(pendingGroupList, groupId);

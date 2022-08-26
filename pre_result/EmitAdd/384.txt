@@ -1,0 +1,7 @@
+@@ -169,6 +191,7 @@ contract LoihiLiquidity is LoihiRoot, LoihiDelegators {
+         uint256 _numeraireShellsToBurn;
+ 
+         for (uint i = 0; i < reserves.length; i++) {
++            emit log_uint("i", i);
+             if (_withdrawals[i] == 0) continue;
+             uint256 _withdrawal = _withdrawals[i];

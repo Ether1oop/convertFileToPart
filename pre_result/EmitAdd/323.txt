@@ -1,0 +1,8 @@
+@@ -176,6 +180,8 @@ contract OverlayV1Comptroller {
+ 
+         brrrr_ = _rollerNow.brrrr - _rollerThen.brrrr;
+ 
++        emit log("brrrr_", brrrr_);
++
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -107,7 +107,7 @@ contract NurseParts is NursePartsInterface {
+         require(msg.sender == cloneNurses);
+         
+         balances[id][owner] -= value;
+-        emit TransferSingle(msg.sender, owner, address(0), id, amount);
++        emit TransferSingle(msg.sender, owner, address(0), id, value);
+ 
+         emit Burn(owner, id, value);

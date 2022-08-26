@@ -1,0 +1,7 @@
+@@ -71,6 +71,7 @@ contract BlockRelay {
+     lastBlock.epoch = _epoch;
+     blocks[id].drHashMerkleRoot = _drMerkleRoot;
+     blocks[id].tallyHashMerkleRoot = _tallyMerkleRoot;
++    emit NewBlock(witnet, id);
+   }
+ 

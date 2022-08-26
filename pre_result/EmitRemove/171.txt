@@ -1,0 +1,12 @@
+@@ -114,12 +114,9 @@ contract PrototypeOne is DSMath {
+ 
+             string memory tokenName = tokens[i].name();
+             uint8 decimals = tokens[i].decimals();
+-            emit log("name", tokenName);
+-            emit log_named_uint("decimals", decimals);
+             uint256 adjustedAmount = decimals <= 18
+                 ? amountsWithdrawn[i] / pow(10, 18 - decimals)
+                 : mul(amountsWithdrawn[i], pow(10, decimals - 18));
+-            emit log_named_uint("adjusted Amount", adjustedAmount);
+ 
+             tokens[i].transfer(msg.sender, adjustedAmount);

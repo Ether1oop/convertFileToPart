@@ -1,0 +1,16 @@
+@@ -161,14 +161,14 @@ contract DappManager is BaseModule, RelayerModule, LimitManager {
+         BaseWallet _wallet, 
+         address _dapp,
+         address _contract,
+-        bytes4[] _signatures
++        bytes4[] calldata _signatures
+     ) 
+         external 
+         onlyOwner(_wallet) 
+         onlyWhenUnlocked(_wallet)
+     {
+         dappStorage.setMethodAuthorization(_wallet, _dapp, _contract, _signatures, false);
+-        emit ContractCallDeauthorized(_wallet, _dapp, _contract, _signatures);
++        emit ContractCallDeauthorized(address(_wallet), _dapp, _contract, _signatures);
+     }
+ 

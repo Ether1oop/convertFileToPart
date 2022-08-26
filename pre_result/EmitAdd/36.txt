@@ -1,0 +1,21 @@
+@@ -189,18 +197,18 @@ contract FlightDelayEtheriscOracle is Product {
+         );
+ 
+         if (payoutOptions.length != calculatedPayouts.length) {
+-            emit LogError("ERROR::INVALID_PAYOUT_OPTIONS_COUNT");
++            emit LogError("ERROR::INVALID_PAYOUT_OPTIONS_COUNT"); // TODO: what happens with the application?
+             return;
+         }
+ 
+         for (uint256 i = 0; i < 5; i++) {
+             if (payoutOptions[i] != calculatedPayouts[i]) {
+-                emit LogError("ERROR::INVALID_PAYOUT_OPTION");
++                emit LogError("ERROR::INVALID_PAYOUT_OPTION"); // TODO: see above
+                 return;
+             }
+ 
+             if (payoutOptions[i] > MAX_PAYOUT) {
+-                emit LogError("ERROR::PAYOUT>MAX_PAYOUT");
++                emit LogError("ERROR::PAYOUT>MAX_PAYOUT"); // TODO: see above
+                 return;
+             }

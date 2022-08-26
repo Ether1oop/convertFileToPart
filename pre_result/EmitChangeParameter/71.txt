@@ -1,0 +1,8 @@
+@@ -97,7 +97,7 @@ contract Profile is ERC721("Profile", "Profile"), Ownable {
+             "set avator of token that is not own"
+         );
+         avatar[msg.sender] = tokenId;
+-        emit SetAvatar(msg.sender, 0);
++        emit SetAvatar(msg.sender, tokenId);
+     }
+ 

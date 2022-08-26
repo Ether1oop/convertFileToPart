@@ -1,0 +1,8 @@
+@@ -238,6 +240,8 @@ contract Vault is ERC20, DSTestPlus {
+ 
+             // Redeem all tokens from the pool.
+             if (pool.isCEther()) {
++                // A log to check if the coverage report is valid.
++                emit log("Function _withdrawFromPool, if(cEther) not covered");
+                 // Withdraw from the pool.
+                 pool.redeem(pool.balanceOf(address(this)));

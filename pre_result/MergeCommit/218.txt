@@ -1,0 +1,11 @@
+@@ -233,8 +245,10 @@ contract HermesImplementation is FundsRecovery, Utils {
+ 
+         // Settle promise and transfer calculated amount into beneficiary wallet
+         bytes32 _channelId = getChannelId(_identity);
+-        uint256 _amountToTransfer = _settlePromise(_channelId, _identity, _newBeneficiary, _amount, _transactorFee, _preimage, _promiseSignature, true);
++        (uint256 _amountToTransfer, uint256 _fees) = _settlePromise(_channelId, _amount, _transactorFee, _preimage, _promiseSignature, true, false);
+         token.transfer(_newBeneficiary, _amountToTransfer);
++
++        emit PromiseSettled(_identity, _channelId, _newBeneficiary, _amountToTransfer, _fees, _preimage);
+     }
+ 

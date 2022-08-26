@@ -1,0 +1,7 @@
+@@ -173,7 +170,6 @@ contract LexToken {
+         saleRate = _saleRate;
+         forSale = _forSale;
+         mint(address(this), amount);
+-        emit Transfer(address(0), address(this), amount);
+     }
+     

@@ -1,0 +1,8 @@
+@@ -82,6 +90,8 @@ contract  GringottsBank is Ownable, BankSettingIds {
+         // call Ownable's constructor
+         owner = msg.sender;
+ 
++        emit LogSetOwner(msg.sender);
++
+         registry = ISettingsRegistry(_registry);
+     }

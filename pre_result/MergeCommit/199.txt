@@ -1,0 +1,8 @@
+@@ -178,6 +182,8 @@ contract Snowflake is Ownable {
+         for (uint i; i < resolvers.length; i++) {
+             identity.thirdPartyResolvers.insert(resolvers[i]);
+         }
++
++        emit AddedResolver(tokenId, resolvers);
+     }
+ 

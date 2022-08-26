@@ -1,0 +1,8 @@
+@@ -78,7 +78,7 @@ contract MoonLotto {
+         // Update prize Amount
+         prizeAmount = address(this).balance;
+         // Emit event
+-        emit PlayerJoined(_entry, currentRound, isGift[_entry], prizeAmount);
++        emit PlayerJoined(_entry, currentRound, isGift[isGift.length-1], prizeAmount);
+         // Pick Winner if conditions are met
+         if (

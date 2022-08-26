@@ -1,0 +1,8 @@
+@@ -52,7 +52,7 @@ contract BaseModule is Module {
+      * @param _wallet The wallet.
+      */
+     function init(BaseWallet _wallet) external onlyWallet(_wallet) {
+-        emit ModuleInitialised(_wallet);
++        emit ModuleInitialised(address(_wallet));
+     }
+ 

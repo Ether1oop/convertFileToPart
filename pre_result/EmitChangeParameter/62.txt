@@ -1,0 +1,8 @@
+@@ -130,7 +114,7 @@ contract Cash is Ownable {
+     user.amount = 0;
+     stakeToken.safeTransfer(burnAddress, amount);
+     cashToken.safeTransfer(address(msg.sender), pending);
+-    emit CashedCheck(msg.sender, _pid, user.amount, pending);
++    emit CashedCheck(msg.sender, _pid, amount, pending);
+     
+   }

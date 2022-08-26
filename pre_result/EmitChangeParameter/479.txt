@@ -1,0 +1,8 @@
+@@ -326,7 +327,7 @@ contract KlerosGovernor is Arbitrable {
+             session.sumDeposit = session.sumDeposit.subCap(arbitrationCost);
+ 
+             reservedETH = reservedETH.subCap(arbitrationCost);
+-            emit Dispute(arbitrator, session.disputeID, 0, sessions.length - 1);
++            emit Dispute(arbitrator, session.disputeID, metaEvidenceUpdates, sessions.length - 1);
+         }
+     }

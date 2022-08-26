@@ -1,0 +1,7 @@
+@@ -29,7 +29,6 @@ contract ExchangeEngine is DSMath, Adjusters, CowriState {
+ 
+     function getOriginPrice (uint256 originAmount, address origin, address target) public  returns (uint256) {
+         address[] memory _shells = pairsToActiveShells[origin][target];
+-        emit log_addr_arr("shells", _shells);
+         (uint256 originLiquidity, uint256 targetLiquidity) = getPairLiquidity(_shells, origin, target);
+         return calculateOriginPrice(originAmount, originLiquidity, targetLiquidity);

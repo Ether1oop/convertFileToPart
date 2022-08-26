@@ -1,0 +1,7 @@
+@@ -453,6 +455,7 @@ contract RToken is IRToken, ReentrancyGuard {
+         // transfer the token back
+         token.transfer(msg.sender, redeemTokens);
+ 
++        emit Transfer(msg.sender, address(this), redeemTokens);
+         emit Redeem(msg.sender, redeemTokens);
+     }

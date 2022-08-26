@@ -1,0 +1,16 @@
+@@ -225,13 +233,13 @@ contract PrivacyCT is RingCTVerifier {
+             uint256[3] memory X;
+             uint8[3] memory yBit;
+             (yBit[0], X[0]) = Secp256k1.compressXY(_outputs[i*2], _outputs[i*2 + 1]);
+-            emit CompressXYInput(_outputs[i*2], _outputs[i*2 + 1], yBit[0] + 2);
++            //emit CompressXYInput(_outputs[i*2], _outputs[i*2 + 1], yBit[0] + 2);
+ 
+             (yBit[1], X[1]) = Secp256k1.compressXY(_outputs[outputLength*2 + i*2], _outputs[outputLength*2 + i*2 + 1]);
+-            emit CompressXYInput(_outputs[outputLength*2 + i*2], _outputs[outputLength*2 + i*2 + 1], yBit[1] + 2);
++            //emit CompressXYInput(_outputs[outputLength*2 + i*2], _outputs[outputLength*2 + i*2 + 1], yBit[1] + 2);
+ 
+             (yBit[2], X[2]) = Secp256k1.compressXY(_outputs[outputLength*4 + i*2], _outputs[outputLength*4 + i*2 + 1]);
+-            emit CompressXYInput(_outputs[outputLength*4 + i*2], _outputs[outputLength*4 + i*2 + 1], yBit[2] + 2);
++            //emit CompressXYInput(_outputs[outputLength*4 + i*2], _outputs[outputLength*4 + i*2 + 1], yBit[2] + 2);
+ 
+             utxos.push(UTXO ({

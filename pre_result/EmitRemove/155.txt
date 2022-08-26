@@ -1,0 +1,9 @@
+@@ -565,8 +566,7 @@ contract RToken is
+         uint256 sInternalCreated = sOriginalTosInternal(sOriginalCreated);
+         distributeLoans(msg.sender, mintAmount, sInternalCreated);
+ 
+-        emit Mint(msg.sender, mintAmount);
+-        emit Transfer(address(this), msg.sender, mintAmount);
++        emit Transfer(address(0), msg.sender, mintAmount);
+     }
+ 

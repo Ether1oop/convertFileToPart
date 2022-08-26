@@ -1,0 +1,6 @@
+@@ -109,6 +109,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
+         );
+ 
+         _approve(to, tokenId);
++        emit Approval(owner, to, tokenId);
+     }

@@ -1,0 +1,8 @@
+@@ -431,7 +433,7 @@ contract Ships is Ownable
+       require(ship.escapeRequested);
+       ship.sponsor = ship.escapeRequestedTo;
+       ship.escapeRequested = false;
+-      EscapeAccepted(_ship, ship.escapeRequestedTo);
++      emit EscapeAccepted(_ship, ship.escapeRequestedTo);
+     }
+ 

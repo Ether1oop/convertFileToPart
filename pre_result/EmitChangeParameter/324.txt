@@ -1,0 +1,8 @@
+@@ -119,7 +119,7 @@ contract ByocRegistry is IByocRegistry, AccessControlEnumerable {
+         publishedContracts[_publisher].contractAtId[contractIdOfPublished] = publishedContract;
+         contractId[_publisher][_publishMetadataUri] = contractIdOfPublished;
+ 
+-        emit ContractPublished(msg.sender, _publisher, contractIdOfPublished, publishedContract);
++        emit ContractPublished(_msgSender(), _publisher, contractIdOfPublished, publishedContract);
+     }
+ 

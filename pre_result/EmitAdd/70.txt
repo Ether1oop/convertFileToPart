@@ -1,0 +1,11 @@
+@@ -139,8 +147,11 @@ contract NRTManager is Governable, RegistryDependent, WithAdminMode {
+ 
+         if (_burnAmount > 0) {
+             BURN_ADDR.transfer(_burnAmount);
++            emit Burn(currentNrtMonth, _burnAmount);
+         }
+ 
++        emit NRT(currentNrtMonth, _monthNRT, msg.sender);
++
+         for (uint256 i = 0; i < platformIdentifiers.length; i++) {
+             uint256 _platformNRT = _monthNRT.mul(perThousands[i]).div(1000);

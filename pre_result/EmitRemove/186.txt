@@ -1,0 +1,8 @@
+@@ -201,8 +185,6 @@ contract SelectiveWithdrawTest is Setup, DSMath, DSTest {
+             address(susd), 18e18
+         );
+ 
+-        emit log_named_uint("starting shells", startingShells);
+-
+         assertEq(shellsBurned, 67991384639438932784);
+ 

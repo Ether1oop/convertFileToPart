@@ -1,0 +1,8 @@
+@@ -302,7 +302,7 @@ contract Mark2Market is IMark2Market, OwnableExt {
+ 
+     //TODO: remove
+     function log(string memory message, uint value) internal {
+-        emit ConsoleLog(string(abi.encodePacked(message, uint2str(value))));
++//        emit ConsoleLog(string(abi.encodePacked(message, uint2str(value))));
+     }
+ }

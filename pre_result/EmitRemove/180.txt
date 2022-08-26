@@ -1,0 +1,16 @@
+@@ -198,11 +198,11 @@ contract Loihi is LoihiRoot {
+         nGLiq_ = nGLiq_.sub(amt_);
+         nBals_[_rIx] = nBals_[_rIx].sub(amt_);
+ 
+-        emit log_int("amt_", amt_.muli(1e18));
+-        emit log_int("oGLiq_", oGLiq_.muli(1e18));
+-        for (uint i = 0; i < oBals_.length; i++) emit log_int("oBals_ from getSwapData", oBals_[i].muli(1e18));
+-        emit log_int("nGLiq_", nGLiq_.muli(1e18));
+-        for (uint i = 0; i < nBals_.length; i++) emit log_int("nBals_ from getSwapData", nBals_[i].muli(1e18));
++        // emit log_int("amt_", amt_.muli(1e18));
++        // emit log_int("oGLiq_", oGLiq_.muli(1e18));
++        // for (uint i = 0; i < oBals_.length; i++) emit log_int("oBals_ from getSwapData", oBals_[i].muli(1e18));
++        // emit log_int("nGLiq_", nGLiq_.muli(1e18));
++        // for (uint i = 0; i < nBals_.length; i++) emit log_int("nBals_ from getSwapData", nBals_[i].muli(1e18));
+ 
+         return ( amt_, oGLiq_, nGLiq_, oBals_, nBals_ );

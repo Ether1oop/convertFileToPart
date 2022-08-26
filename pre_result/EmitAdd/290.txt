@@ -1,0 +1,9 @@
+@@ -572,7 +564,8 @@ contract DssSpellTestBase is DSTest, DSMath {
+         for(uint256 i = 0; i < ilks.length; i++) {
+             bytes32 ilk_ = ilks[i];
+             (uint256 duty,)  = jug.ilks(ilk_);
+-
++            emit log_named_uint("duty", duty);
++             emit log_named_uint("duty", rates.rates(values.collaterals[ilk_].pct));
+             assertEq(duty, rates.rates(values.collaterals[ilk_].pct));
+             // make sure duty is less than 1000% APR

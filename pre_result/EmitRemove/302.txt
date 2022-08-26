@@ -1,0 +1,14 @@
+@@ -353,14 +325,10 @@ contract Loihi is LoihiRoot {
+                     sub(feeThreshold, oldBalance),
+                     wmul(sub(newBalance, feeThreshold), WAD - feePrep)
+                 );
+-                emit log_uint("newShells from partial fee", newShells);
+         } }
+ 
+-        emit log_uint("totalSupply()", totalSupply());
+-        emit log_uint("ping", newShells);
+         newShells = wmul(newShells, wdiv(oldSum, totalSupply()));
+ 
+-        emit log_uint("newShells", newShells);
+         // for (uint i = 0; i < _flavors.length; i++) dIntakeNumeraire(_flavors[i], _amounts[i]);
+ 

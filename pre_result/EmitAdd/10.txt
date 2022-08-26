@@ -1,0 +1,7 @@
+@@ -94,6 +94,7 @@ contract SmartChefNFT is Ownable {
+         } else {
+             rewardTokens[_newToken].enabled = false;
+         }
++        emit AddNewTokenReward(_newToken);
+     }
+ 

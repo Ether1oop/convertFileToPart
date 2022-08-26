@@ -1,0 +1,14 @@
+@@ -39,12 +37,12 @@ contract Token is Auth {
+ 
+     function mint(address usr, uint amt) external auth {
+         balanceOf[usr] += amt;
+-        emit Mint(usr, amt);
++        emit Transfer(address(0), usr, amt);
+     }
+ 
+     function burn(address usr, uint amt) external auth {
+         balanceOf[usr] -= amt;
+-        emit Burn(usr, amt);
++        emit Transfer(usr, address(0), amt);
+     }
+ 

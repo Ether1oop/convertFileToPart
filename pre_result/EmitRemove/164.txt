@@ -1,0 +1,9 @@
+@@ -157,8 +168,6 @@ contract LoihiSetup is StorageSetup {
+         targets[3] = address(usdc); spenders[3] = address(cusdc);
+         targets[4] = address(usdt); spenders[4] = address(ausdt);
+ 
+-        emit log("inter approve");
+-
+         for (uint i = 0; i < targets.length; i++) {
+ 
+             emit log_uint("i", i);

@@ -1,0 +1,8 @@
+@@ -71,7 +72,7 @@ contract Frabric is EIP712Upgradeable, FrabricDAO, IFrabric {
+     __FrabricDAO_init(_erc20, 2 weeks);
+ 
+     // Simulate a full DAO proposal to add the genesis participants
+-    emit ParticipantsProposed(_nextProposalID, ParticipantType.Genesis, genesis);
++    emit ParticipantsProposed(_nextProposalID, ParticipantType.Genesis, genesisMerkle);
+     emit NewProposal(_nextProposalID, uint256(FrabricProposalType.Participants), address(0), "Genesis Participants");
+     emit ProposalStateChanged(_nextProposalID, ProposalState.Active);

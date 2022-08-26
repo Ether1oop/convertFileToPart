@@ -1,0 +1,8 @@
+@@ -155,7 +144,7 @@ contract KyberConverter is Ownable {
+             address(msg.sender).transfer(change);
+         }
+         // Log the event
+-        emit Swap(msg.sender, ETH_TOKEN_ADDRESS, stableToken);
++        emit Swap(msg.sender, ETH_TOKEN_ADDRESS, ercToken);
+ 
+         return amount;

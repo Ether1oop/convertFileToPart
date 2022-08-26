@@ -1,0 +1,14 @@
+@@ -137,12 +147,12 @@ contract CliptoExchange is ReentrancyGuard, Ownable2 {
+ 
+     /// @notice Create a new request.
+     /// @dev The request's "amount" value is the callvalue
+-    function newRequest(address creator) external payable {
++    function newRequest(address creator, string memory data) external payable {
+         // Push the request to the creator's request array.
+         requests[creator].push(Request({requester: msg.sender, amount: msg.value, fulfilled: false}));
+ 
+         // Emit new request event.
+-        emit NewRequest(creator, msg.sender, msg.value, requests[creator].length - 1);
++        emit NewRequest(creator, msg.sender, msg.value, requests[creator].length - 1, data);
+     }
+ 

@@ -1,0 +1,8 @@
+@@ -90,7 +99,7 @@ contract ERC721Bridge is SettingIds, PausableDSAuth {
+             INFTAdaptor(adaptor).cacheMirrorTokenId(_originTokenId, mirrorTokenId);
+             mirrorId2OriginId[mirrorTokenId] = _originTokenId;
+ 
+-            emit BridgeIn(_originTokenId, mirrorTokenId, _originNftAddress, adaptor, msg.sender);
++            emit BridgeIn(_originTokenId, mirrorTokenId, _originNftAddress, adaptor, _owner);
+         }
+ 

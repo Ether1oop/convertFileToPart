@@ -1,0 +1,8 @@
+@@ -71,7 +71,7 @@ contract VaultSavingsModule is Module, IVaultSavings, AccessChecker, RewardDistr
+                 poolToken.mint(_msgSender(), normalizedBalance.sub(ts));
+             }
+         }
+-        emit ProtocolRegistered(address(protocol), address(poolToken));
++        emit VaultRegistered(address(protocol), address(poolToken));
+     }
+ 

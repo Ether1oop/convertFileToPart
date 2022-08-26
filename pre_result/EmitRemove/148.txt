@@ -1,0 +1,8 @@
+@@ -249,7 +249,7 @@ contract ClubLoot is IClub {
+                 ++i;
+             }
+             
+-            emit Transfer(address(0), club_[i].signer, club_[i].loot);
++            //emit Transfer(address(0), club_[i].signer, club_[i].loot);
+         }
+ 

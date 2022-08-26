@@ -1,0 +1,23 @@
+@@ -587,21 +591,13 @@ contract TokenNetwork is Utils {
+ 
+         total_deposit = participant1_state.deposit + participant2_state.deposit;
+ 
+-        // The provided addresses must be the same as the recovered ones
+-        require(participant1 == participant1_address);
+-        require(participant2 == participant2_address);
+-
+-        // The channel must be open
+-        require(channel.state == 1);
+-
+-        // The sum of the provided balances must be equal to the total deposit
+-        require(total_deposit == (participant1_balance + participant2_balance));
+-
+         // Remove channel data from storage before doing the token transfers
+         delete channel.participants[participant1];
+         delete channel.participants[participant2];
+         delete channels[channel_identifier];
+ 
++        emit ChannelSettled(channel_identifier);
++
+         // Do the token transfers
+         if (participant1_balance > 0) {

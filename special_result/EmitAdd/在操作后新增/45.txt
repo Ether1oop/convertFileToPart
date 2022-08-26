@@ -1,0 +1,6 @@
+@@ -242,6 +257,7 @@ contract TaxCollector is Logging {
+         if (parameter == "globalStabilityFee") globalStabilityFee = data;
+         else if (parameter == "maxSecondaryReceivers") maxSecondaryReceivers = data;
+         else revert("TaxCollector/modify-unrecognized-param");
++        emit ModifyParameters(parameter, data);
+     }

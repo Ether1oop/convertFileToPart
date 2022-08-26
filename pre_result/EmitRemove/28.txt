@@ -1,0 +1,8 @@
+@@ -340,8 +340,6 @@ contract DssLibExecTest is DSTest, DSMath {
+         // 1000000073014496989316680335
+ 
+         assertTrue(duty >= RAY && duty < 1000000073014496989316680335);  // gt 0 and lt 1000%
+-        emit Debug(diffCalc(expectedRate(values.collaterals[ilk].pct), yearlyYield(values.collaterals[ilk].duty)));
+-        emit Debug(TOLERANCE);
+         assertTrue(diffCalc(expectedRate(values.collaterals[ilk].pct), yearlyYield(values.collaterals[ilk].duty)) <= TOLERANCE);
+         assertTrue(values.collaterals[ilk].pct < THOUSAND * THOUSAND);   // check value lt 1000%

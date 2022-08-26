@@ -1,0 +1,15 @@
+@@ -233,13 +233,13 @@ contract Lending is ERC721Holder, Ownable {
+     require(nrOfInstallments > 0, "You need to extend by at least 1 installment");
+     require(loans[loanId].lender == msg.sender, "You're not the lender of this loan");
+     require(loans[loanId].status == Status.APPROVED, "Incorrect state of loan");
+-    require(loans[loanId].loanEnd >= now, "Loan validity expired");
++    require(loans[loanId].loanEnd >= block.timestamp, "Loan validity expired");
+     
+     // Extend the loan finish date
+     loans[loanId].loanEnd = loans[loanId].loanEnd.add(installmentFrequency.mul(1 days).mul(nrOfInstallments));
+     loans[loanId].nrOfInstallments = loans[loanId].nrOfInstallments.add(nrOfInstallments);
+ 
+-    emit loanExtended(loanId, now, loans[loanId].loanEnd, loans[loanId].nrOfInstallments);
++    emit loanExtended(loanId, block.timestamp, loans[loanId].loanEnd, loans[loanId].nrOfInstallments);
+   }
+ 

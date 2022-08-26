@@ -1,0 +1,8 @@
+@@ -234,7 +225,7 @@ contract ByocRegistry is
+     function setPause(bool _pause) external {
+         require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "unapproved caller");
+         isPaused = _pause;
+-        emit Paused(_pause); 
++        emit Paused(_pause);
+     }
+ 

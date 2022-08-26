@@ -1,0 +1,8 @@
+@@ -285,7 +286,7 @@ contract Ships is Ownable
+         shipOwnerIndexes[_owner][_ship] = owners[_owner].length;
+       }
+       ships[_ship].owner = _owner;
+-      Transferred(_ship, _owner);
++      emit Transferred(_ship, _owner);
+     }
+ 

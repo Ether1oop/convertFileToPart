@@ -1,0 +1,8 @@
+@@ -169,7 +169,7 @@ contract TokenTransfer is BaseModule, RelayerModule, LimitManager {
+         // solium-disable-next-line security/no-block-members
+         uint256 whitelistAfter = now.add(securityPeriod);
+         transferStorage.setWhitelist(_wallet, _target, whitelistAfter);
+-        emit AddedToWhitelist(_wallet, _target, uint64(whitelistAfter));
++        emit AddedToWhitelist(address(_wallet), _target, uint64(whitelistAfter));
+     }
+ 

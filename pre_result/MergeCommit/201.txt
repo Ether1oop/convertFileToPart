@@ -1,0 +1,7 @@
+@@ -271,6 +279,7 @@ contract Snowflake is Ownable {
+         balance = balance.add(_amount);
+         ERC20 hydro = ERC20(_tokenAddress);
+         require(hydro.transferFrom(_sender, address(this), _amount));
++        emit SnowflakeDeposit(_sender, _amount);
+     }
+ 

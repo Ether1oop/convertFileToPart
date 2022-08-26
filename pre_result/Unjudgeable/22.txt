@@ -1,0 +1,8 @@
+@@ -156,7 +154,7 @@ contract Pool is iBEP20 {
+     function _mint(address account, uint256 amount) internal {
+         totalSupply = totalSupply.add(amount);
+         _balances[account] = _balances[account].add(amount);
+-        emit Mint(address(0), account, amount);
++        emit Transfer(address(0), account, amount);
+     }
+     // Burn supply

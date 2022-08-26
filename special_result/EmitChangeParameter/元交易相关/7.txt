@@ -1,0 +1,8 @@
+@@ -118,7 +119,7 @@ contract Crowdsale is ReentrancyGuard {
+         _weiRaised = _weiRaised.add(weiAmount);
+ 
+         _processPurchase(beneficiary, tokens);
+-        emit TokensPurchased(msg.sender, beneficiary, weiAmount, tokens);
++        emit TokensPurchased(_msgSender(), beneficiary, weiAmount, tokens);
+ 
+         _updatePurchasingState(beneficiary, weiAmount);

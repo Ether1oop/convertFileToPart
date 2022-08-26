@@ -1,0 +1,11 @@
+@@ -264,9 +264,9 @@ contract DappManager is BaseModule, RelayerModule, LimitManager {
+     * @param _data The data of the call.
+     */
+ 
+-    function doCall(BaseWallet _wallet, address _to, uint256 _value, bytes _data) internal {
++    function doCall(BaseWallet _wallet, address _to, uint256 _value, bytes memory _data) internal {
+         _wallet.invoke(_to, _value, _data);
+-        emit Transfer(_wallet, ETH_TOKEN, _value, _to, _data);
++        emit Transfer(address(_wallet), ETH_TOKEN, _value, _to, _data);
+     }
+ 

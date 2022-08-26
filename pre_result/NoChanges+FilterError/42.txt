@@ -1,0 +1,8 @@
+@@ -429,7 +429,7 @@ contract GeneralizedTCR is IArbitrable, IEvidence {
+         else if (round.hasPaid[uint(Party.Challenger)] == true)
+             resultRuling = Party.Challenger;
+ 
+-        emit Ruling(Arbitrator(msg.sender), _disputeID, uint(resultRuling));
++        emit Ruling(IArbitrator(msg.sender), _disputeID, uint(resultRuling));
+         executeRuling(_disputeID, uint(resultRuling));
+     }

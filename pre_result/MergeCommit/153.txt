@@ -1,0 +1,13 @@
+@@ -45,11 +45,11 @@ contract ViaOracle is usingProvable {
+         public 
+     {
+         //to do : lines below throw error
+-        //require(msg.sender == provable_cbAddress());
++        require(msg.sender == provable_cbAddress());
+         //require (pendingQueries[_myid].tokenType == "Cash" || pendingQueries[_myid].tokenType == "Bond"
+         //    || pendingQueries[_myid].tokenType == "EthCash" || pendingQueries[_myid].tokenType == "EthBond");
+ 
+-        emit LogResult(pendingQueries[_myid].tokenType, pendingQueries[_myid].rateType, _result);
++        emit LogResult(pendingQueries[_myid].caller, _myid, pendingQueries[_myid].tokenType, pendingQueries[_myid].rateType, _result);
+         
+         if(pendingQueries[_myid].tokenType == "Cash"){

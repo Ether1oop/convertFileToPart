@@ -1,0 +1,8 @@
+@@ -81,7 +81,7 @@ contract TestMemoryInstantiator is MemoryInteractor {
+ 
+         halt = (bit0 == 1);
+ 
+-        emit HTIFExit(rwIndex, payload, halt);
++        emit HTIFExit(_position, payload, halt);
+         return payload;
+     }

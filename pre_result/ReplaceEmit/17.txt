@@ -1,0 +1,11 @@
+@@ -132,9 +133,10 @@ contract Keg is LibNote {
+             require(bums[i] != address(0), "Keg/no-address-0");
+             mugs[bums[i]] = add(mugs[bums[i]], wad[i]);
+             beer = add(beer, wad[i]);
++            emit MugFilled(bums[i], wad[i]);
+     	}
+     	vat.suck(address(vow), address(this), mul(beer, RAY));
+-        emit BrewBeer(beer);
++        emit BrewedBeer(beer);
+     }
+ 
