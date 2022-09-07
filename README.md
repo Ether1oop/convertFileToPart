@@ -1,3 +1,39 @@
 | repository name | origin address |
-|      :---:      |      :---:     |
+|      :---       |      :---:     |
+|DeFiOptions/DeFiOptions-core|[origin address](https://github.com/DeFiOptions/DeFiOptions-core)|
+|exo-digital-labs/ERC721R|[origin address](https://github.com/exo-digital-labs/ERC721R)|
+|FraxFinance/frax-solidity|[origin address](https://github.com/FraxFinance/frax-solidity)|
+|pickle-finance/protocol|[origin address](https://github.com/pickle-finance/protocol)|
+|bokkypoobah/Tokens|[origin address](https://github.com/bokkypoobah/Tokens)|
+|paxosglobal/usdp-contracts|[origin address](https://github.com/paxosglobal/usdp-contracts)|
+|PacktPublishing/Mastering-Blockchain-Programming-with-Solidity|[origin address](https://github.com/PacktPublishing/Mastering-Blockchain-Programming-with-Solidity)|
+|dapphub/ds-auth|[origin address](https://github.com/dapphub/ds-auth)|
+|bnb-chain/bsc-genesis-contract|[origin address](https://github.com/bnb-chain/bsc-genesis-contract)|
+|pancakeswap/pancake-farm|[origin address](https://github.com/pancakeswap/pancake-farm)|
+|smartcontractkit/chainlink-mix|[origin address](https://github.com/smartcontractkit/chainlink-mix)|
+|argentlabs/argent-contracts|[origin address](https://github.com/argentlabs/argent-contracts)|
+|smartcontractkit/foundry-starter-kit|[origin address](https://github.com/smartcontractkit/foundry-starter-kit)|
+|VenusProtocol/venus-protocol|[origin address](https://github.com/VenusProtocol/venus-protocol)|
+|blocksecteam/defi_poc|[origin address](https://github.com/blocksecteam/defi_poc)|
+|Loopring/protocols|[origin address](https://github.com/Loopring/protocols)|
+|compound-finance/compound-protocol|[origin address](https://github.com/compound-finance/compound-protocol)|
+|unlock-protocol/unlock|[origin address](https://github.com/unlock-protocol/unlock)|
+|connext/chaindata|[origin address](https://github.com/connext/chaindata)|
+|tokenspice/tokenspice|[origin address](https://github.com/tokenspice/tokenspice)|
+|Wonderland-Money/contracts|[origin address](https://github.com/Wonderland-Money/contracts)|
+|runtimeverification/verified-smart-contracts|[origin address](https://github.com/runtimeverification/verified-smart-contracts)|
+|OokiTrade/contractsV2|[origin address](https://github.com/OokiTrade/contractsV2)|
+|ourzora/nft-editions|[origin address](https://github.com/ourzora/nft-editions)|
+|OlympusDAO/olympus-contracts|[origin address](https://github.com/OlympusDAO/olympus-contracts)|
+|masaun/NFT-based-photo-marketplace|[origin address](https://github.com/masaun/NFT-based-photo-marketplace)|
+|synassets/contracts|[origin address](https://github.com/synassets/contracts)|
+|DODOEX/contractV2|[origin address](https://github.com/DODOEX/contractV2)|
+|PancakeBunny-finance/Bunny|[origin address](https://github.com/PancakeBunny-finance/Bunny)|
+|eth-sri/securify2|[origin address](https://github.com/eth-sri/securify2)|
+|provable-things/ethereum-examples|[origin address](https://github.com/provable-things/ethereum-examples)|
+|smartbugs/smartbugs|[origin address](https://github.com/smartbugs/smartbugs)|
+|ciaranmcveigh5/ethernaut-x-foundry|[origin address](https://github.com/ciaranmcveigh5/ethernaut-x-foundry)|
+|Dapp-Learning-DAO/Dapp-Learning|[origin address](https://github.com/Dapp-Learning-DAO/Dapp-Learning)|
+|keep3r-network/keep3r.network|[origin address](https://github.com/keep3r-network/keep3r.network)|
+|yam-finance/yam-protocol|[origin address](https://github.com/yam-finance/yam-protocol)|
 
